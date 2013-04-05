@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="h1">40dp</string>
     <string name="mSprayTitle">mSpray</string>
-    <string name="startSpray">Start Spray</string>
+    <string name="startSpray">Start New Spray</string>
     <string name="sprayerIDs">Sprayer IDs</string>
     <string name="addSprayer">Add Sprayer</string>
     <string name="back">Back</string>
@@ -30,5 +30,7 @@
     <string name="location_found">Location Found</string>
     <string name="chemicalUsed2">Second Chemical Used</string>
     <string name="addForeman">Add Foreman</string>
+    <string name="dataRecorded">Data Recorded</string>
+    <string name="finished">Finished</string>
 
 </resources>
