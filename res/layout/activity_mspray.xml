@@ -11,7 +11,7 @@
         android:layout_alignParentBottom="true" >
 
         <Button
-            android:id="@+id/newSpray"
+            android:id="@+id/activity_mspray_button_newSpray"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_centerVertical="true"
