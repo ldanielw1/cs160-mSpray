@@ -23,5 +23,8 @@
     <string name="canRefilled">Can Refilled? </string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="scanning">Scanning</string>
+    <string name="gps_location">Gps Location</string>
+    <string name="location_found">Location Found</string>
 
 </resources>
