@@ -3,12 +3,25 @@
 
     <string name="app_name">mSpray</string>
     <string name="action_settings">Settings</string>
-    <string name="h1">60dp</string>
+    <string name="h1">40dp</string>
     <string name="mSprayTitle">mSpray</string>
     <string name="startSpray">Start Spray</string>
     <string name="sprayerIDs">Sprayer IDs</string>
     <string name="addSprayer">Add Sprayer</string>
     <string name="back">Back</string>
     <string name="confirm">Confirm</string>
+    <string name="chemicalUsed">Chemical Used</string>
+    <string name="ddt">DDT</string>
+    <string name="pyrethroid">Pyrethroid</string>
+    <string name="noSpray">No Spray</string>
+    <string name="h2">20dp</string>
+    <string name="emptyString"/>
+    <string name="roomsSprayed">Rooms Sprayed: </string>
+    <string name="sheltersSprayed">Shelters Sprayed: </string>
+    <string name="roomsUnsprayed">Rooms Unsprayed: </string>
+    <string name="sheltersUnsprayed">Shelters Unsprayed: </string>
+    <string name="canRefilled">Can Refilled? </string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>
