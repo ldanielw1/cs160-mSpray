@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Data Recorded"
+        android:text="@string/dataRecorded"
         android:textSize="40sp" />
 
     <LinearLayout
@@ -25,7 +25,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="Finished" />
+            android:text="@string/finished" />
     </LinearLayout>
 
 </RelativeLayout>
