@@ -33,7 +33,7 @@
     <string name="dataRecorded">Data Recorded</string>
     <string name="finished">Finished</string>
     <string name="foremanID">Foreman ID</string>
-    <string name="nfcInstructions">Place phone on top of the Sprayer's badge</string>
+    <string name="nfcInstructions">Place phone on top of the Sprayer\'s badge</string>
     <string name="otherChemicalUsed">Other Chemical Used?</string>
 
 </resources>
