@@ -9,35 +9,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MSpray" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/chemicalUsed"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="@string/h1" />
-
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/chemical_used_button_ddtButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_weight="0.25"
+        android:gravity="center"
         android:text="@string/ddt"
         android:textSize="@string/h2" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/chemical_used_button_pyrethroidButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_weight="0.25"
+        android:gravity="center"
         android:text="@string/pyrethroid"
         android:textSize="@string/h2" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/chemical_used_button_noSprayButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_weight="0.25"
+        android:gravity="center"
         android:text="@string/noSpray"
         android:textSize="@string/h2" />
     
@@ -47,6 +51,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dip"
         android:layout_weight="0.25"
+        android:text="@string/back"
+        android:textSize="@string/h2" />
+
+    <Button
+        android:id="@+id/chemical_used_button_backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="0.25"
+        android:gravity="center"
         android:text="@string/back"
         android:textSize="@string/h2" />
 

@@ -10,6 +10,7 @@
     tools:context=".MSpray" >
 
     <LinearLayout
+        android:id="@+id/pyrethroid_layout_mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -22,14 +23,14 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/ddt_textview_roomsSprayed"
+                android:id="@+id/pyrethroid_textview_roomsSprayed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/roomsSprayed"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/ddt_edittext_roomsSprayedValue"
+                android:id="@+id/pyrethroid_edittext_roomsSprayedValue"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -46,14 +47,14 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/ddt_textview_sheltersSprayed"
+                android:id="@+id/pyrethroid_textview_sheltersSprayed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sheltersSprayed"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/ddt_edittext_sheltersSprayedValue"
+                android:id="@+id/pyrethroid_edittext_sheltersSprayedValue"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -69,14 +70,14 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/ddt_textview_roomsUnsprayed"
+                android:id="@+id/pyrethroid_textview_roomsUnsprayed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/roomsUnsprayed"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/ddt_edittext_roomsUnsprayedValue"
+                android:id="@+id/pyrethroid_edittext_roomsUnsprayedValue"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -92,14 +93,14 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/ddt_textview_sheltersUnsprayed"
+                android:id="@+id/pyrethroid_textview_sheltersUnsprayed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sheltersUnsprayed"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/ddt_edittext_sheltersUnsprayedValue"
+                android:id="@+id/pyrethroid_edittext_sheltersUnsprayedValue"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -115,21 +116,21 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/ddt_textview_canRefilled"
+                android:id="@+id/pyrethroid_textview_canRefilled"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/canRefilled"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <RadioButton
-                android:id="@+id/ddt_radiobutton_canRefilledYes"
+                android:id="@+id/pyrethroid_radiobutton_CanRefilledYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="@string/yes" />
 
             <RadioButton
-                android:id="@+id/ddt_radiobutton_canRefilledNo"
+                android:id="@+id/pyrethroid_radiobutton_CanRefilledNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -144,14 +145,14 @@
         android:layout_alignParentBottom="true" >
 
         <Button
-            android:id="@+id/ddt_button_backButton"
+            android:id="@+id/pyrethroid_button_backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
             android:text="@string/back" />
 
         <Button
-            android:id="@+id/ddt_button_confirmButton"
+            android:id="@+id/pyrethroid_button_confirmButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
