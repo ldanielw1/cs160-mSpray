@@ -13,7 +13,7 @@
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/mSprayTitle"
+        android:text="@string/sprayerIDs"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="@string/h1" />
 
@@ -21,12 +21,26 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_weight="0.25"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Start Spray" />
+        android:text="@string/addSprayer" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:text="@string/back" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:text="@string/confirm" />
+
+    </LinearLayout>
 
 </LinearLayout>
