@@ -25,5 +25,8 @@
     <string name="no">No</string>
     <string name="hintNumRooms"># of Rooms</string>
     <string name="hintNumShelters"># of Shelters</string>
+    <string name="scanning">Scanning</string>
+    <string name="gps_location">Gps Location</string>
+    <string name="location_found">Location Found</string>
 
 </resources>
