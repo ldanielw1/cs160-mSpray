@@ -3,6 +3,12 @@
 
     <string name="app_name">mSpray</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="h1">60dp</string>
+    <string name="mSprayTitle">mSpray</string>
+    <string name="startSpray">Start Spray</string>
+    <string name="sprayerIDs">Sprayer IDs</string>
+    <string name="addSprayer">Add Sprayer</string>
+    <string name="back">Back</string>
+    <string name="confirm">Confirm</string>
 
 </resources>
