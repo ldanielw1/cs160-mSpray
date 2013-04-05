@@ -29,5 +29,6 @@
     <string name="gps_location">Gps Location</string>
     <string name="location_found">Location Found</string>
     <string name="chemicalUsed2">Second Chemical Used</string>
+    <string name="addForeman">Add Foreman</string>
 
 </resources>
