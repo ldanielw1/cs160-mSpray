@@ -10,47 +10,43 @@
     tools:context=".MSpray" >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/second_chemical_used_textview_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/chemicalUsed"
+        android:text="@string/chemicalUsed2"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="25sp" />
 
     <Button
-        android:id="@+id/chemical_used_button_ddtButton"
+        android:id="@+id/second_chemical_used_button_ddtButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="0.25"
-        android:gravity="center"
         android:text="@string/ddt"
         android:textSize="@string/h2" />
 
     <Button
-        android:id="@+id/chemical_used_button_pyrethroidButton"
+        android:id="@+id/second_chemical_used_button_pyrethroidButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.25"
-        android:gravity="center"
         android:text="@string/pyrethroid"
         android:textSize="@string/h2" />
 
     <Button
-        android:id="@+id/chemical_used_button_noSprayButton"
+        android:id="@+id/second_chemical_used_button_noSprayButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.25"
-        android:gravity="center"
         android:text="@string/noSpray"
         android:textSize="@string/h2" />
-
+    
     <Button
-        android:id="@+id/chemical_used_button_backButton"
+        android:id="@+id/second_chemical_used_button_backButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dip"
         android:layout_weight="0.25"
-        android:gravity="center"
         android:text="@string/back"
         android:textSize="@string/h2" />
 

@@ -4,43 +4,28 @@
     android:layout_height="fill_parent" >
 
     <TextView
+        android:id="@+id/finished_textview_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="@string/gps_location"
-        android:textSize="40sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:text="@string/location_found"
-        android:textSize="40sp" />
+        android:text="@string/dataRecorded"
+        android:textSize="@string/h1" />
 
     <LinearLayout
-        android:id="@+id/innerLinearLayout"
+        android:id="@+id/finished_layout_innerLinearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" >
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/finished_textview_finishedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/back" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="0px"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/confirm" />
+            android:text="@string/finished" />
     </LinearLayout>
 
 </RelativeLayout>

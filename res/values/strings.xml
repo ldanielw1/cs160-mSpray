@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="h1">40dp</string>
     <string name="mSprayTitle">mSpray</string>
-    <string name="startSpray">Start Spray</string>
+    <string name="startSpray">Start New Spray</string>
     <string name="sprayerIDs">Sprayer IDs</string>
     <string name="addSprayer">Add Sprayer</string>
     <string name="back">Back</string>
@@ -23,8 +23,17 @@
     <string name="canRefilled">Can Refilled? </string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="hintNumRooms"># of Rooms</string>
+    <string name="hintNumShelters"># of Shelters</string>
     <string name="scanning">Scanning</string>
     <string name="gps_location">Gps Location</string>
     <string name="location_found">Location Found</string>
+    <string name="chemicalUsed2">Second Chemical Used</string>
+    <string name="addForeman">Add Foreman</string>
+    <string name="dataRecorded">Data Recorded</string>
+    <string name="finished">Finished</string>
+    <string name="foremanID">Foreman ID</string>
+    <string name="nfcInstructions">Place phone on top of the Sprayer\'s badge</string>
+    <string name="otherChemicalUsed">Other Chemical Used?</string>
 
 </resources>
