@@ -4,31 +4,31 @@
     android:layout_height="fill_parent" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/add_foreman_textview_foremanID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Foreman ID"
+        android:text="@string/foremanID"
         android:gravity="center"
-        android:textSize="40sp" />
+        android:textSize="@string/h1" />
 
     <LinearLayout
-        android:id="@+id/innerLinearLayout"
+        android:id="@+id/add_foreman_layout_innerLinearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" >
 
         <Button
-            android:id="@+id/button2"
-            android:layout_width="0dp"
+            android:id="@+id/add_foreman_button_backButton"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/back" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/add_foreman_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"

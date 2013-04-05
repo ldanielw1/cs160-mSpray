@@ -4,7 +4,7 @@
     android:layout_height="fill_parent" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/finished_textview_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -12,16 +12,16 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/dataRecorded"
-        android:textSize="40sp" />
+        android:textSize="@string/h1" />
 
     <LinearLayout
-        android:id="@+id/innerLinearLayout"
+        android:id="@+id/finished_layout_innerLinearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" >
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/finished_textview_finishedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
