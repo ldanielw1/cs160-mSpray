@@ -14,13 +14,14 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/add_sprater_imageView_RFIDPic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:layout_above="@+id/innerRelativeLayout"
         android:layout_margin="24dp"
-        android:src="@drawable/badge512" />
+        android:src="@drawable/badge512" 
+        android:visibility="invisible"/>
 
     <RelativeLayout
         android:id="@+id/innerRelativeLayout"
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content" >
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/add_sprayer_button_addSprayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/addSprayer" />
@@ -42,27 +43,45 @@
                 android:id="@+id/innerLinearLayout"
         		android:layout_width="fill_parent"
         		android:layout_height="wrap_content"
-        		android:layout_below="@+id/button1">
+        		android:layout_below="@+id/add_sprayer_button_addSprayer">
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/add_sprayer_button_back"
                     android:layout_width="0dp"
                     android:layout_weight="0.5"
                     android:layout_height="wrap_content"
                     android:text="@string/back" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/add_sprayer_button_confirm"
                     android:layout_width="0px"
                     android:layout_weight="0.5"
-                    android:layout_below="@+id/button1"
+                    android:layout_below="@+id/add_sprayer_button_addSprayer"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/button2"
+                    android:layout_toRightOf="@+id/add_sprayer_button_back"
                     android:text="@string/confirm" />
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
 
-    
+    <TextView
+        android:id="@+id/add_sprayer_textView_PersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/add_sprater_imageView_RFIDPic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:textSize = "15dp"
+        android:text="BE02 - Mabunda YW" />
+
+    <TextView
+        android:id="@+id/add_sprayer_textView_PersonName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_sprayer_textView_PersonName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+         android:textSize = "15dp"
+        android:text="BE05 - Zabunda HW" />
 
 </RelativeLayout>
