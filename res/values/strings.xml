@@ -23,5 +23,7 @@
     <string name="canRefilled">Can Refilled? </string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="hintNumRooms"># of Rooms</string>
+    <string name="hintNumShelters"># of Shelters</string>
 
 </resources>
