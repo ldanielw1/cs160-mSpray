@@ -3,9 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MSpray" >
 
@@ -59,7 +56,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hintNumShelters" >
-
             </EditText>
         </LinearLayout>
 
@@ -82,7 +78,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hintNumRooms" >
-
             </EditText>
         </LinearLayout>
 
@@ -105,7 +100,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hintNumShelters" >
-
             </EditText>
         </LinearLayout>
 
@@ -134,27 +128,27 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="@string/no" />
-
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/innerLinearLayout"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" >
 
         <Button
-            android:id="@+id/ddt_button_backButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/button2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.50"
+            android:layout_weight="0.5"
             android:text="@string/back" />
 
         <Button
-            android:id="@+id/ddt_button_confirmButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/button3"
+            android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="0.50"
+            android:layout_weight="0.5"
             android:text="@string/confirm" />
     </LinearLayout>
 
