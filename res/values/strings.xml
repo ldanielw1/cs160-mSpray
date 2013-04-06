@@ -39,5 +39,6 @@
     <string name="confirmNoSpray">Confirm - No Spray</string>
     <string name="confirmPyrethroid">Confirm - Pyrethroid</string>
     <string name="placeholder">placeholder text</string>
+    <string name="h3">15dp</string>
 
 </resources>
