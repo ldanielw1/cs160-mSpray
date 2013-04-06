@@ -21,14 +21,14 @@
         android:layout_alignParentBottom="true" >
 
         <Button
-            android:id="@+id/other_chemical_used_button_backButton"
+            android:id="@+id/other_chemical_used_button_yesButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/yes" />
 
         <Button
-            android:id="@+id/other_chemical_used_button_confirmButton"
+            android:id="@+id/other_chemical_used_button_noButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
