@@ -10,12 +10,12 @@
     tools:context=".MSpray" >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/chemical_used_textview_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/chemicalUsed"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="25sp" />
+        android:textSize="@string/h2" />
 
     <Button
         android:id="@+id/chemical_used_button_ddtButton"

@@ -4,39 +4,41 @@
     android:layout_height="fill_parent" >
 
     <TextView
+        android:id="@+id/confirm_pyrethroid_textview_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Confirm - Pyrethroid"
+        android:text="@string/confirmPyrethroid"
         android:textSize="30sp" />
 
     <TextView
+        android:id="@+id/confirm_pyrethroid_textview_contents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="160dp"
-        android:text="blhablhalhblhablhalbh"
+        android:text="@string/placeholder"
         android:textSize="20sp" />
 
     <LinearLayout
-        android:id="@+id/innerLinearLayout"
+        android:id="@+id/confirm_pyrethroid_layout_innerLinearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" >
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/confirm_pyrethroid_button_backButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/back" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/confirm_pyrethroid_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
