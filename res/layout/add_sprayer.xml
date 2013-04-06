@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="Sprayer IDs"
+            android:text="@string/sprayerIDs"
             android:textSize="25dp"
             android:textStyle="bold" />
     </RelativeLayout>
