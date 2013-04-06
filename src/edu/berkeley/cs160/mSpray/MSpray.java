@@ -9,29 +9,30 @@ import android.widget.Button;
 
 public class MSpray extends Activity {
 
-    Button startSpray;
+	Button startSpray;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mspray);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_mspray);
 
-        startSpray = (Button) findViewById(R.id.activity_mspray_button_newSpray);
+		startSpray = (Button) findViewById(R.id.activity_mspray_button_newSpray);
 
-        startSpray.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
-                startActivity(intent);
-            };
-        });
-    }
+		startSpray.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(),
+						SprayerIDScan.class);
+				startActivity(intent);
+			};
+		});
+	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.mspray, menu);
-        return true;
-    }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.mspray, menu);
+		return true;
+	}
 
 }
