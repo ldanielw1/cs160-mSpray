@@ -14,7 +14,7 @@
     <string name="ddt">DDT</string>
     <string name="pyrethroid">Pyrethroid</string>
     <string name="noSpray">No Spray</string>
-    <string name="h2">20dp</string>
+    <string name="h2">25dp</string>
     <string name="emptyString"/>
     <string name="roomsSprayed">Rooms Sprayed: </string>
     <string name="sheltersSprayed">Shelters Sprayed: </string>
@@ -35,5 +35,9 @@
     <string name="foremanID">Foreman ID</string>
     <string name="nfcInstructions">Place phone on top of the Sprayer\'s badge</string>
     <string name="otherChemicalUsed">Other Chemical Used?</string>
+    <string name="confirmDDT">Confirm - DDT</string>
+    <string name="confirmNoSpray">Confirm - No Spray</string>
+    <string name="confirmPyrethroid">Confirm - Pyrethroid</string>
+    <string name="placeholder">placeholder text</string>
 
 </resources>

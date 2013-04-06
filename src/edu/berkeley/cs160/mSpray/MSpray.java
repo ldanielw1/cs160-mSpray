@@ -8,21 +8,23 @@ import android.view.View;
 import android.widget.Button;
 
 public class MSpray extends Activity {
-Button startSpray;
+
+    Button startSpray;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mspray);
-        
-        startSpray = (Button)findViewById(R.id.activity_mspray_button_newSpray);
-        
-        
+
+        startSpray = (Button) findViewById(R.id.activity_mspray_button_newSpray);
+
         startSpray.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
-				startActivity(intent);
-			};
-		});
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
+                startActivity(intent);
+            };
+        });
     }
 
     @Override
