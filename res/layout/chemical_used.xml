@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:screenOrientation="portrait" >
 
     <Button
         android:id="@+id/chemical_used_button_noSpray"
@@ -54,6 +55,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
         android:textSize = "25dp"
-        android:text="Paper Work" />
+        android:text="@string/chemicalUsed" />
 
 </RelativeLayout>

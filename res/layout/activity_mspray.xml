@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:screenOrientation="portrait" >
 
     <Button
         android:id="@+id/activity_mspray_button_newSpray"
@@ -12,7 +13,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="72dp"
-        android:text="Start New Spray" >
+        android:text="@string/startSpray" >
     </Button>
 
 </RelativeLayout>
