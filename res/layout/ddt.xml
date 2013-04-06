@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MSpray" >
+    tools:context=".MSpray"
+    android:screenOrientation="portrait" >
 
     <LinearLayout
         android:layout_width="match_parent"
