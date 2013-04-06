@@ -96,6 +96,17 @@
             android:layout_marginTop="19dp"
             android:text="BE05 - Zabunda HW"
             android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/add_sprayer_textview_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textSize = "25dp"
+            android:textStyle = "bold"
+            android:text="Sprayer IDs" />
+
     </RelativeLayout>
 
 </RelativeLayout>

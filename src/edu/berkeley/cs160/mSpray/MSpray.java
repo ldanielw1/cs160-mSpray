@@ -16,7 +16,6 @@ Button startSpray;
         
         startSpray = (Button)findViewById(R.id.activity_mspray_button_newSpray);
         
-        
         startSpray.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);

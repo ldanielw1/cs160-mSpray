@@ -22,11 +22,14 @@ public class SprayerIDScan extends Activity {
 	Button addSprayer;
 	TextView sprayerName;
 	TextView sprayerName2;
+	TextView header;
 
 	RelativeLayout scanRFIDLayout;
 	RelativeLayout sprayersLayout;
 	Handler handler;
 	Boolean secondAdd;
+	Boolean collectedSprayersRFIDs;
+	Boolean collectedForemanRFIDs;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +44,15 @@ public class SprayerIDScan extends Activity {
 		sprayersLayout = (RelativeLayout) findViewById(R.id.sprayersListLayout);
 		sprayerName = (TextView) findViewById(R.id.add_sprayer_textView_PersonName);
 		sprayerName2 = (TextView) findViewById(R.id.add_sprayer_textView_PersonName2);
+		header = (TextView) findViewById(R.id.add_sprayer_textview_header);
 
 		// Initial visibility
 		sprayerName.setVisibility(View.GONE);
 		sprayerName2.setVisibility(View.GONE);
 
 		secondAdd = false;
+		collectedSprayersRFIDs = false;
+		collectedForemanRFIDs = false;
 
 		backButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -59,13 +65,26 @@ public class SprayerIDScan extends Activity {
 
 		confirmButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				// TODO
+				if (!collectedForemanRFIDs) {
+					collectedForemanRFIDs = true;
+					scanForemanID();
+				}
+				else if (!collectedSprayersRFIDs) {
+					collectedSprayersRFIDs = true;
+					
+				} else {
+					Intent intent = new Intent(getApplicationContext(),
+							GetGpsActivity.class);
+					startActivity(intent);
+				}
+
 			};
 		});
 
 		addSprayer.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				setRFIDScannerVisibility(View.VISIBLE);
+				header.setText("Sprayer IDs");
 				TimeBomb();
 			};
 		});
@@ -87,10 +106,23 @@ public class SprayerIDScan extends Activity {
 						sprayerName2.setVisibility(View.VISIBLE);
 					}
 					secondAdd = true;
+					collectedSprayersRFIDs = true;
 				}
 				}
 			}
 		};
+	}
+
+	private void scanForemanID() {
+		header.setText("Scan Foreman ID");
+		secondAdd = false;
+		sprayerName.setText("Simba R.");
+		sprayerName.setVisibility(View.INVISIBLE);
+		sprayerName.setText("");
+		header.setText("Foreman ID");
+		setRFIDScannerVisibility(View.VISIBLE);
+		addSprayer.setText("Rescan?");
+		TimeBomb();
 	}
 
 	private void setRFIDScannerVisibility(int vis) {
@@ -99,6 +131,7 @@ public class SprayerIDScan extends Activity {
 			addSprayer.setVisibility(View.VISIBLE);
 			sprayersLayout.setVisibility(View.VISIBLE);
 			sprayersLayout.setVisibility(View.VISIBLE);
+			header.setVisibility(View.VISIBLE);
 
 			// Resize button
 			MarginLayoutParams marginParams = new MarginLayoutParams(
