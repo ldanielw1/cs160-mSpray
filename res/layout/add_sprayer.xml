@@ -87,7 +87,7 @@
             android:layout_below="@+id/add_sprayer_textView_PersonName"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="19dp"
-            android:text="BE05 - Zabunda HW"
+            android:text="BE05 - Simba TS"
             android:textSize="15sp" />
     </RelativeLayout>
 
