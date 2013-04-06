@@ -4,6 +4,35 @@
     android:layout_height="fill_parent"
     android:screenOrientation="portrait" >
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:text="@string/chemicalUsed"
+        android:textSize="25dp" />
+    
+    <Button
+        android:id="@+id/chemical_used_button_ddt"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_above="@+id/chemical_used_button_pyrethroid"
+        android:layout_alignLeft="@+id/chemical_used_button_pyrethroid"
+        android:layout_alignRight="@+id/chemical_used_button_pyrethroid"
+        android:layout_marginBottom="10dp"
+        android:text="@string/ddt" />
+
+    <Button
+        android:id="@+id/chemical_used_button_pyrethroid"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/chemical_used_button_noSpray"
+        android:layout_alignRight="@+id/chemical_used_button_noSpray"
+        android:layout_centerVertical="true"
+        android:text="@string/pyrethroid" />
+
     <Button
         android:id="@+id/chemical_used_button_noSpray"
         android:layout_width="fill_parent"
@@ -21,40 +50,9 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="@string/back"
-        android:layout_marginLeft = "10dp"
-        android:layout_marginRight = "10dp"
-        android:layout_marginBottom = "10dp" 
-       
-        />
-
-    <Button
-        android:id="@+id/chemical_used_button_pyrethroid"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/chemical_used_button_noSpray"
-        android:layout_alignRight="@+id/chemical_used_button_noSpray"
-        android:layout_centerVertical="true"
-        android:text="@string/pyrethroid" />
-
-    <Button
-        android:id="@+id/chemical_used_button_ddt"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_above="@+id/chemical_used_button_pyrethroid"
-        android:layout_alignLeft="@+id/chemical_used_button_pyrethroid"
-        android:layout_alignRight="@+id/chemical_used_button_pyrethroid"
         android:layout_marginBottom="10dp"
-        android:text="@string/ddt" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        android:textSize = "25dp"
-        android:text="@string/chemicalUsed" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/back" />
 
 </RelativeLayout>
