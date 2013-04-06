@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme" android:supportsRtl="false">
         <activity
             android:name="edu.berkeley.cs160.mSpray.MSpray"
             android:label="@string/app_name"
@@ -29,6 +29,7 @@
         </activity>
         <activity android:name="edu.berkeley.cs160.mSpray.GetGpsActivity"></activity>
         <activity android:name="edu.berkeley.cs160.mSpray.PaperWorkChoiceActivity"></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.NoSprayActivity"></activity>
     </application>
 
 </manifest>
