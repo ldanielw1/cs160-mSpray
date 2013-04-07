@@ -3,6 +3,7 @@ package edu.berkeley.cs160.mSpray;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -41,6 +42,24 @@ public class PyrethroidActivity extends Activity {
 		backButton = (Button) findViewById(R.id.pyrethroid_button_backButton);
 		confirmButton = (Button) findViewById(R.id.pyrethroid_button_confirmButton);
 		canRefilled = (RadioGroup) findViewById(R.id.pyrethroid_radiogroup);
+		
+		confirmButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				getData();
+			};
+		});
+		
+		backButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(),
+						PaperWorkChoiceActivity.class);
+				startActivity(intent);
+			};
+		});
+		
+		
 		if(roomsSprayedValue.getText().toString().equals("")
 				|| sheltersSprayedValue.getText().toString().equals("")
 				|| roomsUnsprayedValue.getText().toString().equals("")
@@ -57,7 +76,6 @@ public class PyrethroidActivity extends Activity {
 			if(canRefilled.getCheckedRadioButtonId() == R.id.pyrethroid_radiobutton_CanRefilledYes){
 				refilled=true;
 			}
-			//ADD STUFF FOR BACK BUTTON AND CONFIRM BUTTON
 			i.putExtra("roomsSprayed", roomsSprayed);
 			i.putExtra("roomsUnsprayed", roomsUnsprayed);
 			i.putExtra("sheltersSprayed", sheltersSprayed);
