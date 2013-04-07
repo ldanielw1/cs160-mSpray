@@ -8,4 +8,6 @@ public final class Constants {
     public static final String DDT = "DDT";
     public static final String PYRETHROID = "Pyrethroid";
     public static final String NO_SPRAY = "No Spray";
+    public static final String ROOMS_UNSPRAYED = "roomsUnsprayed";
+    public static final String SHELTERS_UNSPRAYED = "sheltersUnsprayed";
 }
