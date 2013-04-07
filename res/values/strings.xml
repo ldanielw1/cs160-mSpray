@@ -40,5 +40,9 @@
     
     <string name="scanSelfLabel">Identify yourself</string>
     <string name="scanSelf">Scan my badge</string>
+    
+    <string name="scanSprayerLabel">Identify the sprayers for this house</string>
+    <string name="scanSprayer">Scan a sprayer\'s badge</string>
+    <string name="scanAnotherSprayer">Scan another sprayer\'s badge</string>
 
 </resources>
