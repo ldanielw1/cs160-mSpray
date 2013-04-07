@@ -26,14 +26,42 @@ public class DDTform extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ddt);  
-		getData();
+		canRefilled = (RadioGroup) findViewById(R.id.ddt_radiogroup);
+		roomsSprayedValue = (EditText)findViewById(R.id.ddt_edittext_roomsSprayedValue);
+		sheltersSprayedValue = (EditText)findViewById(R.id.ddt_edittext_sheltersSprayedValue);
+		roomsUnsprayedValue = (EditText)findViewById(R.id.ddt_edittext_sheltersUnsprayedValue);
+		sheltersUnsprayedValue = (EditText)findViewById(R.id.ddt_edittext_sheltersUnsprayedValue);
+	    canRefilled = (RadioGroup)findViewById(R.id.ddt_radiogroup);
+		canRefilledYes = (RadioButton)findViewById(R.id.ddt_radiobutton_canRefilledYes);
+		canRefilledNo = (RadioButton)findViewById(R.id.ddt_radiobutton_canRefilledNo);
+		backButton = (Button)findViewById(R.id.ddt_button_backButton);
+		confirmButton = (Button)findViewById(R.id.ddt_button_confirmButton);
+		
+		confirmButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				getData();
+			};
+		});
+		
+		backButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(),
+						PaperWorkChoiceActivity.class);
+				startActivity(intent);
+			};
+		});
+		
 	}
 
 	public void getData(){
 		Intent i = new Intent(this, ConfirmDDT.class);
 		boolean refilled=false;
 		String numbers="0123456789";
-		canRefilled = (RadioGroup) findViewById(R.id.ddt_radiogroup);
+		
+		
+		
 		if(roomsSprayedValue.getText().toString().equals("")
 				|| sheltersSprayedValue.getText().toString().equals("")
 				|| roomsUnsprayedValue.getText().toString().equals("")
