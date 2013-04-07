@@ -13,17 +13,17 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/gps_location"
-        android:textSize="40sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/gps_location_textview_contents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
+        android:layout_centerVertical="true"
         android:text="@string/location_found"
-        android:textSize="40sp" />
+        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/gps_location_layout_innerLinearLayout"

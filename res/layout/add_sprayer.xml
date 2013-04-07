@@ -17,7 +17,10 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
             android:text="@string/nfcInstructions"
+            android:textSize="16sp" 
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <ImageView

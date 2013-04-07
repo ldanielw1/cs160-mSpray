@@ -18,10 +18,10 @@
     <string name="emptyString"/>
     <string name="finished">Finished</string>
     <string name="foremanID">Foreman ID</string>
-    <string name="gps_location">Gps Location</string>
+    <string name="gps_location">GPS Location</string>
     <string name="hintNumRooms"># of Rooms</string>
     <string name="hintNumShelters"># of Shelters</string>
-    <string name="location_found">Location Found</string>
+    <string name="location_found">You are at 29.81 S, 25.34 E</string>
     <string name="mSprayTitle">mSpray</string>
     <string name="nfcInstructions">Place phone on top of the Sprayer\'s badge</string>
     <string name="no">No</string>

@@ -5,7 +5,7 @@
     android:screenOrientation="portrait" >
 
    <TextView
-        android:id="@+id/add_foreman_textview_foremanID"
+        android:id="@+id/activity_mspray_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -13,10 +13,10 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/scanSelfLabel"
-        android:textSize="24dp" />
+        android:textSize="20sp" />
 
     <Button
-        android:id="@+id/activity_mspray_scan_self"
+        android:id="@+id/activity_mspray_button"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_centerVertical="true"
