@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.Button;
 
 public class PaperWorkChoiceActivity extends Activity {
-	Button pyrethroid;
-	Button ddt;
-	Button noSpray;
-	Button back;
+    Button pyrethroid;
+    Button ddt;
+    Button noSpray;
+    Button back;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,5 @@ public class PaperWorkChoiceActivity extends Activity {
 				startActivity(intent);
 			};
 		});
-
 	}
 }

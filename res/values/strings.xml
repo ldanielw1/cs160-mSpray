@@ -19,9 +19,6 @@
     <string name="finished">Finished</string>
     <string name="foremanID">Foreman ID</string>
     <string name="gps_location">Gps Location</string>
-    <string name="h1">40dp</string>
-    <string name="h2">25dp</string>
-    <string name="h3">15dp</string>
     <string name="hintNumRooms"># of Rooms</string>
     <string name="hintNumShelters"># of Shelters</string>
     <string name="location_found">Location Found</string>
