@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.RelativeLayout.LayoutParams;
@@ -15,13 +16,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class SprayerIDScan extends Activity {
+	String RFIDmode = "foreman";
 
 	ImageView rfidPic;
 	Button backButton;
 	Button confirmButton;
 	Button addSprayer;
-	TextView sprayerName;
-	TextView sprayerName2;
+	TextView scannedName;
+	TextView scannedName2;
 	TextView header;
 
 	RelativeLayout scanRFIDLayout;
@@ -42,17 +44,20 @@ public class SprayerIDScan extends Activity {
 
 		scanRFIDLayout = (RelativeLayout) findViewById(R.id.scanRFIDLayout);
 		sprayersLayout = (RelativeLayout) findViewById(R.id.sprayersListLayout);
-		sprayerName = (TextView) findViewById(R.id.add_sprayer_textView_PersonName);
-		sprayerName2 = (TextView) findViewById(R.id.add_sprayer_textView_PersonName2);
+		scannedName = (TextView) findViewById(R.id.add_sprayer_textView_PersonName);
+		scannedName2 = (TextView) findViewById(R.id.add_sprayer_textView_PersonName2);
 		header = (TextView) findViewById(R.id.add_sprayer_textview_header);
 
 		// Initial visibility
-		sprayerName.setVisibility(View.GONE);
-		sprayerName2.setVisibility(View.GONE);
+		scannedName.setVisibility(View.GONE);
+		scannedName2.setVisibility(View.GONE);
 
 		secondAdd = false;
 		collectedSprayersRFIDs = false;
 		collectedForemanRFIDs = false;
+
+		// Scan foreman first
+		scanForemanID();
 
 		backButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -66,13 +71,15 @@ public class SprayerIDScan extends Activity {
 		confirmButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				if (!collectedForemanRFIDs) {
-					collectedForemanRFIDs = true;
 					scanForemanID();
+					return;
 				}
-				else if (!collectedSprayersRFIDs) {
-					collectedSprayersRFIDs = true;
-					
-				} else {
+				if (!collectedSprayersRFIDs) {
+					addSprayers();
+					return;
+				}
+
+				if (collectedForemanRFIDs && collectedSprayersRFIDs) {
 					Intent intent = new Intent(getApplicationContext(),
 							GetGpsActivity.class);
 					startActivity(intent);
@@ -97,31 +104,78 @@ public class SprayerIDScan extends Activity {
 
 					setRFIDScannerVisibility(View.GONE);
 
+					if (RFIDmode.equals("foreman")) {
+						scannedName.setVisibility(View.VISIBLE);
+						addSprayer.setVisibility(View.INVISIBLE);
+						collectedForemanRFIDs = true;
+						return;
+					}
+
 					if (!secondAdd) {
-						sprayerName.setVisibility(View.VISIBLE);
-						addSprayer.setText(addSprayer.getText().toString()
-								+ " (additional)");
+						scannedName.setVisibility(View.VISIBLE);
+						addSprayer.setText("Add another sprayer");
+						secondAdd = true;
+						return;
 					}
 					if (secondAdd) {
-						sprayerName2.setVisibility(View.VISIBLE);
+						scannedName2.setVisibility(View.VISIBLE);
+						collectedSprayersRFIDs = true;
+						return;
 					}
-					secondAdd = true;
-					collectedSprayersRFIDs = true;
 				}
 				}
 			}
 		};
 	}
 
+	private void changeRFIDMode(String m) {
+		if (m.equals("sprayer")) {
+			RFIDmode = "sprayer";
+		} else if (m.equals("foreman")) {
+			RFIDmode = "foreman";
+		}
+	}
+
+	private void addSprayers() {
+		Log.d("xyz", "addSprayers");
+
+		changeRFIDMode("sprayer");
+
+		scannedName.setText("BE02 - Mabunda YW");
+		scannedName2.setText("BE05 - Simba TS");
+		// header.setText("Sprayer IDs");
+		header.setVisibility(View.INVISIBLE);
+		addSprayer.setText("Add Sprayer");
+		addSprayer.setVisibility(View.VISIBLE);
+
+		scannedName.setVisibility(View.INVISIBLE);
+		scannedName2.setVisibility(View.INVISIBLE);
+		setRFIDScannerVisibility(View.INVISIBLE);
+
+		// Resize button --> large
+		MarginLayoutParams marginParams = new MarginLayoutParams(
+				addSprayer.getLayoutParams());
+		marginParams.setMargins(16, 0, 16, 0);
+		addSprayer.setLayoutParams(marginParams);
+		addSprayer.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
+				LayoutParams.MATCH_PARENT));
+	}
+
 	private void scanForemanID() {
-		header.setText("Scan Foreman ID");
+		changeRFIDMode("foreman");
+
 		secondAdd = false;
-		sprayerName.setText("Simba R.");
-		sprayerName.setVisibility(View.INVISIBLE);
-		sprayerName.setText("");
-		header.setText("Foreman ID");
+		// Change data
+		scannedName.setText("Simba R.");
+		scannedName2.setText("");
+		scannedName.setVisibility(View.INVISIBLE);
+		scannedName2.setVisibility(View.INVISIBLE);
+		header.setText("Your ID");
+
 		setRFIDScannerVisibility(View.VISIBLE);
-		addSprayer.setText("Rescan?");
+		addSprayer.setVisibility(View.INVISIBLE);
+		// addSprayer.setText("Rescan your ID"); // TODO: not needed. "Back"
+		// should do that.
 		TimeBomb();
 	}
 
@@ -133,12 +187,11 @@ public class SprayerIDScan extends Activity {
 			sprayersLayout.setVisibility(View.VISIBLE);
 			header.setVisibility(View.VISIBLE);
 
-			// Resize button
+			// Resize button --> small
 			MarginLayoutParams marginParams = new MarginLayoutParams(
 					addSprayer.getLayoutParams());
 			marginParams.setMargins(0, 0, 0, 0);
 			addSprayer.setLayoutParams(marginParams);
-
 			addSprayer.setLayoutParams(new LayoutParams(
 					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 

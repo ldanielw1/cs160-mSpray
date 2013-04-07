@@ -4,8 +4,19 @@
     android:layout_height="fill_parent"
     android:screenOrientation="portrait" >
 
+   <TextView
+        android:id="@+id/add_foreman_textview_foremanID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/scanSelfLabel"
+        android:textSize="24dp" />
+
     <Button
-        android:id="@+id/activity_mspray_button_newSpray"
+        android:id="@+id/activity_mspray_scan_self"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_centerVertical="true"
@@ -13,7 +24,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="72dp"
-        android:text="@string/startSpray" >
+        android:text="@string/scanSelf" >
     </Button>
 
 </RelativeLayout>

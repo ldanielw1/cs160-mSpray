@@ -37,5 +37,8 @@
     <string name="sprayerIDs">Sprayer IDs</string>
     <string name="startSpray">Start New Spray</string>
     <string name="yes">Yes</string>
+    
+    <string name="scanSelfLabel">Identify yourself</string>
+    <string name="scanSelf">Scan my badge</string>
 
 </resources>

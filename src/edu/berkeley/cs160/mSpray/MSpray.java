@@ -16,7 +16,7 @@ public class MSpray extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mspray);
 
-		startSpray = (Button) findViewById(R.id.activity_mspray_button_newSpray);
+		startSpray = (Button) findViewById(R.id.activity_mspray_scan_self);
 
 		startSpray.setOnClickListener(new View.OnClickListener() {
 			@Override
