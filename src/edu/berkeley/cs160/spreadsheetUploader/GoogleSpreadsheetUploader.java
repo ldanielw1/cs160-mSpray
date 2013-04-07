@@ -1,4 +1,4 @@
-package edu.berkeley.cs160.mSpray;
+package edu.berkeley.cs160.spreadsheetUploader;
 
 import java.io.IOException;
 import java.net.URL;
