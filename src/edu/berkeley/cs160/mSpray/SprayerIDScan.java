@@ -143,6 +143,10 @@ public class SprayerIDScan extends Activity {
 						collectedForemanRFIDs = true;
 						return;
 					}
+					
+					if (!firstAdd) {
+						firstAdd = true;
+					}
 
 					if (!secondAdd) {
 						scannedName.setVisibility(View.VISIBLE);
