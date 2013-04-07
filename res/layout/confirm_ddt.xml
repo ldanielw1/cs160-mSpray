@@ -3,29 +3,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:screenOrientation="portrait" >
-    
-
-    <TextView
-        android:id="@+id/confirm_ddt_textview_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="@string/confirmDDT"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/confirm_ddt_textview_contents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:text="@string/placeholder"
-        android:textSize="@string/h2" />
-
     <LinearLayout
         android:id="@+id/confirm_ddt_layout_innerLinearLayout"
         android:layout_width="fill_parent"
@@ -34,17 +11,42 @@
 
         <Button
             android:id="@+id/confirm_ddt_button_backButton"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.22"
             android:text="@string/back" />
 
         <Button
             android:id="@+id/confirm_ddt_button_confirmButton"
-            android:layout_width="0px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="0.19"
             android:text="@string/confirm" />
+
     </LinearLayout>
+
+    
+   
+     
+    <TextView
+        android:id= "@+id/confirm_ddt_textview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/confirmDDT"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/confirm_ddt_textview_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/confirm_ddt_textview_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="@string/placeholder"
+        android:textSize="25dp" />
 
 </RelativeLayout>

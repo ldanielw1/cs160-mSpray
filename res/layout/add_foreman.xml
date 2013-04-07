@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/foremanID"
         android:gravity="center"
-        android:textSize="@string/h1" />
+        android:textSize="40dp" />
 
     <LinearLayout
         android:id="@+id/add_foreman_layout_innerLinearLayout"
