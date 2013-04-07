@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MSpray"
-    android:screenOrientation="portrait" >
+    android:screenOrientation="portrait"
+    tools:context=".MSpray" >
 
     <LinearLayout
         android:id="@+id/pyrethroid_layout_mainLayout"
@@ -58,7 +58,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hintNumShelters" >
-
             </EditText>
         </LinearLayout>
 
@@ -81,7 +80,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hintNumRooms" >
-
             </EditText>
         </LinearLayout>
 
@@ -104,7 +102,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hintNumShelters" >
-
             </EditText>
         </LinearLayout>
 
@@ -120,20 +117,25 @@
                 android:text="@string/canRefilled"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <RadioButton
-                android:id="@+id/pyrethroid_radiobutton_CanRefilledYes"
+            <RadioGroup
+                android:id="@+id/pyrethroid_radiogroup"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="@string/yes" />
+                android:layout_height="wrap_content" >
 
-            <RadioButton
-                android:id="@+id/pyrethroid_radiobutton_CanRefilledNo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/no" />
+                <RadioButton
+                    android:id="@+id/pyrethroid_radiobutton_CanRefilledYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/yes" />
 
+                <RadioButton
+                    android:id="@+id/pyrethroid_radiobutton_CanRefilledNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/no" />
+            </RadioGroup>
         </LinearLayout>
     </LinearLayout>
 
@@ -155,7 +157,8 @@
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/confirm" />
+            android:text="@string/confirm"
+            android:onClick="getData" />
     </LinearLayout>
 
 </RelativeLayout>

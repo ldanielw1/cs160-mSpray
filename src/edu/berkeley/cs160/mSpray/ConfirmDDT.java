@@ -16,7 +16,7 @@ public class ConfirmDDT extends Activity {
 		int sheltersSprayed = extras.getInt("sheltersSprayed");
 		int sheltersUnsprayed = extras.getInt("sheltersUnsprayed");
 		boolean refilled = extras.getBoolean("canRefilled");
-		String c= refilled ? "" : "not ";
+		String c = refilled ? "" : "not ";
 		TextView results = (TextView) findViewById(R.id.confirm_ddt_textview_contents);
 		//NEED TO ADD SPRAYER NAME
 		results.setText(String.format("Sprayers: %s\n"
