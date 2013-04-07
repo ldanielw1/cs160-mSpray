@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -28,16 +27,26 @@ public class NoSprayActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.no_spray);  
 		roomsUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
-		sheltersUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
+		sheltersUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_sheltersUnsprayedValue);
 		backButton = (Button) findViewById(R.id.no_spray_button_backButton);
 		confirmButton = (Button) findViewById(R.id.no_spray_button_confirmButton);
 		
-		confirmButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getData();
-            }
-        });
+		confirmButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				getData();
+			};
+		});
+		
+		backButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(),
+						PaperWorkChoiceActivity.class);
+				startActivity(intent);
+			};
+		});
+		
 	}
 
 	public void getData(){
@@ -51,7 +60,6 @@ public class NoSprayActivity extends Activity {
 				|| numbers.contains(sheltersUnsprayedValue.getText().toString())){
 			int roomsUnsprayed = Integer.valueOf(roomsUnsprayedValue.getText().toString());
 			int sheltersUnsprayed = Integer.valueOf(sheltersUnsprayedValue.getText().toString());
-			//ADD STUFF FOR BACK BUTTON AND CONFIRM BUTTON
 			i.putExtra("roomsUnsprayed", roomsUnsprayed);
 			i.putExtra("sheltersUnsprayed", sheltersUnsprayed);
 			startActivity(i);	

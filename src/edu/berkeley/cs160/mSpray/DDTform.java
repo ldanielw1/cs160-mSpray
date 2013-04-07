@@ -29,7 +29,7 @@ public class DDTform extends Activity {
 		canRefilled = (RadioGroup) findViewById(R.id.ddt_radiogroup);
 		roomsSprayedValue = (EditText)findViewById(R.id.ddt_edittext_roomsSprayedValue);
 		sheltersSprayedValue = (EditText)findViewById(R.id.ddt_edittext_sheltersSprayedValue);
-		roomsUnsprayedValue = (EditText)findViewById(R.id.ddt_edittext_sheltersUnsprayedValue);
+		roomsUnsprayedValue = (EditText)findViewById(R.id.ddt_edittext_roomsUnsprayedValue);
 		sheltersUnsprayedValue = (EditText)findViewById(R.id.ddt_edittext_sheltersUnsprayedValue);
 	    canRefilled = (RadioGroup)findViewById(R.id.ddt_radiogroup);
 		canRefilledYes = (RadioButton)findViewById(R.id.ddt_radiobutton_canRefilledYes);
@@ -78,7 +78,6 @@ public class DDTform extends Activity {
 			if(canRefilled.getCheckedRadioButtonId() == R.id.ddt_radiobutton_canRefilledYes){
 				refilled=true;
 			}
-			//ADD STUFF FOR BACK BUTTON AND CONFIRM BUTTON
 			i.putExtra("roomsSprayed", roomsSprayed);
 			i.putExtra("roomsUnsprayed", roomsUnsprayed);
 			i.putExtra("sheltersSprayed", sheltersSprayed);
