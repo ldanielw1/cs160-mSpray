@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="160dp"
         android:text="@string/placeholder"
-        android:textSize="@string/h2" />
+        android:textSize="25dp" />
 
     <LinearLayout
         android:id="@+id/confirm_ddt_layout_innerLinearLayout"
