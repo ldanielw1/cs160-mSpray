@@ -34,7 +34,7 @@ public class PaperWorkChoiceActivity extends Activity {
 		ddt.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(getApplicationContext(),
-						DDTform.class);
+						PyrethroidActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
 			};

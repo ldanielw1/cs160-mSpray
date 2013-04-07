@@ -34,10 +34,10 @@ public class OtherChemicalUsedActivity extends Activity {
                 Intent intent = new Intent(getApplicationContext(),
                         SecondChemicalUsedActivity.class);
                 if (firstChemical.equals(Constants.DDT))
-                    intent.putExtra(Constants.FIRST_CHEMICAL_USED, Constants.PYRETHROID);
+                    intent.putExtra(Constants.FIRST_CHEMICAL_USED, Constants.DDT);
                 // If the first chemical isn't DDT, it's a pyrethroid
                 else
-                    intent.putExtra(Constants.FIRST_CHEMICAL_USED, Constants.DDT);
+                    intent.putExtra(Constants.FIRST_CHEMICAL_USED, Constants.PYRETHROID);
                 startActivity(intent);
             }
         });
