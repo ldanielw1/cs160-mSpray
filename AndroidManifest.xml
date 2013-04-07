@@ -31,6 +31,8 @@
         <activity android:name="edu.berkeley.cs160.mSpray.PaperWorkChoiceActivity"></activity>
         <activity android:name="edu.berkeley.cs160.mSpray.NoSprayActivity"></activity>
         <activity android:name="edu.berkeley.cs160.mSpray.PyrethroidActivity"></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.OtherChemicalUsedActivity"></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.SecondChemicalUsedActivity"></activity>
         <activity android:name="edu.berkeley.cs160.mSpray.DDTform"></activity>
         <activity android:name="edu.berkeley.cs160.mSpray.ConfirmDDT"></activity>
     </application>
