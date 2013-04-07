@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:inputType="number"
                 android:hint="@string/hintNumRooms" >
 
                 <requestFocus />
@@ -56,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:inputType="number"
                 android:hint="@string/hintNumShelters" >
             </EditText>
         </LinearLayout>
@@ -78,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:inputType="number"
                 android:hint="@string/hintNumRooms" >
             </EditText>
         </LinearLayout>
@@ -100,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:inputType="number"
                 android:hint="@string/hintNumShelters" >
             </EditText>
         </LinearLayout>
