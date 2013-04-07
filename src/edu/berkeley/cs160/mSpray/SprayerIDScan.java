@@ -2,6 +2,7 @@ package edu.berkeley.cs160.mSpray;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -43,10 +44,10 @@ public class SprayerIDScan extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_sprayer);
 
+		// Identify elements
 		addSprayer = (Button) findViewById(R.id.add_sprayer_button_addSprayer);
 		backButton = (Button) findViewById(R.id.add_sprayer_button_back);
 		confirmButton = (Button) findViewById(R.id.add_sprayer_button_confirm);
-
 		scanRFIDLayout = (RelativeLayout) findViewById(R.id.scanRFIDLayout);
 		sprayersLayout = (RelativeLayout) findViewById(R.id.sprayersListLayout);
 		screenLayout = (RelativeLayout) findViewById(R.id.add_sprayer_layout_innerRelativeLayout);
