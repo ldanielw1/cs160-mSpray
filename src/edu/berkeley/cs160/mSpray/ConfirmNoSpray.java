@@ -19,9 +19,9 @@ public class ConfirmNoSpray extends Activity {
         int sheltersUnsprayed = extras.getInt("sheltersUnsprayed");
         TextView results = (TextView) findViewById(R.id.confirm_no_spray_textview_contents);
         // NEED TO ADD SPRAYER NAME
-        results.setText(String.format("Sprayers: %s\n" + "Rooms Unsprayed: %d\n"
-                + "Shelters Unsprayed: %d\n" + "Can %srefilled", "TO-DO NAME", roomsUnsprayed,
-                sheltersUnsprayed));
+        results.setText(String.format("Sprayers: %s\n"
+        		+"Rooms Unsprayed: %d\n"
+                +"Shelters Unsprayed: %d\n", "TO-DO NAME", roomsUnsprayed, sheltersUnsprayed));
 
         Button backButton = (Button) findViewById(R.id.confirm_no_spray_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {

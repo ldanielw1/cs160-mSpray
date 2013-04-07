@@ -12,7 +12,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" android:supportsRtl="false">
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme" >
         <activity
             android:name="edu.berkeley.cs160.mSpray.MSpray"
             android:label="@string/app_name"
@@ -23,18 +24,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.SprayerIDScan"
-            android:screenOrientation="portrait">
-            
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.SprayerIDScan"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.GetGpsActivity"></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.PaperWorkChoiceActivity"></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.NoSprayActivity"></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.PyrethroidActivity"></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.OtherChemicalUsedActivity"></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.SecondChemicalUsedActivity"></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.DDTform"></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmDDT"></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.GetGpsActivity" ></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.PaperWorkChoiceActivity" ></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.NoSprayActivity" ></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.PyrethroidActivity" ></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.OtherChemicalUsedActivity" ></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.SecondChemicalUsedActivity" ></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.DDTform" ></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmDDT" ></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmNoSpray" ></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmPyrethroid" ></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.FinishedActivity"></activity>
     </application>
 
 </manifest>

@@ -14,12 +14,12 @@ public class SecondChemicalUsedActivity extends Activity {
 
         Bundle extras = this.getIntent().getExtras();
         String firstChemical = extras.getString(Constants.FIRST_CHEMICAL_USED);
+        Button ddtButton = (Button) findViewById(R.id.second_chemical_used_button_ddt);
+        Button pyrethroidButton = (Button) findViewById(R.id.second_chemical_used_button_pyrethroid);
         if (firstChemical.equals(Constants.DDT)) {
-            Button ddtButton = (Button) findViewById(R.id.second_chemical_used_button_ddt);
             ddtButton.setVisibility(View.GONE);
         } else {
             // If the first chemical wasn't DDT, then it was a pyrethroid
-            Button pyrethroidButton = (Button) findViewById(R.id.second_chemical_used_button_pyrethroid);
             pyrethroidButton.setVisibility(View.INVISIBLE);
         }
     }
