@@ -43,7 +43,6 @@ public class NoSprayActivity extends Activity {
 
     public void getData() {
         Intent i = new Intent(this, ConfirmNoSpray.class);
-        String numbers = "0123456789";
 
         if (roomsUnsprayedValue.getText().toString().equals("")
                 || sheltersUnsprayedValue.getText().toString().equals("")) {

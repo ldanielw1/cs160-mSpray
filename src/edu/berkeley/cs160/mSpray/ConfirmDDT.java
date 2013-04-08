@@ -39,17 +39,12 @@ public class ConfirmDDT extends Activity {
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetNames();
+                SprayerIDScan.resetNames();
                 Intent intent = new Intent(getApplicationContext(), FinishedActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
-    }
-
-    private void resetNames() {
-        SprayerIDScan.FOREMAN_NAME = "";
-        SprayerIDScan.SPRAYER_NAMES = "";
     }
 
 }
