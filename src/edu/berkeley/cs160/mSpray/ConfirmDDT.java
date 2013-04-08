@@ -25,8 +25,8 @@ public class ConfirmDDT extends Activity {
         // NEED TO ADD SPRAYER NAME
         results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n" + "Rooms Sprayed: %d\n"
                 + "Shelters Sprayed: %d\n" + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n"
-                + "Can %srefilled", SprayerIDScan.FOREMAN_NAME, SprayerIDScan.SPRAYER_NAMES, roomsSprayed, sheltersSprayed, roomsUnsprayed,
-                sheltersUnsprayed, c));
+                + "Can %srefilled", SprayerIDScan.FOREMAN_NAME, SprayerIDScan.SPRAYER_NAMES,
+                roomsSprayed, sheltersSprayed, roomsUnsprayed, sheltersUnsprayed, c));
 
         Button backButton = (Button) findViewById(R.id.confirm_ddt_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {
@@ -39,17 +39,17 @@ public class ConfirmDDT extends Activity {
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-            	resetNames();
-                Intent intent = new Intent(getApplicationContext(), OtherChemicalUsedActivity.class);
+                resetNames();
+                Intent intent = new Intent(getApplicationContext(), FinishedActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra(Constants.FIRST_CHEMICAL_USED, Constants.DDT);
                 startActivity(intent);
             }
         });
     }
-    private void resetNames(){
-		SprayerIDScan.FOREMAN_NAME = "";
-		SprayerIDScan.SPRAYER_NAMES = "";
-	}
+
+    private void resetNames() {
+        SprayerIDScan.FOREMAN_NAME = "";
+        SprayerIDScan.SPRAYER_NAMES = "";
+    }
 
 }
