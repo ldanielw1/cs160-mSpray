@@ -9,39 +9,39 @@ import android.widget.Button;
 
 public class MSpray extends Activity {
 
-	Button startSpray;
+    Button startSpray;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_mspray);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mspray);
 
-		startSpray = (Button) findViewById(R.id.activity_mspray_button);
-		
-//		// External font
-//		TextView tv = (TextView) findViewById(R.id.activity_mspray_header);
-//		String fontPath = "fonts/life.ttf";
-//		Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
-//		
-//		// Apply fonts
-//        tv.setTypeface(tf);
-//        startSpray.setTypeface(tf);
+        startSpray = (Button) findViewById(R.id.activity_mspray_button);
 
-		startSpray.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(),
-						SprayerIDScan.class);
-				startActivity(intent);
-			};
-		});
-	}
+        // // External font
+        // TextView tv = (TextView) findViewById(R.id.activity_mspray_header);
+        // String fontPath = "fonts/life.ttf";
+        // Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+        //
+        // // Apply fonts
+        // tv.setTypeface(tf);
+        // startSpray.setTypeface(tf);
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.mspray, menu);
-		return true;
-	}
+        startSpray.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            };
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.mspray, menu);
+        return true;
+    }
 
 }

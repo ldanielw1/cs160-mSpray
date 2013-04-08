@@ -25,8 +25,9 @@ public class PaperWorkChoiceActivity extends Activity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), GetGpsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("collectedForemanRFIDs", true);
                 startActivity(intent);
             };
         });
