@@ -52,8 +52,8 @@ public class NoSprayActivity extends Activity {
 				|| numbers.contains(sheltersUnsprayedValue.getText().toString())){
 			int roomsUnsprayed = Integer.valueOf(roomsUnsprayedValue.getText().toString());
 			int sheltersUnsprayed = Integer.valueOf(sheltersUnsprayedValue.getText().toString());
-			i.putExtra("roomsUnsprayed", roomsUnsprayed);
-			i.putExtra("sheltersUnsprayed", sheltersUnsprayed);
+			i.putExtra(Constants.ROOMS_UNSPRAYED, roomsUnsprayed);
+			i.putExtra(Constants.SHELTERS_UNSPRAYED, sheltersUnsprayed);
 			startActivity(i);	
 		}
 		else

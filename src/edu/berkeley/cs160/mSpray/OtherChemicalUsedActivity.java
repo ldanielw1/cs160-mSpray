@@ -10,16 +10,20 @@ import android.widget.Button;
 public class OtherChemicalUsedActivity extends Activity {
 
     private String firstChemical;
+    Button noButton;
+    Button yesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.other_chemical_used);
 
+        yesButton = (Button) findViewById(R.id.other_chemical_used_button_yesButton);
+        noButton = (Button) findViewById(R.id.other_chemical_used_button_noButton);
+
         Bundle extras = this.getIntent().getExtras();
         firstChemical = extras.getString(Constants.FIRST_CHEMICAL_USED);
 
-        Button noButton = (Button) findViewById(R.id.other_chemical_used_button_noButton);
         noButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,7 +31,7 @@ public class OtherChemicalUsedActivity extends Activity {
                 startActivity(intent);
             }
         });
-        Button yesButton = (Button) findViewById(R.id.other_chemical_used_button_yesButton);
+
         yesButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

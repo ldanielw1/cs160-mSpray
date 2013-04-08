@@ -37,12 +37,16 @@ public class SprayerIDScan extends Activity {
 	Boolean collectedForemanRFIDs;
 	Boolean foremanRecorded; // This is different from collectedForemanRFIDs. collectedForemanRFIDs is for telling this activity to go add sprayers
 	// Refactor this later cuz it is really confusing
-
+	
+	public static String FOREMAN_NAME = "Your Name";
+	public static String SPRAYER_NAMES = "";
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_sprayer);
-
+		
 		// Identify elements
 		addSprayer = (Button) findViewById(R.id.add_sprayer_button_addSprayer);
 		backButton = (Button) findViewById(R.id.add_sprayer_button_back);
@@ -86,9 +90,10 @@ public class SprayerIDScan extends Activity {
 		backButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(getApplicationContext(),
-						MSpray.class);
+						GetGpsActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
+		
 			};
 		});
 
@@ -99,7 +104,7 @@ public class SprayerIDScan extends Activity {
 					return;
 				}
 
-				if (collectedForemanRFIDs && collectedSprayersRFIDs) {
+				if (collectedForemanRFIDs && (collectedSprayersRFIDs || firstAdd)) {
 					Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
 	                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	                startActivity(intent);
@@ -131,10 +136,13 @@ public class SprayerIDScan extends Activity {
 					
 					if (!firstAdd) {
 						firstAdd = true;
+						SPRAYER_NAMES = SPRAYER_NAMES + "BE02 - Mabunda YW";
+						scannedName2.setText("BE05 - Simba TS");
 					}
 
 					if (!secondAdd) {
 						scannedName.setVisibility(View.VISIBLE);
+						SPRAYER_NAMES = SPRAYER_NAMES + " BE05 - Simba TS";
 						addSprayer.setText("Scan another sprayer");
 						secondAdd = true;
 						return;
@@ -183,6 +191,7 @@ public class SprayerIDScan extends Activity {
 			RFIDmode = "foreman";
 			secondAdd = false;
 			scannedName.setText("Dakarai R.");
+			FOREMAN_NAME  = "Dakarai R.";
 			scannedName2.setText("");
 			scannedName.setVisibility(View.INVISIBLE);
 			scannedName2.setVisibility(View.INVISIBLE);

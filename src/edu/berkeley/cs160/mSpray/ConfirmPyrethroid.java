@@ -23,9 +23,9 @@ public class ConfirmPyrethroid extends Activity {
         String c = refilled ? "" : "not ";
         TextView results = (TextView) findViewById(R.id.confirm_pyrethroid_textview_contents);
         // NEED TO ADD SPRAYER NAME
-        results.setText(String.format("Sprayers: %s\n" + "Rooms Sprayed: %d\n"
+        results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n" + "Rooms Sprayed: %d\n"
                 + "Shelters Sprayed: %d\n" + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n"
-                + "Can %srefilled", "TO-DO NAME", roomsSprayed, sheltersSprayed, roomsUnsprayed,
+                + "Can %srefilled", SprayerIDScan.FOREMAN_NAME, SprayerIDScan.SPRAYER_NAMES, roomsSprayed, sheltersSprayed, roomsUnsprayed,
                 sheltersUnsprayed, c));
 
         Button backButton = (Button) findViewById(R.id.confirm_pyrethroid_button_backButton);
@@ -39,6 +39,7 @@ public class ConfirmPyrethroid extends Activity {
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+            	resetNames();
                 Intent intent = new Intent(getApplicationContext(), OtherChemicalUsedActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.FIRST_CHEMICAL_USED, Constants.PYRETHROID);
@@ -46,4 +47,9 @@ public class ConfirmPyrethroid extends Activity {
             }
         });
     }
+    
+    private void resetNames(){
+		SprayerIDScan.FOREMAN_NAME = "";
+		SprayerIDScan.SPRAYER_NAMES = "";
+	}
 }
