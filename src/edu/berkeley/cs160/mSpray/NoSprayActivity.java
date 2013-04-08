@@ -10,53 +10,58 @@ import android.widget.Toast;
 
 public class NoSprayActivity extends Activity {
 
-	EditText roomsUnsprayedValue;
-	EditText sheltersUnsprayedValue;
-	Button backButton;
-	Button confirmButton;
+    EditText roomsUnsprayedValue;
+    EditText sheltersUnsprayedValue;
+    Button backButton;
+    Button confirmButton;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.no_spray);  
-		roomsUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
-		sheltersUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_sheltersUnsprayedValue);
-		backButton = (Button) findViewById(R.id.no_spray_button_backButton);
-		confirmButton = (Button) findViewById(R.id.no_spray_button_confirmButton);
-		
-		confirmButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				getData();
-			};
-		});
-		
-		backButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
-				startActivity(intent);
-			};
-		});
-		
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.no_spray);
+        roomsUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
+        sheltersUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_sheltersUnsprayedValue);
+        backButton = (Button) findViewById(R.id.no_spray_button_backButton);
+        confirmButton = (Button) findViewById(R.id.no_spray_button_confirmButton);
 
-	public void getData(){
-		Intent i = new Intent(this, ConfirmNoSpray.class);
-		String numbers ="0123456789";
-		
-		if(roomsUnsprayedValue.getText().toString().equals("")
-				|| sheltersUnsprayedValue.getText().toString().equals("")){
-			Toast.makeText(getApplicationContext(), "Please input a value for every text field", Toast.LENGTH_SHORT).show();
-		} else if (numbers.contains(roomsUnsprayedValue.getText().toString())
-				|| numbers.contains(sheltersUnsprayedValue.getText().toString())){
-			int roomsUnsprayed = Integer.valueOf(roomsUnsprayedValue.getText().toString());
-			int sheltersUnsprayed = Integer.valueOf(sheltersUnsprayedValue.getText().toString());
-			i.putExtra(Constants.ROOMS_UNSPRAYED, roomsUnsprayed);
-			i.putExtra(Constants.SHELTERS_UNSPRAYED, sheltersUnsprayed);
-			startActivity(i);	
-		}
-		else
-			Toast.makeText(getApplicationContext(), "Please input integer values in every text field", Toast.LENGTH_SHORT).show();
-	}
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getData();
+            };
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
+                startActivity(intent);
+            };
+        });
+
+    }
+
+    public void getData() {
+        Intent i = new Intent(this, ConfirmNoSpray.class);
+        String numbers = "0123456789";
+
+        if (roomsUnsprayedValue.getText().toString().equals("")
+                || sheltersUnsprayedValue.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "Please input a value for every text field",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            try {
+                int roomsUnsprayed = Integer.valueOf(roomsUnsprayedValue.getText().toString());
+                int sheltersUnsprayed = Integer
+                        .valueOf(sheltersUnsprayedValue.getText().toString());
+                i.putExtra(Constants.ROOMS_UNSPRAYED, roomsUnsprayed);
+                i.putExtra(Constants.SHELTERS_UNSPRAYED, sheltersUnsprayed);
+                startActivity(i);
+            } catch (NumberFormatException e) {
+                Toast.makeText(getApplicationContext(),
+                        "Please input integer values in every text field", Toast.LENGTH_SHORT)
+                        .show();
+            }
+        }
+    }
 }

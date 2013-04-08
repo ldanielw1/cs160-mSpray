@@ -55,9 +55,7 @@ public class PyrethroidActivity extends Activity {
     }
 
     public void getData() {
-        Intent i = new Intent(this, ConfirmPyrethroid.class);
-        boolean refilled = false;
-        String numbers = "0123456789";
+        Intent intent = new Intent(this, ConfirmPyrethroid.class);
 
         if (roomsSprayedValue.getText().toString().equals("")
                 || sheltersSprayedValue.getText().toString().equals("")
@@ -65,25 +63,25 @@ public class PyrethroidActivity extends Activity {
                 || sheltersUnsprayedValue.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Please input a value for every text field",
                     Toast.LENGTH_SHORT).show();
-        } else if (numbers.contains(roomsSprayedValue.getText().toString())
-                || numbers.contains(sheltersSprayedValue.getText().toString())
-                || numbers.contains(roomsUnsprayedValue.getText().toString())
-                || numbers.contains(sheltersUnsprayedValue.getText().toString())) {
-            int roomsSprayed = Integer.valueOf(roomsSprayedValue.getText().toString());
-            int sheltersSprayed = Integer.valueOf(sheltersSprayedValue.getText().toString());
-            int roomsUnsprayed = Integer.valueOf(roomsUnsprayedValue.getText().toString());
-            int sheltersUnsprayed = Integer.valueOf(sheltersUnsprayedValue.getText().toString());
-            if (canRefilled.getCheckedRadioButtonId() == R.id.pyrethroid_radiobutton_CanRefilledYes) {
-                refilled = true;
+        } else {
+            try {
+                int roomsSprayed = Integer.valueOf(roomsSprayedValue.getText().toString());
+                int sheltersSprayed = Integer.valueOf(sheltersSprayedValue.getText().toString());
+                int roomsUnsprayed = Integer.valueOf(roomsUnsprayedValue.getText().toString());
+                int sheltersUnsprayed = Integer
+                        .valueOf(sheltersUnsprayedValue.getText().toString());
+                boolean refilled = canRefilled.getCheckedRadioButtonId() == R.id.pyrethroid_radiobutton_CanRefilledYes;
+                intent.putExtra(Constants.ROOMS_SPRAYED, roomsSprayed);
+                intent.putExtra(Constants.ROOMS_UNSPRAYED, roomsUnsprayed);
+                intent.putExtra(Constants.SHELTERS_SPRAYED, sheltersSprayed);
+                intent.putExtra(Constants.SHELTERS_UNSPRAYED, sheltersUnsprayed);
+                intent.putExtra(Constants.CAN_REFILLED, refilled);
+                startActivity(intent);
+            } catch (NumberFormatException e) {
+                Toast.makeText(getApplicationContext(),
+                        "Please input integer values in every text field", Toast.LENGTH_SHORT)
+                        .show();
             }
-            i.putExtra("roomsSprayed", roomsSprayed);
-            i.putExtra("roomsUnsprayed", roomsUnsprayed);
-            i.putExtra("sheltersSprayed", sheltersSprayed);
-            i.putExtra("sheltersUnsprayed", sheltersUnsprayed);
-            i.putExtra("canRefilled", refilled);
-            startActivity(i);
-        } else
-            Toast.makeText(getApplicationContext(),
-                    "Please input integer values in every text field", Toast.LENGTH_SHORT).show();
+        }
     }
 }

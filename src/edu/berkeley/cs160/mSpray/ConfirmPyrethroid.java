@@ -15,11 +15,11 @@ public class ConfirmPyrethroid extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirm_pyrethroid);
         Bundle extras = this.getIntent().getExtras();
-        int roomsSprayed = extras.getInt("roomsSprayed");
-        int roomsUnsprayed = extras.getInt("roomsUnsprayed");
-        int sheltersSprayed = extras.getInt("sheltersSprayed");
-        int sheltersUnsprayed = extras.getInt("sheltersUnsprayed");
-        boolean refilled = extras.getBoolean("canRefilled");
+        int roomsSprayed = extras.getInt(Constants.ROOMS_SPRAYED);
+        int roomsUnsprayed = extras.getInt(Constants.ROOMS_UNSPRAYED);
+        int sheltersSprayed = extras.getInt(Constants.SHELTERS_SPRAYED);
+        int sheltersUnsprayed = extras.getInt(Constants.SHELTERS_UNSPRAYED);
+        boolean refilled = extras.getBoolean(Constants.CAN_REFILLED);
         String c = refilled ? "" : "not ";
         TextView results = (TextView) findViewById(R.id.confirm_pyrethroid_textview_contents);
         // NEED TO ADD SPRAYER NAME
