@@ -55,6 +55,7 @@ public class GetGpsActivity extends Activity {
                     public void onClick(View view) {
                         Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
                         intent.putExtra("collectedForemanRFIDs", true);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }
                 });
