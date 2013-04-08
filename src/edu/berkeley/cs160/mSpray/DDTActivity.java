@@ -10,7 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class DDTform extends Activity {
+public class DDTActivity extends Activity {
 
     EditText roomsSprayedValue;
     EditText sheltersSprayedValue;
@@ -55,7 +55,7 @@ public class DDTform extends Activity {
     }
 
     public void getData() {
-        Intent i = new Intent(this, ConfirmDDT.class);
+        Intent intent = new Intent(this, ConfirmDDT.class);
         boolean refilled = false;
         String numbers = "0123456789";
 
@@ -76,12 +76,12 @@ public class DDTform extends Activity {
             if (canRefilled.getCheckedRadioButtonId() == R.id.ddt_radiobutton_canRefilledYes) {
                 refilled = true;
             }
-            i.putExtra("roomsSprayed", roomsSprayed);
-            i.putExtra("roomsUnsprayed", roomsUnsprayed);
-            i.putExtra("sheltersSprayed", sheltersSprayed);
-            i.putExtra("sheltersUnsprayed", sheltersUnsprayed);
-            i.putExtra("canRefilled", refilled);
-            startActivity(i);
+            intent.putExtra("roomsSprayed", roomsSprayed);
+            intent.putExtra("roomsUnsprayed", roomsUnsprayed);
+            intent.putExtra("sheltersSprayed", sheltersSprayed);
+            intent.putExtra("sheltersUnsprayed", sheltersUnsprayed);
+            intent.putExtra("canRefilled", refilled);
+            startActivity(intent);
         } else
             Toast.makeText(getApplicationContext(),
                     "Please input integer values in every text field", Toast.LENGTH_SHORT).show();

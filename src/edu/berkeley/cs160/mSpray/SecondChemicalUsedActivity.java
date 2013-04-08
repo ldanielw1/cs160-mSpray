@@ -36,7 +36,7 @@ public class SecondChemicalUsedActivity extends Activity {
 		ddtButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(), DDTform.class);
+				Intent intent = new Intent(getApplicationContext(), DDTActivity.class);
 				startActivity(intent);
 			}
 		});
