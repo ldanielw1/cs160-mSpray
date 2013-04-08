@@ -20,8 +20,6 @@
             android:id="@+id/confirm_ddt_button_confirmButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
             android:layout_weight="0.19"
             android:text="@string/confirm" />
 
