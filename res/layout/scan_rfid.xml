@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scanRFIDLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/scan_rfid_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:contentDescription="@string/nfcInstructions"
+        android:src="@drawable/badgenew" />
+    
+    <TextView
+        android:id="@+id/add_sprayer_textView_instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_below="@+id/scan_rfid_image"
+        android:text="Scan Badge"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="50sp" />
+
+</RelativeLayout>
