@@ -4,6 +4,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
@@ -28,15 +31,24 @@
             android:name="edu.berkeley.cs160.mSpray.SprayerIDScan"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.GetGpsActivity" ></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.PaperWorkChoiceActivity" ></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.NoSprayActivity" ></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.DDTActivity" ></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.PyrethroidActivity" ></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmDDT" ></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmNoSpray" ></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmPyrethroid" ></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.FinishedActivity"></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.GetGpsActivity" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.PaperWorkChoiceActivity" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.NoSprayActivity" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.DDTActivity" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.PyrethroidActivity" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmDDT" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmNoSpray" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmPyrethroid" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.FinishedActivity" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,5 +1,8 @@
 package edu.berkeley.cs160.mSpray;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,11 +33,21 @@ public class MSpray extends Activity {
         startSpray.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    Scanner s = new Scanner(getAssets().open("authentication.txt"));
+                    while (s.hasNextLine())
+                        System.err.println(s.nextLine());
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
                 Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             };
         });
+
     }
 
     @Override

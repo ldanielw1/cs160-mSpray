@@ -118,9 +118,7 @@ public final class TestGoogleSpreadsheetUploader {
 
     @SuppressLint("SimpleDateFormat")
     private String generateUploadString() {
-        SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        Date d = new Date(System.currentTimeMillis());
-        formattedDate = formatDateTime(df.format(d));
+        formattedDate = formatDateTime();
         return uploadStringTimePrefix + formattedDate + uploadStringNoDate;
     }
 
@@ -128,14 +126,17 @@ public final class TestGoogleSpreadsheetUploader {
         return uploadStringTimePrefix + formattedDate + replaceStringNoDate;
     }
 
-    private static String formatDateTime(String dateTime) {
-        String[] splitDateTime = dateTime.split(" ");
+    @SuppressLint("SimpleDateFormat")
+    private static String formatDateTime() {
+        SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        Date d = new Date(System.currentTimeMillis());
+        String[] formattedDateArray = df.format(d).split(" ");
 
-        String[] splitDate = splitDateTime[0].split("/");
+        String[] splitDate = formattedDateArray[0].split("/");
         int month = Integer.parseInt(splitDate[0]);
         int day = Integer.parseInt(splitDate[1]);
         int year = Integer.parseInt(splitDate[2]);
 
-        return month + "/" + day + "/" + year + " " + splitDateTime[1];
+        return month + "/" + day + "/" + year + " " + formattedDateArray[1];
     }
 }
