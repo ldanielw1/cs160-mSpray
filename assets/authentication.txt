@@ -1,0 +1,4 @@
+USERNAME = "mSprayApp"
+PASSWORD = "mSprayApp1.0"
+SPREADSHEET_TITLE = "mSpray v1.5 Results";
+WORKSHEET_TITLE = "Sheet1";

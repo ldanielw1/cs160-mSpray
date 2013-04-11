@@ -14,4 +14,7 @@ public final class Constants {
     public static final String ROOMS_UNSPRAYED = "roomsUnsprayed";
     public static final String SHELTERS_UNSPRAYED = "sheltersUnsprayed";
     public static final String CAN_REFILLED = "canRefilled";
+
+    public static final String AUTHENTICATION_FILE = "assets/authentication.txt";
+
 }
