@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:screenOrientation="portrait" >
+
+    <LinearLayout
+        android:id="@+id/choose_sprayers_wrapper"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerVertical="true"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/activity_choose_sprayers_1"
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:layout_weight="0.5"
+            android:drawablePadding="-15sp"
+            android:drawableTop="@drawable/sprayworker"
+            android:paddingTop="32sp"
+            android:text="1 sprayer"
+            android:textSize="50sp" >
+        </Button>
+
+        <Button
+            android:id="@+id/activity_choose_sprayers_2"
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:layout_weight="0.5"
+            android:drawablePadding="-15sp"
+            android:drawableTop="@drawable/sprayworker2"
+            android:paddingTop="32sp"
+            android:text="2 sprayers"
+            android:textSize="50sp" >
+        </Button>
+    </LinearLayout>
+
+</RelativeLayout>
