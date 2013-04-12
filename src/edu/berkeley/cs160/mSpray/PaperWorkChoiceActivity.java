@@ -37,10 +37,11 @@ public class PaperWorkChoiceActivity extends Activity {
         ddt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DDTActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, 1);
+                intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);
                 startActivity(intent);
             };
         });
@@ -48,10 +49,11 @@ public class PaperWorkChoiceActivity extends Activity {
         pyrethroid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PyrethroidActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, 1);
+                intent.putExtra(Constants.SPRAY_TYPE, Constants.PYRETHROID);
                 startActivity(intent);
             };
         });
@@ -59,10 +61,11 @@ public class PaperWorkChoiceActivity extends Activity {
         noSpray.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NoSprayActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, 1);
+                intent.putExtra(Constants.SPRAY_TYPE, Constants.NO_SPRAY);
                 startActivity(intent);
             };
         });
