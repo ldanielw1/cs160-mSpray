@@ -138,13 +138,13 @@ public class SprayerIDScan extends Activity {
 
                         if (!firstAdd) {
                             firstAdd = true;
-                            SPRAYER_NAMES = SPRAYER_NAMES + "BE02 - Mabunda YW";
-                            scannedName2.setText("BE05 - Simba TS");
+                            SPRAYER_NAMES = SPRAYER_NAMES + "Sprayer 1";
+                            scannedName2.setText("Sprayer 1");
                         }
 
                         if (!secondAdd) {
                             scannedName.setVisibility(View.VISIBLE);
-                            SPRAYER_NAMES = SPRAYER_NAMES + " BE05 - Simba TS";
+                            SPRAYER_NAMES = SPRAYER_NAMES + " Sprayer 2";
                             addSprayer.setText("Scan another sprayer");
                             secondAdd = true;
                             return;
@@ -185,8 +185,8 @@ public class SprayerIDScan extends Activity {
     private void changeRFIDMode(String m) {
         if (m.equals("sprayer")) {
             RFIDmode = "sprayer";
-            scannedName.setText("BE02 - Mabunda YW");
-            scannedName2.setText("BE05 - Simba TS");
+            scannedName.setText("Sprayer 1");
+            scannedName2.setText("Sprayer 2");
             addSprayer.setText("Scan sprayer's badge");
             header.setText("Sprayer IDs");
             instructions.setText("Place phone on top of the Sprayer's badge");

@@ -19,7 +19,7 @@ public class PaperWorkChoiceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chemical_used);
         
-        header = (TextView) findViewById(R.id.other_chemical_used_textview_title);
+        header = (TextView) findViewById(R.id.textView1);
         header.setTypeface(Constants.TYPEFACE);
 
         back = (Button) findViewById(R.id.chemical_used_button_back);

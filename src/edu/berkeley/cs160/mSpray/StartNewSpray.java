@@ -17,7 +17,7 @@ public class StartNewSpray extends Activity {
         setTitle("");
 
         TextView tv = (TextView) findViewById(R.id.activity_start_new_spray_header);
-        tv.setText("You are: Chauke RT");
+        tv.setText("You are: Foreman");
         tv.setTypeface(Constants.TYPEFACE);
 
         Button b = (Button) findViewById(R.id.activity_start_new_spray_button);
