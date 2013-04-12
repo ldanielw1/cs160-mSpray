@@ -81,7 +81,7 @@
             android:layout_alignTop="@+id/add_sprayer_imageView_RFIDPic"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="42dp"
-            android:text="BE02 - Mabunda YW"
+            android:text="Sprayer 1"
             android:textSize="15sp" />
 
         <TextView
@@ -91,7 +91,7 @@
             android:layout_below="@+id/add_sprayer_textView_PersonName"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="19dp"
-            android:text="BE05 - Simba TS"
+            android:text="Sprayer 2"
             android:textSize="15sp" />
 
         <TextView
