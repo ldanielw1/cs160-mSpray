@@ -20,6 +20,7 @@ public class ScanForeman extends Activity {
             public void explode() {
                 DataStore.foremanID = "Chauke RT";
                 Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         };
