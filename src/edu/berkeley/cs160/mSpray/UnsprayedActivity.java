@@ -24,9 +24,13 @@ public class UnsprayedActivity extends Activity {
         setContentView(R.layout.no_spray);
 
         roomsUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
+        roomsUnsprayedValue.setTypeface(Constants.TYPEFACE);
         sheltersUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_sheltersUnsprayedValue);
+        sheltersUnsprayedValue.setTypeface(Constants.TYPEFACE);
         backButton = (Button) findViewById(R.id.no_spray_button_backButton);
+        backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.no_spray_button_confirmButton);
+        confirmButton.setTypeface(Constants.TYPEFACE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override

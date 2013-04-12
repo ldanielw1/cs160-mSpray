@@ -5,22 +5,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class PaperWorkChoiceActivity extends Activity {
     Button pyrethroid;
     Button ddt;
     Button noSpray;
     Button back;
+    TextView header;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chemical_used);
+        
+        header = (TextView) findViewById(R.id.other_chemical_used_textview_title);
+        header.setTypeface(Constants.TYPEFACE);
 
         back = (Button) findViewById(R.id.chemical_used_button_back);
+        back.setTypeface(Constants.TYPEFACE);
+        
         ddt = (Button) findViewById(R.id.chemical_used_button_ddt);
+        ddt.setTypeface(Constants.TYPEFACE);
+        
         pyrethroid = (Button) findViewById(R.id.chemical_used_button_pyrethroid);
+        pyrethroid.setTypeface(Constants.TYPEFACE);
+        
         noSpray = (Button) findViewById(R.id.chemical_used_button_noSpray);
+        noSpray.setTypeface(Constants.TYPEFACE);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

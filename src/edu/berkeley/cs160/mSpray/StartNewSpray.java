@@ -18,6 +18,7 @@ public class StartNewSpray extends Activity {
 
         TextView tv = (TextView) findViewById(R.id.activity_start_new_spray_header);
         tv.setText("You are: Chauke RT");
+        tv.setTypeface(Constants.TYPEFACE);
 
         Button b = (Button) findViewById(R.id.activity_start_new_spray_button);
         b.setOnClickListener(new View.OnClickListener() {
@@ -28,6 +29,7 @@ public class StartNewSpray extends Activity {
                 startActivity(intent);
             }
         });
+        b.setTypeface(Constants.TYPEFACE);
     }
 
     @Override

@@ -15,6 +15,8 @@ public class FinishedActivity extends Activity {
         setContentView(R.layout.finished);
 
         Button finishedButton = (Button) findViewById(R.id.finished_button_finishedButton);
+        finishedButton.setTypeface(Constants.TYPEFACE);
+
         finishedButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

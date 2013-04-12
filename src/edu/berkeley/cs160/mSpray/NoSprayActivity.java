@@ -22,7 +22,9 @@ public class NoSprayActivity extends Activity {
         roomsUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
         sheltersUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_sheltersUnsprayedValue);
         backButton = (Button) findViewById(R.id.no_spray_button_backButton);
+        backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.no_spray_button_confirmButton);
+        confirmButton.setTypeface(Constants.TYPEFACE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override

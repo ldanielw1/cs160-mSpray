@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.TextView;
 
 public class ScanSprayer1 extends Activity {
 
@@ -18,9 +19,12 @@ public class ScanSprayer1 extends Activity {
         final String sprayType = extras.getString(Constants.SPRAY_TYPE);
 
         setTitle("Identify sprayer ");
+        
+        /* External Font */
+        TextView tv = (TextView) findViewById(R.id.scan_rfid_instructions);
+        tv.setTypeface(Constants.TYPEFACE);
 
         /* RFID Wizard of Oz */
-        // TODO: THIS PART IS NOT FINISHED!!!!!!!!!!!!
         TimeBomb bomb = new TimeBomb() {
             @Override
             public void explode() {

@@ -43,8 +43,11 @@ public class ConfirmNoSpray extends Activity {
         setContentView(R.layout.confirm_no_spray);
 
         results = (TextView) findViewById(R.id.confirm_no_spray_textview_contents);
+        results.setTypeface(Constants.TYPEFACE);
         backButton = (Button) findViewById(R.id.confirm_no_spray_button_backButton);
+        backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.confirm_no_spray_button_confirmButton);
+        confirmButton.setTypeface(Constants.TYPEFACE);
 
         extras = this.getIntent().getExtras();
 
