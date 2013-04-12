@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup.MarginLayoutParams;
@@ -70,7 +69,6 @@ public class SprayerIDScan extends Activity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            Log.d("xyz", "yayayayay");
             collectedForemanRFIDs = extras.getBoolean("collectedForemanRFIDs");
             foremanRecorded = extras.getBoolean("foremanRecorded");
         } else {

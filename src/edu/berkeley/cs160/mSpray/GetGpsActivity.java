@@ -36,6 +36,11 @@ public class GetGpsActivity extends Activity {
                 switch (msg.what) {
                     case Constants.GPS_FOUND: {
                         LocationFound.setVisibility(View.VISIBLE);
+                        DataStore.lat = "22.879";
+                        DataStore.latNS = "S";
+                        DataStore.lng = "30.729";
+                        DataStore.lngEW = "E";
+                        DataStore.accuracy = "7";
                         progDialog.dismiss();
                     }
                 }
@@ -45,22 +50,25 @@ public class GetGpsActivity extends Activity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            	Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
-            	startActivity(intent);
-//                setContentView(R.layout.activity_mspray);
-//                TextView h = (TextView) findViewById(R.id.activity_mspray_header);
-//                h.setText("Identify the sprayers for this house");
-//                Button b = (Button) findViewById(R.id.activity_mspray_button);
-//                b.setText("Scan sprayer's badge");
-//                b.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
-//                        intent.putExtra("collectedForemanRFIDs", true);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                        startActivity(intent);
-//                    }
-//                });
+                Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
+                startActivity(intent);
+                // setContentView(R.layout.activity_mspray);
+                // TextView h = (TextView)
+                // findViewById(R.id.activity_mspray_header);
+                // h.setText("Identify the sprayers for this house");
+                // Button b = (Button)
+                // findViewById(R.id.activity_mspray_button);
+                // b.setText("Scan sprayer's badge");
+                // b.setOnClickListener(new View.OnClickListener() {
+                // @Override
+                // public void onClick(View view) {
+                // Intent intent = new Intent(getApplicationContext(),
+                // SprayerIDScan.class);
+                // intent.putExtra("collectedForemanRFIDs", true);
+                // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                // startActivity(intent);
+                // }
+                // });
             };
         });
 

@@ -17,6 +17,9 @@ public class PaperWorkChoiceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chemical_used);
 
+        Bundle extras = this.getIntent().getExtras();
+        final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
+
         back = (Button) findViewById(R.id.chemical_used_button_back);
         ddt = (Button) findViewById(R.id.chemical_used_button_ddt);
         pyrethroid = (Button) findViewById(R.id.chemical_used_button_pyrethroid);
@@ -25,9 +28,8 @@ public class PaperWorkChoiceActivity extends Activity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
+                Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("collectedForemanRFIDs", true);
                 startActivity(intent);
             };
         });
@@ -37,6 +39,8 @@ public class PaperWorkChoiceActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DDTActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
+                intent.putExtra(Constants.FORM_NUMBER, 1);
                 startActivity(intent);
             };
         });
@@ -46,6 +50,8 @@ public class PaperWorkChoiceActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PyrethroidActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
+                intent.putExtra(Constants.FORM_NUMBER, 1);
                 startActivity(intent);
             };
         });
@@ -55,6 +61,8 @@ public class PaperWorkChoiceActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), NoSprayActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
+                intent.putExtra(Constants.FORM_NUMBER, 1);
                 startActivity(intent);
             };
         });

@@ -22,10 +22,17 @@ public class DDTActivity extends Activity {
     Button backButton;
     Button confirmButton;
 
+    int numSprayers;
+    int formNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ddt);
+
+        Bundle extras = this.getIntent().getExtras();
+        numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
+        formNumber = extras.getInt(Constants.FORM_NUMBER);
         canRefilled = (RadioGroup) findViewById(R.id.ddt_radiogroup);
         roomsSprayedValue = (EditText) findViewById(R.id.ddt_edittext_roomsSprayedValue);
         sheltersSprayedValue = (EditText) findViewById(R.id.ddt_edittext_sheltersSprayedValue);
@@ -76,6 +83,11 @@ public class DDTActivity extends Activity {
                 intent.putExtra(Constants.SHELTERS_SPRAYED, sheltersSprayed);
                 intent.putExtra(Constants.SHELTERS_UNSPRAYED, sheltersUnsprayed);
                 intent.putExtra(Constants.CAN_REFILLED, refilled);
+                intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
+                intent.putExtra(Constants.FORM_NUMBER, formNumber);
+
+                formNumber += 1;
+
                 startActivity(intent);
             } catch (NumberFormatException e) {
                 Toast.makeText(getApplicationContext(),

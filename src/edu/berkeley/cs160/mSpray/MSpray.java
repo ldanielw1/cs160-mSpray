@@ -1,8 +1,5 @@
 package edu.berkeley.cs160.mSpray;
 
-import java.io.IOException;
-import java.util.Scanner;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -23,32 +20,25 @@ public class MSpray extends Activity {
 
         startSpray = (Button) findViewById(R.id.activity_mspray_button);
 
-         // External font
-         TextView tv = (TextView) findViewById(R.id.activity_mspray_header);
-         String fontPath = "fonts/life.ttf";
-         Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
-         
+        // External font
+        TextView tv = (TextView) findViewById(R.id.activity_mspray_header);
+        String fontPath = "fonts/life.ttf";
+        Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
 
-         // Apply fonts
-         tv.setTypeface(tf);
-         tv.setTextSize(28);
-         
-         startSpray.setTypeface(tf);
-         startSpray.setTextSize(40);
+        // Apply fonts
+        tv.setTypeface(tf);
+        tv.setTextSize(28);
+
+        startSpray.setTypeface(tf);
+        startSpray.setTextSize(40);
 
         startSpray.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    Scanner s = new Scanner(getAssets().open("authentication.txt"));
-                    while (s.hasNextLine())
-                        System.err.println(s.nextLine());
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                DataStore.startNewStoreSession();
 
-//                Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
+                // Intent intent = new Intent(getApplicationContext(),
+                // SprayerIDScan.class);
                 Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

@@ -8,13 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 public class StartNewSpray extends Activity {
-
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.start_new_spray);
-        
+
         setTitle("");
-        
+
         Button b = (Button) findViewById(R.id.activity_start_new_spray_button);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,11 +24,12 @@ public class StartNewSpray extends Activity {
                 startActivity(intent);
             }
         });
-	}
+    }
 
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.mspray, menu);
-		return true;
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.mspray, menu);
+        return true;
+    }
 }
