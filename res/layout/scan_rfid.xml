@@ -12,7 +12,7 @@
         android:src="@drawable/badgenew" />
     
     <TextView
-        android:id="@+id/add_sprayer_textView_instructions"
+        android:id="@+id/scan_rfid_instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
