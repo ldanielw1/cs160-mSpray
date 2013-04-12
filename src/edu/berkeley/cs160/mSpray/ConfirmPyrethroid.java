@@ -145,6 +145,10 @@ public class ConfirmPyrethroid extends Activity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 } else {
+                    DataStore.pyrethroid_SPRAYED_ROOMS_1 = roomsSprayed;
+                    DataStore.pyrethroid_SPRAYED_SHELTERS_1 = sheltersSprayed;
+                    DataStore.pyrethroid_Refill_1 = refilled;
+
                     Intent intent = new Intent(getApplicationContext(), PyrethroidActivity.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
