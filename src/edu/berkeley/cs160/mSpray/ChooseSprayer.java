@@ -21,8 +21,8 @@ public class ChooseSprayer extends Activity {
         oneSprayerButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
-            	Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
+                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
+//            	Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.NUM_SPRAYERS, 1);
                 intent.putExtra(Constants.FORM_NUMBER, 1);
@@ -33,8 +33,8 @@ public class ChooseSprayer extends Activity {
         twoSprayerButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
-            	Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
+                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
+//            	Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.NUM_SPRAYERS, 2);
                 intent.putExtra(Constants.FORM_NUMBER, 1);
