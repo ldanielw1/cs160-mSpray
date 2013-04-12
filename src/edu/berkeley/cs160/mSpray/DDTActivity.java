@@ -33,6 +33,7 @@ public class DDTActivity extends Activity {
         Bundle extras = this.getIntent().getExtras();
         numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
         formNumber = extras.getInt(Constants.FORM_NUMBER);
+
         canRefilled = (RadioGroup) findViewById(R.id.ddt_radiogroup);
         roomsSprayedValue = (EditText) findViewById(R.id.ddt_edittext_roomsSprayedValue);
         sheltersSprayedValue = (EditText) findViewById(R.id.ddt_edittext_sheltersSprayedValue);
@@ -85,8 +86,6 @@ public class DDTActivity extends Activity {
                 intent.putExtra(Constants.CAN_REFILLED, refilled);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, formNumber);
-
-                formNumber += 1;
 
                 startActivity(intent);
             } catch (NumberFormatException e) {

@@ -29,8 +29,6 @@ public class ConfirmDDT extends Activity {
     private static final String SPREADSHEET_TITLE_LABEL = "SPREADSHEET_TITLE";
     private static final String WORKSHEET_TITLE_LABEL = "WORKSHEET_TITLE";
 
-    private static int formNumber;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +36,7 @@ public class ConfirmDDT extends Activity {
 
         Bundle extras = this.getIntent().getExtras();
         final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
-        formNumber = extras.getInt(Constants.FORM_NUMBER);
+        final int formNumber = extras.getInt(Constants.FORM_NUMBER);
         final int roomsSprayed = extras.getInt(Constants.ROOMS_SPRAYED);
         final int roomsUnsprayed = extras.getInt(Constants.ROOMS_UNSPRAYED);
         final int sheltersSprayed = extras.getInt(Constants.SHELTERS_SPRAYED);
@@ -137,7 +135,6 @@ public class ConfirmDDT extends Activity {
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    formNumber += 1;
                     startActivity(intent);
                 }
             }
