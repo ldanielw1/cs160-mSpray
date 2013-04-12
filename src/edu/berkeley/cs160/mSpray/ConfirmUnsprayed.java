@@ -39,9 +39,14 @@ public class ConfirmUnsprayed extends Activity {
         final int sheltersUnsprayed = extras.getInt(Constants.SHELTERS_UNSPRAYED);
 
         TextView results = (TextView) findViewById(R.id.confirm_unsprayed_textview_contents);
-        results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n" + "          %s\n"
-                + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n", DataStore.foremanID,
-                DataStore.sprayer1ID, DataStore.sprayer2ID, roomsUnsprayed, sheltersUnsprayed));
+        if (DataStore.sprayer2ID == null)
+            results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
+                    + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n", DataStore.foremanID,
+                    DataStore.sprayer1ID, roomsUnsprayed, sheltersUnsprayed));
+        else
+            results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n" + "          %s\n"
+                    + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n", DataStore.foremanID,
+                    DataStore.sprayer1ID, DataStore.sprayer2ID, roomsUnsprayed, sheltersUnsprayed));
 
         Button backButton = (Button) findViewById(R.id.confirm_unsprayed_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {

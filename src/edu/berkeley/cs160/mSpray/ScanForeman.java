@@ -18,7 +18,7 @@ public class ScanForeman extends Activity {
         TimeBomb bomb = new TimeBomb() {
             @Override
             public void explode() {
-                DataStore.foremanID = "Jeff Butler";
+                DataStore.foremanID = "Chauke RT";
                 Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
                 startActivity(intent);
             }

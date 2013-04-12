@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="You are Dakarai R."
+        android:text="You are Chauke RT."
         android:textSize="20sp" />
 
     <Button

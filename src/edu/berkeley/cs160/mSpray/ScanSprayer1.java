@@ -25,9 +25,9 @@ public class ScanSprayer1 extends Activity {
             @Override
             public void explode() {
                 if (formNumber == 1)
-                    DataStore.sprayer1ID = "Annie Shin";
+                    DataStore.sprayer1ID = "Maringa HW";
                 else if (formNumber == 2)
-                    DataStore.sprayer2ID = "Daniel Wu";
+                    DataStore.sprayer2ID = "Mabunda YW";
                 Intent intent = null;
                 if (sprayType.equals(Constants.DDT))
                     intent = new Intent(getApplicationContext(), DDTActivity.class);
