@@ -17,7 +17,7 @@ public class ScanForeman extends Activity {
         /* RFID Wizard of Oz */
         TimeBomb bomb = new TimeBomb() {
         	public void explode() {
-        		Intent intent = new Intent(getApplicationContext(), GetGpsActivity.class);
+        		Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
                 startActivity(intent);        		
         	}
         };

@@ -48,7 +48,8 @@ public class MSpray extends Activity {
                     e.printStackTrace();
                 }
 
-                Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
+//                Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
+                Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             };
