@@ -14,8 +14,6 @@ public class PyrethroidActivity extends Activity {
 
     EditText roomsSprayedValue;
     EditText sheltersSprayedValue;
-    EditText roomsUnsprayedValue;
-    EditText sheltersUnsprayedValue;
     RadioGroup canRefilled;
     RadioButton canRefilledYes;
     RadioButton canRefilledNo;
@@ -28,22 +26,19 @@ public class PyrethroidActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pyrethroid);
+        setContentView(R.layout.sprayer_form);
 
         Bundle extras = this.getIntent().getExtras();
         numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
         formNumber = extras.getInt(Constants.FORM_NUMBER);
 
-        canRefilled = (RadioGroup) findViewById(R.id.pyrethroid_radiogroup);
-        roomsSprayedValue = (EditText) findViewById(R.id.pyrethroid_edittext_roomsSprayedValue);
-        sheltersSprayedValue = (EditText) findViewById(R.id.pyrethroid_edittext_sheltersSprayedValue);
-        roomsUnsprayedValue = (EditText) findViewById(R.id.pyrethroid_edittext_roomsUnsprayedValue);
-        sheltersUnsprayedValue = (EditText) findViewById(R.id.pyrethroid_edittext_sheltersUnsprayedValue);
-        canRefilled = (RadioGroup) findViewById(R.id.pyrethroid_radiogroup);
-        canRefilledYes = (RadioButton) findViewById(R.id.pyrethroid_radiobutton_CanRefilledYes);
-        canRefilledNo = (RadioButton) findViewById(R.id.pyrethroid_radiobutton_CanRefilledNo);
-        backButton = (Button) findViewById(R.id.pyrethroid_button_backButton);
-        confirmButton = (Button) findViewById(R.id.pyrethroid_button_confirmButton);
+        roomsSprayedValue = (EditText) findViewById(R.id.sprayer_form_edittext_roomsSprayedValue);
+        sheltersSprayedValue = (EditText) findViewById(R.id.sprayer_form_edittext_sheltersSprayedValue);
+        canRefilled = (RadioGroup) findViewById(R.id.sprayer_form_radiogroup);
+        canRefilledYes = (RadioButton) findViewById(R.id.sprayer_form_radiobutton_canRefilledYes);
+        canRefilledNo = (RadioButton) findViewById(R.id.sprayer_form_radiobutton_canRefilledNo);
+        backButton = (Button) findViewById(R.id.sprayer_form_button_backButton);
+        confirmButton = (Button) findViewById(R.id.sprayer_form_button_confirmButton);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,23 +61,16 @@ public class PyrethroidActivity extends Activity {
         Intent intent = new Intent(this, ConfirmPyrethroid.class);
 
         if (roomsSprayedValue.getText().toString().equals("")
-                || sheltersSprayedValue.getText().toString().equals("")
-                || roomsUnsprayedValue.getText().toString().equals("")
-                || sheltersUnsprayedValue.getText().toString().equals("")) {
+                || sheltersSprayedValue.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Please input a value for every text field",
                     Toast.LENGTH_SHORT).show();
         } else {
             try {
-                int roomsSprayed = Integer.valueOf(roomsSprayedValue.getText().toString());
-                int sheltersSprayed = Integer.valueOf(sheltersSprayedValue.getText().toString());
-                int roomsUnsprayed = Integer.valueOf(roomsUnsprayedValue.getText().toString());
-                int sheltersUnsprayed = Integer
-                        .valueOf(sheltersUnsprayedValue.getText().toString());
-                boolean refilled = canRefilled.getCheckedRadioButtonId() == R.id.pyrethroid_radiobutton_CanRefilledYes;
+                int roomsSprayed = Integer.parseInt(roomsSprayedValue.getText().toString());
+                int sheltersSprayed = Integer.parseInt(sheltersSprayedValue.getText().toString());
+                boolean refilled = canRefilled.getCheckedRadioButtonId() == R.id.sprayer_form_radiobutton_canRefilledYes;
                 intent.putExtra(Constants.ROOMS_SPRAYED, roomsSprayed);
-                intent.putExtra(Constants.ROOMS_UNSPRAYED, roomsUnsprayed);
                 intent.putExtra(Constants.SHELTERS_SPRAYED, sheltersSprayed);
-                intent.putExtra(Constants.SHELTERS_UNSPRAYED, sheltersUnsprayed);
                 intent.putExtra(Constants.CAN_REFILLED, refilled);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, formNumber);

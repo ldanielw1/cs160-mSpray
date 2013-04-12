@@ -14,8 +14,6 @@ public class DDTActivity extends Activity {
 
     EditText roomsSprayedValue;
     EditText sheltersSprayedValue;
-    EditText roomsUnsprayedValue;
-    EditText sheltersUnsprayedValue;
     RadioGroup canRefilled;
     RadioButton canRefilledYes;
     RadioButton canRefilledNo;
@@ -70,7 +68,7 @@ public class DDTActivity extends Activity {
             try {
                 int roomsSprayed = Integer.parseInt(roomsSprayedValue.getText().toString());
                 int sheltersSprayed = Integer.parseInt(sheltersSprayedValue.getText().toString());
-                boolean refilled = canRefilled.getCheckedRadioButtonId() == R.id.ddt_radiobutton_canRefilledYes;
+                boolean refilled = canRefilled.getCheckedRadioButtonId() == R.id.sprayer_form_radiobutton_canRefilledYes;
                 intent.putExtra(Constants.ROOMS_SPRAYED, roomsSprayed);
                 intent.putExtra(Constants.SHELTERS_SPRAYED, sheltersSprayed);
                 intent.putExtra(Constants.CAN_REFILLED, refilled);

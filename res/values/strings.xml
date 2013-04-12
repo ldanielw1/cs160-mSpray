@@ -13,6 +13,7 @@
     <string name="confirmDDT">Confirm - DDT</string>
     <string name="confirmNoSpray">Confirm - No Spray</string>
     <string name="confirmPyrethroid">Confirm - Pyrethroid</string>
+    <string name="confirmUnsprayed">Confirm - Unsprayed</string>
     <string name="dataRecorded">Data Recorded</string>
     <string name="ddt">DDT</string>
     <string name="emptyString"/>

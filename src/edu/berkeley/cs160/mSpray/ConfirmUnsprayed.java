@@ -32,26 +32,26 @@ public class ConfirmUnsprayed extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.confirm_no_spray);
+        setContentView(R.layout.confirm_unsprayed);
 
         Bundle extras = this.getIntent().getExtras();
         final int roomsUnsprayed = extras.getInt(Constants.ROOMS_UNSPRAYED);
         final int sheltersUnsprayed = extras.getInt(Constants.SHELTERS_UNSPRAYED);
 
-        TextView results = (TextView) findViewById(R.id.confirm_no_spray_textview_contents);
+        TextView results = (TextView) findViewById(R.id.confirm_unsprayed_textview_contents);
         // NEED TO ADD SPRAYER NAME
         results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n" + "Rooms Unsprayed: %d\n"
                 + "Shelters Unsprayed: %d\n", SprayerIDScan.FOREMAN_NAME,
                 SprayerIDScan.SPRAYER_NAMES, roomsUnsprayed, sheltersUnsprayed));
 
-        Button backButton = (Button) findViewById(R.id.confirm_no_spray_button_backButton);
+        Button backButton = (Button) findViewById(R.id.confirm_unsprayed_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
-        Button confirmButton = (Button) findViewById(R.id.confirm_no_spray_button_confirmButton);
+        Button confirmButton = (Button) findViewById(R.id.confirm_unsprayed_button_confirmButton);
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
