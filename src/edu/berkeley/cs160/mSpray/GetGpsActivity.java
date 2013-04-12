@@ -50,25 +50,8 @@ public class GetGpsActivity extends Activity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
+                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
                 startActivity(intent);
-                // setContentView(R.layout.activity_mspray);
-                // TextView h = (TextView)
-                // findViewById(R.id.activity_mspray_header);
-                // h.setText("Identify the sprayers for this house");
-                // Button b = (Button)
-                // findViewById(R.id.activity_mspray_button);
-                // b.setText("Scan sprayer's badge");
-                // b.setOnClickListener(new View.OnClickListener() {
-                // @Override
-                // public void onClick(View view) {
-                // Intent intent = new Intent(getApplicationContext(),
-                // SprayerIDScan.class);
-                // intent.putExtra("collectedForemanRFIDs", true);
-                // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                // startActivity(intent);
-                // }
-                // });
             };
         });
 

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class PyrethroidActivity extends Activity {
@@ -39,6 +40,12 @@ public class PyrethroidActivity extends Activity {
         canRefilledNo = (RadioButton) findViewById(R.id.sprayer_form_radiobutton_canRefilledNo);
         backButton = (Button) findViewById(R.id.sprayer_form_button_backButton);
         confirmButton = (Button) findViewById(R.id.sprayer_form_button_confirmButton);
+
+        TextView userName = (TextView) findViewById(R.id.sprayer_form_textview_sprayerName);
+        if (formNumber == 1)
+            userName.setText(DataStore.sprayer1ID);
+        else if (formNumber == 2)
+            userName.setText(DataStore.sprayer2ID);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override

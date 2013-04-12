@@ -15,15 +15,18 @@ public class ChooseSprayer extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_sprayers);
 
+        Bundle extras = this.getIntent().getExtras();
+        final String sprayType = extras.getString(Constants.SPRAY_TYPE);
+
         setTitle("How many spray workers?");
 
         Button oneSprayerButton = (Button) findViewById(R.id.activity_choose_sprayers_1);
         oneSprayerButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
-//            	Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(Constants.SPRAY_TYPE, sprayType);
                 intent.putExtra(Constants.NUM_SPRAYERS, 1);
                 intent.putExtra(Constants.FORM_NUMBER, 1);
                 startActivity(intent);
@@ -33,11 +36,11 @@ public class ChooseSprayer extends Activity {
         twoSprayerButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
-//            	Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra(Constants.NUM_SPRAYERS, 2);
+                intent.putExtra(Constants.SPRAY_TYPE, sprayType);
                 intent.putExtra(Constants.FORM_NUMBER, 1);
+                intent.putExtra(Constants.NUM_SPRAYERS, 2);
                 startActivity(intent);
             }
         });

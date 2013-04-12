@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class StartNewSpray extends Activity {
     @Override
@@ -14,6 +15,9 @@ public class StartNewSpray extends Activity {
         setContentView(R.layout.start_new_spray);
 
         setTitle("");
+
+        TextView tv = (TextView) findViewById(R.id.activity_start_new_spray_header);
+        tv.setText("Brent Batas");
 
         Button b = (Button) findViewById(R.id.activity_start_new_spray_button);
         b.setOnClickListener(new View.OnClickListener() {

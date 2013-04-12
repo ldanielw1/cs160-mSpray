@@ -25,18 +25,19 @@ public class ScanSprayer1 extends Activity {
             @Override
             public void explode() {
                 if (formNumber == 1)
-                    DataStore.sprayer1ID = "Brent Batas";
+                    DataStore.sprayer1ID = "Annie Shin";
                 else if (formNumber == 2)
-                    DataStore.sprayer2ID = "Annie Shin";
+                    DataStore.sprayer2ID = "Daniel Wu";
                 Intent intent = null;
                 if (sprayType.equals(Constants.DDT))
                     intent = new Intent(getApplicationContext(), DDTActivity.class);
-                if (sprayType.equals(Constants.PYRETHROID))
+                else if (sprayType.equals(Constants.PYRETHROID))
                     intent = new Intent(getApplicationContext(), PyrethroidActivity.class);
-                if (sprayType.equals(Constants.NO_SPRAY))
+                else if (sprayType.equals(Constants.NO_SPRAY))
                     intent = new Intent(getApplicationContext(), NoSprayActivity.class);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, formNumber);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         };

@@ -51,10 +51,9 @@ public class ConfirmNoSpray extends Activity {
         roomsUnsprayed = extras.getInt(Constants.ROOMS_UNSPRAYED);
         sheltersUnsprayed = extras.getInt(Constants.SHELTERS_UNSPRAYED);
 
-        // NEED TO ADD SPRAYER NAME
-        results.setText(String.format("Foreman Name: %s\n" + "Sprayers: %s\n"
-                + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n", SprayerIDScan.FOREMAN_NAME,
-                SprayerIDScan.SPRAYER_NAMES, roomsUnsprayed, sheltersUnsprayed));
+        results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n" + "          %s\n"
+                + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n", DataStore.foremanID,
+                DataStore.sprayer1ID, DataStore.sprayer2ID, roomsUnsprayed, sheltersUnsprayed));
 
         backButton.setOnClickListener(new OnClickListener() {
             @Override

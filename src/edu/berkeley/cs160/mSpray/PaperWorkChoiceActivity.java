@@ -17,10 +17,6 @@ public class PaperWorkChoiceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chemical_used);
 
-        Bundle extras = this.getIntent().getExtras();
-        final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
-        final int formNumber = extras.getInt(Constants.FORM_NUMBER);
-
         back = (Button) findViewById(R.id.chemical_used_button_back);
         ddt = (Button) findViewById(R.id.chemical_used_button_ddt);
         pyrethroid = (Button) findViewById(R.id.chemical_used_button_pyrethroid);
@@ -29,10 +25,8 @@ public class PaperWorkChoiceActivity extends Activity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
+                Intent intent = new Intent(getApplicationContext(), GetGpsActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
-                intent.putExtra(Constants.FORM_NUMBER, formNumber);
                 startActivity(intent);
             };
         });
@@ -40,10 +34,8 @@ public class PaperWorkChoiceActivity extends Activity {
         ddt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
-                intent.putExtra(Constants.FORM_NUMBER, formNumber);
                 intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);
                 startActivity(intent);
             };
@@ -52,10 +44,8 @@ public class PaperWorkChoiceActivity extends Activity {
         pyrethroid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
-                intent.putExtra(Constants.FORM_NUMBER, formNumber);
                 intent.putExtra(Constants.SPRAY_TYPE, Constants.PYRETHROID);
                 startActivity(intent);
             };
@@ -64,10 +54,8 @@ public class PaperWorkChoiceActivity extends Activity {
         noSpray.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
-                intent.putExtra(Constants.FORM_NUMBER, formNumber);
                 intent.putExtra(Constants.SPRAY_TYPE, Constants.NO_SPRAY);
                 startActivity(intent);
             };

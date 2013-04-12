@@ -28,10 +28,14 @@ public class ConfirmPyrethroid extends Activity {
         String c = refilled ? "" : "not ";
 
         TextView results = (TextView) findViewById(R.id.confirm_pyrethroid_textview_contents);
-        // NEED TO ADD SPRAYER NAME
-        results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n" + "Rooms Sprayed: %d\n"
-                + "Shelters Sprayed: %d\n" + "Can %srefilled", SprayerIDScan.FOREMAN_NAME,
-                SprayerIDScan.SPRAYER_NAMES, roomsSprayed, sheltersSprayed, c));
+        if (formNumber == 1)
+            results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
+                    + "Rooms Sprayed: %d\n" + "Shelters Sprayed: %d\n" + "Can %srefilled",
+                    DataStore.foremanID, DataStore.sprayer1ID, roomsSprayed, sheltersSprayed, c));
+        else if (formNumber == 2)
+            results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
+                    + "Rooms Sprayed: %d\n" + "Shelters Sprayed: %d\n" + "Can %srefilled",
+                    DataStore.foremanID, DataStore.sprayer2ID, roomsSprayed, sheltersSprayed, c));
 
         Button backButton = (Button) findViewById(R.id.confirm_pyrethroid_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {
@@ -61,10 +65,12 @@ public class ConfirmPyrethroid extends Activity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 } else {
-//                    Intent intent = new Intent(getApplicationContext(), PyrethroidActivity.class);
-                	Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
+                    // Intent intent = new Intent(getApplicationContext(),
+                    // PyrethroidActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
+                    intent.putExtra(Constants.SPRAY_TYPE, Constants.PYRETHROID);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }
