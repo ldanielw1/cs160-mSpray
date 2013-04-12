@@ -61,7 +61,8 @@ public class ConfirmDDT extends Activity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(getApplicationContext(), DDTActivity.class);
+//                    Intent intent = new Intent(getApplicationContext(), DDTActivity.class);
+                	Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

@@ -19,6 +19,7 @@ public class PaperWorkChoiceActivity extends Activity {
 
         Bundle extras = this.getIntent().getExtras();
         final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
+        final int formNumber = extras.getInt(Constants.FORM_NUMBER);
 
         back = (Button) findViewById(R.id.chemical_used_button_back);
         ddt = (Button) findViewById(R.id.chemical_used_button_ddt);
@@ -30,6 +31,8 @@ public class PaperWorkChoiceActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
+                intent.putExtra(Constants.FORM_NUMBER, formNumber);
                 startActivity(intent);
             };
         });
@@ -40,7 +43,7 @@ public class PaperWorkChoiceActivity extends Activity {
                 Intent intent = new Intent(getApplicationContext(), DDTActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
-                intent.putExtra(Constants.FORM_NUMBER, 1);
+                intent.putExtra(Constants.FORM_NUMBER, formNumber);
                 startActivity(intent);
             };
         });
@@ -51,7 +54,7 @@ public class PaperWorkChoiceActivity extends Activity {
                 Intent intent = new Intent(getApplicationContext(), PyrethroidActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
-                intent.putExtra(Constants.FORM_NUMBER, 1);
+                intent.putExtra(Constants.FORM_NUMBER, formNumber);
                 startActivity(intent);
             };
         });
@@ -62,7 +65,7 @@ public class PaperWorkChoiceActivity extends Activity {
                 Intent intent = new Intent(getApplicationContext(), NoSprayActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
-                intent.putExtra(Constants.FORM_NUMBER, 1);
+                intent.putExtra(Constants.FORM_NUMBER, formNumber);
                 startActivity(intent);
             };
         });

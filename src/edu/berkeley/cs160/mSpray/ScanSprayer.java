@@ -6,20 +6,36 @@ import android.os.Bundle;
 import android.view.Menu;
 
 public class ScanSprayer extends Activity {
+	Class nextActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_rfid);
+        
+        /* Grab numSprayers to pass on to the Paperwork activity */ 
+        Bundle extras = this.getIntent().getExtras();
+        final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
+        final int formNumber = extras.getInt(Constants.FORM_NUMBER);
 
-        setTitle("Identify your spray workers");
+        if (numSprayers == 1) {
+        	setTitle("Spray worker");
+        	nextActivity = PaperWorkChoiceActivity.class;
+        } else if (numSprayers == 2) {
+        	setTitle("Spray worker " + formNumber);
+        	nextActivity = PaperWorkChoiceActivity.class;
+        } else {
+        	// Error
+        }
 
         /* RFID Wizard of Oz */
-        // TODO: THIS PART IS NOT FINISHED!!!!!!!!!!!!
         TimeBomb bomb = new TimeBomb() {
             @Override
             public void explode() {
-                Intent intent = new Intent(getApplicationContext(), GetGpsActivity.class);
+            	Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
+                intent.putExtra(Constants.FORM_NUMBER, formNumber);
                 startActivity(intent);
             }
         };
