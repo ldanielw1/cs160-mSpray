@@ -68,9 +68,8 @@ public class GetGpsActivity extends Activity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SprayerIDScan.class);
+                Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("foremanRecorded", true);
                 startActivity(intent);
             };
         });

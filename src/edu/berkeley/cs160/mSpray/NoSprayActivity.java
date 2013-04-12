@@ -36,7 +36,8 @@ public class NoSprayActivity extends Activity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
+                intent.putExtra(Constants.SPRAY_TYPE, Constants.NO_SPRAY);
                 startActivity(intent);
             };
         });
