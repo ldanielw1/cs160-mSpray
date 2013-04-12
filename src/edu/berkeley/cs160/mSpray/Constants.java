@@ -9,6 +9,12 @@ public final class Constants {
     public static final String NUM_SPRAYERS = "numberOfSprayers";
     public static final String FORM_NUMBER = "formNumber";
 
+    /** Constants for which forms to fill out. */
+    public static final String SPRAY_TYPE = "sprayType";
+    public static final String DDT = "DDT";
+    public static final String PYRETHROID = "Pyrethroid";
+    public static final String NO_SPRAY = "No Spray";
+
     /** Constants for passing information into verification page. */
     public static final String ROOMS_SPRAYED = "roomsSprayed";
     public static final String SHELTERS_SPRAYED = "sheltersSprayed";

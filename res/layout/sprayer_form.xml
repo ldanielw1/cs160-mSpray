@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MSpray"
-    android:screenOrientation="portrait" >
+    android:screenOrientation="portrait"
+    tools:context=".MSpray" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,9 +14,20 @@
         android:layout_alignParentTop="true"
         android:orientation="vertical" >
 
+        <TextView
+            android:id="@+id/sprayer_form_textview_sprayerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:text="@string/placeholder"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:orientation="horizontal" >
 
             <TextView
@@ -32,8 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
-                android:hint="@string/hintNumRooms" >
+                android:hint="@string/hintNumRooms"
+                android:inputType="number" >
 
                 <requestFocus />
             </EditText>
@@ -42,6 +53,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:orientation="horizontal" >
 
             <TextView
@@ -57,8 +69,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
-                android:hint="@string/hintNumShelters" >
+                android:hint="@string/hintNumShelters"
+                android:inputType="number" >
             </EditText>
         </LinearLayout>
 
@@ -71,6 +83,7 @@
                 android:id="@+id/sprayer_form_textview_canRefilled"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="@string/canRefilled"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -83,6 +96,7 @@
                     android:id="@+id/sprayer_form_radiobutton_canRefilledYes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:checked="false"
                     android:text="@string/yes" />
 
@@ -90,8 +104,10 @@
                     android:id="@+id/sprayer_form_radiobutton_canRefilledNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:checked="true"
                     android:text="@string/no" />
+
             </RadioGroup>
         </LinearLayout>
     </LinearLayout>
@@ -113,8 +129,7 @@
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/confirm" 
-           />
+            android:text="@string/confirm" />
     </LinearLayout>
 
 </RelativeLayout>
