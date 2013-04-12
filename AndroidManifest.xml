@@ -52,9 +52,16 @@
         </activity>
         <activity android:name="edu.berkeley.cs160.mSpray.ScanForeman" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ScanSprayer" ></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ChooseSprayer"></activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.StartNewSpray"></activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.ScanSprayer" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.ChooseSprayer" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.StartNewSpray" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.UnsprayedActivity" >
+        </activity>
+        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmUnsprayed" >
+        </activity>
     </application>
 
 </manifest>

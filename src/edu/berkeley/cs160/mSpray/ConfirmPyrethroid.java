@@ -110,11 +110,11 @@ public class ConfirmPyrethroid extends Activity {
                             uploadData.put("pyrethroidRefill1", Boolean.toString(refilled));
                         } else if (formNumber == 2) {
                             uploadData.put("pyrethroidSprayedRooms1",
-                                    Integer.toString(DataStore.pyrethroid_SPRAYED_ROOMS_1));
+                                    Integer.toString(DataStore.pyrethroidSprayedRooms1));
                             uploadData.put("pyrethroidSprayedShelters1",
-                                    Integer.toString(DataStore.pyrethroid_SPRAYED_SHELTERS_1));
+                                    Integer.toString(DataStore.pyrethroidSprayedShelters1));
                             uploadData.put("pyrethroidRefill1",
-                                    Boolean.toString(DataStore.pyrethroid_Refill_1));
+                                    Boolean.toString(DataStore.pyrethroidRefill1));
                             uploadData.put("sprayer2ID", "TESTGOOGLESPREADSHEETUPLOADER");
                             uploadData.put("pyrethroidUsed2", Boolean.toString(true));
                             uploadData.put("pyrethroidSprayedRooms2",
@@ -145,9 +145,10 @@ public class ConfirmPyrethroid extends Activity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 } else {
-                    DataStore.pyrethroid_SPRAYED_ROOMS_1 = roomsSprayed;
-                    DataStore.pyrethroid_SPRAYED_SHELTERS_1 = sheltersSprayed;
-                    DataStore.pyrethroid_Refill_1 = refilled;
+                    DataStore.pyrethroidUsed1 = true;
+                    DataStore.pyrethroidSprayedRooms1 = roomsSprayed;
+                    DataStore.pyrethroidSprayedShelters1 = sheltersSprayed;
+                    DataStore.pyrethroidRefill1 = refilled;
 
                     Intent intent = new Intent(getApplicationContext(), PyrethroidActivity.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);

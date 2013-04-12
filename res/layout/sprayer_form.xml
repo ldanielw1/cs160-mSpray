@@ -20,14 +20,14 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/ddt_textview_roomsSprayed"
+                android:id="@+id/sprayer_form_textview_roomsSprayed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/roomsSprayed"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/ddt_edittext_roomsSprayedValue"
+                android:id="@+id/sprayer_form_edittext_roomsSprayedValue"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -45,14 +45,14 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/ddt_textview_sheltersSprayed"
+                android:id="@+id/sprayer_form_textview_sheltersSprayed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sheltersSprayed"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/ddt_edittext_sheltersSprayedValue"
+                android:id="@+id/sprayer_form_edittext_sheltersSprayedValue"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -68,26 +68,26 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/ddt_textview_canRefilled"
+                android:id="@+id/sprayer_form_textview_canRefilled"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/canRefilled"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <RadioGroup
-                android:id="@+id/ddt_radiogroup"
+                android:id="@+id/sprayer_form_radiogroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
                 <RadioButton
-                    android:id="@+id/ddt_radiobutton_canRefilledYes"
+                    android:id="@+id/sprayer_form_radiobutton_canRefilledYes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"
                     android:text="@string/yes" />
 
                 <RadioButton
-                    android:id="@+id/ddt_radiobutton_canRefilledNo"
+                    android:id="@+id/sprayer_form_radiobutton_canRefilledNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
@@ -102,14 +102,14 @@
         android:layout_alignParentBottom="true" >
 
         <Button
-            android:id="@+id/ddt_button_backButton"
+            android:id="@+id/sprayer_form_button_backButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/back" />
 
         <Button
-            android:id="@+id/ddt_button_confirmButton"
+            android:id="@+id/sprayer_form_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"

@@ -28,22 +28,19 @@ public class DDTActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ddt);
+        setContentView(R.layout.sprayer_form);
 
         Bundle extras = this.getIntent().getExtras();
         numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
         formNumber = extras.getInt(Constants.FORM_NUMBER);
 
-        canRefilled = (RadioGroup) findViewById(R.id.ddt_radiogroup);
-        roomsSprayedValue = (EditText) findViewById(R.id.ddt_edittext_roomsSprayedValue);
-        sheltersSprayedValue = (EditText) findViewById(R.id.ddt_edittext_sheltersSprayedValue);
-        roomsUnsprayedValue = (EditText) findViewById(R.id.ddt_edittext_roomsUnsprayedValue);
-        sheltersUnsprayedValue = (EditText) findViewById(R.id.ddt_edittext_sheltersUnsprayedValue);
-        canRefilled = (RadioGroup) findViewById(R.id.ddt_radiogroup);
-        canRefilledYes = (RadioButton) findViewById(R.id.ddt_radiobutton_canRefilledYes);
-        canRefilledNo = (RadioButton) findViewById(R.id.ddt_radiobutton_canRefilledNo);
-        backButton = (Button) findViewById(R.id.ddt_button_backButton);
-        confirmButton = (Button) findViewById(R.id.ddt_button_confirmButton);
+        roomsSprayedValue = (EditText) findViewById(R.id.sprayer_form_edittext_roomsSprayedValue);
+        sheltersSprayedValue = (EditText) findViewById(R.id.sprayer_form_edittext_sheltersSprayedValue);
+        canRefilled = (RadioGroup) findViewById(R.id.sprayer_form_radiogroup);
+        canRefilledYes = (RadioButton) findViewById(R.id.sprayer_form_radiobutton_canRefilledYes);
+        canRefilledNo = (RadioButton) findViewById(R.id.sprayer_form_radiobutton_canRefilledNo);
+        backButton = (Button) findViewById(R.id.sprayer_form_button_backButton);
+        confirmButton = (Button) findViewById(R.id.sprayer_form_button_confirmButton);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,23 +63,16 @@ public class DDTActivity extends Activity {
         Intent intent = new Intent(this, ConfirmDDT.class);
 
         if (roomsSprayedValue.getText().toString().equals("")
-                || sheltersSprayedValue.getText().toString().equals("")
-                || roomsUnsprayedValue.getText().toString().equals("")
-                || sheltersUnsprayedValue.getText().toString().equals("")) {
+                || sheltersSprayedValue.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Please input a value for every text field",
                     Toast.LENGTH_SHORT).show();
         } else {
             try {
                 int roomsSprayed = Integer.parseInt(roomsSprayedValue.getText().toString());
                 int sheltersSprayed = Integer.parseInt(sheltersSprayedValue.getText().toString());
-                int roomsUnsprayed = Integer.parseInt(roomsUnsprayedValue.getText().toString());
-                int sheltersUnsprayed = Integer.parseInt(sheltersUnsprayedValue.getText()
-                        .toString());
                 boolean refilled = canRefilled.getCheckedRadioButtonId() == R.id.ddt_radiobutton_canRefilledYes;
                 intent.putExtra(Constants.ROOMS_SPRAYED, roomsSprayed);
-                intent.putExtra(Constants.ROOMS_UNSPRAYED, roomsUnsprayed);
                 intent.putExtra(Constants.SHELTERS_SPRAYED, sheltersSprayed);
-                intent.putExtra(Constants.SHELTERS_UNSPRAYED, sheltersUnsprayed);
                 intent.putExtra(Constants.CAN_REFILLED, refilled);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, formNumber);
