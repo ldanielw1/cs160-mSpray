@@ -97,11 +97,11 @@ public class ConfirmNoSpray extends Activity {
                     HashMap<String, String> uploadData = new HashMap<String, String>();
                     uploadData.put("timeStamp", formatDateTime());
                     uploadData.put("imei", tm.getDeviceId());
-                    uploadData.put("lat", "37.88687");
-                    uploadData.put("latNS", "N");
-                    uploadData.put("lng", "122.297747");
-                    uploadData.put("lngEW", "W");
-                    uploadData.put("accuracy", "95000");
+                    uploadData.put("lat", DataStore.lat);
+                    uploadData.put("latNS", DataStore.latNS);
+                    uploadData.put("lng", DataStore.lng);
+                    uploadData.put("lngEW", DataStore.lngEW);
+                    uploadData.put("accuracy", DataStore.accuracy);
                     uploadData.put("homesteadSprayed", Boolean.toString(false));
                     uploadData.put("sprayerID", "TESTGOOGLESPREADSHEETUPLOADER");
                     uploadData.put("DDTUsed1", Boolean.toString(false));

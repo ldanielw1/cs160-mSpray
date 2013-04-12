@@ -92,22 +92,37 @@ public class ConfirmPyrethroid extends Activity {
                         HashMap<String, String> uploadData = new HashMap<String, String>();
                         uploadData.put("timeStamp", formatDateTime());
                         uploadData.put("imei", tm.getDeviceId());
-                        uploadData.put("lat", "37.88687");
-                        uploadData.put("latNS", "N");
-                        uploadData.put("lng", "122.297747");
-                        uploadData.put("lngEW", "W");
-                        uploadData.put("accuracy", "95000");
+                        uploadData.put("lat", DataStore.lat);
+                        uploadData.put("latNS", DataStore.latNS);
+                        uploadData.put("lng", DataStore.lng);
+                        uploadData.put("lngEW", DataStore.lngEW);
+                        uploadData.put("accuracy", DataStore.accuracy);
                         uploadData.put("homesteadSprayed", Boolean.toString(true));
                         uploadData.put("sprayerID", "TESTGOOGLESPREADSHEETUPLOADER");
                         uploadData.put("DDTUsed1", Boolean.toString(false));
-                        uploadData.put("pyrethroidUsed1", Boolean.toString(true));
-                        uploadData.put("pyrethroidSprayedRooms1", Integer.toString(roomsSprayed));
-                        uploadData.put("pyrethroidSprayedShelters1",
-                                Integer.toString(sheltersSprayed));
-                        uploadData.put("pyrethroidRefill1", Boolean.toString(refilled));
-                        uploadData.put("sprayer2ID", "TESTGOOGLESPREADSHEETUPLOADER");
                         uploadData.put("DDTUsed2", Boolean.toString(false));
-                        uploadData.put("pyrethroidUsed2", Boolean.toString(false));
+                        uploadData.put("pyrethroidUsed1", Boolean.toString(true));
+                        if (formNumber == 1) {
+                            uploadData.put("pyrethroidSprayedRooms1",
+                                    Integer.toString(roomsSprayed));
+                            uploadData.put("pyrethroidSprayedShelters1",
+                                    Integer.toString(sheltersSprayed));
+                            uploadData.put("pyrethroidRefill1", Boolean.toString(refilled));
+                        } else if (formNumber == 2) {
+                            uploadData.put("pyrethroidSprayedRooms1",
+                                    Integer.toString(DataStore.pyrethroid_SPRAYED_ROOMS_1));
+                            uploadData.put("pyrethroidSprayedShelters1",
+                                    Integer.toString(DataStore.pyrethroid_SPRAYED_SHELTERS_1));
+                            uploadData.put("pyrethroidRefill1",
+                                    Boolean.toString(DataStore.pyrethroid_Refill_1));
+                            uploadData.put("sprayer2ID", "TESTGOOGLESPREADSHEETUPLOADER");
+                            uploadData.put("pyrethroidUsed2", Boolean.toString(true));
+                            uploadData.put("pyrethroidSprayedRooms2",
+                                    Integer.toString(roomsSprayed));
+                            uploadData.put("pyrethroidSprayedShelters2",
+                                    Integer.toString(sheltersSprayed));
+                            uploadData.put("pyrethroidRefill2", Boolean.toString(refilled));
+                        }
                         uploadData.put("unsprayedRooms", Integer.toString(roomsUnsprayed));
                         uploadData.put("unsprayedShelters", Integer.toString(sheltersUnsprayed));
                         uploadData.put("foreman", "TESTGOOGLESPREADSHEETUPLOADER");

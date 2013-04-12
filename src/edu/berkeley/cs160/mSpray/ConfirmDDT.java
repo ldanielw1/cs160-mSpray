@@ -94,21 +94,33 @@ public class ConfirmDDT extends Activity {
                         HashMap<String, String> uploadData = new HashMap<String, String>();
                         uploadData.put("timeStamp", formatDateTime());
                         uploadData.put("imei", tm.getDeviceId());
-                        uploadData.put("lat", DataStore.getLat());
-                        uploadData.put("latNS", DataStore.getLatNS());
-                        uploadData.put("lng", DataStore.getLng());
-                        uploadData.put("lngEW", DataStore.getLngEW());
-                        uploadData.put("accuracy", DataStore.getAccuracy());
+                        uploadData.put("lat", DataStore.lat);
+                        uploadData.put("latNS", DataStore.latNS);
+                        uploadData.put("lng", DataStore.lng);
+                        uploadData.put("lngEW", DataStore.lngEW);
+                        uploadData.put("accuracy", DataStore.accuracy);
                         uploadData.put("homesteadSprayed", Boolean.toString(true));
                         uploadData.put("sprayerID", "TESTGOOGLESPREADSHEETUPLOADER");
-                        uploadData.put("DDTUsed1", Boolean.toString(true));
-                        uploadData.put("DDTSprayedRooms1", Integer.toString(roomsSprayed));
-                        uploadData.put("DDTSprayedShelters1", Integer.toString(sheltersSprayed));
-                        uploadData.put("DDTRefill1", Boolean.toString(refilled));
                         uploadData.put("pyrethroidUsed1", Boolean.toString(false));
-                        uploadData.put("sprayer2ID", "TESTGOOGLESPREADSHEETUPLOADER");
-                        uploadData.put("DDTUsed2", Boolean.toString(false));
                         uploadData.put("pyrethroidUsed2", Boolean.toString(false));
+                        uploadData.put("DDTUsed1", Boolean.toString(true));
+                        if (formNumber == 1) {
+                            uploadData.put("DDTSprayedRooms1", Integer.toString(roomsSprayed));
+                            uploadData.put("DDTSprayedShelters1", Integer.toString(sheltersSprayed));
+                            uploadData.put("DDTRefill1", Boolean.toString(refilled));
+                            uploadData.put("DDTUsed2", Boolean.toString(false));
+                        } else if (formNumber == 2) {
+                            uploadData.put("DDTSprayedRooms1",
+                                    Integer.toString(DataStore.DDT_SPRAYED_ROOMS_1));
+                            uploadData.put("DDTSprayedShelters1",
+                                    Integer.toString(DataStore.DDT_SPRAYED_SHELTERS_1));
+                            uploadData.put("DDTRefill1", Boolean.toString(DataStore.DDT_Refill_1));
+                            uploadData.put("sprayer2ID", "TESTGOOGLESPREADSHEETUPLOADER");
+                            uploadData.put("DDTUsed2", Boolean.toString(true));
+                            uploadData.put("DDTSprayedRooms2", Integer.toString(roomsSprayed));
+                            uploadData.put("DDTSprayedShelters2", Integer.toString(sheltersSprayed));
+                            uploadData.put("DDTRefill2", Boolean.toString(refilled));
+                        }
                         uploadData.put("unsprayedRooms", Integer.toString(roomsUnsprayed));
                         uploadData.put("unsprayedShelters", Integer.toString(sheltersUnsprayed));
                         uploadData.put("foreman", "TESTGOOGLESPREADSHEETUPLOADER");
@@ -131,6 +143,10 @@ public class ConfirmDDT extends Activity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 } else {
+                    DataStore.DDT_SPRAYED_ROOMS_1 = roomsSprayed;
+                    DataStore.DDT_SPRAYED_SHELTERS_1 = sheltersSprayed;
+                    DataStore.DDT_Refill_1 = refilled;
+
                     Intent intent = new Intent(getApplicationContext(), DDTActivity.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
