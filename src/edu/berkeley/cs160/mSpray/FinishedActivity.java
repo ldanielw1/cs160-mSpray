@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class FinishedActivity extends Activity {
@@ -17,7 +18,7 @@ public class FinishedActivity extends Activity {
 
         Button finishedButton = (Button) findViewById(R.id.finished_button_finishedButton);
         finishedButton.setTypeface(Constants.TYPEFACE);
-        
+
         /* Populate paperwork table */
         TextView foremanValue = (TextView) findViewById(R.id.finished_foreman_value);
         TextView sprayerValue = (TextView) findViewById(R.id.finished_sprayer_value);
@@ -30,51 +31,70 @@ public class FinishedActivity extends Activity {
         TextView sheltersSprayedValue2 = (TextView) findViewById(R.id.finished_shelters_sprayed2_value);
         TextView latitude = (TextView) findViewById(R.id.finished_latitude_value);
         TextView longitude = (TextView) findViewById(R.id.finished_longitude_value);
-        
+
+        TableRow sprayer2 = (TableRow) findViewById(R.id.finished_sprayer2_row);
+        TableRow sprayer2SprayedRooms = (TableRow) findViewById(R.id.finished_rooms_sprayed2_row);
+        TableRow sprayer2SprayedShelters = (TableRow) findViewById(R.id.finished_shelters_sprayed2_row);
+        TableRow sprayer2RefilledCans = (TableRow) findViewById(R.id.finished_can_refilled2_row);
+        sprayer2.setVisibility(View.GONE);
+        sprayer2SprayedRooms.setVisibility(View.GONE);
+        sprayer2SprayedShelters.setVisibility(View.GONE);
+        sprayer2RefilledCans.setVisibility(View.GONE);
+
         boolean refillFlag = false;
         boolean refillFlag2 = false;
-        
+
         foremanValue.setText(DataStore.foremanID);
         sprayerValue.setText(DataStore.sprayer1ID);
-        sprayerValue2.setText(DataStore.sprayer2ID);
+        if (DataStore.sprayer2ID != null)
+            sprayerValue2.setText(DataStore.sprayer2ID);
         if (DataStore.sprayType.equals(Constants.DDT)) {
-        	roomsSprayedValue.setText(Integer.toString(DataStore.ddtSprayedRooms1));
-        	sheltersSprayedValue.setText(Integer.toString(DataStore.ddtSprayedShelters1));
-        	roomsSprayedValue2.setText(Integer.toString(DataStore.ddtSprayedRooms2));
-        	sheltersSprayedValue2.setText(Integer.toString(DataStore.ddtSprayedShelters2));
-        	refillFlag = DataStore.ddtRefill1;
-        	refillFlag2 = DataStore.ddtRefill2;
+            roomsSprayedValue.setText(Integer.toString(DataStore.ddtSprayedRooms1));
+            sheltersSprayedValue.setText(Integer.toString(DataStore.ddtSprayedShelters1));
+            refillFlag = DataStore.ddtRefill1;
+            if (DataStore.sprayer2ID != null) {
+                roomsSprayedValue2.setText(Integer.toString(DataStore.ddtSprayedRooms2));
+                sheltersSprayedValue2.setText(Integer.toString(DataStore.ddtSprayedShelters2));
+                refillFlag2 = DataStore.ddtRefill2;
+            } else {
+
+            }
         } else if (DataStore.sprayType.equals(Constants.PYRETHROID)) {
-        	roomsSprayedValue.setText(Integer.toString(DataStore.pyrethroidSprayedRooms1));
-        	sheltersSprayedValue.setText(Integer.toString(DataStore.pyrethroidSprayedShelters1));
-        	roomsSprayedValue2.setText(Integer.toString(DataStore.pyrethroidSprayedRooms2));
-        	sheltersSprayedValue2.setText(Integer.toString(DataStore.pyrethroidSprayedShelters2));
-        	refillFlag = DataStore.pyrethroidRefill1;
-        	refillFlag2 = DataStore.pyrethroidRefill2;
+            roomsSprayedValue.setText(Integer.toString(DataStore.pyrethroidSprayedRooms1));
+            sheltersSprayedValue.setText(Integer.toString(DataStore.pyrethroidSprayedShelters1));
+            refillFlag = DataStore.pyrethroidRefill1;
+            if (DataStore.sprayer2ID != null) {
+                roomsSprayedValue2.setText(Integer.toString(DataStore.pyrethroidSprayedRooms2));
+                sheltersSprayedValue2.setText(Integer
+                        .toString(DataStore.pyrethroidSprayedShelters2));
+                refillFlag2 = DataStore.pyrethroidRefill2;
+            }
         } else if (DataStore.sprayType.equals(Constants.NO_SPRAY)) {
-        	roomsSprayedValue.setText("No spray");
-        	sheltersSprayedValue.setText("No spray");
-        	roomsSprayedValue2.setText("No spray");
-        	sheltersSprayedValue2.setText("No spray");
+            roomsSprayedValue.setText("No spray");
+            sheltersSprayedValue.setText("No spray");
+            if (DataStore.sprayer2ID != null) {
+                roomsSprayedValue2.setText("No spray");
+                sheltersSprayedValue2.setText("No spray");
+            }
         }
-        
-        /* Refill for Sprayer 1*/
-    	if (refillFlag) {
-        	canRefilledValue.setText("YES");
-    	} else {
-    		canRefilledValue.setText("NO");
-    	}
-    	
-    	/* Refill for Sprayer 2 */
-    	if (refillFlag2) {
-        	canRefilledValue2.setText("YES");
-    	} else {
-    		canRefilledValue2.setText("NO");
-    	}
-        
+
+        /* Refill for Sprayer 1 */
+        if (refillFlag) {
+            canRefilledValue.setText("YES");
+        } else {
+            canRefilledValue.setText("NO");
+        }
+
+        /* Refill for Sprayer 2 */
+        if (refillFlag2) {
+            canRefilledValue2.setText("YES");
+        } else {
+            canRefilledValue2.setText("NO");
+        }
+
         latitude.setText(DataStore.lat);
         longitude.setText(DataStore.lng);
-        
+
         /* External font */
         foremanValue.setTypeface(Constants.TYPEFACE);
         sprayerValue.setTypeface(Constants.TYPEFACE);
