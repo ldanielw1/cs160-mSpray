@@ -18,6 +18,8 @@ public class ConfirmPyrethroid extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirm_pyrethroid);
+        
+        setTitle("Is this correct?");
 
         Bundle extras = this.getIntent().getExtras();
         final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);

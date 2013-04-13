@@ -24,6 +24,8 @@ public class UnsprayedActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.no_spray);
+        
+        setTitle("");
 
         roomsUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
         roomsUnsprayedValue.setTypeface(Constants.TYPEFACE);

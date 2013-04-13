@@ -34,13 +34,16 @@ public class ConfirmUnsprayed extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirm_unsprayed);
+        
+        setTitle("Is this correct?");
 
         Bundle extras = this.getIntent().getExtras();
         DataStore.roomsUnsprayed = extras.getInt(Constants.ROOMS_UNSPRAYED);
         DataStore.sheltersUnsprayed = extras.getInt(Constants.SHELTERS_UNSPRAYED);
 
         TextView results = (TextView) findViewById(R.id.confirm_unsprayed_textview_contents);
-        results.setTypeface(Constants.TYPEFACE);
+//        results.setTypeface(Constants.TYPEFACE);
+//		  TODO: different font for value and labels
         
         if (DataStore.sprayer2ID == null)
             results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
