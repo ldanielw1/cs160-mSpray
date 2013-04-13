@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class NoSprayActivity extends Activity {
@@ -14,17 +15,27 @@ public class NoSprayActivity extends Activity {
     EditText sheltersUnsprayedValue;
     Button backButton;
     Button confirmButton;
+    TextView roomsUnsprayedLabel;
+    TextView sheltersUnsprayedLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.no_spray);
         roomsUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
+        roomsUnsprayedValue.setTypeface(Constants.TYPEFACE);
         sheltersUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_sheltersUnsprayedValue);
+        sheltersUnsprayedValue.setTypeface(Constants.TYPEFACE);
         backButton = (Button) findViewById(R.id.no_spray_button_backButton);
         backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.no_spray_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
+        
+        roomsUnsprayedLabel = (TextView) findViewById(R.id.no_spray_textview_roomsUnsprayed);
+        roomsUnsprayedLabel.setTypeface(Constants.TYPEFACE);
+        
+        sheltersUnsprayedLabel = (TextView) findViewById(R.id.no_spray_textview_sheltersUnsprayed);
+        sheltersUnsprayedLabel.setTypeface(Constants.TYPEFACE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
