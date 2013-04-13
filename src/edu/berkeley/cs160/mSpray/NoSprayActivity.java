@@ -34,12 +34,6 @@ public class NoSprayActivity extends Activity {
         confirmButton = (Button) findViewById(R.id.confirm_no_spray_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
 
-        roomsUnsprayedLabel = (TextView) findViewById(R.id.no_spray_textview_roomsUnsprayed);
-        roomsUnsprayedLabel.setTypeface(Constants.TYPEFACE);
-
-        sheltersUnsprayedLabel = (TextView) findViewById(R.id.no_spray_textview_sheltersUnsprayed);
-        sheltersUnsprayedLabel.setTypeface(Constants.TYPEFACE);
-
         /* Name of sprayer */
         userName = (TextView) findViewById(R.id.confirm_no_spray_textview_contents);
         if (formNumber == 1)
