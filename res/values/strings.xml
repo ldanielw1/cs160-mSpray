@@ -7,7 +7,7 @@
     <string name="app_name">mSpray</string>
     <string name="back">Back</string>
     <string name="canRefilled">Refilled Can?</string>
-    <string name="chemicalUsed">Chemical Used</string>
+    <string name="chemicalUsed">The sprayers used</string>
     <string name="chemicalUsed2">Second Chemical Used</string>
     <string name="confirm">Confirm</string>
     <string name="confirmDDT">DDT Spray Data</string>
@@ -42,7 +42,7 @@
     <string name="startSpray">Start New Spray</string>
     <string name="yes">Yes</string>
     
-    <string name="scanSelfLabel">Identify myself</string>
+    <string name="scanSelfLabel">Who are you?</string>
     <string name="scanSelf">Scan my badge</string>
     
     <string name="scanSprayerLabel">Identify the sprayers for this house</string>

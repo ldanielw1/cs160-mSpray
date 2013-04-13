@@ -32,6 +32,8 @@ public class GetGpsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gps_location);
+		
+		setTitle("Where are you?");
 
         LocationFound = (TextView) findViewById(R.id.gps_location_textview_contents);
         LocationFound.setTypeface(Constants.TYPEFACE);

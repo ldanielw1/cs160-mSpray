@@ -19,6 +19,8 @@ public class PaperWorkChoiceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chemical_used);
         
+        setTitle("Which chemical was sprayed?");
+        
         header = (TextView) findViewById(R.id.textView1);
         header.setTypeface(Constants.TYPEFACE);
 
