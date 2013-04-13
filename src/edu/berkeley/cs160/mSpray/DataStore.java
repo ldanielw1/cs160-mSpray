@@ -14,6 +14,8 @@ public class DataStore {
     public static String sprayer2ID = null;
 
     /** Constants representing upload values */
+    public static Boolean homesteadSprayed = false;
+
     public static Boolean ddtUsed1 = false;
     public static int ddtSprayedRooms1 = -1;
     public static int ddtSprayedShelters1 = -1;

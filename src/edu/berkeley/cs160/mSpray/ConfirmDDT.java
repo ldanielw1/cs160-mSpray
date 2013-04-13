@@ -49,6 +49,7 @@ public class ConfirmDDT extends Activity {
             @Override
             public void onClick(View v) {
                 if (formNumber == 1) {
+                    DataStore.homesteadSprayed = true;
                     DataStore.ddtUsed1 = true;
                     DataStore.ddtSprayedRooms1 = roomsSprayed;
                     DataStore.ddtSprayedShelters1 = sheltersSprayed;

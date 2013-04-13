@@ -49,6 +49,7 @@ public class ConfirmPyrethroid extends Activity {
             @Override
             public void onClick(View v) {
                 if (formNumber == 1) {
+                    DataStore.homesteadSprayed = true;
                     DataStore.pyrethroidUsed1 = true;
                     DataStore.pyrethroidSprayedRooms1 = roomsSprayed;
                     DataStore.pyrethroidSprayedShelters1 = sheltersSprayed;
