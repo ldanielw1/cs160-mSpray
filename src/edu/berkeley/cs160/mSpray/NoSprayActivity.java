@@ -5,13 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-//<<<<<<< HEAD
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-//=======
-import android.widget.TextView;
-//>>>>>>> a8c18ca2821cc819d765afc857fed7908bffe61d
 
 public class NoSprayActivity extends Activity {
 
@@ -34,12 +28,11 @@ public class NoSprayActivity extends Activity {
         formNumber = extras.getInt(Constants.FORM_NUMBER);
 
         backButton = (Button) findViewById(R.id.confirm_no_spray_button_backButton);
+        confirmButton = (Button) findViewById(R.id.confirm_no_spray_button_confirmButton);
+
         backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.confirm_no_spray_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
-        
-        /* Sprayed By Header */
-        // Hardcoded in xml
 
         /* Name of sprayer */
         userName = (TextView) findViewById(R.id.confirm_no_spray_textview_contents);

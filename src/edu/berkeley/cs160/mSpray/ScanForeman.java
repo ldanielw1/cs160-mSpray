@@ -2,7 +2,6 @@ package edu.berkeley.cs160.mSpray;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
@@ -15,7 +14,7 @@ public class ScanForeman extends Activity {
         setContentView(R.layout.scan_rfid);
 
         setTitle("Identify yourself");
-        
+
         /* External Font */
         TextView tv = (TextView) findViewById(R.id.scan_rfid_instructions);
         tv.setTypeface(Constants.TYPEFACE);

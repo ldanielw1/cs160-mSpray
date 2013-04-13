@@ -49,8 +49,7 @@ public class UnsprayedActivity extends Activity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
-                startActivity(intent);
+               finish();
             };
         });
 

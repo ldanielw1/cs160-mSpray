@@ -1,9 +1,5 @@
 package edu.berkeley.cs160.mSpray;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +10,11 @@ import android.widget.TextView;
 
 public class ConfirmPyrethroid extends Activity {
 
-	@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirm_pyrethroid);
-        
+
         setTitle("Is this correct?");
 
         Bundle extras = this.getIntent().getExtras();
@@ -27,8 +23,7 @@ public class ConfirmPyrethroid extends Activity {
         final int roomsSprayed = extras.getInt(Constants.ROOMS_SPRAYED);
         final int sheltersSprayed = extras.getInt(Constants.SHELTERS_SPRAYED);
         final boolean refilled = extras.getBoolean(Constants.CAN_REFILLED);
-        String c = refilled ? "" : "not ";
-        
+
         TextView title = (TextView) findViewById(R.id.confirm_pyrethroid_textview_title);
         title.setTypeface(Constants.TYPEFACE);
 
@@ -38,28 +33,28 @@ public class ConfirmPyrethroid extends Activity {
         TextView roomsSprayedValue = (TextView) findViewById(R.id.confirm_pyrethroid_rooms_sprayed_value);
         TextView sheltersSprayedValue = (TextView) findViewById(R.id.confirm_pyrethroid_shelters_sprayed_value);
         TextView canRefilledValue = (TextView) findViewById(R.id.confirm_pyrethroid_can_refilled_value);
-        
+
         foremanValue.setText(DataStore.foremanID);
         roomsSprayedValue.setText(Integer.toString(roomsSprayed));
         sheltersSprayedValue.setText(Integer.toString(sheltersSprayed));
         boolean refillFlag = false;
 
-        /* Sprayer ID and Can Refilled*/
+        /* Sprayer ID and Can Refilled */
         if (formNumber == 1) {
-        	sprayerValue.setText(DataStore.sprayer1ID);
-        	refillFlag = DataStore.pyrethroidRefill1;
+            sprayerValue.setText(DataStore.sprayer1ID);
+            refillFlag = DataStore.pyrethroidRefill1;
         } else if (formNumber == 2) {
-        	sprayerValue.setText(DataStore.sprayer2ID);
-        	refillFlag = DataStore.pyrethroidRefill2;
+            sprayerValue.setText(DataStore.sprayer2ID);
+            refillFlag = DataStore.pyrethroidRefill2;
         }
-        
+
         /* Refill can? */
         if (refillFlag) {
-        	canRefilledValue.setText("YES");
-    	} else {
-    		canRefilledValue.setText("NO");
-    	}
-        
+            canRefilledValue.setText("YES");
+        } else {
+            canRefilledValue.setText("NO");
+        }
+
         /* External font */
         foremanValue.setTypeface(Constants.TYPEFACE);
         sprayerValue.setTypeface(Constants.TYPEFACE);
@@ -75,7 +70,7 @@ public class ConfirmPyrethroid extends Activity {
             }
         });
         backButton.setTypeface(Constants.TYPEFACE);
-        
+
         Button confirmButton = (Button) findViewById(R.id.confirm_pyrethroid_button_confirmButton);
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -111,17 +106,4 @@ public class ConfirmPyrethroid extends Activity {
         confirmButton.setTypeface(Constants.TYPEFACE);
     }
 
-	@SuppressLint("SimpleDateFormat")
-	private static String formatDateTime() {
-		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-		Date d = new Date(System.currentTimeMillis());
-		String[] formattedDateArray = df.format(d).split(" ");
-
-		String[] splitDate = formattedDateArray[0].split("/");
-		int month = Integer.parseInt(splitDate[0]);
-		int day = Integer.parseInt(splitDate[1]);
-		int year = Integer.parseInt(splitDate[2]);
-
-		return month + "/" + day + "/" + year + " " + formattedDateArray[1];
-	}
 }

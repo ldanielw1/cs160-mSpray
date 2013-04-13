@@ -11,8 +11,9 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -34,33 +35,61 @@
             android:name="edu.berkeley.cs160.mSpray.SprayerIDScan"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.GetGpsActivity" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.GetGpsActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.PaperWorkChoiceActivity" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.PaperWorkChoiceActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.NoSprayActivity" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.NoSprayActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.DDTActivity" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.DDTActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.PyrethroidActivity" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.PyrethroidActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmDDT" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.ConfirmDDT"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmPyrethroid" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.ConfirmPyrethroid"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.FinishedActivity" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.FinishedActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ScanForeman" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.ScanForeman"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ScanSprayer" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.ScanSprayer"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ChooseSprayer" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.ChooseSprayer"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.StartNewSpray" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.StartNewSpray"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.UnsprayedActivity" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.UnsprayedActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ConfirmUnsprayed" >
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.ConfirmUnsprayed"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

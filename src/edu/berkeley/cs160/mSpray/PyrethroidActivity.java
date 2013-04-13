@@ -46,15 +46,15 @@ public class PyrethroidActivity extends Activity {
         backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.sprayer_form_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
-        
+
         /* External font for labels */
         TextView roomsSprayed = (TextView) findViewById(R.id.sprayer_form_textview_roomsSprayed);
         roomsSprayed.setTypeface(Constants.TYPEFACE);
         TextView sheltersSprayed = (TextView) findViewById(R.id.sprayer_form_textview_sheltersSprayed);
         sheltersSprayed.setTypeface(Constants.TYPEFACE);
-        TextView canRefilled = (TextView) findViewById(R.id.sprayer_form_textview_canRefilled);
-        canRefilled.setTypeface(Constants.TYPEFACE);
-        
+        TextView canRefilledTextView = (TextView) findViewById(R.id.sprayer_form_textview_canRefilled);
+        canRefilledTextView.setTypeface(Constants.TYPEFACE);
+
         /* Sprayed By Header */
         TextView header = (TextView) findViewById(R.id.sprayer_form_textview_header);
         header.setText("Pyrethroid " + header.getText());
@@ -104,11 +104,11 @@ public class PyrethroidActivity extends Activity {
 
                 // Store refilled flag in the data store
                 if (formNumber == 1) {
-                	DataStore.pyrethroidRefill1 = refilled;
+                    DataStore.pyrethroidRefill1 = refilled;
                 } else if (formNumber == 1) {
-                	DataStore.pyrethroidRefill2 = refilled;
+                    DataStore.pyrethroidRefill2 = refilled;
                 }
-                
+
                 startActivity(intent);
             } catch (NumberFormatException e) {
                 Toast.makeText(getApplicationContext(),
