@@ -32,9 +32,6 @@ public class GetGpsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gps_location);
-        
-        header = (TextView) findViewById(R.id.gps_location_textview_title);
-        header.setTypeface(Constants.TYPEFACE);
 
         LocationFound = (TextView) findViewById(R.id.gps_location_textview_contents);
         LocationFound.setTypeface(Constants.TYPEFACE);
