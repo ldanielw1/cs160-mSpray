@@ -57,6 +57,7 @@ public class ConfirmDDT extends Activity {
             @Override
             public void onClick(View v) {
                 if (formNumber == 1) {
+                    DataStore.homesteadSprayed = true;
                     DataStore.ddtUsed1 = true;
                     DataStore.ddtSprayedRooms1 = roomsSprayed;
                     DataStore.ddtSprayedShelters1 = sheltersSprayed;
@@ -74,7 +75,7 @@ public class ConfirmDDT extends Activity {
                 } else {
                     // Intent intent = new Intent(getApplicationContext(),
                     // DDTActivity.class);
-                    Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                    Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
                     intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);

@@ -74,49 +74,62 @@ public class ConfirmUnsprayed extends Activity {
                 uploadData.put("lng", DataStore.lng);
                 uploadData.put("lngEW", DataStore.lngEW);
                 uploadData.put("accuracy", DataStore.accuracy);
-                uploadData.put("homesteadSprayed", Boolean.toString(true));
-                uploadData.put("sprayerID", "TESTGOOGLESPREADSHEETUPLOADER");
-                if (DataStore.ddtUsed1) {
+                if (DataStore.homesteadSprayed) {
+                    uploadData.put("homesteadSprayed", Boolean.toString(true));
+                    uploadData.put("sprayerID", DataStore.sprayer1ID);
+                    if (DataStore.ddtUsed1) {
+                        uploadData.put("pyrethroidUsed1", Boolean.toString(false));
+                        uploadData.put("pyrethroidUsed2", Boolean.toString(false));
+                        uploadData.put("DDTUsed1", Boolean.toString(true));
+                        uploadData.put("DDTSprayedRooms1",
+                                Integer.toString(DataStore.ddtSprayedRooms1));
+                        uploadData.put("DDTSprayedShelters1",
+                                Integer.toString(DataStore.ddtSprayedShelters1));
+                        uploadData.put("DDTRefill1", Boolean.toString(DataStore.ddtRefill1));
+                        uploadData.put("DDTUsed2", Boolean.toString(DataStore.ddtUsed2));
+                        if (DataStore.ddtUsed2) {
+                            uploadData.put("sprayer2ID", DataStore.sprayer2ID);
+                            uploadData.put("DDTSprayedRooms2",
+                                    Integer.toString(DataStore.ddtSprayedRooms2));
+                            uploadData.put("DDTSprayedShelters2",
+                                    Integer.toString(DataStore.ddtSprayedShelters2));
+                            uploadData.put("DDTRefill2", Boolean.toString(DataStore.ddtRefill2));
+                        }
+                    } else if (DataStore.pyrethroidUsed1) {
+                        uploadData.put("DDTUsed1", Boolean.toString(false));
+                        uploadData.put("DDTUsed2", Boolean.toString(false));
+                        uploadData.put("pyrethroidUsed1", Boolean.toString(true));
+                        uploadData.put("pyrethroidSprayedRooms1",
+                                Integer.toString(DataStore.pyrethroidSprayedRooms1));
+                        uploadData.put("pyrethroidSprayedShelters1",
+                                Integer.toString(DataStore.pyrethroidSprayedShelters1));
+                        uploadData.put("pyrethroidRefill1",
+                                Boolean.toString(DataStore.pyrethroidRefill1));
+                        uploadData.put("pyrethroidUsed2",
+                                Boolean.toString(DataStore.pyrethroidUsed2));
+                        if (DataStore.pyrethroidUsed2) {
+                            uploadData.put("sprayer2ID", DataStore.sprayer2ID);
+                            uploadData.put("pyrethroidSprayedRooms2",
+                                    Integer.toString(DataStore.pyrethroidSprayedRooms2));
+                            uploadData.put("pyrethroidSprayedShelters2",
+                                    Integer.toString(DataStore.pyrethroidSprayedShelters2));
+                            uploadData.put("pyrethroidRefill2",
+                                    Boolean.toString(DataStore.pyrethroidRefill2));
+                        }
+                    }
+                } else {
+                    uploadData.put("homesteadSprayed", Boolean.toString(false));
                     uploadData.put("pyrethroidUsed1", Boolean.toString(false));
                     uploadData.put("pyrethroidUsed2", Boolean.toString(false));
-                    uploadData.put("DDTUsed1", Boolean.toString(true));
-                    uploadData.put("DDTSprayedRooms1", Integer.toString(DataStore.ddtSprayedRooms1));
-                    uploadData.put("DDTSprayedShelters1",
-                            Integer.toString(DataStore.ddtSprayedShelters1));
-                    uploadData.put("DDTRefill1", Boolean.toString(DataStore.ddtRefill1));
-                    uploadData.put("DDTUsed2", Boolean.toString(DataStore.ddtUsed2));
-                    if (DataStore.ddtUsed2) {
-                        uploadData.put("sprayer2ID", "TESTGOOGLESPREADSHEETUPLOADER");
-                        uploadData.put("DDTSprayedRooms2",
-                                Integer.toString(DataStore.ddtSprayedRooms2));
-                        uploadData.put("DDTSprayedShelters2",
-                                Integer.toString(DataStore.ddtSprayedShelters2));
-                        uploadData.put("DDTRefill2", Boolean.toString(DataStore.ddtRefill2));
-                    }
-                } else if (DataStore.pyrethroidUsed1) {
                     uploadData.put("DDTUsed1", Boolean.toString(false));
                     uploadData.put("DDTUsed2", Boolean.toString(false));
-                    uploadData.put("pyrethroidUsed1", Boolean.toString(true));
-                    uploadData.put("pyrethroidSprayedRooms1",
-                            Integer.toString(DataStore.pyrethroidSprayedRooms1));
-                    uploadData.put("pyrethroidSprayedShelters1",
-                            Integer.toString(DataStore.pyrethroidSprayedShelters1));
-                    uploadData.put("pyrethroidRefill1",
-                            Boolean.toString(DataStore.pyrethroidRefill1));
-                    uploadData.put("pyrethroidUsed2", Boolean.toString(DataStore.pyrethroidUsed2));
-                    if (DataStore.pyrethroidUsed2) {
-                        uploadData.put("sprayer2ID", "TESTGOOGLESPREADSHEETUPLOADER");
-                        uploadData.put("pyrethroidSprayedRooms2",
-                                Integer.toString(DataStore.pyrethroidSprayedRooms2));
-                        uploadData.put("pyrethroidSprayedShelters2",
-                                Integer.toString(DataStore.pyrethroidSprayedShelters2));
-                        uploadData.put("pyrethroidRefill2",
-                                Boolean.toString(DataStore.pyrethroidRefill2));
-                    }
+                    uploadData.put("sprayerID", DataStore.sprayer1ID);
+                    if (DataStore.sprayer2ID != null)
+                        uploadData.put("sprayer2ID", DataStore.sprayer2ID);
                 }
                 uploadData.put("unsprayedRooms", Integer.toString(roomsUnsprayed));
                 uploadData.put("unsprayedShelters", Integer.toString(sheltersUnsprayed));
-                uploadData.put("foreman", "TESTGOOGLESPREADSHEETUPLOADER");
+                uploadData.put("foreman", DataStore.foremanID);
 
                 AsyncTask<String, Void, String> uploadTask = new AsyncTask<String, Void, String>() {
                     @Override

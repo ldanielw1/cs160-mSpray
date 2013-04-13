@@ -57,6 +57,7 @@ public class ConfirmPyrethroid extends Activity {
             @Override
             public void onClick(View v) {
                 if (formNumber == 1) {
+                    DataStore.homesteadSprayed = true;
                     DataStore.pyrethroidUsed1 = true;
                     DataStore.pyrethroidSprayedRooms1 = roomsSprayed;
                     DataStore.pyrethroidSprayedShelters1 = sheltersSprayed;
@@ -74,7 +75,7 @@ public class ConfirmPyrethroid extends Activity {
                 } else {
                     // Intent intent = new Intent(getApplicationContext(),
                     // PyrethroidActivity.class);
-                    Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                    Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
                     intent.putExtra(Constants.SPRAY_TYPE, Constants.PYRETHROID);
