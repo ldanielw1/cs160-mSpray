@@ -6,14 +6,17 @@
     <string name="addSprayer">Add Sprayer</string>
     <string name="app_name">mSpray</string>
     <string name="back">Back</string>
-    <string name="canRefilled">Can Refilled? </string>
+    <string name="canRefilled">Refilled Can?</string>
     <string name="chemicalUsed">Chemical Used</string>
     <string name="chemicalUsed2">Second Chemical Used</string>
     <string name="confirm">Confirm</string>
-    <string name="confirmDDT">Confirm - DDT</string>
-    <string name="confirmNoSpray">Confirm - No Spray</string>
-    <string name="confirmPyrethroid">Confirm - Pyrethroid</string>
-    <string name="confirmUnsprayed">Rooms not sprayed?</string>
+    <string name="confirmDDT">DDT Spray Data</string>
+    <string name="confirmNoSpray">Spray Data</string>
+    <string name="confirmPyrethroid">Pyrethroid Spray Data</string>
+    <string name="confirmUnsprayed">Spray Data</string>
+    <string name="DDTHeader">DDT sprayed by</string>
+    <string name="PyrethroidHeader">Pyrethroid sprayed by</string>
+    <string name="NoSprayHeader">No rooms sprayed by</string>
     <string name="dataRecorded">Data Recorded</string>
     <string name="ddt">DDT</string>
     <string name="emptyString"/>
@@ -22,13 +25,13 @@
     <string name="gps_location">GPS Location</string>
     <string name="hintNumRooms"># of Rooms</string>
     <string name="hintNumShelters"># of Shelters</string>
-    <string name="location_found">You are at \n 29.81 S, 25.34 E</string>
+    <string name="location_found">I am at \n 29.81 S, 25.34 E</string>
     <string name="mSprayTitle">mSpray</string>
     <string name="nfcInstructions">Place phone on top of the Sprayer\'s badge</string>
     <string name="no">No</string>
     <string name="noSpray">No Chemical</string>
     <string name="otherChemicalUsed">Other Chemical Used?</string>
-    <string name="placeholder">placeholder text</string>
+    <string name="sprayerName">Sprayer</string>
     <string name="pyrethroid">Pyrethroid</string>
     <string name="roomsSprayed">Rooms Sprayed: </string>
     <string name="roomsUnsprayed">Rooms Unsprayed: </string>
@@ -39,7 +42,7 @@
     <string name="startSpray">Start New Spray</string>
     <string name="yes">Yes</string>
     
-    <string name="scanSelfLabel">Identify yourself</string>
+    <string name="scanSelfLabel">Identify myself</string>
     <string name="scanSelf">Scan my badge</string>
     
     <string name="scanSprayerLabel">Identify the sprayers for this house</string>

@@ -54,7 +54,12 @@ public class PyrethroidActivity extends Activity {
         sheltersSprayed.setTypeface(Constants.TYPEFACE);
         TextView canRefilled = (TextView) findViewById(R.id.sprayer_form_textview_canRefilled);
         canRefilled.setTypeface(Constants.TYPEFACE);
+        
+        /* Sprayed By Header */
+        TextView header = (TextView) findViewById(R.id.sprayer_form_textview_header);
+        header.setText("Pyrethroid " + header.getText());
 
+        /* Name of sprayer */
         TextView userName = (TextView) findViewById(R.id.sprayer_form_textview_sprayerName);
         if (formNumber == 1)
             userName.setText(DataStore.sprayer1ID);
