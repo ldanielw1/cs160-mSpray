@@ -18,13 +18,6 @@ import android.os.Message;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Toast;
-import bouncedemo.network.BuildRESTRequest;
-import bouncedemo.util.Constants;
-import bouncedemo.util.State;
-
-import com.example.bouncedemo.MaaPVieew;
-import com.example.bouncedemo.MaaPVieew.AsyncTaskAPI;
-import com.example.bouncedemo.MaaPVieew.MyOverlay;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.data.spreadsheet.ListEntry;
 import com.google.gdata.data.spreadsheet.ListFeed;
