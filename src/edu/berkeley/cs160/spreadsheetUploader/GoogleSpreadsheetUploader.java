@@ -57,24 +57,6 @@ public class GoogleSpreadsheetUploader {
     }
 
     /**
-     * Not sure if this should be here - parses a string of key-value pairs
-     * (connected by a '=') delimited by "||"s and converts that into a HashMap.
-     * 
-     * @param dataString - The string to convert into a HashMap.
-     * @return The HashMap of key-value pairs.
-     */
-    public HashMap<String, String> parse(String dataString) {
-        // TODO migrate this method to a more fitting class
-        HashMap<String, String> parseResults = new HashMap<String, String>();
-        String[] splitData = dataString.split("\\|\\|");
-        for (String dataPair : splitData) {
-            String[] splitDataPair = dataPair.split("=", 2);
-            parseResults.put(splitDataPair[0], splitDataPair[1]);
-        }
-        return parseResults;
-    }
-
-    /**
      * Take the data for one row, and add it to the bottom of the spreadsheet.
      * 
      * @param uploadData - the HashMap of data to go inside the new row.

@@ -20,7 +20,7 @@
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
         android:layout_below="@+id/scan_rfid_image"
-        android:text="Scan Badge"
+        android:text="@string/scanBadge"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textSize="50sp" />
 

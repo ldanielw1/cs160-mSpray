@@ -27,7 +27,7 @@
         android:drawablePadding="-15sp"
         android:drawableTop="@drawable/recordspray"
         android:paddingTop="32sp"
-        android:text="Record new spray"
+        android:text="@string/startSpray"
         android:textSize="40sp" >
     </Button>
 

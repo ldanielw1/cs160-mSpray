@@ -23,7 +23,6 @@ public class ConfirmPyrethroid extends Activity {
         final int roomsSprayed = extras.getInt(Constants.ROOMS_SPRAYED);
         final int sheltersSprayed = extras.getInt(Constants.SHELTERS_SPRAYED);
         final boolean refilled = extras.getBoolean(Constants.CAN_REFILLED);
-        String c = refilled ? "" : "not ";
 
         TextView title = (TextView) findViewById(R.id.confirm_pyrethroid_textview_title);
         title.setTypeface(Constants.TYPEFACE);

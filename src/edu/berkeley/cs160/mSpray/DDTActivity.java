@@ -46,15 +46,15 @@ public class DDTActivity extends Activity {
         backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.sprayer_form_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
-        
+
         /* External font for labels */
         TextView roomsSprayed = (TextView) findViewById(R.id.sprayer_form_textview_roomsSprayed);
         roomsSprayed.setTypeface(Constants.TYPEFACE);
         TextView sheltersSprayed = (TextView) findViewById(R.id.sprayer_form_textview_sheltersSprayed);
         sheltersSprayed.setTypeface(Constants.TYPEFACE);
-        TextView canRefilled = (TextView) findViewById(R.id.sprayer_form_textview_canRefilled);
-        canRefilled.setTypeface(Constants.TYPEFACE);
-        
+        TextView canRefilledTextView = (TextView) findViewById(R.id.sprayer_form_textview_canRefilled);
+        canRefilledTextView.setTypeface(Constants.TYPEFACE);
+
         /* Sprayed By Header */
         TextView header = (TextView) findViewById(R.id.sprayer_form_textview_header);
         header.setText("DDT " + header.getText());
@@ -102,12 +102,12 @@ public class DDTActivity extends Activity {
                 intent.putExtra(Constants.CAN_REFILLED, refilled);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, formNumber);
-                
+
                 // Store refilled flag in the data store
                 if (formNumber == 1) {
-                	DataStore.ddtRefill1 = refilled;
+                    DataStore.ddtRefill1 = refilled;
                 } else if (formNumber == 1) {
-                	DataStore.ddtRefill2 = refilled;
+                    DataStore.ddtRefill2 = refilled;
                 }
 
                 startActivity(intent);
