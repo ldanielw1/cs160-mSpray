@@ -13,7 +13,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/confirmUnsprayed"
-        android:textSize="30sp" />
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/confirm_unsprayed_textview_contents"
@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="160dp"
         android:text="@string/placeholder"
-        android:textSize="20sp" />
+        android:textSize="28sp" />
 
     <LinearLayout
         android:id="@+id/confirm_unsprayed_layout_innerLinearLayout"
@@ -36,15 +36,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/back" />
+            android:text="@string/back"
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/confirm_unsprayed_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:onClick="getData"
             android:text="@string/confirm"
-            android:onClick="getData" />
+            android:textSize="28sp" />
     </LinearLayout>
 
 </RelativeLayout>

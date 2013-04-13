@@ -68,7 +68,6 @@ public class ConfirmNoSpray extends Activity {
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                SprayerIDScan.resetNames();
 
                 try {
                     String username = null;
