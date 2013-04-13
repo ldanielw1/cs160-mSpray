@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:screenOrientation="portrait" >
 
-   <TextView
+    <TextView
         android:id="@+id/activity_start_new_spray_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="You are Foreman."
+        android:text="I am Foreman."
         android:textSize="28sp" />
 
     <Button
@@ -24,8 +24,11 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="72dp"
-        android:textSize="40sp"
-        android:text="Start new spray" >
+        android:drawablePadding="-15sp"
+        android:drawableTop="@drawable/recordspray"
+        android:paddingTop="32sp"
+        android:text="Record new spray"
+        android:textSize="40sp" >
     </Button>
 
 </RelativeLayout>

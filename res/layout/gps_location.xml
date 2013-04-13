@@ -4,25 +4,25 @@
     android:layout_height="fill_parent"
     android:screenOrientation="portrait" >
 
-    <TextView
-        android:id="@+id/gps_location_textview_title"
+    <ImageView
+        android:id="@+id/gps_location_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="@string/gps_location"
-        android:textSize="28sp"
-        android:textStyle="bold" />
+        android:src="@drawable/gpssignal" />
 
     <TextView
         android:id="@+id/gps_location_textview_contents"
-        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/gps_location_image"
+        android:layout_marginTop="12dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:gravity="center"
         android:text="@string/location_found"
         android:textSize="40sp" />
 
@@ -37,16 +37,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:textSize="28sp"
-            android:text="@string/back" />
+            android:text="@string/back"
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/gps_location_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:textSize="28sp"
-            android:text="@string/confirm" />
+            android:text="@string/confirm"
+            android:textSize="28sp" />
     </LinearLayout>
 
 </RelativeLayout>
