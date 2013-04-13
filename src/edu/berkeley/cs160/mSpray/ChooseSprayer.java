@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ChooseSprayer extends Activity {
 
@@ -24,7 +25,7 @@ public class ChooseSprayer extends Activity {
         oneSprayerButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.SPRAY_TYPE, sprayType);
                 intent.putExtra(Constants.NUM_SPRAYERS, 1);
@@ -32,11 +33,13 @@ public class ChooseSprayer extends Activity {
                 startActivity(intent);
             }
         });
+        oneSprayerButton.setTypeface(Constants.TYPEFACE);
+        
         Button twoSprayerButton = (Button) findViewById(R.id.activity_choose_sprayers_2);
         twoSprayerButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.SPRAY_TYPE, sprayType);
                 intent.putExtra(Constants.FORM_NUMBER, 1);
@@ -44,6 +47,7 @@ public class ChooseSprayer extends Activity {
                 startActivity(intent);
             }
         });
+        twoSprayerButton.setTypeface(Constants.TYPEFACE);
     }
 
     @Override

@@ -4,38 +4,44 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.TextView;
 
 public class ScanSprayer extends Activity {
-	Class nextActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_rfid);
-        
-        /* Grab numSprayers to pass on to the Paperwork activity */ 
+
         Bundle extras = this.getIntent().getExtras();
         final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
         final int formNumber = extras.getInt(Constants.FORM_NUMBER);
+        final String sprayType = extras.getString(Constants.SPRAY_TYPE);
 
-        if (numSprayers == 1) {
-        	setTitle("Spray worker");
-        	nextActivity = PaperWorkChoiceActivity.class;
-        } else if (numSprayers == 2) {
-        	setTitle("Spray worker " + formNumber);
-        	nextActivity = PaperWorkChoiceActivity.class;
-        } else {
-        	// Error
-        }
+        setTitle("Identify sprayer ");
+        
+        /* External Font */
+        TextView tv = (TextView) findViewById(R.id.scan_rfid_instructions);
+        tv.setTypeface(Constants.TYPEFACE);
 
         /* RFID Wizard of Oz */
         TimeBomb bomb = new TimeBomb() {
             @Override
             public void explode() {
-            	Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                if (formNumber == 1)
+                    DataStore.sprayer1ID = "Sprayer 1";
+                else if (formNumber == 2)
+                    DataStore.sprayer2ID = "Sprayer 2";
+                Intent intent = null;
+                if (sprayType.equals(Constants.DDT))
+                    intent = new Intent(getApplicationContext(), DDTActivity.class);
+                else if (sprayType.equals(Constants.PYRETHROID))
+                    intent = new Intent(getApplicationContext(), PyrethroidActivity.class);
+                else if (sprayType.equals(Constants.NO_SPRAY))
+                    intent = new Intent(getApplicationContext(), NoSprayActivity.class);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, formNumber);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         };

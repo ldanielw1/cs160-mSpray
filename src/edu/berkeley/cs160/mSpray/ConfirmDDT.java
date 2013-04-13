@@ -26,8 +26,14 @@ public class ConfirmDDT extends Activity {
         final int sheltersSprayed = extras.getInt(Constants.SHELTERS_SPRAYED);
         final boolean refilled = extras.getBoolean(Constants.CAN_REFILLED);
         String c = refilled ? "" : "not ";
+        
+        TextView title = (TextView) findViewById(R.id.confirm_ddt_textview_title);
+        title.setTypeface(Constants.TYPEFACE);
 
         TextView results = (TextView) findViewById(R.id.confirm_ddt_textview_contents);
+//        results.setTypeface(Constants.TYPEFACE);
+//        TODO: different font for value and labels   
+        
         if (formNumber == 1)
             results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
                     + "Rooms Sprayed: %d\n" + "Shelters Sprayed: %d\n" + "Can %srefilled",
@@ -44,11 +50,14 @@ public class ConfirmDDT extends Activity {
                 onBackPressed();
             }
         });
+        backButton.setTypeface(Constants.TYPEFACE);
+        
         Button confirmButton = (Button) findViewById(R.id.confirm_ddt_button_confirmButton);
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (formNumber == 1) {
+                    DataStore.homesteadSprayed = true;
                     DataStore.ddtUsed1 = true;
                     DataStore.ddtSprayedRooms1 = roomsSprayed;
                     DataStore.ddtSprayedShelters1 = sheltersSprayed;
@@ -60,14 +69,13 @@ public class ConfirmDDT extends Activity {
                     DataStore.ddtRefill2 = refilled;
                 }
                 if (numSprayers == formNumber) {
-                    SprayerIDScan.resetNames();
                     Intent intent = new Intent(getApplicationContext(), UnsprayedActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 } else {
                     // Intent intent = new Intent(getApplicationContext(),
                     // DDTActivity.class);
-                    Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                    Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
                     intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);
@@ -76,6 +84,7 @@ public class ConfirmDDT extends Activity {
                 }
             }
         });
+        confirmButton.setTypeface(Constants.TYPEFACE);
     }
 
     @SuppressLint("SimpleDateFormat")

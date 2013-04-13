@@ -17,6 +17,7 @@ import android.widget.TextView;
 public class GetGpsActivity extends Activity {
 	ProgressDialog progDialog;
 	TextView LocationFound;
+	TextView header;
 	Handler handler;
 	Button backButton;
 	Button confirmButton;
@@ -25,19 +26,30 @@ public class GetGpsActivity extends Activity {
 	String latitudeNS;
 	String longitudeEW;
 	String acc;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gps_location);
+        
+        header = (TextView) findViewById(R.id.gps_location_textview_title);
+        header.setTypeface(Constants.TYPEFACE);
 
-		LocationFound = (TextView) findViewById(R.id.gps_location_textview_contents);
-		backButton = (Button) findViewById(R.id.gps_location_button_backButton);
-		confirmButton = (Button) findViewById(R.id.gps_location_button_confirmButton);
-		progDialog = new ProgressDialog(this);
-		progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-		progDialog.setMessage("Finding Your Location...");
-		progDialog.show();
+        LocationFound = (TextView) findViewById(R.id.gps_location_textview_contents);
+        LocationFound.setTypeface(Constants.TYPEFACE);
+        
+        backButton = (Button) findViewById(R.id.gps_location_button_backButton);
+        backButton.setTypeface(Constants.TYPEFACE);
+        
+        confirmButton = (Button) findViewById(R.id.gps_location_button_confirmButton);
+        confirmButton.setTypeface(Constants.TYPEFACE);
+        
+        progDialog = new ProgressDialog(this);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setMessage("Finding Your Location...");
+        progDialog.show();
+
 
 		handler = new Handler() {
 			@Override

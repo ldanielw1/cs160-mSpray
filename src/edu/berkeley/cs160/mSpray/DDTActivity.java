@@ -34,18 +34,34 @@ public class DDTActivity extends Activity {
         formNumber = extras.getInt(Constants.FORM_NUMBER);
 
         roomsSprayedValue = (EditText) findViewById(R.id.sprayer_form_edittext_roomsSprayedValue);
+        roomsSprayedValue.setTypeface(Constants.TYPEFACE);
         sheltersSprayedValue = (EditText) findViewById(R.id.sprayer_form_edittext_sheltersSprayedValue);
+        sheltersSprayedValue.setTypeface(Constants.TYPEFACE);
         canRefilled = (RadioGroup) findViewById(R.id.sprayer_form_radiogroup);
         canRefilledYes = (RadioButton) findViewById(R.id.sprayer_form_radiobutton_canRefilledYes);
+        canRefilledYes.setTypeface(Constants.TYPEFACE);
         canRefilledNo = (RadioButton) findViewById(R.id.sprayer_form_radiobutton_canRefilledNo);
+        canRefilledNo.setTypeface(Constants.TYPEFACE);
         backButton = (Button) findViewById(R.id.sprayer_form_button_backButton);
+        backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.sprayer_form_button_confirmButton);
+        confirmButton.setTypeface(Constants.TYPEFACE);
+        
+        /* External font for labels */
+        TextView roomsSprayed = (TextView) findViewById(R.id.sprayer_form_textview_roomsSprayed);
+        roomsSprayed.setTypeface(Constants.TYPEFACE);
+        TextView sheltersSprayed = (TextView) findViewById(R.id.sprayer_form_textview_sheltersSprayed);
+        sheltersSprayed.setTypeface(Constants.TYPEFACE);
+        TextView canRefilled = (TextView) findViewById(R.id.sprayer_form_textview_canRefilled);
+        canRefilled.setTypeface(Constants.TYPEFACE);
+        
 
         TextView userName = (TextView) findViewById(R.id.sprayer_form_textview_sprayerName);
         if (formNumber == 1)
             userName.setText(DataStore.sprayer1ID);
         else if (formNumber == 2)
             userName.setText(DataStore.sprayer2ID);
+        userName.setTypeface(Constants.TYPEFACE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override

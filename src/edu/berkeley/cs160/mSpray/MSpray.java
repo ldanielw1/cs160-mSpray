@@ -22,14 +22,13 @@ public class MSpray extends Activity {
 
         // External font
         TextView tv = (TextView) findViewById(R.id.activity_mspray_header);
-        String fontPath = "fonts/life.ttf";
-        Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+        Constants.TYPEFACE = Typeface.createFromAsset(getAssets(), Constants.FONT_PATH);
 
         // Apply fonts
-        tv.setTypeface(tf);
+        tv.setTypeface(Constants.TYPEFACE);
         tv.setTextSize(28);
 
-        startSpray.setTypeface(tf);
+        startSpray.setTypeface(Constants.TYPEFACE);
         startSpray.setTextSize(40);
 
         startSpray.setOnClickListener(new View.OnClickListener() {

@@ -1,6 +1,11 @@
 package edu.berkeley.cs160.mSpray;
 
+import android.graphics.Typeface;
+
 public final class Constants {
+	public static final String FONT_PATH = "fonts/life.ttf";
+    public static Typeface TYPEFACE; // Can't be final, since it has to get assigned on runtime
+	
     /** Constants for Time Bomb. */
     public static final int TIME_BOMB_SWITH = 4;
     public static final int GPS_FOUND = 5;
