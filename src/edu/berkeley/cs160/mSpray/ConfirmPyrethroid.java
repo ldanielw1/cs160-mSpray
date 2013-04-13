@@ -1,9 +1,5 @@
 package edu.berkeley.cs160.mSpray;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,14 +22,14 @@ public class ConfirmPyrethroid extends Activity {
         final int sheltersSprayed = extras.getInt(Constants.SHELTERS_SPRAYED);
         final boolean refilled = extras.getBoolean(Constants.CAN_REFILLED);
         String c = refilled ? "" : "not ";
-        
+
         TextView title = (TextView) findViewById(R.id.confirm_pyrethroid_textview_title);
         title.setTypeface(Constants.TYPEFACE);
 
         TextView results = (TextView) findViewById(R.id.confirm_pyrethroid_textview_contents);
-//        results.setTypeface(Constants.TYPEFACE);
-//        TODO: different font for value and labels
-        
+        // results.setTypeface(Constants.TYPEFACE);
+        // TODO: different font for value and labels
+
         if (formNumber == 1)
             results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
                     + "Rooms Sprayed: %d\n" + "Shelters Sprayed: %d\n" + "Can %srefilled",
@@ -51,7 +47,7 @@ public class ConfirmPyrethroid extends Activity {
             }
         });
         backButton.setTypeface(Constants.TYPEFACE);
-        
+
         Button confirmButton = (Button) findViewById(R.id.confirm_pyrethroid_button_confirmButton);
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -87,17 +83,4 @@ public class ConfirmPyrethroid extends Activity {
         confirmButton.setTypeface(Constants.TYPEFACE);
     }
 
-    @SuppressLint("SimpleDateFormat")
-    private static String formatDateTime() {
-        SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        Date d = new Date(System.currentTimeMillis());
-        String[] formattedDateArray = df.format(d).split(" ");
-
-        String[] splitDate = formattedDateArray[0].split("/");
-        int month = Integer.parseInt(splitDate[0]);
-        int day = Integer.parseInt(splitDate[1]);
-        int year = Integer.parseInt(splitDate[2]);
-
-        return month + "/" + day + "/" + year + " " + formattedDateArray[1];
-    }
 }

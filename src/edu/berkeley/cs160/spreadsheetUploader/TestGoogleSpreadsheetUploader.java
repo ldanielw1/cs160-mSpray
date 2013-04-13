@@ -58,7 +58,7 @@ public final class TestGoogleSpreadsheetUploader {
             exporter = new GoogleSpreadsheetUploader(USERNAME, PASSWORD, SPREADSHEET_TITLE,
                     WORKSHEET_TITLE);
             HashMap<String, String> parseResults = exporter.parse(generateUploadString());
-            exporter.addRow(parseResults);
+            exporter.addRow(parseResults, null);
 
             System.out.println("Upload: Success!");
         } catch (IOException e) {

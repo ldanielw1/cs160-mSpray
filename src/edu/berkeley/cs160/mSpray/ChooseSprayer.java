@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class ChooseSprayer extends Activity {
 
@@ -34,7 +33,7 @@ public class ChooseSprayer extends Activity {
             }
         });
         oneSprayerButton.setTypeface(Constants.TYPEFACE);
-        
+
         Button twoSprayerButton = (Button) findViewById(R.id.activity_choose_sprayers_2);
         twoSprayerButton.setOnClickListener(new OnClickListener() {
             @Override
