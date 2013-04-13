@@ -32,22 +32,24 @@ public class FinishedActivity extends Activity {
         TextView latitude = (TextView) findViewById(R.id.finished_latitude_value);
         TextView longitude = (TextView) findViewById(R.id.finished_longitude_value);
 
-        TableRow sprayer2 = (TableRow) findViewById(R.id.finished_sprayer2_row);
-        TableRow sprayer2SprayedRooms = (TableRow) findViewById(R.id.finished_rooms_sprayed2_row);
-        TableRow sprayer2SprayedShelters = (TableRow) findViewById(R.id.finished_shelters_sprayed2_row);
-        TableRow sprayer2RefilledCans = (TableRow) findViewById(R.id.finished_can_refilled2_row);
-        sprayer2.setVisibility(View.GONE);
-        sprayer2SprayedRooms.setVisibility(View.GONE);
-        sprayer2SprayedShelters.setVisibility(View.GONE);
-        sprayer2RefilledCans.setVisibility(View.GONE);
-
         boolean refillFlag = false;
         boolean refillFlag2 = false;
 
         foremanValue.setText(DataStore.foremanID);
         sprayerValue.setText(DataStore.sprayer1ID);
-        if (DataStore.sprayer2ID != null)
+        if (DataStore.sprayer2ID != null) {
             sprayerValue2.setText(DataStore.sprayer2ID);
+        } else {
+            TableRow sprayer2 = (TableRow) findViewById(R.id.finished_sprayer2_row);
+            TableRow sprayer2SprayedRooms = (TableRow) findViewById(R.id.finished_rooms_sprayed2_row);
+            TableRow sprayer2SprayedShelters = (TableRow) findViewById(R.id.finished_shelters_sprayed2_row);
+            TableRow sprayer2RefilledCans = (TableRow) findViewById(R.id.finished_can_refilled2_row);
+            sprayer2.setVisibility(View.GONE);
+            sprayer2SprayedRooms.setVisibility(View.GONE);
+            sprayer2SprayedShelters.setVisibility(View.GONE);
+            sprayer2RefilledCans.setVisibility(View.GONE);
+        }
+
         if (DataStore.sprayType.equals(Constants.DDT)) {
             roomsSprayedValue.setText(Integer.toString(DataStore.ddtSprayedRooms1));
             sheltersSprayedValue.setText(Integer.toString(DataStore.ddtSprayedShelters1));
