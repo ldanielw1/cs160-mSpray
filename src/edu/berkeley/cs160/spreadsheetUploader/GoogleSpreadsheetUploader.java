@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
+import android.os.AsyncTask;
+
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.data.spreadsheet.ListEntry;
 import com.google.gdata.data.spreadsheet.ListFeed;
@@ -74,24 +76,35 @@ public class GoogleSpreadsheetUploader {
      * @param uploadData - the HashMap of data to go inside the new row.
      */
     public void addRow(HashMap<String, String> uploadData) {
-        try {
-            /** Pre-process the worksheet to make sure inserting works. */
-            worksheet.setRowCount(worksheet.getRowCount() + 1);
-            worksheet.update();
+        AsyncTask<HashMap<String, String>, Void, String> uploadTask = new AsyncTask<HashMap<String, String>, Void, String>() {
+            @Override
+            protected String doInBackground(HashMap<String, String>... params) {
+                try {
+                    HashMap<String, String> data = params[0];
 
-            // Create the new row locally
-            ListEntry row = new ListEntry();
-            // error out only if dataLabels size doesn't match dataValues -
+                    /** Pre-process the worksheet to make sure inserting works. */
+                    worksheet.setRowCount(worksheet.getRowCount() + 1);
+                    worksheet.update();
 
-            for (String key : uploadData.keySet())
-                row.getCustomElements().setValueLocal(key, uploadData.get(key));
+                    // Create the new row locally
+                    ListEntry row = new ListEntry();
+                    // error out only if dataLabels size doesn't match
 
-            addRow(row);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ServiceException e) {
-            e.printStackTrace();
-        }
+                    for (String key : data.keySet())
+                        row.getCustomElements().setValueLocal(key, data.get(key));
+
+                    addRow(row);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return null;
+                } catch (ServiceException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+                return "Success";
+            }
+        };
+        uploadTask.execute(uploadData);
     }
 
     /**

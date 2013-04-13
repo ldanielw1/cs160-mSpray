@@ -10,7 +10,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
@@ -41,7 +40,7 @@ public class ConfirmUnsprayed extends Activity {
 
         TextView results = (TextView) findViewById(R.id.confirm_unsprayed_textview_contents);
         results.setTypeface(Constants.TYPEFACE);
-        
+
         if (DataStore.sprayer2ID == null)
             results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
                     + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n", DataStore.foremanID,
@@ -59,7 +58,7 @@ public class ConfirmUnsprayed extends Activity {
             }
         });
         backButton.setTypeface(Constants.TYPEFACE);
-        
+
         Button confirmButton = (Button) findViewById(R.id.confirm_unsprayed_button_confirmButton);
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -131,55 +130,51 @@ public class ConfirmUnsprayed extends Activity {
                 uploadData.put("unsprayedShelters", Integer.toString(sheltersUnsprayed));
                 uploadData.put("foreman", DataStore.foremanID);
 
-                AsyncTask<String, Void, String> uploadTask = new AsyncTask<String, Void, String>() {
-                    @Override
-                    protected String doInBackground(String... params) {
-                        try {
-                            String username = null;
-                            String password = null;
-                            String spreadsheetTitle = null;
-                            String worksheetTitle = null;
-                            Scanner s;
-                            s = new Scanner(getAssets().open("authentication.txt"));
+                GoogleSpreadsheetUploader uploader = null;
+                try {
+                    String username = null;
+                    String password = null;
+                    String spreadsheetTitle = null;
+                    String worksheetTitle = null;
+                    Scanner s;
+                    s = new Scanner(getAssets().open("authentication.txt"));
 
-                            while (s.hasNextLine()) {
-                                String[] nextLine = s.nextLine().split("=");
-                                if (nextLine[0].equals(USERNAME_LABEL))
-                                    username = nextLine[1];
-                                else if (nextLine[0].equals(PASSWORD_LABEL))
-                                    password = nextLine[1];
-                                else if (nextLine[0].equals(SPREADSHEET_TITLE_LABEL))
-                                    spreadsheetTitle = nextLine[1];
-                                else if (nextLine[0].equals(WORKSHEET_TITLE_LABEL))
-                                    worksheetTitle = nextLine[1];
-                                else
-                                    throw new IllegalArgumentException(
-                                            "Invalid authentication file");
-                            }
-
-                            GoogleSpreadsheetUploader uploader = new GoogleSpreadsheetUploader(
-                                    username, password, spreadsheetTitle, worksheetTitle);
-                            uploader.addRow(uploadData);
-
-                            Intent intent = new Intent(getApplicationContext(),
-                                    FinishedActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
-                        } catch (IOException e) {
-                            Toast.makeText(getApplicationContext(),
-                                    "Error: Could not upload data correctly", Toast.LENGTH_SHORT)
-                                    .show();
-                            e.printStackTrace();
-                        } catch (ServiceException e) {
-                            Toast.makeText(getApplicationContext(),
-                                    "Service Error: Could not upload data correctly",
-                                    Toast.LENGTH_SHORT).show();
-                            e.printStackTrace();
-                        }
-                        return null;
+                    while (s.hasNextLine()) {
+                        String[] nextLine = s.nextLine().split("=");
+                        if (nextLine[0].equals(USERNAME_LABEL))
+                            username = nextLine[1];
+                        else if (nextLine[0].equals(PASSWORD_LABEL))
+                            password = nextLine[1];
+                        else if (nextLine[0].equals(SPREADSHEET_TITLE_LABEL))
+                            spreadsheetTitle = nextLine[1];
+                        else if (nextLine[0].equals(WORKSHEET_TITLE_LABEL))
+                            worksheetTitle = nextLine[1];
+                        else
+                            throw new IllegalArgumentException("Invalid authentication file");
                     }
-                };
-                uploadTask.execute();
+
+                    uploader = new GoogleSpreadsheetUploader(username, password, spreadsheetTitle,
+                            worksheetTitle);
+
+                } catch (IOException e) {
+                    Toast.makeText(getApplicationContext(),
+                            "Error: Could not upload data correctly", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                    return;
+                } catch (ServiceException e) {
+                    Toast.makeText(getApplicationContext(),
+                            "Service Error: Could not upload data correctly", Toast.LENGTH_SHORT)
+                            .show();
+                    e.printStackTrace();
+                    return;
+                }
+
+                uploader.addRow(uploadData);
+
+                Intent intent = new Intent(getApplicationContext(), FinishedActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+
             }
         });
         confirmButton.setTypeface(Constants.TYPEFACE);
