@@ -32,18 +32,28 @@ public class ConfirmPyrethroid extends Activity {
         TextView title = (TextView) findViewById(R.id.confirm_pyrethroid_textview_title);
         title.setTypeface(Constants.TYPEFACE);
 
-        TextView results = (TextView) findViewById(R.id.confirm_pyrethroid_textview_contents);
-//        results.setTypeface(Constants.TYPEFACE);
-//        TODO: different font for value and labels
+        /* Populate paperwork table */
+        TextView foremanValue = (TextView) findViewById(R.id.confirm_pyrethroid_foreman_value);
+        TextView sprayerValue = (TextView) findViewById(R.id.confirm_pyrethroid_sprayer_value);
+        TextView roomsSprayedValue = (TextView) findViewById(R.id.confirm_pyrethroid_rooms_sprayed_value);
+        TextView sheltersSprayedValue = (TextView) findViewById(R.id.confirm_pyrethroid_shelters_sprayed_value);
         
-        if (formNumber == 1)
-            results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
-                    + "Rooms Sprayed: %d\n" + "Shelters Sprayed: %d\n" + "Can %srefilled",
-                    DataStore.foremanID, DataStore.sprayer1ID, roomsSprayed, sheltersSprayed, c));
-        else if (formNumber == 2)
-            results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
-                    + "Rooms Sprayed: %d\n" + "Shelters Sprayed: %d\n" + "Can %srefilled",
-                    DataStore.foremanID, DataStore.sprayer2ID, roomsSprayed, sheltersSprayed, c));
+        foremanValue.setText(DataStore.foremanID);
+        roomsSprayedValue.setText(Integer.toString(roomsSprayed));
+        sheltersSprayedValue.setText(Integer.toString(sheltersSprayed));
+
+        /* Sprayer ID */
+        if (formNumber == 1) {
+        	sprayerValue.setText(DataStore.sprayer1ID);        
+        } else if (formNumber == 2) {
+        	sprayerValue.setText(DataStore.sprayer2ID);
+        }
+        
+        /* External font */
+        foremanValue.setTypeface(Constants.TYPEFACE);
+        sprayerValue.setTypeface(Constants.TYPEFACE);
+        roomsSprayedValue.setTypeface(Constants.TYPEFACE);
+        sheltersSprayedValue.setTypeface(Constants.TYPEFACE);
 
         Button backButton = (Button) findViewById(R.id.confirm_pyrethroid_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {
