@@ -40,7 +40,7 @@ public class NoSprayActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (formNumber != numSprayers) {
-                    Intent intent = new Intent(getApplicationContext(), ScanSprayer1.class);
+                    Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
                     intent.putExtra(Constants.SPRAY_TYPE, Constants.NO_SPRAY);

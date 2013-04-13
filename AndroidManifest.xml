@@ -50,7 +50,7 @@
         </activity>
         <activity android:name="edu.berkeley.cs160.mSpray.ScanForeman" >
         </activity>
-        <activity android:name="edu.berkeley.cs160.mSpray.ScanSprayer1" >
+        <activity android:name="edu.berkeley.cs160.mSpray.ScanSprayer" >
         </activity>
         <activity android:name="edu.berkeley.cs160.mSpray.ChooseSprayer" >
         </activity>

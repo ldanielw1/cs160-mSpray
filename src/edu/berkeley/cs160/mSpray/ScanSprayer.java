@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
 
-public class ScanSprayer1 extends Activity {
+public class ScanSprayer extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
