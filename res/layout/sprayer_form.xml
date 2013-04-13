@@ -22,7 +22,7 @@
             android:gravity="center"
             android:text="@string/placeholder"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,7 +35,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/roomsSprayed"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/sprayer_form_edittext_roomsSprayedValue"
@@ -44,7 +45,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hintNumRooms"
-                android:inputType="number" >
+                android:inputType="number"
+                android:textSize="28sp" >
 
                 <requestFocus />
             </EditText>
@@ -61,7 +63,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sheltersSprayed"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/sprayer_form_edittext_sheltersSprayedValue"
@@ -70,7 +73,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hintNumShelters"
-                android:inputType="number" >
+                android:inputType="number"
+                android:textSize="28sp" >
             </EditText>
         </LinearLayout>
 
@@ -85,7 +89,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/canRefilled"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="28sp" />
 
             <RadioGroup
                 android:id="@+id/sprayer_form_radiogroup"
@@ -107,7 +112,6 @@
                     android:layout_marginLeft="10dp"
                     android:checked="true"
                     android:text="@string/no" />
-
             </RadioGroup>
         </LinearLayout>
     </LinearLayout>
@@ -122,14 +126,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/back" />
+            android:text="@string/back"
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/sprayer_form_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/confirm" />
+            android:text="@string/confirm"
+            android:textSize="28sp" />
     </LinearLayout>
 
 </RelativeLayout>

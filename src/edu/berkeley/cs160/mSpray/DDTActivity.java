@@ -46,12 +46,22 @@ public class DDTActivity extends Activity {
         backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.sprayer_form_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
+        
+        /* External font for labels */
+        TextView roomsSprayed = (TextView) findViewById(R.id.sprayer_form_textview_roomsSprayed);
+        roomsSprayed.setTypeface(Constants.TYPEFACE);
+        TextView sheltersSprayed = (TextView) findViewById(R.id.sprayer_form_textview_sheltersSprayed);
+        sheltersSprayed.setTypeface(Constants.TYPEFACE);
+        TextView canRefilled = (TextView) findViewById(R.id.sprayer_form_textview_canRefilled);
+        canRefilled.setTypeface(Constants.TYPEFACE);
+        
 
         TextView userName = (TextView) findViewById(R.id.sprayer_form_textview_sprayerName);
         if (formNumber == 1)
             userName.setText(DataStore.sprayer1ID);
         else if (formNumber == 2)
             userName.setText(DataStore.sprayer2ID);
+        userName.setTypeface(Constants.TYPEFACE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override

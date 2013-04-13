@@ -12,8 +12,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
         android:text="@string/chemicalUsed"
-        android:textSize="25dp" />
-    
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
     <Button
         android:id="@+id/chemical_used_button_ddt"
         android:layout_width="fill_parent"
@@ -22,7 +23,8 @@
         android:layout_alignLeft="@+id/chemical_used_button_pyrethroid"
         android:layout_alignRight="@+id/chemical_used_button_pyrethroid"
         android:layout_marginBottom="10dp"
-        android:text="@string/ddt" />
+        android:text="@string/ddt"
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/chemical_used_button_pyrethroid"
@@ -31,7 +33,8 @@
         android:layout_alignLeft="@+id/chemical_used_button_noSpray"
         android:layout_alignRight="@+id/chemical_used_button_noSpray"
         android:layout_centerVertical="true"
-        android:text="@string/pyrethroid" />
+        android:text="@string/pyrethroid"
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/chemical_used_button_noSpray"
@@ -42,7 +45,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:text="@string/noSpray" />
+        android:text="@string/noSpray"
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/chemical_used_button_back"
@@ -53,6 +57,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="@string/back" />
+        android:text="@string/back"
+        android:textSize="28sp" />
 
 </RelativeLayout>

@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MSpray"
-    android:screenOrientation="portrait" >
+    android:screenOrientation="portrait"
+    tools:context=".MSpray" >
 
     <LinearLayout
         android:id="@+id/no_spray_layout_mainLayout"
@@ -25,7 +25,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/roomsUnsprayed"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/no_spray_edittext_roomsUnsprayedValue"
@@ -33,9 +34,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/hintNumRooms"
                 android:inputType="number"
-                android:hint="@string/hintNumRooms" >
-
+                android:textSize="28sp" >
             </EditText>
         </LinearLayout>
 
@@ -49,7 +50,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sheltersUnsprayed"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/no_spray_edittext_sheltersUnsprayedValue"
@@ -57,12 +59,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/hintNumShelters"
                 android:inputType="number"
-                android:hint="@string/hintNumShelters" >
-
+                android:textSize="28sp" >
             </EditText>
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -83,8 +84,7 @@
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/confirm" 
-           />
+            android:text="@string/confirm" />
     </LinearLayout>
 
 </RelativeLayout>

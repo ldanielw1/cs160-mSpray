@@ -26,9 +26,13 @@ public class ConfirmDDT extends Activity {
         final int sheltersSprayed = extras.getInt(Constants.SHELTERS_SPRAYED);
         final boolean refilled = extras.getBoolean(Constants.CAN_REFILLED);
         String c = refilled ? "" : "not ";
+        
+        TextView title = (TextView) findViewById(R.id.confirm_ddt_textview_title);
+        title.setTypeface(Constants.TYPEFACE);
 
         TextView results = (TextView) findViewById(R.id.confirm_ddt_textview_contents);
-        results.setTypeface(Constants.TYPEFACE);
+//        results.setTypeface(Constants.TYPEFACE);
+//        TODO: different font for value and labels   
         
         if (formNumber == 1)
             results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
@@ -65,7 +69,6 @@ public class ConfirmDDT extends Activity {
                     DataStore.ddtRefill2 = refilled;
                 }
                 if (numSprayers == formNumber) {
-                    SprayerIDScan.resetNames();
                     Intent intent = new Intent(getApplicationContext(), UnsprayedActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
