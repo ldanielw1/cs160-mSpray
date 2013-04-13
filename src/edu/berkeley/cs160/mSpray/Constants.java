@@ -9,6 +9,7 @@ public final class Constants {
     /** Constants for Time Bomb. */
     public static final int TIME_BOMB_SWITH = 4;
     public static final int GPS_FOUND = 5;
+    public static final int GPS_NOT_FOUND = 6;
 
     /** Constants for how many forms to fill out. */
     public static final String NUM_SPRAYERS = "numberOfSprayers";

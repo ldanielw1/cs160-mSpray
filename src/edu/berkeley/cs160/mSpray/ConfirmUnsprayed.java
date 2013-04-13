@@ -35,8 +35,8 @@ public class ConfirmUnsprayed extends Activity {
         setContentView(R.layout.confirm_unsprayed);
 
         Bundle extras = this.getIntent().getExtras();
-        final int roomsUnsprayed = extras.getInt(Constants.ROOMS_UNSPRAYED);
-        final int sheltersUnsprayed = extras.getInt(Constants.SHELTERS_UNSPRAYED);
+        DataStore.roomsUnsprayed = extras.getInt(Constants.ROOMS_UNSPRAYED);
+        DataStore.sheltersUnsprayed = extras.getInt(Constants.SHELTERS_UNSPRAYED);
 
         TextView results = (TextView) findViewById(R.id.confirm_unsprayed_textview_contents);
         results.setTypeface(Constants.TYPEFACE);
@@ -44,11 +44,11 @@ public class ConfirmUnsprayed extends Activity {
         if (DataStore.sprayer2ID == null)
             results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
                     + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n", DataStore.foremanID,
-                    DataStore.sprayer1ID, roomsUnsprayed, sheltersUnsprayed));
+                    DataStore.sprayer1ID, DataStore.roomsUnsprayed, DataStore.sheltersUnsprayed));
         else
             results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n" + "          %s\n"
                     + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n", DataStore.foremanID,
-                    DataStore.sprayer1ID, DataStore.sprayer2ID, roomsUnsprayed, sheltersUnsprayed));
+                    DataStore.sprayer1ID, DataStore.sprayer2ID, DataStore.roomsUnsprayed, DataStore.sheltersUnsprayed));
 
         Button backButton = (Button) findViewById(R.id.confirm_unsprayed_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {
@@ -66,7 +66,7 @@ public class ConfirmUnsprayed extends Activity {
                 TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
                 final HashMap<String, String> uploadData = new HashMap<String, String>();
-                uploadData.put("timeStamp", formatDateTime());
+                uploadData.put("timeStamp", GoogleSpreadsheetUploader.formatDateTime());
                 uploadData.put("imei", tm.getDeviceId());
                 uploadData.put("lat", DataStore.lat);
                 uploadData.put("latNS", DataStore.latNS);
@@ -126,8 +126,8 @@ public class ConfirmUnsprayed extends Activity {
                     if (DataStore.sprayer2ID != null)
                         uploadData.put("sprayer2ID", DataStore.sprayer2ID);
                 }
-                uploadData.put("unsprayedRooms", Integer.toString(roomsUnsprayed));
-                uploadData.put("unsprayedShelters", Integer.toString(sheltersUnsprayed));
+                uploadData.put("unsprayedRooms", Integer.toString(DataStore.roomsUnsprayed));
+                uploadData.put("unsprayedShelters", Integer.toString(DataStore.sheltersUnsprayed));
                 uploadData.put("foreman", DataStore.foremanID);
 
                 GoogleSpreadsheetUploader uploader = null;
@@ -178,19 +178,5 @@ public class ConfirmUnsprayed extends Activity {
             }
         });
         confirmButton.setTypeface(Constants.TYPEFACE);
-    }
-
-    @SuppressLint("SimpleDateFormat")
-    private static String formatDateTime() {
-        SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        Date d = new Date(System.currentTimeMillis());
-        String[] formattedDateArray = df.format(d).split(" ");
-
-        String[] splitDate = formattedDateArray[0].split("/");
-        int month = Integer.parseInt(splitDate[0]);
-        int day = Integer.parseInt(splitDate[1]);
-        int year = Integer.parseInt(splitDate[2]);
-
-        return month + "/" + day + "/" + year + " " + formattedDateArray[1];
     }
 }

@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
 
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.data.spreadsheet.ListEntry;
@@ -15,6 +17,8 @@ import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.data.spreadsheet.WorksheetFeed;
 import com.google.gdata.util.ServiceException;
+
+import edu.berkeley.cs160.mSpray.Constants;
 
 /**
  * A class that provides the interface for uploading data onto a Google
@@ -75,7 +79,7 @@ public class GoogleSpreadsheetUploader {
      * 
      * @param uploadData - the HashMap of data to go inside the new row.
      */
-    public void addRow(HashMap<String, String> uploadData) {
+    public void addRow(HashMap<String, String> uploadData, final Handler uploadHandler) {
         AsyncTask<HashMap<String, String>, Void, String> uploadTask = new AsyncTask<HashMap<String, String>, Void, String>() {
             @Override
             protected String doInBackground(HashMap<String, String>... params) {
@@ -94,14 +98,20 @@ public class GoogleSpreadsheetUploader {
                         row.getCustomElements().setValueLocal(key, data.get(key));
 
                     addRow(row);
+
+                    uploadHandler.sendMessage(Message.obtain(uploadHandler,
+                            Constants.UPLOAD_SUCCESSFUL));
+                    return null;
                 } catch (IOException e) {
                     e.printStackTrace();
-                    return null;
                 } catch (ServiceException e) {
                     e.printStackTrace();
-                    return null;
                 }
-                return "Success";
+
+                uploadHandler.sendMessage(Message.obtain(uploadHandler,
+                        Constants.UPLOAD_UNSUCCESSFUL));
+
+                return null;
             }
         };
         uploadTask.execute(uploadData);

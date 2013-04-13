@@ -5,13 +5,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+//<<<<<<< HEAD
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+//=======
+import android.widget.TextView;
+//>>>>>>> a8c18ca2821cc819d765afc857fed7908bffe61d
 
 public class NoSprayActivity extends Activity {
 
     TextView userName;
     Button backButton;
     Button confirmButton;
+    TextView roomsUnsprayedLabel;
+    TextView sheltersUnsprayedLabel;
 
     private int numSprayers;
     private int formNumber;
@@ -19,6 +27,14 @@ public class NoSprayActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//<<<<<<< HEAD
+//        setContentView(R.layout.no_spray);
+//        roomsUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
+//        roomsUnsprayedValue.setTypeface(Constants.TYPEFACE);
+//        sheltersUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_sheltersUnsprayedValue);
+//        sheltersUnsprayedValue.setTypeface(Constants.TYPEFACE);
+        
+//=======
         setContentView(R.layout.confirm_no_spray);
 
         Bundle extras = this.getIntent().getExtras();
@@ -28,8 +44,16 @@ public class NoSprayActivity extends Activity {
         userName = (TextView) findViewById(R.id.confirm_no_spray_textview_contents);
         backButton = (Button) findViewById(R.id.confirm_no_spray_button_backButton);
         confirmButton = (Button) findViewById(R.id.confirm_no_spray_button_confirmButton);
+//>>>>>>> a8c18ca2821cc819d765afc857fed7908bffe61d
+
         backButton.setTypeface(Constants.TYPEFACE);
         confirmButton.setTypeface(Constants.TYPEFACE);
+        
+        roomsUnsprayedLabel = (TextView) findViewById(R.id.no_spray_textview_roomsUnsprayed);
+        roomsUnsprayedLabel.setTypeface(Constants.TYPEFACE);
+        
+        sheltersUnsprayedLabel = (TextView) findViewById(R.id.no_spray_textview_sheltersUnsprayed);
+        sheltersUnsprayedLabel.setTypeface(Constants.TYPEFACE);
 
         if (formNumber == 1)
             userName.setText("You are: " + DataStore.sprayer1ID);

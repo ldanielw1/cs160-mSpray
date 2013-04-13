@@ -13,7 +13,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/dataRecorded"
-        android:textSize="40dp" />
+        android:textSize="40sp" />
 
     <LinearLayout
         android:id="@+id/finished_layout_innerLinearLayout"
@@ -26,6 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:textSize="28sp"
             android:text="@string/finished" />
     </LinearLayout>
 
