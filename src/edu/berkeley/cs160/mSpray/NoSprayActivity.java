@@ -28,6 +28,8 @@ public class NoSprayActivity extends Activity {
         userName = (TextView) findViewById(R.id.confirm_no_spray_textview_contents);
         backButton = (Button) findViewById(R.id.confirm_no_spray_button_backButton);
         confirmButton = (Button) findViewById(R.id.confirm_no_spray_button_confirmButton);
+        backButton.setTypeface(Constants.TYPEFACE);
+        confirmButton.setTypeface(Constants.TYPEFACE);
 
         if (formNumber == 1)
             userName.setText("You are: " + DataStore.sprayer1ID);

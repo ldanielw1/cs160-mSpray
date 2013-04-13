@@ -13,7 +13,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="You are Foreman."
-        android:textSize="20sp" />
+        android:textSize="28sp" />
 
     <Button
         android:id="@+id/activity_start_new_spray_button"
@@ -24,7 +24,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="72dp"
-        android:textSize="20sp"
+        android:textSize="40sp"
         android:text="Start new spray" >
     </Button>
 

@@ -28,6 +28,8 @@ public class ConfirmPyrethroid extends Activity {
         String c = refilled ? "" : "not ";
 
         TextView results = (TextView) findViewById(R.id.confirm_pyrethroid_textview_contents);
+        results.setTypeface(Constants.TYPEFACE);
+        
         if (formNumber == 1)
             results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
                     + "Rooms Sprayed: %d\n" + "Shelters Sprayed: %d\n" + "Can %srefilled",
@@ -44,6 +46,8 @@ public class ConfirmPyrethroid extends Activity {
                 onBackPressed();
             }
         });
+        backButton.setTypeface(Constants.TYPEFACE);
+        
         Button confirmButton = (Button) findViewById(R.id.confirm_pyrethroid_button_confirmButton);
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -77,6 +81,7 @@ public class ConfirmPyrethroid extends Activity {
                 }
             }
         });
+        confirmButton.setTypeface(Constants.TYPEFACE);
     }
 
     @SuppressLint("SimpleDateFormat")
