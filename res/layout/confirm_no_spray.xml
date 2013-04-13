@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="@string/confirmNoSpray"
+        android:text="@string/NoSprayHeader"
         android:textSize="28sp" />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="160dp"
-        android:text="@string/placeholder"
+        android:text="@string/sprayerName"
         android:textSize="28sp" />
 
     <LinearLayout
@@ -36,6 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:textSize="28sp"
             android:text="@string/back" />
 
         <Button
@@ -43,6 +44,7 @@
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:textSize="28sp"
             android:text="@string/confirm"
             android:onClick="getData" />
     </LinearLayout>

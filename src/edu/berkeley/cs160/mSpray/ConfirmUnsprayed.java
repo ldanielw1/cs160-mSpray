@@ -37,22 +37,18 @@ public class ConfirmUnsprayed extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirm_unsprayed);
 
+        setTitle("Is this correct?");
+
         Bundle extras = this.getIntent().getExtras();
         DataStore.roomsUnsprayed = extras.getInt(Constants.ROOMS_UNSPRAYED);
         DataStore.sheltersUnsprayed = extras.getInt(Constants.SHELTERS_UNSPRAYED);
 
-        TextView results = (TextView) findViewById(R.id.confirm_unsprayed_textview_contents);
-        results.setTypeface(Constants.TYPEFACE);
+        /* Populate paperwork table */
+        TextView roomsUnsprayedValue = (TextView) findViewById(R.id.confirm_unsprayed_rooms_unsprayed_value);
+        TextView sheltersUnsprayedValue = (TextView) findViewById(R.id.confirm_unsprayed_shelters_unsprayed_value);
 
-        if (DataStore.sprayer2ID == null)
-            results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
-                    + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n", DataStore.foremanID,
-                    DataStore.sprayer1ID, DataStore.roomsUnsprayed, DataStore.sheltersUnsprayed));
-        else
-            results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n" + "          %s\n"
-                    + "Rooms Unsprayed: %d\n" + "Shelters Unsprayed: %d\n", DataStore.foremanID,
-                    DataStore.sprayer1ID, DataStore.sprayer2ID, DataStore.roomsUnsprayed,
-                    DataStore.sheltersUnsprayed));
+        roomsUnsprayedValue.setText(Integer.toString(DataStore.roomsUnsprayed));
+        sheltersUnsprayedValue.setText(Integer.toString(DataStore.sheltersUnsprayed));
 
         Button backButton = (Button) findViewById(R.id.confirm_unsprayed_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {

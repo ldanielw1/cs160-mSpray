@@ -6,6 +6,7 @@ public class DataStore {
     public static String lng = null;
     public static String lngEW = null;
     public static String accuracy = null;
+    public static String sprayType = "";
 
     public static String sprayChemical = null;
 

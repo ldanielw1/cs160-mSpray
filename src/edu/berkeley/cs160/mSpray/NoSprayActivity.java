@@ -27,11 +27,11 @@ public class NoSprayActivity extends Activity {
         numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
         formNumber = extras.getInt(Constants.FORM_NUMBER);
 
-        userName = (TextView) findViewById(R.id.confirm_no_spray_textview_contents);
         backButton = (Button) findViewById(R.id.confirm_no_spray_button_backButton);
         confirmButton = (Button) findViewById(R.id.confirm_no_spray_button_confirmButton);
 
         backButton.setTypeface(Constants.TYPEFACE);
+        confirmButton = (Button) findViewById(R.id.confirm_no_spray_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
 
         roomsUnsprayedLabel = (TextView) findViewById(R.id.no_spray_textview_roomsUnsprayed);
@@ -40,10 +40,13 @@ public class NoSprayActivity extends Activity {
         sheltersUnsprayedLabel = (TextView) findViewById(R.id.no_spray_textview_sheltersUnsprayed);
         sheltersUnsprayedLabel.setTypeface(Constants.TYPEFACE);
 
+        /* Name of sprayer */
+        userName = (TextView) findViewById(R.id.confirm_no_spray_textview_contents);
         if (formNumber == 1)
-            userName.setText("You are: " + DataStore.sprayer1ID);
+            userName.setText(DataStore.sprayer1ID);
         else if (formNumber == 2)
-            userName.setText("You are: " + DataStore.sprayer2ID);
+            userName.setText(DataStore.sprayer2ID);
+        userName.setTypeface(Constants.TYPEFACE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override

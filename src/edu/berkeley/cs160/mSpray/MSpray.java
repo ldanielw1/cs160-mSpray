@@ -19,6 +19,8 @@ public class MSpray extends Activity {
         setContentView(R.layout.activity_mspray);
 
         startSpray = (Button) findViewById(R.id.activity_mspray_button);
+        
+        setTitle("Welcome to mSpray");
 
         // External font
         TextView tv = (TextView) findViewById(R.id.activity_mspray_header);

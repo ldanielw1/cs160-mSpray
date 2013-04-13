@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:screenOrientation="portrait" >
 
-   <TextView
+    <TextView
         android:id="@+id/activity_mspray_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,8 +24,11 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="72dp"
-        android:textSize="40sp"
-        android:text="@string/scanSelf" >
+        android:drawablePadding="-15sp"
+        android:paddingTop="32sp"
+        android:drawableTop="@drawable/foreman"
+        android:text="@string/scanSelf"
+        android:textSize="40sp" >
     </Button>
 
 </RelativeLayout>
