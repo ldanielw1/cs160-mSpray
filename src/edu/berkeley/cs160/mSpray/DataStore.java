@@ -33,6 +33,9 @@ public class DataStore {
     public static int pyrethroidSprayedRooms2 = -1;
     public static int pyrethroidSprayedShelters2 = -1;
     public static Boolean pyrethroidRefill2 = false;
+    
+    public static int roomsUnsprayed = -1;
+    public static int sheltersUnsprayed = -1;
 
     public static void startNewStoreSession() {
         lat = null;
@@ -67,5 +70,12 @@ public class DataStore {
         pyrethroidSprayedShelters2 = -1;
         pyrethroidRefill2 = false;
     }
-
+    
+    public static void setGPS(double la, double ln, String laNS, String lnEW, String acc){
+    	lat = la + "";
+    	lng = ln + "";
+    	latNS = laNS  + "";
+    	lngEW = lnEW + "";
+    	accuracy = acc;
+    }
 }
