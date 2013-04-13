@@ -12,18 +12,59 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="@string/confirmUnsprayed"
+        android:text="@string/confirmNoSpray"
         android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/confirm_unsprayed_textview_contents"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:id="@+id/confirm_unsprayed_table"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:text="@string/placeholder"
-        android:textSize="28sp" />
+        android:layout_below="@+id/confirm_unsprayed_textview_title"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp" >
+
+        <TableRow
+            android:id="@+id/confirm_unsprayed_rooms_unsprayed_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/confirm_unsprayed_rooms_unsprayed_label"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:text="Rooms Unsprayed"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/confirm_unsprayed_rooms_unsprayed_value"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:text=" ? "
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/confirm_unsprayed_shelters_unsprayed_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/confirm_unsprayed_shelters_unsprayed_label"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:text="Shelters Unsprayed"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/confirm_unsprayed_shelters_unsprayed_value"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:text=" ? "
+                android:textSize="24sp" />
+        </TableRow>
+    </TableLayout>
 
     <LinearLayout
         android:id="@+id/confirm_unsprayed_layout_innerLinearLayout"

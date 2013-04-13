@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class UnsprayedActivity extends Activity {
 
+	TextView noSprayTitle; 
     EditText roomsUnsprayedValue;
     EditText sheltersUnsprayedValue;
     Button backButton;
@@ -22,6 +24,8 @@ public class UnsprayedActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.no_spray);
+        
+        setTitle("");
 
         roomsUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
         roomsUnsprayedValue.setTypeface(Constants.TYPEFACE);
@@ -31,6 +35,9 @@ public class UnsprayedActivity extends Activity {
         backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.no_spray_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
+        
+        noSprayTitle = (TextView) findViewById(R.id.no_spray_textview_title);
+        noSprayTitle.setTypeface(Constants.TYPEFACE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override

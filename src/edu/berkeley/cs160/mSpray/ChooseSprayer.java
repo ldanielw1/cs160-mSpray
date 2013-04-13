@@ -19,7 +19,7 @@ public class ChooseSprayer extends Activity {
         Bundle extras = this.getIntent().getExtras();
         final String sprayType = extras.getString(Constants.SPRAY_TYPE);
 
-        setTitle("How many spray workers?");
+        setTitle("How many sprayers?");
 
         Button oneSprayerButton = (Button) findViewById(R.id.activity_choose_sprayers_1);
         oneSprayerButton.setOnClickListener(new OnClickListener() {

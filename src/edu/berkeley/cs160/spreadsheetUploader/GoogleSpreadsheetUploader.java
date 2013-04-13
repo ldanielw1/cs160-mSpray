@@ -18,6 +18,10 @@ import android.os.Message;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Toast;
+<<<<<<< HEAD
+=======
+
+>>>>>>> e92e60911c76fa2525401d98f69b2a4784aae227
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.data.spreadsheet.ListEntry;
 import com.google.gdata.data.spreadsheet.ListFeed;

@@ -14,10 +14,12 @@ import android.widget.TextView;
 
 public class ConfirmPyrethroid extends Activity {
 
-    @Override
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirm_pyrethroid);
+        
+        setTitle("Is this correct?");
 
         Bundle extras = this.getIntent().getExtras();
         final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
@@ -30,18 +32,40 @@ public class ConfirmPyrethroid extends Activity {
         TextView title = (TextView) findViewById(R.id.confirm_pyrethroid_textview_title);
         title.setTypeface(Constants.TYPEFACE);
 
-        TextView results = (TextView) findViewById(R.id.confirm_pyrethroid_textview_contents);
-//        results.setTypeface(Constants.TYPEFACE);
-//        TODO: different font for value and labels
+        /* Populate paperwork table */
+        TextView foremanValue = (TextView) findViewById(R.id.confirm_pyrethroid_foreman_value);
+        TextView sprayerValue = (TextView) findViewById(R.id.confirm_pyrethroid_sprayer_value);
+        TextView roomsSprayedValue = (TextView) findViewById(R.id.confirm_pyrethroid_rooms_sprayed_value);
+        TextView sheltersSprayedValue = (TextView) findViewById(R.id.confirm_pyrethroid_shelters_sprayed_value);
+        TextView canRefilledValue = (TextView) findViewById(R.id.confirm_pyrethroid_can_refilled_value);
         
-        if (formNumber == 1)
-            results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
-                    + "Rooms Sprayed: %d\n" + "Shelters Sprayed: %d\n" + "Can %srefilled",
-                    DataStore.foremanID, DataStore.sprayer1ID, roomsSprayed, sheltersSprayed, c));
-        else if (formNumber == 2)
-            results.setText(String.format("Foreman: %s\n" + "Sprayers: %s\n"
-                    + "Rooms Sprayed: %d\n" + "Shelters Sprayed: %d\n" + "Can %srefilled",
-                    DataStore.foremanID, DataStore.sprayer2ID, roomsSprayed, sheltersSprayed, c));
+        foremanValue.setText(DataStore.foremanID);
+        roomsSprayedValue.setText(Integer.toString(roomsSprayed));
+        sheltersSprayedValue.setText(Integer.toString(sheltersSprayed));
+        boolean refillFlag = false;
+
+        /* Sprayer ID and Can Refilled*/
+        if (formNumber == 1) {
+        	sprayerValue.setText(DataStore.sprayer1ID);
+        	refillFlag = DataStore.pyrethroidRefill1;
+        } else if (formNumber == 2) {
+        	sprayerValue.setText(DataStore.sprayer2ID);
+        	refillFlag = DataStore.pyrethroidRefill2;
+        }
+        
+        /* Refill can? */
+        if (refillFlag) {
+        	canRefilledValue.setText("YES");
+    	} else {
+    		canRefilledValue.setText("NO");
+    	}
+        
+        /* External font */
+        foremanValue.setTypeface(Constants.TYPEFACE);
+        sprayerValue.setTypeface(Constants.TYPEFACE);
+        roomsSprayedValue.setTypeface(Constants.TYPEFACE);
+        sheltersSprayedValue.setTypeface(Constants.TYPEFACE);
+        canRefilledValue.setTypeface(Constants.TYPEFACE);
 
         Button backButton = (Button) findViewById(R.id.confirm_pyrethroid_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {
@@ -87,17 +111,17 @@ public class ConfirmPyrethroid extends Activity {
         confirmButton.setTypeface(Constants.TYPEFACE);
     }
 
-    @SuppressLint("SimpleDateFormat")
-    private static String formatDateTime() {
-        SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        Date d = new Date(System.currentTimeMillis());
-        String[] formattedDateArray = df.format(d).split(" ");
+	@SuppressLint("SimpleDateFormat")
+	private static String formatDateTime() {
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Date d = new Date(System.currentTimeMillis());
+		String[] formattedDateArray = df.format(d).split(" ");
 
-        String[] splitDate = formattedDateArray[0].split("/");
-        int month = Integer.parseInt(splitDate[0]);
-        int day = Integer.parseInt(splitDate[1]);
-        int year = Integer.parseInt(splitDate[2]);
+		String[] splitDate = formattedDateArray[0].split("/");
+		int month = Integer.parseInt(splitDate[0]);
+		int day = Integer.parseInt(splitDate[1]);
+		int year = Integer.parseInt(splitDate[2]);
 
-        return month + "/" + day + "/" + year + " " + formattedDateArray[1];
-    }
+		return month + "/" + day + "/" + year + " " + formattedDateArray[1];
+	}
 }

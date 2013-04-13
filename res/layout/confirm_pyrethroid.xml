@@ -10,20 +10,125 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
         android:text="@string/confirmPyrethroid"
         android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/confirm_pyrethroid_textview_contents"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:id="@+id/confirm_pyrethroid_table"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:text="@string/placeholder"
-        android:textSize="28sp" />
+        android:layout_below="@+id/confirm_pyrethroid_textview_title"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp" >
+
+        <TableRow
+            android:id="@+id/confirm_pyrethroid_foreman_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/confirm_pyrethroid_foreman_label"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:text="Foreman"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/confirm_pyrethroid_foreman_value"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:text=" ? "
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/confirm_pyrethroid_sprayer_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/confirm_pyrethroid_sprayer_label"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:text="Sprayer"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/confirm_pyrethroid_sprayer_value"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:text=" ? "
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/confirm_pyrethroid_rooms_sprayed_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/confirm_pyrethroid_rooms_sprayed_label"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:text="Rooms Sprayed"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/confirm_pyrethroid_rooms_sprayed_value"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:text=" ? "
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/confirm_pyrethroid_shelters_sprayed_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/confirm_pyrethroid_shelters_sprayed_label"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:text="Shelters Sprayed"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/confirm_pyrethroid_shelters_sprayed_value"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:text=" ? "
+                android:textSize="24sp" />
+        </TableRow>
+        
+        <TableRow
+            android:id="@+id/confirm_pyrethroid_can_refilled_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/confirm_pyrethroid_can_refilled_label"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:text="Refill can"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/confirm_pyrethroid_can_refilled_value"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:text=" ? "
+                android:textSize="24sp" />
+        </TableRow>
+    </TableLayout>
 
     <LinearLayout
         android:id="@+id/confirm_pyrethroid_layout_innerLinearLayout"
@@ -36,14 +141,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/back" />
+            android:text="@string/back"
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/confirm_pyrethroid_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/confirm" />
+            android:text="@string/confirm"
+            android:textSize="28sp" />
     </LinearLayout>
 
 </RelativeLayout>

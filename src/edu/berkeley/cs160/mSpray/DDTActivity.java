@@ -55,7 +55,11 @@ public class DDTActivity extends Activity {
         TextView canRefilled = (TextView) findViewById(R.id.sprayer_form_textview_canRefilled);
         canRefilled.setTypeface(Constants.TYPEFACE);
         
+        /* Sprayed By Header */
+        TextView header = (TextView) findViewById(R.id.sprayer_form_textview_header);
+        header.setText("DDT " + header.getText());
 
+        /* Name of sprayer */
         TextView userName = (TextView) findViewById(R.id.sprayer_form_textview_sprayerName);
         if (formNumber == 1)
             userName.setText(DataStore.sprayer1ID);
@@ -98,6 +102,13 @@ public class DDTActivity extends Activity {
                 intent.putExtra(Constants.CAN_REFILLED, refilled);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, formNumber);
+                
+                // Store refilled flag in the data store
+                if (formNumber == 1) {
+                	DataStore.ddtRefill1 = refilled;
+                } else if (formNumber == 1) {
+                	DataStore.ddtRefill2 = refilled;
+                }
 
                 startActivity(intent);
             } catch (NumberFormatException e) {
