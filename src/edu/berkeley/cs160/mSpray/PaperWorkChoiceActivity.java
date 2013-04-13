@@ -51,6 +51,7 @@ public class PaperWorkChoiceActivity extends Activity {
                 Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);
+                DataStore.sprayType = Constants.DDT;
                 startActivity(intent);
             };
         });
@@ -61,6 +62,7 @@ public class PaperWorkChoiceActivity extends Activity {
                 Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.SPRAY_TYPE, Constants.PYRETHROID);
+                DataStore.sprayType = Constants.PYRETHROID;
                 startActivity(intent);
             };
         });
@@ -71,6 +73,7 @@ public class PaperWorkChoiceActivity extends Activity {
                 Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.SPRAY_TYPE, Constants.NO_SPRAY);
+                DataStore.sprayType = Constants.NO_SPRAY;
                 startActivity(intent);
             };
         });

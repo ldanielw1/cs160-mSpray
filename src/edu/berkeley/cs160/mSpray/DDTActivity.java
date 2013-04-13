@@ -102,6 +102,13 @@ public class DDTActivity extends Activity {
                 intent.putExtra(Constants.CAN_REFILLED, refilled);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, formNumber);
+                
+                // Store refilled flag in the data store
+                if (formNumber == 1) {
+                	DataStore.ddtRefill1 = refilled;
+                } else if (formNumber == 1) {
+                	DataStore.ddtRefill2 = refilled;
+                }
 
                 startActivity(intent);
             } catch (NumberFormatException e) {

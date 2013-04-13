@@ -37,23 +37,35 @@ public class ConfirmDDT extends Activity {
         TextView sprayerValue = (TextView) findViewById(R.id.confirm_ddt_sprayer_value);
         TextView roomsSprayedValue = (TextView) findViewById(R.id.confirm_ddt_rooms_sprayed_value);
         TextView sheltersSprayedValue = (TextView) findViewById(R.id.confirm_ddt_shelters_sprayed_value);
+        TextView canRefilledValue = (TextView) findViewById(R.id.confirm_ddt_can_refilled_value);
         
         foremanValue.setText(DataStore.foremanID);
         roomsSprayedValue.setText(Integer.toString(roomsSprayed));
         sheltersSprayedValue.setText(Integer.toString(sheltersSprayed));
-
-        /* Sprayer ID */
+        boolean refillFlag = false;
+        
+        /* Sprayer ID and Can Refilled*/
         if (formNumber == 1) {
-        	sprayerValue.setText(DataStore.sprayer1ID);        
+        	sprayerValue.setText(DataStore.sprayer1ID);
+        	refillFlag = DataStore.ddtRefill1;
         } else if (formNumber == 2) {
         	sprayerValue.setText(DataStore.sprayer2ID);
+        	refillFlag = DataStore.ddtRefill2;
         }
+        
+        /* Refill can? */
+        if (refillFlag) {
+        	canRefilledValue.setText("YES");
+    	} else {
+    		canRefilledValue.setText("NO");
+    	}
         
         /* External font */
         foremanValue.setTypeface(Constants.TYPEFACE);
         sprayerValue.setTypeface(Constants.TYPEFACE);
         roomsSprayedValue.setTypeface(Constants.TYPEFACE);
         sheltersSprayedValue.setTypeface(Constants.TYPEFACE);
+        canRefilledValue.setTypeface(Constants.TYPEFACE);
         
         Button backButton = (Button) findViewById(R.id.confirm_ddt_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {
