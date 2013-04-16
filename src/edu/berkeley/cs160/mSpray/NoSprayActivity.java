@@ -21,7 +21,7 @@ public class NoSprayActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.confirm_no_spray);
+        setContentView(R.layout.no_spray);
 
         Bundle extras = this.getIntent().getExtras();
         numSprayers = extras.getInt(Constants.NUM_SPRAYERS);

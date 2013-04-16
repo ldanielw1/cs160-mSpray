@@ -23,7 +23,7 @@ public class UnsprayedActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.no_spray);
+        setContentView(R.layout.unsprayed);
         
         setTitle("");
 
