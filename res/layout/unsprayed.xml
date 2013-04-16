@@ -19,8 +19,6 @@
             android:id="@+id/unsprayed_textview_title"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:layout_marginBottom="30dp"
             android:gravity="center"
             android:text="@string/confirmUnsprayed"
@@ -38,7 +36,7 @@
                 android:id="@+id/unsprayed_textview_roomsUnsprayed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/roomsUnsprayed"
+                android:text="@string/roomsUnsprayedLabel"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="24sp" />
 
@@ -65,7 +63,7 @@
                 android:id="@+id/unsprayed_textview_sheltersUnsprayed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sheltersUnsprayed"
+                android:text="@string/sheltersUnsprayedLabel"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="24sp" />
 

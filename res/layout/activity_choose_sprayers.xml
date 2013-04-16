@@ -3,7 +3,6 @@
     android:id="@+id/choose_sprayers_wrapper"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_centerVertical="true"
     android:orientation="vertical"
     android:screenOrientation="portrait" >
 

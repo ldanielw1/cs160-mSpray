@@ -34,14 +34,14 @@
                 android:id="@+id/confirm_pyrethroid_foreman_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="Foreman"
+                android:text="@string/foreman"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/confirm_pyrethroid_foreman_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
-                android:text=" ? "
+                android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
 
@@ -55,14 +55,14 @@
                 android:id="@+id/confirm_pyrethroid_sprayer_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="Sprayer"
+                android:text="@string/sprayer"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/confirm_pyrethroid_sprayer_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
-                android:text=" ? "
+                android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
 
@@ -76,14 +76,14 @@
                 android:id="@+id/confirm_pyrethroid_rooms_sprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="Rooms Sprayed"
+                android:text="@string/roomsSprayed"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/confirm_pyrethroid_rooms_sprayed_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
-                android:text=" ? "
+                android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
 
@@ -97,14 +97,14 @@
                 android:id="@+id/confirm_pyrethroid_shelters_sprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="Shelters Sprayed"
+                android:text="@string/sheltersSprayed"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/confirm_pyrethroid_shelters_sprayed_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
-                android:text=" ? "
+                android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
         
@@ -118,14 +118,14 @@
                 android:id="@+id/confirm_pyrethroid_can_refilled_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="Refill can"
+                android:text="@string/refillCan"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/confirm_pyrethroid_can_refilled_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
-                android:text=" ? "
+                android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
     </TableLayout>

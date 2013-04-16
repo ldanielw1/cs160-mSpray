@@ -33,7 +33,7 @@
                 android:id="@+id/confirm_unsprayed_rooms_unsprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="@string/roomsUnsprayed"
+                android:text="@string/roomsUnsprayedLabel"
                 android:textSize="24sp" />
 
             <TextView
@@ -54,7 +54,7 @@
                 android:id="@+id/confirm_unsprayed_shelters_unsprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="@string/sheltersUnsprayed"
+                android:text="@string/sheltersUnsprayedLabel"
                 android:textSize="24sp" />
 
             <TextView
