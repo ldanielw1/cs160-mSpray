@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
-import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 
@@ -62,41 +61,30 @@ public class GoogleSpreadsheetUploader {
      * @param uploadData - the HashMap of data to go inside the new row.
      */
     public void addRow(HashMap<String, String> uploadData, final Handler uploadHandler) {
-        AsyncTask<HashMap<String, String>, Void, String> uploadTask = new AsyncTask<HashMap<String, String>, Void, String>() {
-            @Override
-            protected String doInBackground(HashMap<String, String>... params) {
-                try {
-                    HashMap<String, String> data = params[0];
+        try {
+            /** Pre-process the worksheet to make sure inserting works. */
+            worksheet.setRowCount(worksheet.getRowCount() + 1);
+            worksheet.update();
 
-                    /** Pre-process the worksheet to make sure inserting works. */
-                    worksheet.setRowCount(worksheet.getRowCount() + 1);
-                    worksheet.update();
-
-                    // Create the new row locally
-                    ListEntry row = new ListEntry();
-                    // error out only if dataLabels size doesn't match
-
-                    for (String key : data.keySet())
-                        row.getCustomElements().setValueLocal(key, data.get(key));
-
-                    addRow(row);
-
-                    uploadHandler.sendMessage(Message.obtain(uploadHandler,
-                            Constants.UPLOAD_SUCCESSFUL));
-                    return null;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ServiceException e) {
-                    e.printStackTrace();
-                }
-
-                uploadHandler.sendMessage(Message.obtain(uploadHandler,
-                        Constants.UPLOAD_UNSUCCESSFUL));
-
-                return null;
+            ListEntry row = new ListEntry();
+            for (String key : uploadData.keySet()) {
+                System.out.print(key + ", ");
+                System.out.println(uploadData.get(key));
+                row.getCustomElements().setValueLocal(key, uploadData.get(key));
             }
-        };
-        uploadTask.execute(uploadData);
+            System.out.println("Done");
+
+            addRow(row);
+
+            uploadHandler.sendMessage(Message.obtain(uploadHandler, Constants.UPLOAD_SUCCESSFUL));
+            return;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        }
+
+        uploadHandler.sendMessage(Message.obtain(uploadHandler, Constants.UPLOAD_UNSUCCESSFUL));
     }
 
     /**

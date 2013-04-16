@@ -11,9 +11,11 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -74,7 +76,10 @@ public class ConfirmUnsprayed extends Activity {
 
         final HashMap<String, String> uploadData = new HashMap<String, String>();
         uploadData.put("timeStamp", formatDateTime());
-        uploadData.put("imei", tm.getDeviceId());
+        if (tm.getDeviceId() != null)
+            uploadData.put("imei", tm.getDeviceId());
+        else
+            uploadData.put("imei", generateSubstituteSignature());
         uploadData.put("lat", DataStore.lat);
         uploadData.put("latNS", DataStore.latNS);
         uploadData.put("lng", DataStore.lng);
@@ -134,40 +139,37 @@ public class ConfirmUnsprayed extends Activity {
         uploadData.put("unsprayedShelters", Integer.toString(DataStore.sheltersUnsprayed));
         uploadData.put("foreman", DataStore.foremanID);
 
-        GoogleSpreadsheetUploader uploader = null;
+        String usernameinFile = null;
+        String passwordInFile = null;
+        String spreadsheetTitleInFile = null;
+        String worksheetTitleInFile = null;
         try {
-            String username = null;
-            String password = null;
-            String spreadsheetTitle = null;
-            String worksheetTitle = null;
             Scanner s;
             s = new Scanner(getAssets().open("authentication.txt"));
 
             while (s.hasNextLine()) {
                 String[] nextLine = s.nextLine().split("=");
                 if (nextLine[0].equals(USERNAME_LABEL))
-                    username = nextLine[1];
+                    usernameinFile = nextLine[1];
                 else if (nextLine[0].equals(PASSWORD_LABEL))
-                    password = nextLine[1];
+                    passwordInFile = nextLine[1];
                 else if (nextLine[0].equals(SPREADSHEET_TITLE_LABEL))
-                    spreadsheetTitle = nextLine[1];
+                    spreadsheetTitleInFile = nextLine[1];
                 else if (nextLine[0].equals(WORKSHEET_TITLE_LABEL))
-                    worksheetTitle = nextLine[1];
+                    worksheetTitleInFile = nextLine[1];
                 else
                     throw new IllegalArgumentException("Invalid authentication file");
             }
 
-            uploader = new GoogleSpreadsheetUploader(username, password, spreadsheetTitle,
-                    worksheetTitle);
-
+            if (usernameinFile == null || passwordInFile == null || spreadsheetTitleInFile == null
+                    || worksheetTitleInFile == null) {
+                Toast.makeText(getApplicationContext(),
+                        "Authentication Error: Could not upload data", Toast.LENGTH_SHORT).show();
+                return;
+            }
         } catch (IOException e) {
             Toast.makeText(getApplicationContext(), "Error: Could not upload data correctly",
                     Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-            return;
-        } catch (ServiceException e) {
-            Toast.makeText(getApplicationContext(),
-                    "Service Error: Could not upload data correctly", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
             return;
         }
@@ -177,7 +179,7 @@ public class ConfirmUnsprayed extends Activity {
         progDialog.setMessage("Uploading Data...");
         progDialog.show();
 
-        Handler uploadHandler = new Handler() {
+        final Handler uploadHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 if (msg.what == Constants.UPLOAD_SUCCESSFUL) {
@@ -194,8 +196,52 @@ public class ConfirmUnsprayed extends Activity {
             }
         };
 
-        uploader.addRow(uploadData, uploadHandler);
+        final String username = usernameinFile;
+        final String password = passwordInFile;
+        final String spreadsheetTitle = spreadsheetTitleInFile;
+        final String worksheetTitle = worksheetTitleInFile;
 
+        AsyncTask<String, Void, String> uploadTask = new AsyncTask<String, Void, String>() {
+            @Override
+            protected String doInBackground(String... params) {
+                try {
+                    GoogleSpreadsheetUploader uploader = new GoogleSpreadsheetUploader(username,
+                            password, spreadsheetTitle, worksheetTitle);
+                    uploader.addRow(uploadData, uploadHandler);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ServiceException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        };
+        uploadTask.execute();
+    }
+
+    private String generateSubstituteSignature() {
+        // Unique identifier for some tablets
+        String androidTabletID = Secure.getString(getContentResolver(), Secure.ANDROID_ID);
+        if (androidTabletID != null)
+            return androidTabletID;
+
+        final StringBuilder result = new StringBuilder();
+        if (android.os.Build.MODEL != null) {
+            result.append(android.os.Build.MODEL);
+            result.append("||");
+        }
+        if (android.os.Build.FINGERPRINT != null) {
+            result.append(android.os.Build.FINGERPRINT);
+            result.append("||");
+        }
+        if (android.os.Build.ID != null) {
+            result.append(android.os.Build.ID);
+            result.append("||");
+        }
+
+        if (result.toString().equals(""))
+            return "0";
+        return result.toString();
     }
 
     @SuppressLint("SimpleDateFormat")
