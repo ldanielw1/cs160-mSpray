@@ -2,14 +2,6 @@
     android:id="@+id/scanRFIDLayout"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content" >
-
-    <ImageView
-        android:id="@+id/scan_rfid_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:contentDescription="@string/nfcInstructions"
-        android:src="@drawable/badgenew" />
     
     <TextView
         android:id="@+id/scan_rfid_instructions"
@@ -23,5 +15,15 @@
         android:text="@string/scanBadge"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textSize="50sp" />
+
+    <ImageView
+        android:id="@+id/scan_rfid_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="24dp"
+        android:contentDescription="@string/nfcInstructions"
+        android:src="@drawable/badgenew" />
 
 </RelativeLayout>
