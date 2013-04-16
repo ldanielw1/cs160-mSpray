@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class UnsprayedActivity extends Activity {
 
-	TextView noSprayTitle; 
+    TextView noSprayTitle;
     EditText roomsUnsprayedValue;
     EditText sheltersUnsprayedValue;
     Button backButton;
@@ -24,19 +24,19 @@ public class UnsprayedActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.unsprayed);
-        
+
         setTitle("");
 
-        roomsUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_roomsUnsprayedValue);
+        roomsUnsprayedValue = (EditText) findViewById(R.id.unsprayed_edittext_roomsUnsprayedValue);
         roomsUnsprayedValue.setTypeface(Constants.TYPEFACE);
-        sheltersUnsprayedValue = (EditText) findViewById(R.id.no_spray_edittext_sheltersUnsprayedValue);
+        sheltersUnsprayedValue = (EditText) findViewById(R.id.unsprayed_edittext_sheltersUnsprayedValue);
         sheltersUnsprayedValue.setTypeface(Constants.TYPEFACE);
-        backButton = (Button) findViewById(R.id.no_spray_button_backButton);
+        backButton = (Button) findViewById(R.id.unsprayed_button_backButton);
         backButton.setTypeface(Constants.TYPEFACE);
-        confirmButton = (Button) findViewById(R.id.no_spray_button_confirmButton);
+        confirmButton = (Button) findViewById(R.id.unsprayed_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
-        
-        noSprayTitle = (TextView) findViewById(R.id.no_spray_textview_title);
+
+        noSprayTitle = (TextView) findViewById(R.id.unsprayed_textview_title);
         noSprayTitle.setTypeface(Constants.TYPEFACE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +49,7 @@ public class UnsprayedActivity extends Activity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               finish();
+                finish();
             };
         });
 

@@ -67,12 +67,8 @@ public class GoogleSpreadsheetUploader {
             worksheet.update();
 
             ListEntry row = new ListEntry();
-            for (String key : uploadData.keySet()) {
-                System.out.print(key + ", ");
-                System.out.println(uploadData.get(key));
+            for (String key : uploadData.keySet())
                 row.getCustomElements().setValueLocal(key, uploadData.get(key));
-            }
-            System.out.println("Done");
 
             addRow(row);
 

@@ -2,8 +2,10 @@ package edu.berkeley.cs160.mSpray;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 import android.annotation.SuppressLint;
@@ -72,9 +74,43 @@ public class ConfirmUnsprayed extends Activity {
     }
 
     private void upload() {
+        final HashMap<String, String> uploadData = organizeUploadData();
+        List<String> uploadCredentials = getUploadCredentials();
+
+        final ProgressDialog progDialog = new ProgressDialog(ConfirmUnsprayed.this);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setMessage("Uploading Data...");
+        progDialog.show();
+
+        final UploadHandler uploadHandler = new UploadHandler(progDialog);
+
+        final String username = uploadCredentials.get(0);
+        final String password = uploadCredentials.get(1);
+        final String spreadsheetTitle = uploadCredentials.get(2);
+        final String worksheetTitle = uploadCredentials.get(3);
+
+        AsyncTask<String, Void, String> uploadTask = new AsyncTask<String, Void, String>() {
+            @Override
+            protected String doInBackground(String... params) {
+                try {
+                    GoogleSpreadsheetUploader uploader = new GoogleSpreadsheetUploader(username,
+                            password, spreadsheetTitle, worksheetTitle);
+                    uploader.addRow(uploadData, uploadHandler);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ServiceException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        };
+        uploadTask.execute();
+    }
+
+    private HashMap<String, String> organizeUploadData() {
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
-        final HashMap<String, String> uploadData = new HashMap<String, String>();
+        HashMap<String, String> uploadData = new HashMap<String, String>();
         uploadData.put("timeStamp", formatDateTime());
         if (tm.getDeviceId() != null)
             uploadData.put("imei", tm.getDeviceId());
@@ -139,84 +175,7 @@ public class ConfirmUnsprayed extends Activity {
         uploadData.put("unsprayedShelters", Integer.toString(DataStore.sheltersUnsprayed));
         uploadData.put("foreman", DataStore.foremanID);
 
-        String usernameinFile = null;
-        String passwordInFile = null;
-        String spreadsheetTitleInFile = null;
-        String worksheetTitleInFile = null;
-        try {
-            Scanner s;
-            s = new Scanner(getAssets().open("authentication.txt"));
-
-            while (s.hasNextLine()) {
-                String[] nextLine = s.nextLine().split("=");
-                if (nextLine[0].equals(USERNAME_LABEL))
-                    usernameinFile = nextLine[1];
-                else if (nextLine[0].equals(PASSWORD_LABEL))
-                    passwordInFile = nextLine[1];
-                else if (nextLine[0].equals(SPREADSHEET_TITLE_LABEL))
-                    spreadsheetTitleInFile = nextLine[1];
-                else if (nextLine[0].equals(WORKSHEET_TITLE_LABEL))
-                    worksheetTitleInFile = nextLine[1];
-                else
-                    throw new IllegalArgumentException("Invalid authentication file");
-            }
-
-            if (usernameinFile == null || passwordInFile == null || spreadsheetTitleInFile == null
-                    || worksheetTitleInFile == null) {
-                Toast.makeText(getApplicationContext(),
-                        "Authentication Error: Could not upload data", Toast.LENGTH_SHORT).show();
-                return;
-            }
-        } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "Error: Could not upload data correctly",
-                    Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-            return;
-        }
-
-        final ProgressDialog progDialog = new ProgressDialog(ConfirmUnsprayed.this);
-        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progDialog.setMessage("Uploading Data...");
-        progDialog.show();
-
-        final Handler uploadHandler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                if (msg.what == Constants.UPLOAD_SUCCESSFUL) {
-                    progDialog.dismiss();
-
-                    Intent intent = new Intent(getApplicationContext(), FinishedActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                } else if (msg.what == Constants.UPLOAD_UNSUCCESSFUL) {
-                    Toast.makeText(getApplicationContext(),
-                            "Error: Could not upload data to server", Toast.LENGTH_SHORT).show();
-                    progDialog.dismiss();
-                }
-            }
-        };
-
-        final String username = usernameinFile;
-        final String password = passwordInFile;
-        final String spreadsheetTitle = spreadsheetTitleInFile;
-        final String worksheetTitle = worksheetTitleInFile;
-
-        AsyncTask<String, Void, String> uploadTask = new AsyncTask<String, Void, String>() {
-            @Override
-            protected String doInBackground(String... params) {
-                try {
-                    GoogleSpreadsheetUploader uploader = new GoogleSpreadsheetUploader(username,
-                            password, spreadsheetTitle, worksheetTitle);
-                    uploader.addRow(uploadData, uploadHandler);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ServiceException e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        };
-        uploadTask.execute();
+        return uploadData;
     }
 
     private String generateSubstituteSignature() {
@@ -244,6 +203,55 @@ public class ConfirmUnsprayed extends Activity {
         return result.toString();
     }
 
+    private List<String> getUploadCredentials() {
+        String username = null;
+        String password = null;
+        String spreadsheetTitle = null;
+        String worksheetTitle = null;
+        try {
+            Scanner s;
+            s = new Scanner(getAssets().open("authentication.txt"));
+
+            while (s.hasNextLine()) {
+                String[] nextLine = s.nextLine().split("=");
+                if (nextLine[0].equals(USERNAME_LABEL))
+                    username = nextLine[1];
+                else if (nextLine[0].equals(PASSWORD_LABEL))
+                    password = nextLine[1];
+                else if (nextLine[0].equals(SPREADSHEET_TITLE_LABEL))
+                    spreadsheetTitle = nextLine[1];
+                else if (nextLine[0].equals(WORKSHEET_TITLE_LABEL))
+                    worksheetTitle = nextLine[1];
+                else
+                    throw new IllegalArgumentException("Invalid authentication file");
+            }
+
+            if (username == null || password == null || spreadsheetTitle == null
+                    || worksheetTitle == null) {
+                Toast.makeText(getApplicationContext(),
+                        "Authentication Error: Could not upload data", Toast.LENGTH_SHORT).show();
+                return null;
+            }
+        } catch (IOException e) {
+            Toast.makeText(getApplicationContext(), "Error: Could not upload data correctly",
+                    Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+            return null;
+        } catch (IllegalArgumentException e) {
+            Toast.makeText(getApplicationContext(), "Error: Could not upload data correctly",
+                    Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+            return null;
+        }
+
+        List<String> credentials = new ArrayList<String>();
+        credentials.add(username);
+        credentials.add(password);
+        credentials.add(spreadsheetTitle);
+        credentials.add(worksheetTitle);
+        return credentials;
+    }
+
     @SuppressLint("SimpleDateFormat")
     private static String formatDateTime() {
         SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
@@ -256,5 +264,28 @@ public class ConfirmUnsprayed extends Activity {
         int year = Integer.parseInt(splitDate[2]);
 
         return month + "/" + day + "/" + year + " " + formattedDateArray[1];
+    }
+
+    private class UploadHandler extends Handler {
+        ProgressDialog progDialog;
+
+        public UploadHandler(ProgressDialog dialog) {
+            this.progDialog = dialog;
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == Constants.UPLOAD_SUCCESSFUL) {
+                progDialog.dismiss();
+
+                Intent intent = new Intent(getApplicationContext(), FinishedActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            } else if (msg.what == Constants.UPLOAD_UNSUCCESSFUL) {
+                Toast.makeText(getApplicationContext(), "Error: Could not upload data to server",
+                        Toast.LENGTH_SHORT).show();
+                progDialog.dismiss();
+            }
+        }
     }
 }
