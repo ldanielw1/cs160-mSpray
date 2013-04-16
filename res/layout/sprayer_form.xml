@@ -18,7 +18,6 @@
             android:id="@+id/sprayer_form_textview_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
             android:gravity="center"
             android:text="@string/sprayHeader"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -28,7 +27,7 @@
             android:id="@+id/sprayer_form_textview_sprayerName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="15dp"
             android:gravity="center"
             android:text="@string/sprayerName"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -37,7 +36,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             android:orientation="horizontal" >
@@ -67,7 +66,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             android:orientation="horizontal" >
@@ -111,7 +111,8 @@
             <RadioGroup
                 android:id="@+id/sprayer_form_radiogroup"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
 
                 <RadioButton
                     android:id="@+id/sprayer_form_radiobutton_canRefilledYes"
