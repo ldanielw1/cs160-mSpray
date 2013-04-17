@@ -141,24 +141,24 @@ public class ConfirmUnsprayed extends Activity {
                             Integer.toString(DataStore.ddtSprayedShelters2));
                     uploadData.put("DDTRefill2", Boolean.toString(DataStore.ddtRefill2));
                 }
-            } else if (DataStore.pyrethroidUsed1) {
+            } else if (DataStore.korthrineUsed1) {
                 uploadData.put("DDTUsed1", Boolean.toString(false));
                 uploadData.put("DDTUsed2", Boolean.toString(false));
                 uploadData.put("pyrethroidUsed1", Boolean.toString(true));
                 uploadData.put("pyrethroidSprayedRooms1",
-                        Integer.toString(DataStore.pyrethroidSprayedRooms1));
+                        Integer.toString(DataStore.korthrineSprayedRooms1));
                 uploadData.put("pyrethroidSprayedShelters1",
-                        Integer.toString(DataStore.pyrethroidSprayedShelters1));
-                uploadData.put("pyrethroidRefill1", Boolean.toString(DataStore.pyrethroidRefill1));
-                uploadData.put("pyrethroidUsed2", Boolean.toString(DataStore.pyrethroidUsed2));
-                if (DataStore.pyrethroidUsed2) {
+                        Integer.toString(DataStore.korthrineSprayedShelters1));
+                uploadData.put("pyrethroidRefill1", Boolean.toString(DataStore.korthrineRefill1));
+                uploadData.put("pyrethroidUsed2", Boolean.toString(DataStore.korthrineUsed2));
+                if (DataStore.korthrineUsed2) {
                     uploadData.put("sprayer2ID", DataStore.sprayer2ID);
                     uploadData.put("pyrethroidSprayedRooms2",
-                            Integer.toString(DataStore.pyrethroidSprayedRooms2));
+                            Integer.toString(DataStore.korthrineSprayedRooms2));
                     uploadData.put("pyrethroidSprayedShelters2",
-                            Integer.toString(DataStore.pyrethroidSprayedShelters2));
+                            Integer.toString(DataStore.korthrineSprayedShelters2));
                     uploadData.put("pyrethroidRefill2",
-                            Boolean.toString(DataStore.pyrethroidRefill2));
+                            Boolean.toString(DataStore.korthrineRefill2));
                 }
             }
         } else {

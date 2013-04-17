@@ -62,14 +62,14 @@ public class FinishedActivity extends Activity {
 
             }
         } else if (DataStore.sprayType.equals(Constants.PYRETHROID)) {
-            roomsSprayedValue.setText(Integer.toString(DataStore.pyrethroidSprayedRooms1));
-            sheltersSprayedValue.setText(Integer.toString(DataStore.pyrethroidSprayedShelters1));
-            refillFlag = DataStore.pyrethroidRefill1;
+            roomsSprayedValue.setText(Integer.toString(DataStore.korthrineSprayedRooms1));
+            sheltersSprayedValue.setText(Integer.toString(DataStore.korthrineSprayedShelters1));
+            refillFlag = DataStore.korthrineRefill1;
             if (DataStore.sprayer2ID != null) {
-                roomsSprayedValue2.setText(Integer.toString(DataStore.pyrethroidSprayedRooms2));
-                sheltersSprayedValue2.setText(Integer
-                        .toString(DataStore.pyrethroidSprayedShelters2));
-                refillFlag2 = DataStore.pyrethroidRefill2;
+                roomsSprayedValue2.setText(Integer.toString(DataStore.korthrineSprayedRooms2));
+                sheltersSprayedValue2
+                        .setText(Integer.toString(DataStore.korthrineSprayedShelters2));
+                refillFlag2 = DataStore.korthrineRefill2;
             }
         } else if (DataStore.sprayType.equals(Constants.NO_SPRAY)) {
             roomsSprayedValue.setText("No spray");

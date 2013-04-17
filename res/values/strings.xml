@@ -11,10 +11,10 @@
     <string name="confirm">OK</string>
     <string name="confirmDDT">DDT Spray Data</string>
     <string name="confirmNoSpray">Spray Data</string>
-    <string name="confirmPyrethroid">Pyrethroid Spray Data</string>
+    <string name="confirmKOrthrine">K-Orthrine Spray Data</string>
     <string name="confirmUnsprayed">What was not sprayed?</string>
     <string name="DDTHeader">DDT sprayed by</string>
-    <string name="PyrethroidHeader">Pyrethroid sprayed by</string>
+    <string name="korthrineHeader">korthrine sprayed by</string>
     <string name="sprayHeader">sprayed by</string>
     <string name="NoSprayHeader">No rooms sprayed by</string>
     <string name="dataRecorded">Data Recorded</string>
@@ -27,6 +27,7 @@
     <string name="gps_location">GPS Location</string>
     <string name="hintNumRooms"># of Rooms</string>
     <string name="hintNumShelters"># of Shelters</string>
+    <string name="korthrine">K-Orthrine</string>
     <string name="latitude">Latitude</string>
     <string name="location_found">I am at \n 29.81 S, 25.34 E</string>
     <string name="longitude">Longitude</string>
@@ -37,7 +38,6 @@
     <string name="oneSprayer">1 sprayer</string>
     <string name="otherChemicalUsed">Other Chemical Used?</string>
     <string name="sprayerName">Sprayer</string>
-    <string name="pyrethroid">Pyrethroid</string>
     <string name="refillCan">Refill Can</string>
     <string name="refillCanLabel">Refilled Can?</string>
     <string name="roomsSprayed">Rooms Sprayed</string>

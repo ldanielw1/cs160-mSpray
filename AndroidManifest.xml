@@ -52,7 +52,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="edu.berkeley.cs160.mSpray.PyrethroidActivity"
+            android:name="edu.berkeley.cs160.mSpray.KOrthrineActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -60,7 +60,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="edu.berkeley.cs160.mSpray.ConfirmPyrethroid"
+            android:name="edu.berkeley.cs160.mSpray.ConfirmKOrthrine"
             android:screenOrientation="portrait" >
         </activity>
         <activity

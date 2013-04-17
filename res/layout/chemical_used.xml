@@ -19,21 +19,21 @@
         android:id="@+id/chemical_used_button_ddt"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
-        android:layout_above="@+id/chemical_used_button_pyrethroid"
-        android:layout_alignLeft="@+id/chemical_used_button_pyrethroid"
-        android:layout_alignRight="@+id/chemical_used_button_pyrethroid"
+        android:layout_above="@+id/chemical_used_button_korthrine"
+        android:layout_alignLeft="@+id/chemical_used_button_korthrine"
+        android:layout_alignRight="@+id/chemical_used_button_korthrine"
         android:layout_marginBottom="10dp"
         android:text="@string/ddt"
         android:textSize="40sp" />
 
     <Button
-        android:id="@+id/chemical_used_button_pyrethroid"
+        android:id="@+id/chemical_used_button_korthrine"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:layout_alignLeft="@+id/chemical_used_button_noSpray"
         android:layout_alignRight="@+id/chemical_used_button_noSpray"
         android:layout_centerVertical="true"
-        android:text="@string/pyrethroid"
+        android:text="@string/korthrine"
         android:textSize="40sp" />
 
     <Button
@@ -41,7 +41,7 @@
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/chemical_used_button_pyrethroid"
+        android:layout_below="@+id/chemical_used_button_korthrine"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"

@@ -8,12 +8,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ConfirmPyrethroid extends Activity {
+public class ConfirmKOrthrine extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.confirm_pyrethroid);
+        setContentView(R.layout.confirm_korthrine);
 
         setTitle("Is this correct?");
 
@@ -24,15 +24,15 @@ public class ConfirmPyrethroid extends Activity {
         final int sheltersSprayed = extras.getInt(Constants.SHELTERS_SPRAYED);
         final boolean refilled = extras.getBoolean(Constants.CAN_REFILLED);
 
-        TextView title = (TextView) findViewById(R.id.confirm_pyrethroid_textview_title);
+        TextView title = (TextView) findViewById(R.id.confirm_korthrine_textview_title);
         title.setTypeface(Constants.TYPEFACE);
 
         /* Populate paperwork table */
-        TextView foremanValue = (TextView) findViewById(R.id.confirm_pyrethroid_foreman_value);
-        TextView sprayerValue = (TextView) findViewById(R.id.confirm_pyrethroid_sprayer_value);
-        TextView roomsSprayedValue = (TextView) findViewById(R.id.confirm_pyrethroid_rooms_sprayed_value);
-        TextView sheltersSprayedValue = (TextView) findViewById(R.id.confirm_pyrethroid_shelters_sprayed_value);
-        TextView canRefilledValue = (TextView) findViewById(R.id.confirm_pyrethroid_can_refilled_value);
+        TextView foremanValue = (TextView) findViewById(R.id.confirm_korthrine_foreman_value);
+        TextView sprayerValue = (TextView) findViewById(R.id.confirm_korthrine_sprayer_value);
+        TextView roomsSprayedValue = (TextView) findViewById(R.id.confirm_korthrine_rooms_sprayed_value);
+        TextView sheltersSprayedValue = (TextView) findViewById(R.id.confirm_korthrine_shelters_sprayed_value);
+        TextView canRefilledValue = (TextView) findViewById(R.id.confirm_korthrine_can_refilled_value);
 
         foremanValue.setText(DataStore.foremanID);
         roomsSprayedValue.setText(Integer.toString(roomsSprayed));
@@ -42,10 +42,10 @@ public class ConfirmPyrethroid extends Activity {
         /* Sprayer ID and Can Refilled */
         if (formNumber == 1) {
             sprayerValue.setText(DataStore.sprayer1ID);
-            refillFlag = DataStore.pyrethroidRefill1;
+            refillFlag = DataStore.korthrineRefill1;
         } else if (formNumber == 2) {
             sprayerValue.setText(DataStore.sprayer2ID);
-            refillFlag = DataStore.pyrethroidRefill2;
+            refillFlag = DataStore.korthrineRefill2;
         }
 
         /* Refill can? */
@@ -62,7 +62,7 @@ public class ConfirmPyrethroid extends Activity {
         sheltersSprayedValue.setTypeface(Constants.TYPEFACE);
         canRefilledValue.setTypeface(Constants.TYPEFACE);
 
-        Button backButton = (Button) findViewById(R.id.confirm_pyrethroid_button_backButton);
+        Button backButton = (Button) findViewById(R.id.confirm_korthrine_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,21 +71,21 @@ public class ConfirmPyrethroid extends Activity {
         });
         backButton.setTypeface(Constants.TYPEFACE);
 
-        Button confirmButton = (Button) findViewById(R.id.confirm_pyrethroid_button_confirmButton);
+        Button confirmButton = (Button) findViewById(R.id.confirm_korthrine_button_confirmButton);
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (formNumber == 1) {
                     DataStore.homesteadSprayed = true;
-                    DataStore.pyrethroidUsed1 = true;
-                    DataStore.pyrethroidSprayedRooms1 = roomsSprayed;
-                    DataStore.pyrethroidSprayedShelters1 = sheltersSprayed;
-                    DataStore.pyrethroidRefill1 = refilled;
+                    DataStore.korthrineUsed1 = true;
+                    DataStore.korthrineSprayedRooms1 = roomsSprayed;
+                    DataStore.korthrineSprayedShelters1 = sheltersSprayed;
+                    DataStore.korthrineRefill1 = refilled;
                 } else if (formNumber == 2) {
-                    DataStore.pyrethroidUsed2 = true;
-                    DataStore.pyrethroidSprayedRooms2 = roomsSprayed;
-                    DataStore.pyrethroidSprayedShelters2 = sheltersSprayed;
-                    DataStore.pyrethroidRefill2 = refilled;
+                    DataStore.korthrineUsed2 = true;
+                    DataStore.korthrineSprayedRooms2 = roomsSprayed;
+                    DataStore.korthrineSprayedShelters2 = sheltersSprayed;
+                    DataStore.korthrineRefill2 = refilled;
                 }
                 if (numSprayers == formNumber) {
                     Intent intent = new Intent(getApplicationContext(), UnsprayedActivity.class);

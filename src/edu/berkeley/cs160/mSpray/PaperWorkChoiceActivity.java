@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class PaperWorkChoiceActivity extends Activity {
-    Button pyrethroid;
+    Button korthrine;
     Button ddt;
     Button noSpray;
     Button back;
@@ -18,21 +18,21 @@ public class PaperWorkChoiceActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chemical_used);
-        
+
         setTitle("Which chemical was sprayed?");
-        
+
         header = (TextView) findViewById(R.id.textView1);
         header.setTypeface(Constants.TYPEFACE);
 
         back = (Button) findViewById(R.id.chemical_used_button_back);
         back.setTypeface(Constants.TYPEFACE);
-        
+
         ddt = (Button) findViewById(R.id.chemical_used_button_ddt);
         ddt.setTypeface(Constants.TYPEFACE);
-        
-        pyrethroid = (Button) findViewById(R.id.chemical_used_button_pyrethroid);
-        pyrethroid.setTypeface(Constants.TYPEFACE);
-        
+
+        korthrine = (Button) findViewById(R.id.chemical_used_button_korthrine);
+        korthrine.setTypeface(Constants.TYPEFACE);
+
         noSpray = (Button) findViewById(R.id.chemical_used_button_noSpray);
         noSpray.setTypeface(Constants.TYPEFACE);
 
@@ -56,7 +56,7 @@ public class PaperWorkChoiceActivity extends Activity {
             };
         });
 
-        pyrethroid.setOnClickListener(new View.OnClickListener() {
+        korthrine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);

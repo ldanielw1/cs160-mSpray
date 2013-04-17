@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PyrethroidActivity extends Activity {
+public class KOrthrineActivity extends Activity {
 
     EditText roomsSprayedValue;
     EditText sheltersSprayedValue;
@@ -85,7 +85,7 @@ public class PyrethroidActivity extends Activity {
     }
 
     public void getData() {
-        Intent intent = new Intent(this, ConfirmPyrethroid.class);
+        Intent intent = new Intent(this, ConfirmKOrthrine.class);
 
         if (roomsSprayedValue.getText().toString().equals("")
                 || sheltersSprayedValue.getText().toString().equals("")) {
@@ -104,9 +104,9 @@ public class PyrethroidActivity extends Activity {
 
                 // Store refilled flag in the data store
                 if (formNumber == 1) {
-                    DataStore.pyrethroidRefill1 = refilled;
+                    DataStore.korthrineRefill1 = refilled;
                 } else if (formNumber == 1) {
-                    DataStore.pyrethroidRefill2 = refilled;
+                    DataStore.korthrineRefill2 = refilled;
                 }
 
                 startActivity(intent);

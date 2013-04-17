@@ -5,7 +5,7 @@
     android:screenOrientation="portrait" >
 
     <TextView
-        android:id="@+id/confirm_pyrethroid_textview_title"
+        android:id="@+id/confirm_korthrine_textview_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -13,32 +13,32 @@
         android:layout_marginBottom="12dp"
         android:layout_marginTop="12dp"
         android:gravity="center"
-        android:text="@string/confirmPyrethroid"
+        android:text="@string/confirmKOrthrine"
         android:textSize="28sp" />
 
     <TableLayout
-        android:id="@+id/confirm_pyrethroid_table"
+        android:id="@+id/confirm_korthrine_table"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/confirm_pyrethroid_textview_title"
+        android:layout_below="@+id/confirm_korthrine_textview_title"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp" >
 
         <TableRow
-            android:id="@+id/confirm_pyrethroid_foreman_row"
+            android:id="@+id/confirm_korthrine_foreman_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp" >
 
             <TextView
-                android:id="@+id/confirm_pyrethroid_foreman_label"
+                android:id="@+id/confirm_korthrine_foreman_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="@string/foreman"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/confirm_pyrethroid_foreman_value"
+                android:id="@+id/confirm_korthrine_foreman_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text="@string/emptyValue"
@@ -46,20 +46,20 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/confirm_pyrethroid_sprayer_row"
+            android:id="@+id/confirm_korthrine_sprayer_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp" >
 
             <TextView
-                android:id="@+id/confirm_pyrethroid_sprayer_label"
+                android:id="@+id/confirm_korthrine_sprayer_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="@string/sprayer"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/confirm_pyrethroid_sprayer_value"
+                android:id="@+id/confirm_korthrine_sprayer_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text="@string/emptyValue"
@@ -67,20 +67,20 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/confirm_pyrethroid_rooms_sprayed_row"
+            android:id="@+id/confirm_korthrine_rooms_sprayed_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp" >
 
             <TextView
-                android:id="@+id/confirm_pyrethroid_rooms_sprayed_label"
+                android:id="@+id/confirm_korthrine_rooms_sprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="@string/roomsSprayed"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/confirm_pyrethroid_rooms_sprayed_value"
+                android:id="@+id/confirm_korthrine_rooms_sprayed_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text="@string/emptyValue"
@@ -88,20 +88,20 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/confirm_pyrethroid_shelters_sprayed_row"
+            android:id="@+id/confirm_korthrine_shelters_sprayed_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp" >
 
             <TextView
-                android:id="@+id/confirm_pyrethroid_shelters_sprayed_label"
+                android:id="@+id/confirm_korthrine_shelters_sprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="@string/sheltersSprayed"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/confirm_pyrethroid_shelters_sprayed_value"
+                android:id="@+id/confirm_korthrine_shelters_sprayed_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text="@string/emptyValue"
@@ -109,20 +109,20 @@
         </TableRow>
         
         <TableRow
-            android:id="@+id/confirm_pyrethroid_can_refilled_row"
+            android:id="@+id/confirm_korthrine_can_refilled_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp" >
 
             <TextView
-                android:id="@+id/confirm_pyrethroid_can_refilled_label"
+                android:id="@+id/confirm_korthrine_can_refilled_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="@string/refillCan"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/confirm_pyrethroid_can_refilled_value"
+                android:id="@+id/confirm_korthrine_can_refilled_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text="@string/emptyValue"
@@ -131,13 +131,13 @@
     </TableLayout>
 
     <LinearLayout
-        android:id="@+id/confirm_pyrethroid_layout_innerLinearLayout"
+        android:id="@+id/confirm_korthrine_layout_innerLinearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" >
 
         <Button
-            android:id="@+id/confirm_pyrethroid_button_backButton"
+            android:id="@+id/confirm_korthrine_button_backButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
@@ -145,7 +145,7 @@
             android:textSize="28sp" />
 
         <Button
-            android:id="@+id/confirm_pyrethroid_button_confirmButton"
+            android:id="@+id/confirm_korthrine_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
