@@ -61,7 +61,7 @@ public class FinishedActivity extends Activity {
             } else {
 
             }
-        } else if (DataStore.sprayType.equals(Constants.PYRETHROID)) {
+        } else if (DataStore.sprayType.equals(Constants.KORTHRINE)) {
             roomsSprayedValue.setText(Integer.toString(DataStore.korthrineSprayedRooms1));
             sheltersSprayedValue.setText(Integer.toString(DataStore.korthrineSprayedShelters1));
             refillFlag = DataStore.korthrineRefill1;

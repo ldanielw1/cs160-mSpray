@@ -23,7 +23,7 @@ public final class Constants {
     /** Constants for which forms to fill out. */
     public static final String SPRAY_TYPE = "sprayType";
     public static final String DDT = "DDT";
-    public static final String PYRETHROID = "Pyrethroid";
+    public static final String KORTHRINE = "K-Orthrine";
     public static final String NO_SPRAY = "No Spray";
 
     /** Constants for passing information into verification page. */

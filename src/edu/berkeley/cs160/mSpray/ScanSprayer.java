@@ -35,7 +35,7 @@ public class ScanSprayer extends Activity {
                 Intent intent = null;
                 if (sprayType.equals(Constants.DDT))
                     intent = new Intent(getApplicationContext(), DDTActivity.class);
-                else if (sprayType.equals(Constants.PYRETHROID))
+                else if (sprayType.equals(Constants.KORTHRINE))
                     intent = new Intent(getApplicationContext(), KOrthrineActivity.class);
                 else if (sprayType.equals(Constants.NO_SPRAY))
                     intent = new Intent(getApplicationContext(), NoSprayActivity.class);

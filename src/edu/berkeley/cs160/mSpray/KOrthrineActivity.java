@@ -57,7 +57,7 @@ public class KOrthrineActivity extends Activity {
 
         /* Sprayed By Header */
         TextView header = (TextView) findViewById(R.id.sprayer_form_textview_header);
-        header.setText("Pyrethroid " + header.getText());
+        header.setText("K-Orthrine " + header.getText());
 
         /* Name of sprayer */
         TextView userName = (TextView) findViewById(R.id.sprayer_form_textview_sprayerName);
@@ -77,7 +77,7 @@ public class KOrthrineActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
-                intent.putExtra(Constants.SPRAY_TYPE, Constants.PYRETHROID);
+                intent.putExtra(Constants.SPRAY_TYPE, Constants.KORTHRINE);
                 startActivity(intent);
             };
         });
