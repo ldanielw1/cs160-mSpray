@@ -54,6 +54,7 @@
     <string name="sprayer2">Sprayer 2</string>
     <string name="sprayerIDs">Sprayer IDs</string>
     <string name="startSpray">Start New Spray</string>
+    <string name="doneSpraying">I am finished</string>
     <string name="twoSprayers">2 sprayers</string>
     <string name="yes">Yes</string>
     

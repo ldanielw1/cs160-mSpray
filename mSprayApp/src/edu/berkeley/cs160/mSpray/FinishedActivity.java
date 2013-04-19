@@ -111,7 +111,7 @@ public class FinishedActivity extends Activity {
         finishedButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MSpray.class);
+                Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }

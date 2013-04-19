@@ -15,20 +15,36 @@
         android:text="I am Foreman."
         android:textSize="28sp" />
 
-    <Button
-        android:id="@+id/activity_start_new_spray_button"
+    <LinearLayout
+        android:id="@+id/activity_start_new_spray_layout"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="72dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="72dp"
-        android:drawablePadding="-15sp"
-        android:drawableTop="@drawable/recordspray"
-        android:paddingTop="32sp"
-        android:text="@string/startSpray"
-        android:textSize="40sp" >
-    </Button>
+        android:layout_height="fill_parent" 
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/activity_start_new_spray_button"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="72dp"
+            android:layout_weight="0.8"
+            android:drawablePadding="-15sp"
+            android:drawableTop="@drawable/recordspray"
+            android:paddingTop="32sp"
+            android:text="@string/startSpray"
+            android:textSize="40sp" >
+        </Button>
+
+        <Button
+            android:id="@+id/activity_done_spraying_button"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:layout_weight="0.2"
+            android:text="@string/doneSpraying"
+            android:textSize="40sp" >
+        </Button>
+    </LinearLayout>
 
 </RelativeLayout>

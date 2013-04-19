@@ -30,6 +30,18 @@ public class StartNewSpray extends Activity {
             }
         });
         b.setTypeface(Constants.TYPEFACE);
+        
+        Button doneButton = (Button) findViewById(R.id.activity_done_spraying_button);
+        doneButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(), MSpray.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+			}
+		});
+        doneButton.setTypeface(Constants.TYPEFACE);
     }
 
     @Override
