@@ -2,33 +2,49 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/darkgray"
     android:screenOrientation="portrait" >
 
     <TextView
         android:id="@+id/activity_mspray_header"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:background="@drawable/grad3"
         android:gravity="center"
         android:text="@string/scanSelfLabel"
         android:textSize="28sp" />
 
-    <Button
-        android:id="@+id/activity_mspray_button"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="72dp"
+    <RelativeLayout
+        android:id="@+id/activity_mspray_fake_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/activity_mspray_header"
+        android:layout_marginBottom="36dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="72dp"
-        android:drawablePadding="-15sp"
-        android:paddingTop="32sp"
-        android:drawableTop="@drawable/foreman"
-        android:text="@string/scanSelf"
-        android:textSize="40sp" >
-    </Button>
+        android:layout_marginTop="36dp"
+        android:background="@drawable/button_selector_green"
+        android:onClick="onClick" >
+
+        <Button
+            android:id="@+id/activity_mspray_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@android:color/transparent"
+            android:drawablePadding="16dp"
+            android:drawableTop="@drawable/foreman"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="@string/scanSelf"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+    </RelativeLayout>
 
 </RelativeLayout>

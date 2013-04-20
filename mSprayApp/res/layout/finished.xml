@@ -2,16 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/darkgray"
     android:screenOrientation="portrait" >
 
     <TextView
         android:id="@+id/finished_textview_title"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/grad3"
         android:gravity="center"
         android:text="@string/dataRecorded"
         android:textSize="28sp" />
@@ -21,62 +22,68 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/finished_textview_title"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp" >
-        
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp" >
+
         <TableRow
             android:id="@+id/finished_foreman_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_foreman_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="@string/foreman"
-                android:textSize="24sp" />
+                android:textColor="#fff"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/finished_foreman_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
-                android:textSize="24sp" />
+                android:textColor="#fff"
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
             android:id="@+id/finished_sprayer_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_sprayer_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="@string/sprayer"
-                android:textSize="24sp" />
+                android:textColor="#fff"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/finished_sprayer_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
-                android:textSize="24sp" />
+                android:textColor="#fff"
+                android:textSize="20sp" />
         </TableRow>
-        
-         <TableRow
+
+        <TableRow
             android:id="@+id/finished_rooms_sprayed_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_rooms_sprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="  Rooms Sprayed"
+                android:textColor="#fff"
                 android:textSize="16sp" />
 
             <TextView
@@ -84,6 +91,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
+                android:textColor="#fff"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -91,13 +99,14 @@
             android:id="@+id/finished_shelters_sprayed_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_shelters_sprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="  Shelters Sprayed"
+                android:textColor="#fff"
                 android:textSize="16sp" />
 
             <TextView
@@ -105,20 +114,22 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
+                android:textColor="#fff"
                 android:textSize="16sp" />
         </TableRow>
-        
+
         <TableRow
             android:id="@+id/finished_can_refilled_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_can_refilled_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="  Refill can"
+                android:textColor="#fff"
                 android:textSize="16sp" />
 
             <TextView
@@ -126,41 +137,45 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
+                android:textColor="#fff"
                 android:textSize="16sp" />
         </TableRow>
-        
+
         <TableRow
             android:id="@+id/finished_sprayer2_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_sprayer2_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="@string/sprayer2"
-                android:textSize="24sp" />
+                android:textColor="#fff"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/finished_sprayer2_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
-                android:textSize="24sp" />
+                android:textColor="#fff"
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
             android:id="@+id/finished_rooms_sprayed2_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_rooms_sprayed2_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="  Rooms Sprayed"
+                android:textColor="#fff"
                 android:textSize="16sp" />
 
             <TextView
@@ -168,6 +183,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
+                android:textColor="#fff"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -175,13 +191,14 @@
             android:id="@+id/finished_shelters_sprayed2_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_shelters_sprayed2_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="  Shelters Sprayed"
+                android:textColor="#fff"
                 android:textSize="16sp" />
 
             <TextView
@@ -189,20 +206,22 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
+                android:textColor="#fff"
                 android:textSize="16sp" />
         </TableRow>
-        
+
         <TableRow
             android:id="@+id/finished_can_refilled2_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_can_refilled2_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="  Refill can"
+                android:textColor="#fff"
                 android:textSize="16sp" />
 
             <TextView
@@ -210,6 +229,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
+                android:textColor="#fff"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -217,42 +237,46 @@
             android:id="@+id/finished_latitude_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_latitude_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="@string/latitude"
-                android:textSize="24sp" />
+                android:textColor="#fff"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/finished_latitude_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
-                android:textSize="24sp" />
+                android:textColor="#fff"
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
             android:id="@+id/finished_longitude_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:padding="4dp" >
 
             <TextView
                 android:id="@+id/finished_longitude_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:text="@string/longitude"
-                android:textSize="24sp" />
+                android:textColor="#fff"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/finished_longitude_value"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:text=""
-                android:textSize="24sp" />
+                android:textColor="#fff"
+                android:textSize="20sp" />
         </TableRow>
     </TableLayout>
 
@@ -260,14 +284,18 @@
         android:id="@+id/finished_layout_innerLinearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/darkgray"
+        android:padding="9dp" >
 
         <Button
             android:id="@+id/finished_button_finishedButton"
-            android:layout_width="0dp"
+            android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector_green"
             android:text="@string/confirm"
+            android:textColor="#fff"
             android:textSize="28sp" />
     </LinearLayout>
 

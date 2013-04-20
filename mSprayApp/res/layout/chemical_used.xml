@@ -2,62 +2,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/darkgray"
     android:screenOrientation="portrait" >
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+        android:id="@+id/chemical_used_header"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/grad3"
+        android:gravity="center"
         android:text="@string/chemicalUsed"
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/chemical_used_button_ddt"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_above="@+id/chemical_used_button_korthrine"
-        android:layout_alignLeft="@+id/chemical_used_button_korthrine"
-        android:layout_alignRight="@+id/chemical_used_button_korthrine"
-        android:layout_marginBottom="10dp"
-        android:text="@string/ddt"
-        android:textSize="40sp" />
-
-    <Button
-        android:id="@+id/chemical_used_button_korthrine"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/chemical_used_button_noSpray"
-        android:layout_alignRight="@+id/chemical_used_button_noSpray"
-        android:layout_centerVertical="true"
-        android:text="@string/korthrine"
-        android:textSize="40sp" />
-
-    <Button
-        android:id="@+id/chemical_used_button_noSpray"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/chemical_used_button_korthrine"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/noSpray"
-        android:textSize="40sp" />
-
-    <Button
-        android:id="@+id/chemical_used_button_back"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="@string/back"
         android:textSize="28sp" />
+
+    <LinearLayout
+        android:id="@+id/chemical_used_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/chemical_used_header"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/chemical_used_button_korthrine"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="0.25"
+            android:background="@drawable/button_selector_green"
+            android:text="@string/korthrine"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/chemical_used_button_ddt"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="0.25"
+            android:background="@drawable/button_selector_blue"
+            android:text="@string/ddt"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/chemical_used_button_noSpray"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="0.25"
+            android:background="@drawable/button_selector_yellow"
+            android:text="@string/noSpray"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/chemical_used_button_back"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:layout_weight="0.2"
+            android:background="@drawable/button_selector_red"
+            android:text="@string/back"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+    </LinearLayout>
 
 </RelativeLayout>

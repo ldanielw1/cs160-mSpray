@@ -2,50 +2,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/darkgray"
     android:orientation="vertical"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:screenOrientation="portrait"
     tools:context=".MSpray" >
+
+    <TextView
+        android:id="@+id/unsprayed_textview_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/grad3"
+        android:gravity="center"
+        android:text="@string/confirmUnsprayed"
+        android:textSize="28sp" />
 
     <LinearLayout
         android:id="@+id/unsprayed_layout_mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/unsprayed_textview_title"
+        android:layout_marginTop="16dp"
         android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/unsprayed_textview_title"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:gravity="center"
-            android:text="@string/confirmUnsprayed"
-            android:textSize="36sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal" >
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal"
+            android:padding="12dp" >
 
             <TextView
                 android:id="@+id/unsprayed_textview_roomsUnsprayed"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/roomsUnsprayedLabel"
+                android:layout_weight="0.5"
+                android:text="@string/rooms"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fff"
                 android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/unsprayed_edittext_roomsUnsprayedValue"
-                android:layout_width="0dip"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:ems="10"
                 android:inputType="number"
                 android:textSize="24sp" >
@@ -55,24 +61,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:orientation="horizontal" >
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal"
+            android:padding="12dp" >
 
             <TextView
                 android:id="@+id/unsprayed_textview_sheltersUnsprayed"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/sheltersUnsprayedLabel"
+                android:layout_weight="0.5"
+                android:text="@string/shelters"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fff"
                 android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/unsprayed_edittext_sheltersUnsprayedValue"
-                android:layout_width="0dip"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:ems="10"
                 android:inputType="number"
                 android:textSize="24sp" >
@@ -84,22 +93,31 @@
         android:id="@+id/unsprayed_layout_innerLinearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/darkgray"
+        android:padding="9dp" >
 
         <Button
             android:id="@+id/unsprayed_button_backButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
             android:layout_weight="0.5"
+            android:background="@drawable/button_selector_red"
             android:text="@string/back"
+            android:textColor="#fff"
             android:textSize="28sp" />
 
         <Button
             android:id="@+id/unsprayed_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
             android:layout_weight="0.5"
+            android:background="@drawable/button_selector_green"
+            android:onClick="getData"
             android:text="@string/confirm"
+            android:textColor="#fff"
             android:textSize="28sp" />
     </LinearLayout>
 

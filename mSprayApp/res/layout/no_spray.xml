@@ -2,26 +2,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/darkgray"
     android:screenOrientation="portrait" >
 
     <TextView
         android:id="@+id/confirm_no_spray_textview_title"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:background="@drawable/grad3"
         android:gravity="center"
         android:text="@string/NoSprayHeader"
         android:textSize="28sp" />
 
     <TextView
         android:id="@+id/confirm_no_spray_textview_contents"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:padding="16dp"
         android:text="@string/sprayerName"
         android:textSize="28sp" />
 
@@ -29,24 +35,32 @@
         android:id="@+id/confirm_no_spray_layout_innerLinearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/darkgray"
+        android:padding="9dp" >
 
         <Button
             android:id="@+id/confirm_no_spray_button_backButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
             android:layout_weight="0.5"
-            android:textSize="28sp"
-            android:text="@string/back" />
+            android:background="@drawable/button_selector_red"
+            android:text="@string/back"
+            android:textColor="#fff"
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/confirm_no_spray_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
             android:layout_weight="0.5"
-            android:textSize="28sp"
+            android:background="@drawable/button_selector_green"
+            android:onClick="getData"
             android:text="@string/confirm"
-            android:onClick="getData" />
+            android:textColor="#fff"
+            android:textSize="28sp" />
     </LinearLayout>
 
 </RelativeLayout>

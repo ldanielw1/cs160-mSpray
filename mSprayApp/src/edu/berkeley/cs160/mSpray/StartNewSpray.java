@@ -6,9 +6,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class StartNewSpray extends Activity {
+	
+	RelativeLayout startSpray;
+	Button startSprayButton;
+	Button doneButton;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +26,11 @@ public class StartNewSpray extends Activity {
         tv.setText("I am: Foreman");
         tv.setTypeface(Constants.TYPEFACE);
 
-        Button b = (Button) findViewById(R.id.activity_start_new_spray_button);
-        b.setOnClickListener(new View.OnClickListener() {
+        startSpray = (RelativeLayout) findViewById(R.id.activity_start_new_spray_fake_button);
+        startSprayButton = (Button) findViewById(R.id.activity_start_new_spray_button);
+        doneButton = (Button) findViewById(R.id.activity_done_spraying_button);
+        
+        startSpray.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), GetGpsActivity.class);
@@ -29,9 +38,9 @@ public class StartNewSpray extends Activity {
                 startActivity(intent);
             }
         });
-        b.setTypeface(Constants.TYPEFACE);
+        startSprayButton.setTypeface(Constants.TYPEFACE);
         
-        Button doneButton = (Button) findViewById(R.id.activity_done_spraying_button);
+        
         doneButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

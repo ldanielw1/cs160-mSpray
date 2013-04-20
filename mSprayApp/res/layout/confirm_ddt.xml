@@ -2,62 +2,82 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/darkgray"
     android:screenOrientation="portrait" >
+
+    <TextView
+        android:id="@+id/confirm_ddt_textview_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/grad3"
+        android:gravity="center"
+        android:text="@string/confirmDDT"
+        android:textSize="28sp" />
 
     <LinearLayout
         android:id="@+id/confirm_ddt_layout_innerLinearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/darkgray"
+        android:padding="9dp" >
 
         <Button
             android:id="@+id/confirm_ddt_button_backButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.22"
+            android:layout_marginRight="3dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/button_selector_red"
             android:text="@string/back"
+            android:textColor="#fff"
             android:textSize="28sp" />
 
         <Button
             android:id="@+id/confirm_ddt_button_confirmButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="0.19"
+            android:layout_marginLeft="3dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/button_selector_green"
             android:text="@string/confirm"
+            android:textColor="#fff"
             android:textSize="28sp" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/confirm_ddt_textview_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/confirmDDT"
-        android:textSize="28sp" />
 
     <TableLayout
         android:id="@+id/confirm_ddt_table"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/confirm_ddt_textview_title"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp" >
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp" >
 
         <TableRow
             android:id="@+id/confirm_ddt_foreman_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:layout_marginTop="8dp"
+            android:background="@android:color/white"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp" >
 
             <TextView
                 android:id="@+id/confirm_ddt_foreman_label"
                 android:layout_width="0dp"
-                android:layout_weight="0.7"
+                android:layout_weight="0.5"
                 android:text="@string/foreman"
                 android:textSize="24sp" />
+
+            <View
+                android:layout_height="0dp"
+                android:layout_weight="0.2" />
 
             <TextView
                 android:id="@+id/confirm_ddt_foreman_value"
@@ -71,14 +91,23 @@
             android:id="@+id/confirm_ddt_sprayer_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:layout_marginTop="8dp"
+            android:background="@android:color/white"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp" >
 
             <TextView
                 android:id="@+id/confirm_ddt_sprayer_label"
                 android:layout_width="0dp"
-                android:layout_weight="0.7"
+                android:layout_weight="0.5"
                 android:text="@string/sprayer"
                 android:textSize="24sp" />
+
+            <View
+                android:layout_height="0dp"
+                android:layout_weight="0.2" />
 
             <TextView
                 android:id="@+id/confirm_ddt_sprayer_value"
@@ -92,14 +121,23 @@
             android:id="@+id/confirm_ddt_rooms_sprayed_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:layout_marginTop="8dp"
+            android:background="@android:color/white"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp" >
 
             <TextView
                 android:id="@+id/confirm_ddt_rooms_sprayed_label"
                 android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/roomsSprayed"
+                android:layout_weight="0.5"
+                android:text="@string/rooms"
                 android:textSize="24sp" />
+
+            <View
+                android:layout_height="0dp"
+                android:layout_weight="0.2" />
 
             <TextView
                 android:id="@+id/confirm_ddt_rooms_sprayed_value"
@@ -113,14 +151,23 @@
             android:id="@+id/confirm_ddt_shelters_sprayed_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:layout_marginTop="8dp"
+            android:background="@android:color/white"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp" >
 
             <TextView
                 android:id="@+id/confirm_ddt_shelters_sprayed_label"
                 android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/sheltersSprayed"
+                android:layout_weight="0.5"
+                android:text="@string/shelters"
                 android:textSize="24sp" />
+
+            <View
+                android:layout_height="0dp"
+                android:layout_weight="0.2" />
 
             <TextView
                 android:id="@+id/confirm_ddt_shelters_sprayed_value"
@@ -134,14 +181,23 @@
             android:id="@+id/confirm_ddt_can_refilled_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:layout_marginTop="8dp"
+            android:background="@android:color/white"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp" >
 
             <TextView
                 android:id="@+id/confirm_ddt_can_refilled_label"
                 android:layout_width="0dp"
-                android:layout_weight="0.7"
+                android:layout_weight="0.5"
                 android:text="@string/refillCan"
                 android:textSize="24sp" />
+
+            <View
+                android:layout_height="0dp"
+                android:layout_weight="0.2" />
 
             <TextView
                 android:id="@+id/confirm_ddt_can_refilled_value"

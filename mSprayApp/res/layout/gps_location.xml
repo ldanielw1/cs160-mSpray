@@ -2,50 +2,67 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/darkgray"
     android:screenOrientation="portrait" >
 
-    <ImageView
-        android:id="@+id/gps_location_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/gps_location_layout_innerLinearLayout"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
         android:gravity="center"
-        android:src="@drawable/gpssignal" />
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp" >
 
-    <TextView
-        android:id="@+id/gps_location_textview_contents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gps_location_image"
-        android:layout_marginTop="12dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:text="@string/location_found"
-        android:textSize="40sp" />
+        <ImageView
+            android:id="@+id/gps_location_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/gpssignal" />
+
+        <TextView
+            android:id="@+id/gps_location_textview_contents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/location_found"
+            android:textSize="30sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/gps_location_layout_innerLinearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/darkgray"
+        android:padding="9dp" >
 
         <Button
             android:id="@+id/gps_location_button_backButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
             android:layout_weight="0.5"
+            android:background="@drawable/button_selector_red"
             android:text="@string/back"
+            android:textColor="#fff"
             android:textSize="28sp" />
 
         <Button
             android:id="@+id/gps_location_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
             android:layout_weight="0.5"
+            android:background="@drawable/button_selector_green"
             android:text="@string/confirm"
+            android:textColor="#fff"
             android:textSize="28sp" />
     </LinearLayout>
 

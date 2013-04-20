@@ -7,18 +7,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MSpray extends Activity {
 
-    Button startSpray;
+	RelativeLayout scanSelf;
+	Button scanSelfButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mspray);
 
-        startSpray = (Button) findViewById(R.id.activity_mspray_button);
+        scanSelf = (RelativeLayout) findViewById(R.id.activity_mspray_fake_button);
+        scanSelfButton = (Button) findViewById(R.id.activity_mspray_button);
         
         setTitle("Welcome to mSpray");
 
@@ -29,17 +32,12 @@ public class MSpray extends Activity {
         // Apply fonts
         tv.setTypeface(Constants.TYPEFACE);
         tv.setTextSize(28);
+        scanSelfButton.setTypeface(Constants.TYPEFACE);
 
-        startSpray.setTypeface(Constants.TYPEFACE);
-        startSpray.setTextSize(40);
-
-        startSpray.setOnClickListener(new View.OnClickListener() {
+        scanSelf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DataStore.startNewStoreSession();
-
-                // Intent intent = new Intent(getApplicationContext(),
-                // SprayerIDScan.class);
                 Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
