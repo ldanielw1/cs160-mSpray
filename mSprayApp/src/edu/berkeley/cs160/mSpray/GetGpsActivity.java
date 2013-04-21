@@ -64,6 +64,9 @@ public class GetGpsActivity extends Activity {
                         gpsResultBuilder.append(longitude);
                         gpsResultBuilder.append(" ");
                         gpsResultBuilder.append(longitudeEW);
+                        gpsResultBuilder.append("\n Accuracy: ");
+                        gpsResultBuilder.append(acc);
+                        gpsResultBuilder.append(" meters");
                         gpsText.setText(gpsResultBuilder.toString());
                         DataStore.setGPS(latitude, longitude, latitudeNS, longitudeEW, acc);
                         System.out.println(acc);
