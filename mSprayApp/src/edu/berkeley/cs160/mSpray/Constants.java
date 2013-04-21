@@ -36,4 +36,7 @@ public final class Constants {
     /** Constant for authorizing Google Spreadsheet uploading. */
     public static final String AUTHENTICATION_FILE = "assets/authentication.txt";
 
+    public static final String RFID_NAME = "rfid name";
+    public static final String DOESNT_HAVE_RFID = "no rfid";
+
 }

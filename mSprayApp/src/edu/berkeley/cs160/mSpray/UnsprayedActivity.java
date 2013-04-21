@@ -35,7 +35,7 @@ public class UnsprayedActivity extends Activity {
         backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.unsprayed_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
-
+        
         noSprayTitle = (TextView) findViewById(R.id.unsprayed_textview_title);
         noSprayTitle.setTypeface(Constants.TYPEFACE);
 

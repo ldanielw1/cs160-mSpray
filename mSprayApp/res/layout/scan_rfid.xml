@@ -26,5 +26,24 @@
         android:background="@android:color/white"
         android:contentDescription="@string/nfcInstructions"
         android:src="@drawable/badgenew" />
+    
+      <Button
+        android:id="@+id/scan_rfid_button_forgot_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Forgot Badge" 
+        android:visibility = "invisible"/>
+
+    <Button
+        android:id="@+id/scan_rfid_button_start_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Start Scan" 
+        android:visibility="invisible"/>
+    
 
 </RelativeLayout>
