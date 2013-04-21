@@ -7,14 +7,17 @@ public final class Constants {
     public static Typeface TYPEFACE; // Can't be final, since it has to get
                                      // assigned on runtime
 
-    /** Constants for Time Bomb. */
-    public static final int TIME_BOMB_SWITH = 4;
-    public static final int GPS_FOUND = 5;
-    public static final int GPS_NOT_FOUND = 6;
+    /** Constants for GPS */
+    public static final int GPS_FOUND = 0;
+    public static final int GPS_NOT_FOUND = 1;
+    public static final int GPS_ACCURACY_LIMIT = 50;
 
     /** Constants for Upload Status. */
-    public static final int UPLOAD_SUCCESSFUL = 0;
-    public static final int UPLOAD_UNSUCCESSFUL = 1;
+    public static final int UPLOAD_SUCCESSFUL = 2;
+    public static final int UPLOAD_UNSUCCESSFUL = 3;
+
+    /** Constants for Time Bomb. */
+    public static final int TIME_BOMB_SWITH = 4;
 
     /** Constants for how many forms to fill out. */
     public static final String NUM_SPRAYERS = "numberOfSprayers";

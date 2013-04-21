@@ -20,6 +20,7 @@ public class GetGpsActivity extends Activity {
     Handler handler;
     Button backButton;
     Button confirmButton;
+
     double latitude;
     double longitude;
     String latitudeNS;
@@ -53,8 +54,21 @@ public class GetGpsActivity extends Activity {
                 switch (msg.what) {
                     case Constants.GPS_FOUND: {
                         LocationFound.setVisibility(View.VISIBLE);
-                        DataStore.setGPS(latitude, longitude, "S", "E", acc);
+                        TextView gpsText = (TextView) findViewById(R.id.gps_location_textview_contents);
+                        final StringBuilder gpsResultBuilder = new StringBuilder();
+                        gpsResultBuilder.append("I am at: ");
+                        gpsResultBuilder.append(latitude);
+                        gpsResultBuilder.append(" ");
+                        gpsResultBuilder.append(latitudeNS);
+                        gpsResultBuilder.append(", ");
+                        gpsResultBuilder.append(longitude);
+                        gpsResultBuilder.append(" ");
+                        gpsResultBuilder.append(longitudeEW);
+                        gpsText.setText(gpsResultBuilder.toString());
+                        DataStore.setGPS(latitude, longitude, latitudeNS, longitudeEW, acc);
+                        System.out.println(acc);
                         progDialog.dismiss();
+                        break;
                     }
                     case Constants.GPS_NOT_FOUND: {
                         // Need feedback for GPS not found in user interface
@@ -62,6 +76,7 @@ public class GetGpsActivity extends Activity {
                         LocationFound.setVisibility(View.VISIBLE);
                         DataStore.setGPS(22.879, 30.729, "S", "E", "7");
                         progDialog.dismiss();
+                        break;
                     }
                 }
             }
@@ -105,18 +120,33 @@ public class GetGpsActivity extends Activity {
         LocationManager locManager;
         locManager = (LocationManager) getApplicationContext().getSystemService(
                 Context.LOCATION_SERVICE);
-        String locationProvider = LocationManager.NETWORK_PROVIDER;
+        String locationProvider = LocationManager.GPS_PROVIDER;
+
         Location location = locManager.getLastKnownLocation(locationProvider);
         if (location == null) {
-            locationProvider = LocationManager.GPS_PROVIDER;
+            System.out.println("trying network instead");
+            locationProvider = LocationManager.NETWORK_PROVIDER;
             location = locManager.getLastKnownLocation(locationProvider);
-            handler.sendMessage(Message.obtain(handler, Constants.GPS_NOT_FOUND));
         }
         if (location != null) {
             latitude = location.getLatitude();
+            if (latitude > 0) {
+                latitudeNS = "N";
+            } else {
+                latitude *= -1;
+                latitudeNS = "S";
+            }
             longitude = location.getLongitude();
+            if (longitude > 0) {
+                longitudeEW = "E";
+            } else {
+                longitude *= -1;
+                longitudeEW = "W";
+            }
             acc = "" + location.getAccuracy();
             handler.sendMessage(Message.obtain(handler, Constants.GPS_FOUND));
+        } else {
+            handler.sendMessage(Message.obtain(handler, Constants.GPS_NOT_FOUND));
         }
 
     }
