@@ -39,9 +39,31 @@ public class GetGpsActivity extends Activity {
 
         backButton = (Button) findViewById(R.id.gps_location_button_backButton);
         backButton.setTypeface(Constants.TYPEFACE);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            };
+        });
 
         confirmButton = (Button) findViewById(R.id.gps_location_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
+                startActivity(intent);
+            };
+        });
+
+        LocationFound.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
 
         progDialog = new ProgressDialog(this);
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -84,25 +106,6 @@ public class GetGpsActivity extends Activity {
                 }
             }
         };
-
-        confirmButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PaperWorkChoiceActivity.class);
-                startActivity(intent);
-            };
-        });
-
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            };
-        });
-
-        LocationFound.setVisibility(View.INVISIBLE);
         findGPS();
     }
 
