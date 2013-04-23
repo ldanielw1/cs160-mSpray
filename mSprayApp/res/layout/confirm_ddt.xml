@@ -77,14 +77,15 @@
 
             <View
                 android:layout_height="0dp"
-                android:layout_weight="0.2" />
+                android:layout_weight="0.1" />
 
             <TextView
                 android:id="@+id/confirm_ddt_foreman_value"
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:text="@string/emptyValue"
                 android:textSize="24sp" />
+
         </TableRow>
 
         <TableRow
@@ -107,12 +108,12 @@
 
             <View
                 android:layout_height="0dp"
-                android:layout_weight="0.2" />
+                android:layout_weight="0.1" />
 
             <TextView
                 android:id="@+id/confirm_ddt_sprayer_value"
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
@@ -137,12 +138,12 @@
 
             <View
                 android:layout_height="0dp"
-                android:layout_weight="0.2" />
+                android:layout_weight="0.1" />
 
             <TextView
                 android:id="@+id/confirm_ddt_rooms_sprayed_value"
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
@@ -167,12 +168,12 @@
 
             <View
                 android:layout_height="0dp"
-                android:layout_weight="0.2" />
+                android:layout_weight="0.1" />
 
             <TextView
                 android:id="@+id/confirm_ddt_shelters_sprayed_value"
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
@@ -197,12 +198,12 @@
 
             <View
                 android:layout_height="0dp"
-                android:layout_weight="0.2" />
+                android:layout_weight="0.1" />
 
             <TextView
                 android:id="@+id/confirm_ddt_can_refilled_value"
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>

@@ -25,6 +25,7 @@
     <string name="foreman">Foreman</string>
     <string name="foremanID">Foreman ID</string>
     <string name="gps_location">GPS Location</string>
+    <string name="gps_image">GPS Image</string>
     <string name="hintNumRooms"># of Rooms</string>
     <string name="hintNumShelters"># of Shelters</string>
     <string name="korthrine">K-Orthrine</string>

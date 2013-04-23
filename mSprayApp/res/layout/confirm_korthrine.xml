@@ -77,12 +77,12 @@
 
             <View
                 android:layout_height="0dp"
-                android:layout_weight="0.2" />
+                android:layout_weight="0.1" />
 
             <TextView
                 android:id="@+id/confirm_korthrine_foreman_value"
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
@@ -107,12 +107,12 @@
 
             <View
                 android:layout_height="0dp"
-                android:layout_weight="0.2" />
+                android:layout_weight="0.1" />
 
             <TextView
                 android:id="@+id/confirm_korthrine_sprayer_value"
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
@@ -137,12 +137,12 @@
 
             <View
                 android:layout_height="0dp"
-                android:layout_weight="0.2" />
+                android:layout_weight="0.1" />
 
             <TextView
                 android:id="@+id/confirm_korthrine_rooms_sprayed_value"
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
@@ -167,12 +167,12 @@
 
             <View
                 android:layout_height="0dp"
-                android:layout_weight="0.2" />
+                android:layout_weight="0.1" />
 
             <TextView
                 android:id="@+id/confirm_korthrine_shelters_sprayed_value"
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>
@@ -197,12 +197,12 @@
 
             <View
                 android:layout_height="0dp"
-                android:layout_weight="0.2" />
+                android:layout_weight="0.1" />
 
             <TextView
                 android:id="@+id/confirm_korthrine_can_refilled_value"
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:text="@string/emptyValue"
                 android:textSize="24sp" />
         </TableRow>

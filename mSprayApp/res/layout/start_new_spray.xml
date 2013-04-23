@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/grad3"
         android:gravity="center"
-        android:text="I am Foreman."
+        android:text="I am Foreman"
         android:textSize="28sp" />
 
     <LinearLayout
