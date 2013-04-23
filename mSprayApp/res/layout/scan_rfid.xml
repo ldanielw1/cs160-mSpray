@@ -13,37 +13,68 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/grad3"
         android:gravity="center"
-        android:text="@string/scanBadge"
+        android:text="@string/scanSelfLabel"
         android:textSize="28sp" />
 
     <ImageView
         android:id="@+id/scan_rfid_image"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/scan_rfid_instructions"
         android:layout_centerHorizontal="true"
         android:layout_margin="24dp"
         android:background="@android:color/white"
         android:contentDescription="@string/nfcInstructions"
         android:src="@drawable/badgenew" />
-    
-      <Button
-        android:id="@+id/scan_rfid_button_forgot_badge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Forgot Badge" 
-        android:visibility = "invisible"/>
 
-    <Button
-        android:id="@+id/scan_rfid_button_start_scan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="Start Scan" 
-        android:visibility="invisible"/>
-    
+    <LinearLayout
+        android:id="@+id/scan_rfid_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/scan_rfid_instructions"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:visibility="invisible" >
+
+        <RelativeLayout
+            android:id="@+id/activity_scan_rfid_fake_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="0.8"
+            android:background="@drawable/button_selector_green"
+            android:onClick="onClick" >
+
+            <Button
+                android:id="@+id/scan_rfid_button_start_scan"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:drawablePadding="16dp"
+                android:drawableTop="@drawable/foreman"
+                android:gravity="center"
+                android:text="@string/scanSelf"
+                android:textColor="#fff"
+                android:textSize="30sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/scan_rfid_button_forgot_badge"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:layout_weight="0.2"
+            android:background="@drawable/button_selector_red"
+            android:text="No Badge"
+            android:textColor="#fff"
+            android:textSize="30sp" >
+        </Button>
+    </LinearLayout>
 
 </RelativeLayout>

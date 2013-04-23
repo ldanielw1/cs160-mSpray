@@ -23,6 +23,7 @@ public class ScanSprayer extends Activity {
         /* External Font */
         TextView tv = (TextView) findViewById(R.id.scan_rfid_instructions);
         tv.setTypeface(Constants.TYPEFACE);
+        tv.setText(R.string.scanBadge);
 
         /* RFID Wizard of Oz */
         TimeBomb bomb = new TimeBomb() {

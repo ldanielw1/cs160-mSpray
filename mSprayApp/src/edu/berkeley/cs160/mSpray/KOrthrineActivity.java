@@ -58,6 +58,7 @@ public class KOrthrineActivity extends Activity {
         /* Sprayed By Header */
         TextView header = (TextView) findViewById(R.id.sprayer_form_textview_header);
         header.setText("K-Orthrine " + header.getText());
+        header.setTypeface(Constants.TYPEFACE);
 
         /* Name of sprayer */
         TextView userName = (TextView) findViewById(R.id.sprayer_form_textview_sprayerName);

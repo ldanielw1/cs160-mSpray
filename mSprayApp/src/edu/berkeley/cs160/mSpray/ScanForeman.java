@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Typeface;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import edu.berkeley.cs160.RFID.RFIDConstants;
 import edu.berkeley.cs160.RFID.ReadRFID;
@@ -28,22 +31,27 @@ public class ScanForeman extends Activity {
     Button skipScan;
     ImageView handHoldingBadge;
     TextView tv;
+    LinearLayout scanForemanLayout;
+    RelativeLayout scanSelf; //fake button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_rfid);
 
-        setTitle("Identify yourself");
+        setTitle("Welcome to mSpray");
 
-        /* External Font */
+        // External font
+        Constants.TYPEFACE = Typeface.createFromAsset(getAssets(), Constants.FONT_PATH);
+        
+        scanSelf = (RelativeLayout) findViewById(R.id.activity_scan_rfid_fake_button);
         tv = (TextView) findViewById(R.id.scan_rfid_instructions);
         startScan = (Button) findViewById(R.id.scan_rfid_button_start_scan);
         skipScan = (Button) findViewById(R.id.scan_rfid_button_forgot_badge);
         handHoldingBadge = (ImageView) findViewById(R.id.scan_rfid_image);
+        scanForemanLayout = (LinearLayout) findViewById(R.id.scan_rfid_layout);
 
-        startScan.setVisibility(View.VISIBLE);
-        skipScan.setVisibility(View.VISIBLE);
+        scanForemanLayout.setVisibility(View.VISIBLE);
         handHoldingBadge.setVisibility(View.INVISIBLE);
         tv.setTypeface(Constants.TYPEFACE);
 
@@ -51,35 +59,36 @@ public class ScanForeman extends Activity {
             @Override
             public void handleMessage(Message msg) {
                 switch (msg.what) {
-                    case RFIDConstants.RFID_SUCCESS: {
-                        Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
-                        intent.putExtra(Constants.RFID_NAME, rfidData.getReturnValue());
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                        break;
-                    }
-                    case RFIDConstants.RFID_UNSUCCESS_READ: {
-                        tv.setText("Unsuccessful Read Try Again");
-                        break;
+                case RFIDConstants.RFID_SUCCESS: {
+                    Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
+                    intent.putExtra(Constants.RFID_NAME, rfidData.getReturnValue());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    break;
+                }
+                case RFIDConstants.RFID_UNSUCCESS_READ: {
+                    tv.setText("Unsuccessful Read Try Again");
+                    break;
 
-                    }
-                    case RFIDConstants.RFID_WRONG_TYPE: {
-                        tv.setText("Wrong RFID type");
-                        break;
-                    }
+                }
+                case RFIDConstants.RFID_WRONG_TYPE: {
+                    tv.setText("Wrong RFID type");
+                    break;
+                }
                 }
             }
         };
 
-        startScan.setOnClickListener(new View.OnClickListener() {
+        scanSelf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startScan.setVisibility(View.INVISIBLE);
-                skipScan.setVisibility(View.INVISIBLE);
+                scanForemanLayout.setVisibility(View.INVISIBLE);
                 handHoldingBadge.setVisibility(View.VISIBLE);
+                tv.setText(R.string.scanBadge);
                 enableReadMode();
             };
         });
+        startScan.setTypeface(Constants.TYPEFACE);
 
         skipScan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +100,7 @@ public class ScanForeman extends Activity {
                 startActivity(intent);
             };
         });
+        skipScan.setTypeface(Constants.TYPEFACE);
 
         mAdapter = NfcAdapter.getDefaultAdapter(this);
         rfidData = new ReadRFID(this, getClass(), handler, this);
@@ -124,8 +134,8 @@ public class ScanForeman extends Activity {
     private void enableReadMode() {
         rfidData.mInWriteMode = true;
         // set up a PendingIntent to open the app when a tag is scanned
-        pendingIntent = PendingIntent.getActivity(this, 0, new Intent(getApplicationContext(),
-                getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+        pendingIntent = PendingIntent.getActivity(this, 0,
+                new Intent(getApplicationContext(), getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
         tagDetected = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
         filters = new IntentFilter[] { tagDetected };
 

@@ -58,6 +58,7 @@ public class DDTActivity extends Activity {
         /* Sprayed By Header */
         TextView header = (TextView) findViewById(R.id.sprayer_form_textview_header);
         header.setText("DDT " + header.getText());
+        header.setTypeface(Constants.TYPEFACE);
 
         /* Name of sprayer */
         TextView userName = (TextView) findViewById(R.id.sprayer_form_textview_sprayerName);
