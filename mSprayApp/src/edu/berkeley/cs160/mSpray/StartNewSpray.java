@@ -50,7 +50,7 @@ public class StartNewSpray extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent nextIntent = new Intent(getApplicationContext(), MSpray.class);
+                Intent nextIntent = new Intent(getApplicationContext(), ScanForeman.class);
                 nextIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(nextIntent);
             }

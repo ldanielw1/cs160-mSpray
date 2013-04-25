@@ -27,10 +27,6 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="edu.berkeley.cs160.mSpray.MSpray"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name="edu.berkeley.cs160.mSpray.SprayerIDScan"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
