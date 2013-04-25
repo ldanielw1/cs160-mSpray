@@ -2,6 +2,7 @@ package edu.berkeley.cs160.spreadsheetUploader;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import com.google.gdata.util.ServiceException;
  * 
  * @author Lemuel Daniel Wu
  */
-public class GoogleSpreadsheetUploader {
+public class GoogleSpreadsheet {
     private static final String SPREADSHEET_FEED = "https://spreadsheets.google.com/feeds/spreadsheets/private/full";
 
     private SpreadsheetService service;
@@ -40,7 +41,7 @@ public class GoogleSpreadsheetUploader {
      * @throws IOException
      * @throws ServiceException
      */
-    public GoogleSpreadsheetUploader(String username, String password, String spreadsheetTitle,
+    public GoogleSpreadsheet(String username, String password, String spreadsheetTitle,
             String worksheetTitle) throws IOException, ServiceException {
         /** Setting up the login */
         service = new SpreadsheetService("GoogleSpreadsheetUploader");
@@ -61,13 +62,14 @@ public class GoogleSpreadsheetUploader {
             worksheet.setRowCount(worksheet.getRowCount() + 1);
             worksheet.update();
 
+            // Create the new row locally
             ListEntry row = new ListEntry();
+            // error out only if dataLabels size doesn't match dataValues -
+
             for (String key : uploadData.keySet())
                 row.getCustomElements().setValueLocal(key, uploadData.get(key));
 
             addRow(row);
-
-            return;
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ServiceException e) {
@@ -157,6 +159,30 @@ public class GoogleSpreadsheetUploader {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public List<ListEntry> getData() {
+        List<ListEntry> allSheetData = new ArrayList<ListEntry>();
+        try {
+            URL listFeedUrl = worksheet.getListFeedUrl();
+            ListFeed listFeed = service.getFeed(listFeedUrl, ListFeed.class);
+
+            for (ListEntry row : listFeed.getEntries())
+                allSheetData.add(row);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        }
+        return allSheetData;
+    }
+
+    public List<String> getData(String label) {
+        List<String> data = new ArrayList<String>();
+        List<ListEntry> allSheetData = getData();
+        for (ListEntry row : allSheetData)
+            data.add(row.getCustomElements().getValue(label));
+        return data;
     }
 
     /**

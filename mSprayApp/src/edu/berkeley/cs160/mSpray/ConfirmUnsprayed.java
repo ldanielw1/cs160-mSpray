@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import com.google.gdata.util.ServiceException;
 
-import edu.berkeley.cs160.spreadsheetUploader.GoogleSpreadsheetUploader;
+import edu.berkeley.cs160.spreadsheetUploader.GoogleSpreadsheet;
 
 public class ConfirmUnsprayed extends Activity {
 
@@ -83,7 +83,7 @@ public class ConfirmUnsprayed extends Activity {
             @Override
             protected String doInBackground(String... params) {
                 try {
-                    GoogleSpreadsheetUploader uploader = new GoogleSpreadsheetUploader(username,
+                    GoogleSpreadsheet uploader = new GoogleSpreadsheet(username,
                             password, spreadsheetTitle, worksheetTitle);
                     uploader.addRow(uploadData);
                 } catch (IOException e) {
