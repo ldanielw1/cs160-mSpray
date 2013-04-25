@@ -5,9 +5,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
-import android.os.Handler;
-import android.os.Message;
-
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.data.spreadsheet.ListEntry;
 import com.google.gdata.data.spreadsheet.ListFeed;
@@ -16,8 +13,6 @@ import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.data.spreadsheet.WorksheetFeed;
 import com.google.gdata.util.ServiceException;
-
-import edu.berkeley.cs160.mSpray.Constants;
 
 /**
  * A class that provides the interface for uploading data onto a Google
@@ -60,7 +55,7 @@ public class GoogleSpreadsheetUploader {
      * 
      * @param uploadData - the HashMap of data to go inside the new row.
      */
-    public void addRow(HashMap<String, String> uploadData, final Handler uploadHandler) {
+    public void addRow(HashMap<String, String> uploadData) {
         try {
             /** Pre-process the worksheet to make sure inserting works. */
             worksheet.setRowCount(worksheet.getRowCount() + 1);
@@ -72,15 +67,12 @@ public class GoogleSpreadsheetUploader {
 
             addRow(row);
 
-            uploadHandler.sendMessage(Message.obtain(uploadHandler, Constants.UPLOAD_SUCCESSFUL));
             return;
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ServiceException e) {
             e.printStackTrace();
         }
-
-        uploadHandler.sendMessage(Message.obtain(uploadHandler, Constants.UPLOAD_UNSUCCESSFUL));
     }
 
     /**

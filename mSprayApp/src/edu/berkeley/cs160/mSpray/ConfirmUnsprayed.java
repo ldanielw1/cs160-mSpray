@@ -10,13 +10,10 @@ import java.util.Scanner;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 import android.view.View;
@@ -77,13 +74,6 @@ public class ConfirmUnsprayed extends Activity {
         final HashMap<String, String> uploadData = organizeUploadData();
         List<String> uploadCredentials = getUploadCredentials();
 
-        final ProgressDialog progDialog = new ProgressDialog(ConfirmUnsprayed.this);
-        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progDialog.setMessage("Uploading Data...");
-        progDialog.show();
-
-        final UploadHandler uploadHandler = new UploadHandler(progDialog);
-
         final String username = uploadCredentials.get(0);
         final String password = uploadCredentials.get(1);
         final String spreadsheetTitle = uploadCredentials.get(2);
@@ -95,7 +85,7 @@ public class ConfirmUnsprayed extends Activity {
                 try {
                     GoogleSpreadsheetUploader uploader = new GoogleSpreadsheetUploader(username,
                             password, spreadsheetTitle, worksheetTitle);
-                    uploader.addRow(uploadData, uploadHandler);
+                    uploader.addRow(uploadData);
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (ServiceException e) {
@@ -105,6 +95,9 @@ public class ConfirmUnsprayed extends Activity {
             }
         };
         uploadTask.execute();
+        Intent intent = new Intent(getApplicationContext(), FinishedActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     private HashMap<String, String> organizeUploadData() {
@@ -276,26 +269,4 @@ public class ConfirmUnsprayed extends Activity {
         return month + "/" + day + "/" + year + " " + formattedDateArray[1];
     }
 
-    private class UploadHandler extends Handler {
-        ProgressDialog progDialog;
-
-        public UploadHandler(ProgressDialog dialog) {
-            this.progDialog = dialog;
-        }
-
-        @Override
-        public void handleMessage(Message msg) {
-            if (msg.what == Constants.UPLOAD_SUCCESSFUL) {
-                progDialog.dismiss();
-
-                Intent intent = new Intent(getApplicationContext(), FinishedActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            } else if (msg.what == Constants.UPLOAD_UNSUCCESSFUL) {
-                Toast.makeText(getApplicationContext(), "Error: Could not upload data to server",
-                        Toast.LENGTH_SHORT).show();
-                progDialog.dismiss();
-            }
-        }
-    }
 }
