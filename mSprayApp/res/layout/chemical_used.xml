@@ -21,9 +21,23 @@
         android:id="@+id/chemical_used_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_above="@+id/chemical_used_layout_innerLinearLayout"
         android:layout_below="@+id/chemical_used_header"
         android:layout_marginTop="20dp"
         android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/chemical_used_button_fendona"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="0.25"
+            android:background="@drawable/button_selector_purple"
+            android:text="@string/fendona"
+            android:textColor="#fff"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/chemical_used_button_korthrine"
@@ -51,29 +65,25 @@
             android:textColor="#fff"
             android:textSize="30sp" />
 
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/chemical_used_layout_innerLinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/darkgray"
+        android:padding="9dp" >
+
         <Button
             android:id="@+id/chemical_used_button_noSpray"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_weight="0.25"
-            android:background="@drawable/button_selector_yellow"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/button_selector_red"
             android:text="@string/noSpray"
             android:textColor="#fff"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/chemical_used_button_back"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_margin="16dp"
-            android:layout_weight="0.2"
-            android:background="@drawable/button_selector_red"
-            android:text="@string/back"
-            android:textColor="#fff"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
     </LinearLayout>
-
 </RelativeLayout>

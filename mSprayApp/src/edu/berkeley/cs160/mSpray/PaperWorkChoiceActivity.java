@@ -24,9 +24,6 @@ public class PaperWorkChoiceActivity extends Activity {
         header = (TextView) findViewById(R.id.chemical_used_header);
         header.setTypeface(Constants.TYPEFACE);
 
-        back = (Button) findViewById(R.id.chemical_used_button_back);
-        back.setTypeface(Constants.TYPEFACE);
-
         ddt = (Button) findViewById(R.id.chemical_used_button_ddt);
         ddt.setTypeface(Constants.TYPEFACE);
 
