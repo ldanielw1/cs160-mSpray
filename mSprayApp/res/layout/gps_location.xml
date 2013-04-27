@@ -41,26 +41,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/darkgray"
         android:padding="9dp" >
-
-        <Button
-            android:id="@+id/gps_location_button_backButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="3dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/button_selector_red"
-            android:text="@string/back"
-            android:textColor="#fff"
-            android:textSize="28sp" />
 
         <Button
             android:id="@+id/gps_location_button_confirmButton"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_weight="0.5"
+            android:layout_weight="1.0"
             android:background="@drawable/button_selector_green"
             android:text="@string/confirm"
             android:textColor="#fff"

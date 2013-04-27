@@ -13,7 +13,6 @@ public class StartNewSpray extends Activity {
 
     RelativeLayout startSpray;
     Button startSprayButton;
-    Button doneButton;
     TextView tv;
 
     @Override
@@ -34,28 +33,15 @@ public class StartNewSpray extends Activity {
 
         startSpray = (RelativeLayout) findViewById(R.id.activity_start_new_spray_fake_button);
         startSprayButton = (Button) findViewById(R.id.activity_start_new_spray_button);
-        doneButton = (Button) findViewById(R.id.activity_done_spraying_button);
 
         startSpray.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nextIntent = new Intent(getApplicationContext(), GetGpsActivity.class);
-                nextIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(nextIntent);
             }
         });
         startSprayButton.setTypeface(Constants.TYPEFACE);
-
-        doneButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent nextIntent = new Intent(getApplicationContext(), ScanForeman.class);
-                nextIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(nextIntent);
-            }
-        });
-        doneButton.setTypeface(Constants.TYPEFACE);
     }
 
     @Override

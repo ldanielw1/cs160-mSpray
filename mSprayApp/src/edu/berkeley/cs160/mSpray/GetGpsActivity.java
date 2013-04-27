@@ -37,17 +37,6 @@ public class GetGpsActivity extends Activity {
         LocationFound = (TextView) findViewById(R.id.gps_location_textview_contents);
         LocationFound.setTypeface(Constants.TYPEFACE);
 
-        backButton = (Button) findViewById(R.id.gps_location_button_backButton);
-        backButton.setTypeface(Constants.TYPEFACE);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            };
-        });
-
         confirmButton = (Button) findViewById(R.id.gps_location_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
         confirmButton.setOnClickListener(new View.OnClickListener() {
