@@ -44,7 +44,6 @@ public class ScanSprayer extends Activity {
                     intent = new Intent(getApplicationContext(), NoSprayActivity.class);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                 intent.putExtra(Constants.FORM_NUMBER, formNumber);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         };

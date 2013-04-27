@@ -63,7 +63,6 @@ public class ScanForeman extends Activity {
                     case RFIDConstants.RFID_SUCCESS: {
                         Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
                         intent.putExtra(Constants.RFID_NAME, rfidData.getReturnValue());
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         break;
                     }
@@ -97,7 +96,6 @@ public class ScanForeman extends Activity {
                 DataStore.foremanID = "foreman";
                 Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
                 intent.putExtra(Constants.RFID_NAME, Constants.DOESNT_HAVE_RFID);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             };
         });
@@ -107,15 +105,10 @@ public class ScanForeman extends Activity {
         rfidData = new ReadRFID(this, getClass(), handler, this);
         /* RFID Wizard of Oz */
         // TimeBomb bomb = new TimeBomb() {
-        // @Override
-        // public void explode() {
-        // DataStore.foremanID = "Foreman";
-        // Intent intent = new Intent(getApplicationContext(),
-        // StartNewSpray.class);
-        // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        // startActivity(intent);
-        // }
-        // };
+        // @Override public void explode() {
+        // DataStore.foremanID = "Foreman"; Intent intent = new
+        // Intent(getApplicationContext(), StartNewSpray.class);
+        // startActivity(intent); } };
         // bomb.ignite();
 
     }

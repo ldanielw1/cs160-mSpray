@@ -29,7 +29,6 @@ public class ChooseSprayer extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.SPRAY_TYPE, sprayType);
                 intent.putExtra(Constants.NUM_SPRAYERS, 1);
                 intent.putExtra(Constants.FORM_NUMBER, 1);
@@ -43,7 +42,6 @@ public class ChooseSprayer extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.SPRAY_TYPE, sprayType);
                 intent.putExtra(Constants.FORM_NUMBER, 1);
                 intent.putExtra(Constants.NUM_SPRAYERS, 2);
