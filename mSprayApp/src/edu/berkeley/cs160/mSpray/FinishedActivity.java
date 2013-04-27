@@ -51,25 +51,24 @@ public class FinishedActivity extends Activity {
         }
 
         if (DataStore.sprayType.equals(Constants.DDT)) {
-            roomsSprayedValue.setText(Integer.toString(DataStore.ddtSprayedRooms1));
-            sheltersSprayedValue.setText(Integer.toString(DataStore.ddtSprayedShelters1));
-            refillFlag = DataStore.ddtRefill1;
+            roomsSprayedValue.setText(Integer.toString(DataStore.sprayedRooms1));
+            sheltersSprayedValue.setText(Integer.toString(DataStore.sprayedShelters1));
+            refillFlag = DataStore.canRefill1;
             if (DataStore.sprayer2ID != null) {
-                roomsSprayedValue2.setText(Integer.toString(DataStore.ddtSprayedRooms2));
-                sheltersSprayedValue2.setText(Integer.toString(DataStore.ddtSprayedShelters2));
-                refillFlag2 = DataStore.ddtRefill2;
+                roomsSprayedValue2.setText(Integer.toString(DataStore.sprayedRooms2));
+                sheltersSprayedValue2.setText(Integer.toString(DataStore.sprayedShelters2));
+                refillFlag2 = DataStore.canRefill2;
             } else {
 
             }
         } else if (DataStore.sprayType.equals(Constants.KORTHRINE)) {
-            roomsSprayedValue.setText(Integer.toString(DataStore.korthrineSprayedRooms1));
-            sheltersSprayedValue.setText(Integer.toString(DataStore.korthrineSprayedShelters1));
-            refillFlag = DataStore.korthrineRefill1;
+            roomsSprayedValue.setText(Integer.toString(DataStore.sprayedRooms1));
+            sheltersSprayedValue.setText(Integer.toString(DataStore.sprayedShelters1));
+            refillFlag = DataStore.canRefill1;
             if (DataStore.sprayer2ID != null) {
-                roomsSprayedValue2.setText(Integer.toString(DataStore.korthrineSprayedRooms2));
-                sheltersSprayedValue2
-                        .setText(Integer.toString(DataStore.korthrineSprayedShelters2));
-                refillFlag2 = DataStore.korthrineRefill2;
+                roomsSprayedValue2.setText(Integer.toString(DataStore.sprayedRooms2));
+                sheltersSprayedValue2.setText(Integer.toString(DataStore.sprayedShelters2));
+                refillFlag2 = DataStore.canRefill2;
             }
         } else if (DataStore.sprayType.equals(Constants.NO_SPRAY)) {
             roomsSprayedValue.setText("No spray");

@@ -8,12 +8,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ConfirmDDT extends Activity {
+public class ConfirmFendona extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.confirm_ddt);
+        setContentView(R.layout.confirm_fendona);
 
         setTitle("Is this correct?");
 
@@ -24,15 +24,15 @@ public class ConfirmDDT extends Activity {
         final int sheltersSprayed = extras.getInt(Constants.SHELTERS_SPRAYED);
         final boolean refilled = extras.getBoolean(Constants.CAN_REFILLED);
 
-        TextView title = (TextView) findViewById(R.id.confirm_ddt_textview_title);
+        TextView title = (TextView) findViewById(R.id.confirm_fendona_textview_title);
         title.setTypeface(Constants.TYPEFACE);
 
         /* Populate paperwork table */
-        TextView foremanValue = (TextView) findViewById(R.id.confirm_ddt_foreman_value);
-        TextView sprayerValue = (TextView) findViewById(R.id.confirm_ddt_sprayer_value);
-        TextView roomsSprayedValue = (TextView) findViewById(R.id.confirm_ddt_rooms_sprayed_value);
-        TextView sheltersSprayedValue = (TextView) findViewById(R.id.confirm_ddt_shelters_sprayed_value);
-        TextView canRefilledValue = (TextView) findViewById(R.id.confirm_ddt_can_refilled_value);
+        TextView foremanValue = (TextView) findViewById(R.id.confirm_fendona_foreman_value);
+        TextView sprayerValue = (TextView) findViewById(R.id.confirm_fendona_sprayer_value);
+        TextView roomsSprayedValue = (TextView) findViewById(R.id.confirm_fendona_rooms_sprayed_value);
+        TextView sheltersSprayedValue = (TextView) findViewById(R.id.confirm_fendona_shelters_sprayed_value);
+        TextView canRefilledValue = (TextView) findViewById(R.id.confirm_fendona_can_refilled_value);
 
         foremanValue.setText(DataStore.foremanID);
         roomsSprayedValue.setText(Integer.toString(roomsSprayed));
@@ -62,7 +62,7 @@ public class ConfirmDDT extends Activity {
         sheltersSprayedValue.setTypeface(Constants.TYPEFACE);
         canRefilledValue.setTypeface(Constants.TYPEFACE);
 
-        Button backButton = (Button) findViewById(R.id.confirm_ddt_button_backButton);
+        Button backButton = (Button) findViewById(R.id.confirm_fendona_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,18 +71,18 @@ public class ConfirmDDT extends Activity {
         });
         backButton.setTypeface(Constants.TYPEFACE);
 
-        Button confirmButton = (Button) findViewById(R.id.confirm_ddt_button_confirmButton);
+        Button confirmButton = (Button) findViewById(R.id.confirm_fendona_button_confirmButton);
         confirmButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (formNumber == 1) {
                     DataStore.homesteadSprayed = true;
-                    DataStore.chemicalUsed1 = Constants.DDT;
+                    DataStore.chemicalUsed1 = Constants.FENDONA;
                     DataStore.sprayedRooms1 = roomsSprayed;
                     DataStore.sprayedShelters1 = sheltersSprayed;
                     DataStore.canRefill1 = refilled;
                 } else if (formNumber == 2) {
-                    DataStore.chemicalUsed2 = Constants.DDT;
+                    DataStore.chemicalUsed2 = Constants.FENDONA;
                     DataStore.sprayedRooms2 = roomsSprayed;
                     DataStore.sprayedShelters2 = sheltersSprayed;
                     DataStore.canRefill2 = refilled;
@@ -92,12 +92,10 @@ public class ConfirmDDT extends Activity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 } else {
-                    // Intent intent = new Intent(getApplicationContext(),
-                    // DDTActivity.class);
                     Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
-                    intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);
+                    intent.putExtra(Constants.SPRAY_TYPE, Constants.FENDONA);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }

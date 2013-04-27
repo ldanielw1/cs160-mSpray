@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DDTActivity extends Activity {
+public class FendonaActivity extends Activity {
 
     EditText roomsSprayedValue;
     EditText sheltersSprayedValue;
@@ -57,7 +57,7 @@ public class DDTActivity extends Activity {
 
         /* Sprayed By Header */
         TextView header = (TextView) findViewById(R.id.sprayer_form_textview_header);
-        header.setText("DDT " + header.getText());
+        header.setText("K-Orthrine " + header.getText());
         header.setTypeface(Constants.TYPEFACE);
 
         /* Name of sprayer */
@@ -66,7 +66,6 @@ public class DDTActivity extends Activity {
             userName.setText(DataStore.sprayer1ID);
         else if (formNumber == 2)
             userName.setText(DataStore.sprayer2ID);
-        userName.setTypeface(Constants.TYPEFACE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +78,7 @@ public class DDTActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
-                intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);
+                intent.putExtra(Constants.SPRAY_TYPE, Constants.FENDONA);
                 startActivity(intent);
             };
         });
@@ -87,7 +86,7 @@ public class DDTActivity extends Activity {
     }
 
     public void getData() {
-        Intent intent = new Intent(this, ConfirmDDT.class);
+        Intent intent = new Intent(this, ConfirmFendona.class);
 
         if (roomsSprayedValue.getText().toString().equals("")
                 || sheltersSprayedValue.getText().toString().equals("")) {

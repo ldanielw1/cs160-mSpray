@@ -19,7 +19,7 @@ public class ScanSprayer extends Activity {
         final String sprayType = extras.getString(Constants.SPRAY_TYPE);
 
         setTitle("Identify sprayer ");
-        
+
         /* External Font */
         TextView tv = (TextView) findViewById(R.id.scan_rfid_instructions);
         tv.setTypeface(Constants.TYPEFACE);
@@ -38,6 +38,8 @@ public class ScanSprayer extends Activity {
                     intent = new Intent(getApplicationContext(), DDTActivity.class);
                 else if (sprayType.equals(Constants.KORTHRINE))
                     intent = new Intent(getApplicationContext(), KOrthrineActivity.class);
+                else if (sprayType.equals(Constants.FENDONA))
+                    intent = new Intent(getApplicationContext(), FendonaActivity.class);
                 else if (sprayType.equals(Constants.NO_SPRAY))
                     intent = new Intent(getApplicationContext(), NoSprayActivity.class);
                 intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);

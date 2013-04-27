@@ -11,7 +11,7 @@ public class PaperWorkChoiceActivity extends Activity {
     Button korthrine;
     Button ddt;
     Button noSpray;
-    Button back;
+    Button fendona;
     TextView header;
 
     @Override
@@ -27,28 +27,22 @@ public class PaperWorkChoiceActivity extends Activity {
         ddt = (Button) findViewById(R.id.chemical_used_button_ddt);
         ddt.setTypeface(Constants.TYPEFACE);
 
+        fendona = (Button) findViewById(R.id.chemical_used_button_fendona);
+        fendona.setTypeface(Constants.TYPEFACE);
+
         korthrine = (Button) findViewById(R.id.chemical_used_button_korthrine);
         korthrine.setTypeface(Constants.TYPEFACE);
 
         noSpray = (Button) findViewById(R.id.chemical_used_button_noSpray);
         noSpray.setTypeface(Constants.TYPEFACE);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), GetGpsActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            };
-        });
-
-        ddt.setOnClickListener(new View.OnClickListener() {
+        fendona.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);
-                DataStore.sprayType = Constants.DDT;
+                intent.putExtra(Constants.SPRAY_TYPE, Constants.FENDONA);
+                DataStore.sprayType = Constants.FENDONA;
                 startActivity(intent);
             };
         });
@@ -60,6 +54,17 @@ public class PaperWorkChoiceActivity extends Activity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.SPRAY_TYPE, Constants.KORTHRINE);
                 DataStore.sprayType = Constants.KORTHRINE;
+                startActivity(intent);
+            };
+        });
+
+        ddt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ChooseSprayer.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);
+                DataStore.sprayType = Constants.DDT;
                 startActivity(intent);
             };
         });

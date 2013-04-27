@@ -48,11 +48,19 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="edu.berkeley.cs160.mSpray.FendonaActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="edu.berkeley.cs160.mSpray.KOrthrineActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.berkeley.cs160.mSpray.ConfirmDDT"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.berkeley.cs160.mSpray.ConfirmFendona"
             android:screenOrientation="portrait" >
         </activity>
         <activity

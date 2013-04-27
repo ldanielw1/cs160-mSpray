@@ -105,9 +105,9 @@ public class KOrthrineActivity extends Activity {
 
                 // Store refilled flag in the data store
                 if (formNumber == 1) {
-                    DataStore.korthrineRefill1 = refilled;
+                    DataStore.canRefill1 = refilled;
                 } else if (formNumber == 1) {
-                    DataStore.korthrineRefill2 = refilled;
+                    DataStore.canRefill2 = refilled;
                 }
 
                 startActivity(intent);

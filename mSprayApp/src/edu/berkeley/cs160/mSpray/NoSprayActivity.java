@@ -52,6 +52,7 @@ public class NoSprayActivity extends Activity {
                     intent.putExtra(Constants.SPRAY_TYPE, Constants.NO_SPRAY);
                     startActivity(intent);
                 } else if (formNumber == numSprayers) {
+                    DataStore.homesteadSprayed = false;
                     Intent intent = new Intent(getApplicationContext(), UnsprayedActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);

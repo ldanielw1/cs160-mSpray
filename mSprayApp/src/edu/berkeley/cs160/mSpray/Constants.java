@@ -26,6 +26,7 @@ public final class Constants {
     /** Constants for which forms to fill out. */
     public static final String SPRAY_TYPE = "sprayType";
     public static final String DDT = "DDT";
+    public static final String FENDONA = "Fendona";
     public static final String KORTHRINE = "K-Orthrine";
     public static final String NO_SPRAY = "No Spray";
 

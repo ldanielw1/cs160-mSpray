@@ -42,10 +42,10 @@ public class ConfirmKOrthrine extends Activity {
         /* Sprayer ID and Can Refilled */
         if (formNumber == 1) {
             sprayerValue.setText(DataStore.sprayer1ID);
-            refillFlag = DataStore.korthrineRefill1;
+            refillFlag = DataStore.canRefill1;
         } else if (formNumber == 2) {
             sprayerValue.setText(DataStore.sprayer2ID);
-            refillFlag = DataStore.korthrineRefill2;
+            refillFlag = DataStore.canRefill2;
         }
 
         /* Refill can? */
@@ -77,15 +77,15 @@ public class ConfirmKOrthrine extends Activity {
             public void onClick(View v) {
                 if (formNumber == 1) {
                     DataStore.homesteadSprayed = true;
-                    DataStore.korthrineUsed1 = true;
-                    DataStore.korthrineSprayedRooms1 = roomsSprayed;
-                    DataStore.korthrineSprayedShelters1 = sheltersSprayed;
-                    DataStore.korthrineRefill1 = refilled;
+                    DataStore.chemicalUsed1 = Constants.KORTHRINE;
+                    DataStore.sprayedRooms1 = roomsSprayed;
+                    DataStore.sprayedShelters1 = sheltersSprayed;
+                    DataStore.canRefill1 = refilled;
                 } else if (formNumber == 2) {
-                    DataStore.korthrineUsed2 = true;
-                    DataStore.korthrineSprayedRooms2 = roomsSprayed;
-                    DataStore.korthrineSprayedShelters2 = sheltersSprayed;
-                    DataStore.korthrineRefill2 = refilled;
+                    DataStore.chemicalUsed2 = Constants.KORTHRINE;
+                    DataStore.sprayedRooms2 = roomsSprayed;
+                    DataStore.sprayedShelters2 = sheltersSprayed;
+                    DataStore.canRefill2 = refilled;
                 }
                 if (numSprayers == formNumber) {
                     Intent intent = new Intent(getApplicationContext(), UnsprayedActivity.class);
