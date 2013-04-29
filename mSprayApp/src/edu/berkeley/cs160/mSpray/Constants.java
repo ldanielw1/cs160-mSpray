@@ -42,5 +42,7 @@ public final class Constants {
 
     public static final String RFID_NAME = "rfid name";
     public static final String DOESNT_HAVE_RFID = "no rfid";
+    
+    public static final String SCAN_SPRAYER = "Scan Sprayer";
 
 }

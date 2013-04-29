@@ -29,10 +29,10 @@
             android:id="@+id/activity_start_new_spray_fake_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.0"
+            android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_weight="0.89"
             android:background="@drawable/button_selector_green" >
 
             <Button
@@ -51,6 +51,19 @@
                 android:textSize="30sp" >
             </Button>
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/activity_start_new_spray_button_finished"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_selector_red"
+            android:text="@string/DoneForTheDay"
+            android:textColor="#fff"
+            android:textSize="28sp"
+            android:visibility="gone" 
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight = "3dp"
+            android:layout_marginBottom = "3dp"/>
 
     </LinearLayout>
 

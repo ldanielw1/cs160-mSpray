@@ -68,5 +68,6 @@
     <string name="scanSprayerLabel">Identify the sprayers for this house</string>
     <string name="scanSprayer">Scan a sprayer\'s badge</string>
     <string name="scanAnotherSprayer">Scan another sprayer\'s badge</string>
+    <string name="DoneForTheDay">Done For The Day?</string>
 
 </resources>

@@ -61,6 +61,7 @@ public class ScanForeman extends Activity {
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case RFIDConstants.RFID_SUCCESS: {
+                    	DataStore.foremanID = rfidData.getReturnValue();
                         Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
                         intent.putExtra(Constants.RFID_NAME, rfidData.getReturnValue());
                         startActivity(intent);

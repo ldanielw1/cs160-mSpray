@@ -30,7 +30,13 @@ public class DataStore {
 
     public static int roomsUnsprayed = -1;
     public static int sheltersUnsprayed = -1;
+    
+    public static boolean scannedFirstSprayer = false;
+    public static boolean secondTimeThrough = false;
 
+    /**
+     * Instance from house to house
+     */
     public static void startNewStoreSession() {
         lat = null;
         latNS = null;
@@ -40,7 +46,6 @@ public class DataStore {
 
         sprayChemical = null;
 
-        foremanID = null;
         sprayer1ID = null;
         sprayer2ID = null;
 
@@ -53,6 +58,18 @@ public class DataStore {
         sprayedRooms2 = -1;
         sprayedShelters2 = -1;
         canRefill2 = false;
+        
+        scannedFirstSprayer = false;
+    }
+    
+    /**
+     * instance of use between day to day so there might be a different foreman
+     */
+    public static void destroyAllData(){
+    	startNewStoreSession();
+    	foremanID = null;
+    	scannedFirstSprayer = false;
+    	secondTimeThrough = false;
     }
 
     public static void setGPS(double la, double ln, String laNS, String lnEW, String acc) {

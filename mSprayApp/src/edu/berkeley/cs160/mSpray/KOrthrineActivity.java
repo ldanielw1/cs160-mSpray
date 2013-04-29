@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 public class KOrthrineActivity extends Activity {
 
+	TextView SprayerName;
+	TextView ForemanName;
     EditText roomsSprayedValue;
     EditText sheltersSprayedValue;
     RadioGroup canRefilled;
@@ -32,7 +34,9 @@ public class KOrthrineActivity extends Activity {
         Bundle extras = this.getIntent().getExtras();
         numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
         formNumber = extras.getInt(Constants.FORM_NUMBER);
-
+        
+        ForemanName = (TextView)findViewById(R.id.confirm_korthrine_foreman_value);
+        ForemanName.setTypeface(Constants.TYPEFACE);
         roomsSprayedValue = (EditText) findViewById(R.id.sprayer_form_edittext_roomsSprayedValue);
         roomsSprayedValue.setTypeface(Constants.TYPEFACE);
         sheltersSprayedValue = (EditText) findViewById(R.id.sprayer_form_edittext_sheltersSprayedValue);
@@ -66,6 +70,9 @@ public class KOrthrineActivity extends Activity {
             userName.setText(DataStore.sprayer1ID);
         else if (formNumber == 2)
             userName.setText(DataStore.sprayer2ID);
+        
+        /* Name of Foreman */
+        ForemanName.setText(DataStore.foremanID);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
