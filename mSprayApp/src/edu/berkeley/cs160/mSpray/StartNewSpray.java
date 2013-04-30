@@ -30,6 +30,8 @@ public class StartNewSpray extends Activity {
 		tv = (TextView) findViewById(R.id.activity_start_new_spray_header);
 		if (intent.getStringExtra(Constants.RFID_NAME) != null) {
 			tv.setText("I am: " + intent.getStringExtra(Constants.RFID_NAME));
+		} else if (DataStore.foremanID != null) {
+			tv.setText("I am: " + DataStore.foremanID);
 		} else {
 			tv.setText("I am: Foreman");
 		}

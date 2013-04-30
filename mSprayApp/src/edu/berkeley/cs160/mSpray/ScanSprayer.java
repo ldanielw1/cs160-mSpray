@@ -34,7 +34,6 @@ public class ScanSprayer extends Activity {
 	Button skipScan;
 	LinearLayout scanForemanLayout;
 	RelativeLayout scanSelf;
-	
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -58,15 +57,10 @@ public class ScanSprayer extends Activity {
 		handHoldingBadge.setVisibility(View.INVISIBLE);
 
 		setTitle("Identify sprayer ");
-		
-		if (!DataStore.scannedFirstSprayer){
-			startScan.setText(Constants.SCAN_SPRAYER + " 1");
-			DataStore.scannedFirstSprayer = true;
-		}
-		else
-			startScan.setText(Constants.SCAN_SPRAYER + " 2");
-		
-		startScan.setCompoundDrawablesWithIntrinsicBounds(0, drawable.sprayworker, 0, 0);
+		setSprayerText();
+
+		startScan.setCompoundDrawablesWithIntrinsicBounds(0,
+				drawable.sprayworker, 0, 0);
 
 		/* External Font */
 		tv = (TextView) findViewById(R.id.scan_rfid_instructions);
@@ -82,6 +76,7 @@ public class ScanSprayer extends Activity {
 						DataStore.sprayer1ID = rfidData.getReturnValue();
 					else if (formNumber == 2)
 						DataStore.sprayer2ID = rfidData.getReturnValue();
+					setSprayerFlag();
 					Intent intent = null;
 					if (sprayType.equals(Constants.DDT))
 						intent = new Intent(getApplicationContext(),
@@ -125,64 +120,39 @@ public class ScanSprayer extends Activity {
 				enableReadMode();
 			};
 		});
-		
-		 startScan.setTypeface(Constants.TYPEFACE);
 
-	        skipScan.setOnClickListener(new View.OnClickListener() {
-	            @Override
-	            public void onClick(View v) {
-	            	if (!DataStore.scannedFirstSprayer){
-	        			 DataStore.sprayer1ID = "Sprayer 1";
-	        		}
-	        		else
-	        			DataStore.sprayer2ID = "Sprayer 2";
-	                Intent intent = null;
-					if (sprayType.equals(Constants.DDT))
-						intent = new Intent(getApplicationContext(),
-								DDTActivity.class);
-					else if (sprayType.equals(Constants.KORTHRINE))
-						intent = new Intent(getApplicationContext(),
-								KOrthrineActivity.class);
-					else if (sprayType.equals(Constants.FENDONA))
-						intent = new Intent(getApplicationContext(),
-								FendonaActivity.class);
-					else if (sprayType.equals(Constants.NO_SPRAY))
-						intent = new Intent(getApplicationContext(),
-								NoSprayActivity.class);
-					intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
-					intent.putExtra(Constants.FORM_NUMBER, formNumber);
-					startActivity(intent);
-	            };
-	        });
-	        skipScan.setTypeface(Constants.TYPEFACE);
+		startScan.setTypeface(Constants.TYPEFACE);
 
-	        mAdapter = NfcAdapter.getDefaultAdapter(this);
-	        rfidData = new ReadRFID(this, getClass(), handler, this);
+		skipScan.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (!DataStore.scannedFirstSprayer) {
+					DataStore.sprayer1ID = "Sprayer 1";
+				} else
+					DataStore.sprayer2ID = "Sprayer 2";
 
-		// /* RFID Wizard of Oz */
-		// TimeBomb bomb = new TimeBomb() {
-		// @Override
-		// public void explode() {
-		// if (formNumber == 1)
-		// DataStore.sprayer1ID = "Sprayer 1";
-		// else if (formNumber == 2)
-		// DataStore.sprayer2ID = "Sprayer 2";
-		// Intent intent = null;
-		// if (sprayType.equals(Constants.DDT))
-		// intent = new Intent(getApplicationContext(), DDTActivity.class);
-		// else if (sprayType.equals(Constants.KORTHRINE))
-		// intent = new Intent(getApplicationContext(),
-		// KOrthrineActivity.class);
-		// else if (sprayType.equals(Constants.FENDONA))
-		// intent = new Intent(getApplicationContext(), FendonaActivity.class);
-		// else if (sprayType.equals(Constants.NO_SPRAY))
-		// intent = new Intent(getApplicationContext(), NoSprayActivity.class);
-		// intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
-		// intent.putExtra(Constants.FORM_NUMBER, formNumber);
-		// startActivity(intent);
-		// }
-		// };
-		// bomb.ignite();
+				Intent intent = null;
+				if (sprayType.equals(Constants.DDT))
+					intent = new Intent(getApplicationContext(),
+							DDTActivity.class);
+				else if (sprayType.equals(Constants.KORTHRINE))
+					intent = new Intent(getApplicationContext(),
+							KOrthrineActivity.class);
+				else if (sprayType.equals(Constants.FENDONA))
+					intent = new Intent(getApplicationContext(),
+							FendonaActivity.class);
+				else if (sprayType.equals(Constants.NO_SPRAY))
+					intent = new Intent(getApplicationContext(),
+							NoSprayActivity.class);
+				intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
+				intent.putExtra(Constants.FORM_NUMBER, formNumber);
+				startActivity(intent);
+			};
+		});
+		skipScan.setTypeface(Constants.TYPEFACE);
+
+		mAdapter = NfcAdapter.getDefaultAdapter(this);
+		rfidData = new ReadRFID(this, getClass(), handler, this);
 
 	}
 
@@ -195,6 +165,24 @@ public class ScanSprayer extends Activity {
 			Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 			rfidData.ReadTag(tag);
 
+		}
+	}
+
+	public void setSprayerText() {
+		if (!DataStore.scannedFirstSprayer) {
+			startScan.setText(Constants.SCAN_SPRAYER + " 1");
+		} else
+			startScan.setText(Constants.SCAN_SPRAYER + " 2");
+	}
+	
+	/**
+	 * This is an important flag to set because you want to have the correct labels 
+	 * depending if you are on the second or first sprayer. 
+	 * 
+	 */
+	public void setSprayerFlag(){
+		if (!DataStore.scannedFirstSprayer) {
+			DataStore.scannedFirstSprayer = true;
 		}
 	}
 

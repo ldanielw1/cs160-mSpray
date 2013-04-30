@@ -25,6 +25,29 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp" >
+        
+         <TableRow
+            android:id="@+id/finished_chemical_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp" >
+
+            <TextView
+                android:id="@+id/finished_chemical_label"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:text="@string/chemical"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/finished_chemical_value"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="20sp" />
+        </TableRow>
 
         <TableRow
             android:id="@+id/finished_foreman_row"

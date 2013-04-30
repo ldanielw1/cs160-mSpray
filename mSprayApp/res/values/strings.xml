@@ -69,5 +69,6 @@
     <string name="scanSprayer">Scan a sprayer\'s badge</string>
     <string name="scanAnotherSprayer">Scan another sprayer\'s badge</string>
     <string name="DoneForTheDay">Done For The Day?</string>
+    <string name="chemical">Chemical</string>
 
 </resources>

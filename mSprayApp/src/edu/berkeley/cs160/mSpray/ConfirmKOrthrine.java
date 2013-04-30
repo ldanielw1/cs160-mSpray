@@ -35,6 +35,7 @@ public class ConfirmKOrthrine extends Activity {
         TextView canRefilledValue = (TextView) findViewById(R.id.confirm_korthrine_can_refilled_value);
 
         foremanValue.setText(DataStore.foremanID);
+      
         roomsSprayedValue.setText(Integer.toString(roomsSprayed));
         sheltersSprayedValue.setText(Integer.toString(sheltersSprayed));
         boolean refillFlag = false;
