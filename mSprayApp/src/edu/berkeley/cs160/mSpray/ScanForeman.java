@@ -17,130 +17,142 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import edu.berkeley.cs160.RFID.RFIDConstants;
 import edu.berkeley.cs160.RFID.ReadRFID;
 
 public class ScanForeman extends Activity {
-    private Handler handler;
-    private ReadRFID rfidData;
-    private NfcAdapter mAdapter;
-    private PendingIntent pendingIntent;
-    IntentFilter tagDetected;
-    IntentFilter[] filters;
-    Button startScan;
-    Button skipScan;
-    ImageView handHoldingBadge;
-    TextView tv;
-    LinearLayout scanForemanLayout;
-    RelativeLayout scanSelf; // fake button
+	private Handler handler;
+	private ReadRFID rfidData;
+	private NfcAdapter mAdapter;
+	private PendingIntent pendingIntent;
+	IntentFilter tagDetected;
+	IntentFilter[] filters;
+	Button startScan;
+	Button skipScan;
+	ImageView handHoldingBadge;
+	TextView tv;
+	LinearLayout scanForemanLayout;
+	RelativeLayout scanSelf; // fake button
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.scan_rfid);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.scan_rfid);
 
-        setTitle("Welcome to mSpray");
+		setTitle("Welcome to mSpray");
 
-        // External font
-        Constants.TYPEFACE = Typeface.createFromAsset(getAssets(), Constants.FONT_PATH);
+		// External font
+		Constants.TYPEFACE = Typeface.createFromAsset(getAssets(),
+				Constants.FONT_PATH);
 
-        scanSelf = (RelativeLayout) findViewById(R.id.activity_scan_rfid_fake_button);
-        tv = (TextView) findViewById(R.id.scan_rfid_instructions);
-        startScan = (Button) findViewById(R.id.scan_rfid_button_start_scan);
-        skipScan = (Button) findViewById(R.id.scan_rfid_button_forgot_badge);
-        handHoldingBadge = (ImageView) findViewById(R.id.scan_rfid_image);
-        scanForemanLayout = (LinearLayout) findViewById(R.id.scan_rfid_layout);
-        mAdapter = NfcAdapter.getDefaultAdapter(getApplicationContext());
+		scanSelf = (RelativeLayout) findViewById(R.id.activity_scan_rfid_fake_button);
+		tv = (TextView) findViewById(R.id.scan_rfid_instructions);
+		startScan = (Button) findViewById(R.id.scan_rfid_button_start_scan);
+		skipScan = (Button) findViewById(R.id.scan_rfid_button_forgot_badge);
+		handHoldingBadge = (ImageView) findViewById(R.id.scan_rfid_image);
+		scanForemanLayout = (LinearLayout) findViewById(R.id.scan_rfid_layout);
+		mAdapter = NfcAdapter.getDefaultAdapter(getApplicationContext());
 
-        scanForemanLayout.setVisibility(View.VISIBLE);
-        handHoldingBadge.setVisibility(View.INVISIBLE);
-        tv.setTypeface(Constants.TYPEFACE);
+		scanForemanLayout.setVisibility(View.VISIBLE);
+		handHoldingBadge.setVisibility(View.INVISIBLE);
+		tv.setTypeface(Constants.TYPEFACE);
 
-        handler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                switch (msg.what) {
-                    case RFIDConstants.RFID_SUCCESS: {
-                    	DataStore.foremanID = rfidData.getReturnValue();
-                        Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
-                        intent.putExtra(Constants.RFID_NAME, rfidData.getReturnValue());
-                        startActivity(intent);
-                        break;
-                    }
-                    case RFIDConstants.RFID_UNSUCCESS_READ: {
-                        tv.setText("Unsuccessful Read Try Again");
-                        break;
+		handler = new Handler() {
+			@Override
+			public void handleMessage(Message msg) {
+				switch (msg.what) {
+				case RFIDConstants.RFID_SUCCESS: {
+					DataStore.foremanID = rfidData.getReturnValue();
+					Intent intent = new Intent(getApplicationContext(),
+							StartNewSpray.class);
+					intent.putExtra(Constants.RFID_NAME,
+							rfidData.getReturnValue());
+					startActivity(intent);
+					break;
+				}
+				case RFIDConstants.RFID_UNSUCCESS_READ: {
+					tv.setText("Unsuccessful Read Try Again");
+					break;
 
-                    }
-                    case RFIDConstants.RFID_WRONG_TYPE: {
-                        tv.setText("Wrong RFID type");
-                        break;
-                    }
-                }
-            }
-        };
+				}
+				case RFIDConstants.RFID_WRONG_TYPE: {
+					tv.setText("Wrong RFID type");
+					break;
+				}
+				}
+			}
+		};
 
-        scanSelf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                scanForemanLayout.setVisibility(View.INVISIBLE);
-                handHoldingBadge.setVisibility(View.VISIBLE);
-                tv.setText(R.string.scanBadge);
-                enableReadMode();
-            };
-        });
-        startScan.setTypeface(Constants.TYPEFACE);
+		scanSelf.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (mAdapter != null) {
+					scanForemanLayout.setVisibility(View.INVISIBLE);
+					handHoldingBadge.setVisibility(View.VISIBLE);
+					tv.setText(R.string.scanBadge);
+					enableReadMode();
+				} else
+					Toast.makeText(getApplicationContext(),
+							"Your Phone Can't Scan RFIDs", Toast.LENGTH_LONG)
+							.show();
+			};
+		});
+		startScan.setTypeface(Constants.TYPEFACE);
 
-        skipScan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DataStore.foremanID = "foreman";
-                Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
-                intent.putExtra(Constants.RFID_NAME, Constants.DOESNT_HAVE_RFID);
-                startActivity(intent);
-            };
-        });
-        skipScan.setTypeface(Constants.TYPEFACE);
+		skipScan.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				DataStore.foremanID = "foreman";
+				Intent intent = new Intent(getApplicationContext(),
+						StartNewSpray.class);
+				intent.putExtra(Constants.RFID_NAME, Constants.DOESNT_HAVE_RFID);
+				startActivity(intent);
+			};
+		});
+		skipScan.setTypeface(Constants.TYPEFACE);
 
-        mAdapter = NfcAdapter.getDefaultAdapter(this);
-        rfidData = new ReadRFID(this, getClass(), handler, this);
-        /* RFID Wizard of Oz */
-        // TimeBomb bomb = new TimeBomb() {
-        // @Override public void explode() {
-        // DataStore.foremanID = "Foreman"; Intent intent = new
-        // Intent(getApplicationContext(), StartNewSpray.class);
-        // startActivity(intent); } };
-        // bomb.ignite();
+		mAdapter = NfcAdapter.getDefaultAdapter(this);
+		rfidData = new ReadRFID(this, getClass(), handler, this);
 
-    }
+		/* RFID Wizard of Oz */
+		// TimeBomb bomb = new TimeBomb() {
+		// @Override public void explode() {
+		// DataStore.foremanID = "Foreman"; Intent intent = new
+		// Intent(getApplicationContext(), StartNewSpray.class);
+		// startActivity(intent); } };
+		// bomb.ignite();
 
-    @Override
-    public void onNewIntent(Intent intent) {
-        if (rfidData.mInWriteMode) {
-            rfidData.mInWriteMode = false;
+	}
 
-            // write to newly scanned tag
-            Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-            rfidData.ReadTag(tag);
+	@Override
+	public void onNewIntent(Intent intent) {
+		if (rfidData.mInWriteMode) {
+			rfidData.mInWriteMode = false;
 
-        }
-    }
+			// write to newly scanned tag
+			Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+			rfidData.ReadTag(tag);
 
-    private void enableReadMode() {
-        rfidData.mInWriteMode = true;
-        // set up a PendingIntent to open the app when a tag is scanned
-        pendingIntent = PendingIntent.getActivity(this, 0, new Intent(getApplicationContext(),
-                getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
-        tagDetected = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
-        filters = new IntentFilter[] { tagDetected };
+		}
+	}
 
-        mAdapter.enableForegroundDispatch(this, pendingIntent, filters, null);
-    }
+	private void enableReadMode() {
+		rfidData.mInWriteMode = true;
+		// set up a PendingIntent to open the app when a tag is scanned
+		pendingIntent = PendingIntent.getActivity(this, 0, new Intent(
+				getApplicationContext(), getClass())
+				.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+		tagDetected = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
+		filters = new IntentFilter[] { tagDetected };
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.mspray, menu);
-        return true;
-    }
+		mAdapter.enableForegroundDispatch(this, pendingIntent, filters, null);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.mspray, menu);
+		return true;
+	}
 }

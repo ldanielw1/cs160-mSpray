@@ -37,9 +37,6 @@ public class GetGpsActivity extends Activity {
 	String longitudeEW;
 	String acc;
 
-	boolean gpsFound = false;
-	boolean usingDummyGps = false;
-
 	private int gpsAttempts = 0;
 	
 	Context context;
@@ -180,8 +177,8 @@ public class GetGpsActivity extends Activity {
 		locManager = (LocationManager) getApplicationContext()
 				.getSystemService(Context.LOCATION_SERVICE);
 		Criteria criteria = new Criteria();
+		criteria.setAccuracy(Criteria.ACCURACY_FINE);
 		String provider = locManager.getBestProvider(criteria, false);
-		
 		Location location = locManager.getLastKnownLocation(provider);
 		if (location == null) {
 			System.out.println("trying network instead");
@@ -207,7 +204,6 @@ public class GetGpsActivity extends Activity {
 				}
 			}
 		} else {
-			usingDummyGps = true;
 			handler.sendMessage(Message
 					.obtain(handler, Constants.GPS_NOT_FOUND));
 		}
@@ -229,7 +225,6 @@ public class GetGpsActivity extends Activity {
 
 	public boolean accurateEnough(Location loc) {
 		if (loc.getAccuracy() < Constants.GPS_ACCURACY_LIMIT) {
-			gpsFound = true;
 			return true;
 		}
 		return false;

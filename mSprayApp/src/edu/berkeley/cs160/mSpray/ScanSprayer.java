@@ -114,10 +114,14 @@ public class ScanSprayer extends Activity {
 		scanSelf.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				scanForemanLayout.setVisibility(View.INVISIBLE);
-				handHoldingBadge.setVisibility(View.VISIBLE);
-				tv.setText(R.string.scanBadge);
-				enableReadMode();
+				if (mAdapter != null) {
+					scanForemanLayout.setVisibility(View.INVISIBLE);
+					handHoldingBadge.setVisibility(View.VISIBLE);
+					tv.setText(R.string.scanBadge);
+					enableReadMode();
+				} else
+					Toast.makeText(getApplicationContext(), "Your Phone Can't Scan RFIDs",
+							Toast.LENGTH_LONG).show();
 			};
 		});
 
@@ -132,6 +136,7 @@ public class ScanSprayer extends Activity {
 					DataStore.sprayer2ID = "Sprayer 2";
 
 				Intent intent = null;
+				setSprayerFlag();
 				if (sprayType.equals(Constants.DDT))
 					intent = new Intent(getApplicationContext(),
 							DDTActivity.class);
@@ -174,13 +179,13 @@ public class ScanSprayer extends Activity {
 		} else
 			startScan.setText(Constants.SCAN_SPRAYER + " 2");
 	}
-	
+
 	/**
-	 * This is an important flag to set because you want to have the correct labels 
-	 * depending if you are on the second or first sprayer. 
+	 * This is an important flag to set because you want to have the correct
+	 * labels depending if you are on the second or first sprayer.
 	 * 
 	 */
-	public void setSprayerFlag(){
+	public void setSprayerFlag() {
 		if (!DataStore.scannedFirstSprayer) {
 			DataStore.scannedFirstSprayer = true;
 		}
