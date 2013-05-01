@@ -1,5 +1,6 @@
 package edu.berkeley.cs160.mSpray;
 
+import edu.berkeley.cs160.GPS.GetGpsActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

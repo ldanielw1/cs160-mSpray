@@ -32,7 +32,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="edu.berkeley.cs160.mSpray.GetGpsActivity"
+            android:name="edu.berkeley.cs160.GPS.GetGpsActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
