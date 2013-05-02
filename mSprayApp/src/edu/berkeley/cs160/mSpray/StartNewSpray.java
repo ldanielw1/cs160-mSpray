@@ -52,9 +52,16 @@ public class StartNewSpray extends Activity {
 		});
 		startSprayButton.setTypeface(Constants.TYPEFACE);
 
+		
+		/**
+		 * Note that completelyFinished in the 1st iteration standpoint asks the foreman whether they are the correct
+		 * preson while in the 2nd and onward ask if the Foreman want to terminate the session. 
+		 */
+		completelyFinished = (Button) findViewById(R.id.activity_start_new_spray_button_finished);
+		completelyFinished.setTypeface(Constants.TYPEFACE);
+		completelyFinished.setVisibility(View.VISIBLE);
+		
 		if (DataStore.secondTimeThrough) {
-			completelyFinished = (Button) findViewById(R.id.activity_start_new_spray_button_finished);
-			completelyFinished.setVisibility(View.VISIBLE);
 			completelyFinished.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -64,7 +71,18 @@ public class StartNewSpray extends Activity {
 					bomb.ignite();
 				}
 			});
-			completelyFinished.setTypeface(Constants.TYPEFACE);
+		}
+		else {
+			completelyFinished.setText("Not " + DataStore.foremanID + "? Rescan");
+			completelyFinished.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
+					intent.putExtra(Constants.RESCAN_FORMAN, true);
+					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+					startActivity(intent);
+				}
+			});
 		}
 
 		bomb = new TimeBomb() {

@@ -46,5 +46,7 @@ public final class Constants {
     public static final String DOESNT_HAVE_RFID = "no rfid";
     
     public static final String SCAN_SPRAYER = "Scan Sprayer";
+    
+    public static final String RESCAN_FORMAN = "Rescan Foreman";
 
 }

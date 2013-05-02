@@ -41,7 +41,9 @@ public class ScanForeman extends Activity {
 		setContentView(R.layout.scan_rfid);
 
 		setTitle("Welcome to mSpray");
-
+		
+		
+		
 		// External font
 		Constants.TYPEFACE = Typeface.createFromAsset(getAssets(),
 				Constants.FONT_PATH);
@@ -122,23 +124,16 @@ public class ScanForeman extends Activity {
 		// Intent(getApplicationContext(), StartNewSpray.class);
 		// startActivity(intent); } };
 		// bomb.ignite();
-
+		//reScanning();
 	}
 
 	@Override
 	public void onNewIntent(Intent intent) {
-		if (rfidData.mInWriteMode) {
-			rfidData.mInWriteMode = false;
-
-			// write to newly scanned tag
 			Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 			rfidData.ReadTag(tag);
-
-		}
 	}
 
 	private void enableReadMode() {
-		rfidData.mInWriteMode = true;
 		// set up a PendingIntent to open the app when a tag is scanned
 		pendingIntent = PendingIntent.getActivity(this, 0, new Intent(
 				getApplicationContext(), getClass())
@@ -147,6 +142,26 @@ public class ScanForeman extends Activity {
 		filters = new IntentFilter[] { tagDetected };
 
 		mAdapter.enableForegroundDispatch(this, pendingIntent, filters, null);
+	}
+	
+	public void reScanning(){
+		Intent intent = getIntent();
+		Bundle bundle = intent.getExtras();
+		if (bundle != null){
+			boolean rescanning = bundle.getBoolean(Constants.RESCAN_FORMAN);
+			if (rescanning){
+				if (mAdapter != null) {
+					scanForemanLayout.setVisibility(View.INVISIBLE);
+					handHoldingBadge.setVisibility(View.VISIBLE);
+					tv.setText(R.string.scanBadge);
+					enableReadMode();
+				} else
+					Toast.makeText(getApplicationContext(),
+							"Your Phone Can't Scan RFIDs", Toast.LENGTH_LONG)
+							.show();
+			}
+		}
+		
 	}
 
 	@Override

@@ -163,14 +163,9 @@ public class ScanSprayer extends Activity {
 
 	@Override
 	public void onNewIntent(Intent intent) {
-		if (rfidData.mInWriteMode) {
-			rfidData.mInWriteMode = false;
-
 			// write to newly scanned tag
 			Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 			rfidData.ReadTag(tag);
-
-		}
 	}
 
 	public void setSprayerText() {
@@ -192,7 +187,6 @@ public class ScanSprayer extends Activity {
 	}
 
 	private void enableReadMode() {
-		rfidData.mInWriteMode = true;
 		// set up a PendingIntent to open the app when a tag is scanned
 		pendingIntent = PendingIntent.getActivity(this, 0, new Intent(
 				getApplicationContext(), getClass())

@@ -12,8 +12,6 @@ import android.os.Handler;
 import android.os.Message;
 
 public class ReadRFID {
-
-    public boolean mInWriteMode = false;
     private String returnValue;
 
     private Context context;
@@ -36,14 +34,9 @@ public class ReadRFID {
     }
 
     public void onNewIntent(Intent intent) {
-        if (mInWriteMode) {
-            mInWriteMode = false;
-
             // write to newly scanned tag
             Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
             ReadTag(tag);
-
-        }
     }
 
     /**
