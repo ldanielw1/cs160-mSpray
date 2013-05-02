@@ -34,6 +34,9 @@ public class DataStore {
     public static boolean scannedFirstSprayer = false;
     public static boolean secondTimeThrough = false;
 
+	public static int numSprayer = 0;
+	public static int formNumber = 0;
+
     /**
      * Instance from house to house
      */

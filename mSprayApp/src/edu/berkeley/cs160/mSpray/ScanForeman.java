@@ -10,6 +10,7 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +35,7 @@ public class ScanForeman extends Activity {
 	TextView tv;
 	LinearLayout scanForemanLayout;
 	RelativeLayout scanSelf; // fake button
+	private boolean scanning = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,8 @@ public class ScanForeman extends Activity {
 							StartNewSpray.class);
 					intent.putExtra(Constants.RFID_NAME,
 							rfidData.getReturnValue());
+					//intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+					//intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 					startActivity(intent);
 					break;
 				}
@@ -90,6 +94,7 @@ public class ScanForeman extends Activity {
 			@Override
 			public void onClick(View v) {
 				if (mAdapter != null) {
+					scanning = true;
 					scanForemanLayout.setVisibility(View.INVISIBLE);
 					handHoldingBadge.setVisibility(View.VISIBLE);
 					tv.setText(R.string.scanBadge);
@@ -109,6 +114,8 @@ public class ScanForeman extends Activity {
 				Intent intent = new Intent(getApplicationContext(),
 						StartNewSpray.class);
 				intent.putExtra(Constants.RFID_NAME, Constants.DOESNT_HAVE_RFID);
+				//intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+				//intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				startActivity(intent);
 			};
 		});
@@ -116,14 +123,6 @@ public class ScanForeman extends Activity {
 
 		mAdapter = NfcAdapter.getDefaultAdapter(this);
 		rfidData = new ReadRFID(this, getClass(), handler, this);
-
-		/* RFID Wizard of Oz */
-		// TimeBomb bomb = new TimeBomb() {
-		// @Override public void explode() {
-		// DataStore.foremanID = "Foreman"; Intent intent = new
-		// Intent(getApplicationContext(), StartNewSpray.class);
-		// startActivity(intent); } };
-		// bomb.ignite();
 		//reScanning();
 	}
 
@@ -144,6 +143,26 @@ public class ScanForeman extends Activity {
 		mAdapter.enableForegroundDispatch(this, pendingIntent, filters, null);
 	}
 	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			if (scanning)
+			{
+				scanForemanLayout.setVisibility(View.VISIBLE);
+				handHoldingBadge.setVisibility(View.INVISIBLE);
+			}
+			else 
+				onBackPressed();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	
+	/**
+	 * Problems with implementing this. There's still issues with the app not
+	 * being in resume when this method is called. 
+	 */
 	public void reScanning(){
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();

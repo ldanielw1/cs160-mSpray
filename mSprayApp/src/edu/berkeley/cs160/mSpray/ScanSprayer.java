@@ -45,6 +45,9 @@ public class ScanSprayer extends Activity {
 		final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
 		final int formNumber = extras.getInt(Constants.FORM_NUMBER);
 		final String sprayType = extras.getString(Constants.SPRAY_TYPE);
+		
+		DataStore.numSprayer = numSprayers;
+		DataStore.formNumber = formNumber;
 
 		scanSelf = (RelativeLayout) findViewById(R.id.activity_scan_rfid_fake_button);
 		startScan = (Button) findViewById(R.id.scan_rfid_button_start_scan);
