@@ -27,6 +27,7 @@ public class GetGpsActivity extends Activity {
 	ProgressDialog progDialog;
 	TextView LocationFound;
 	TextView header;
+	TextView gpsText;
 	Handler handler;
 	Button backButton;
 	Button confirmButton;
@@ -84,7 +85,7 @@ public class GetGpsActivity extends Activity {
 				switch (msg.what) {
 				case Constants.GPS_FOUND: {
 					LocationFound.setVisibility(View.VISIBLE);
-					TextView gpsText = (TextView) findViewById(R.id.gps_location_textview_contents);
+					gpsText = (TextView) findViewById(R.id.gps_location_textview_contents);
 					final StringBuilder gpsResultBuilder = new StringBuilder();
 					gpsResultBuilder.append("I am at: ");
 					gpsResultBuilder.append(latitude);
@@ -145,9 +146,33 @@ public class GetGpsActivity extends Activity {
 		alertDialogBuilder.setNegativeButton("No",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						DataStore.setGPS(22.879, 30.729, "S", "E", "7");
+						if (latitude == 0 && longitude == 0){
+							DataStore.setGPS(22.879, 30.729, "S", "E", "7");
+							LocationFound.setText("OLD " + LocationFound.getText());
+							
+						}
+						else{
+							LocationFound.setVisibility(View.VISIBLE);
+							gpsText = (TextView) findViewById(R.id.gps_location_textview_contents);
+							final StringBuilder gpsResultBuilder = new StringBuilder();
+							gpsResultBuilder.append("I am at: ");
+							gpsResultBuilder.append(latitude);
+							gpsResultBuilder.append(" ");
+							gpsResultBuilder.append(latitudeNS);
+							gpsResultBuilder.append(", ");
+							gpsResultBuilder.append(longitude);
+							gpsResultBuilder.append(" ");
+							gpsResultBuilder.append(longitudeEW);
+							gpsResultBuilder.append("\n Accuracy: ");
+							gpsResultBuilder.append(acc);
+							gpsResultBuilder.append(" meters");
+							gpsText.setText(gpsResultBuilder.toString());
+							DataStore.setGPS(latitude, longitude, latitudeNS,
+									longitudeEW, acc);
+							
+						}
+						
 						LocationFound.setVisibility(View.VISIBLE);
-						LocationFound.setText("OLD " + LocationFound.getText());
 						dialog.cancel();
 					}
 				});
@@ -199,6 +224,8 @@ public class GetGpsActivity extends Activity {
 							Constants.GPS_RETRY));
 					getGPS();
 				} else {
+					hemisphereCoordinate(location);
+					acc = "" + location.getAccuracy();
 					handler.sendMessage(Message.obtain(handler,
 							Constants.GPS_NOT_ACCURATE_ENOUGH));
 				}
@@ -209,6 +236,7 @@ public class GetGpsActivity extends Activity {
 		}
 
 	}
+
 
 	public void checkGpsEnable() {
 		LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
