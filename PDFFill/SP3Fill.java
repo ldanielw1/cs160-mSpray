@@ -63,7 +63,10 @@ public class SP3Fill extends PDFFill {
             formFill.setField(BAYTHROID_USED_LABEL, "14");
             formFill.setField(KOTHRINE_USED_LABEL, "15");
             formFill.close();
-        } catch (IOException | DocumentException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } catch (DocumentException e) {
             e.printStackTrace();
             System.exit(1);
         }

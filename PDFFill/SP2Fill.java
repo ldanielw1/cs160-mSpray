@@ -69,7 +69,10 @@ public class SP2Fill extends PDFFill {
             formFill.setField(BAYTHROID_USED_LABEL, 12);
             formFill.setField(KOTHRINE_USED_LABEL, 14);
             formFill.close();
-        } catch (IOException | DocumentException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } catch (DocumentException e) {
             e.printStackTrace();
             System.exit(1);
         }

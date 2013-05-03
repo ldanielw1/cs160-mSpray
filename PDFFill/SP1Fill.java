@@ -60,7 +60,10 @@ public class SP1Fill extends PDFFill {
             formFill.setField(FOREMAN_LABEL, "Ravuluma P");
             formFill.setField(FIELD_OFFICER_LABEL, "Brenda Eskenazi");
             formFill.close();
-        } catch (IOException | DocumentException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } catch (DocumentException e) {
             e.printStackTrace();
             System.exit(1);
         }
