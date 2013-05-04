@@ -42,10 +42,10 @@ public class ScanForeman extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.scan_rfid);
 		
-//		if (DataStore.doneForDay){
-//			DataStore.doneForDay = false;
-//			finish();
-//		}
+		if (DataStore.doneForDay){
+			DataStore.doneForDay = false;
+			moveTaskToBack(true);
+		}
 
 		setTitle("Welcome to mSpray");
 		

@@ -63,12 +63,14 @@ public class StartNewSpray extends Activity {
 		completelyFinished.setVisibility(View.VISIBLE);
 		
 		if (DataStore.secondTimeThrough) {
+			completelyFinished.setText("Done For the Day?");
 			completelyFinished.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					DataStore.destroyAllData();
 					Toast.makeText(getApplicationContext(), "GOOD BYE",
 							Toast.LENGTH_LONG).show();
+					DataStore.doneForDay = true;
 					bomb.ignite();
 				}
 			});
@@ -90,9 +92,9 @@ public class StartNewSpray extends Activity {
 		bomb = new TimeBomb() {
 			@Override
 			public void explode() {
-				//DataStore.doneForDay = true;
-				//moveTaskToBack(true);
-				finish();
+				Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
 			}
 		};
 

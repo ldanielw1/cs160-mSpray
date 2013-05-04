@@ -37,8 +37,10 @@ public class GetGpsActivity extends Activity {
 	String latitudeNS;
 	String longitudeEW;
 	String acc;
+	float GpsAccLimit;
 
 	private int gpsAttempts = 0;
+	private int numberOfRetries = 1;
 	
 	Context context;
 
@@ -48,6 +50,8 @@ public class GetGpsActivity extends Activity {
 		setContentView(R.layout.gps_location);
 
 		setTitle("Where are you?");
+		
+		GpsAccLimit = Constants.GPS_ACCURACY_LIMIT;
 		
 		context = getApplicationContext();
 		
@@ -137,6 +141,8 @@ public class GetGpsActivity extends Activity {
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						{
+							numberOfRetries++;
+							BumpGps();
 							dialog.dismiss();
 							getGPS();
 						}
@@ -237,6 +243,10 @@ public class GetGpsActivity extends Activity {
 
 	}
 
+	public void BumpGps(){
+		GpsAccLimit = GpsAccLimit + Constants.GPS_BUMB_DISTANCE * numberOfRetries;
+		
+	}
 
 	public void checkGpsEnable() {
 		LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -252,7 +262,7 @@ public class GetGpsActivity extends Activity {
 	}
 
 	public boolean accurateEnough(Location loc) {
-		if (loc.getAccuracy() < Constants.GPS_ACCURACY_LIMIT) {
+		if (loc.getAccuracy() < GpsAccLimit) {
 			return true;
 		}
 		return false;
