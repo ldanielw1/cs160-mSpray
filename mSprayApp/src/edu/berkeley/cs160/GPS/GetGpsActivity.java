@@ -135,7 +135,7 @@ public class GetGpsActivity extends Activity {
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 				context);
 		alertDialogBuilder.setTitle(text);
-		alertDialogBuilder.setMessage("Retry?");
+		alertDialogBuilder.setMessage("Accuracy: " + acc +  "m Retry?");
 		alertDialogBuilder.setCancelable(false);
 		alertDialogBuilder.setPositiveButton("Yes",
 				new DialogInterface.OnClickListener() {
