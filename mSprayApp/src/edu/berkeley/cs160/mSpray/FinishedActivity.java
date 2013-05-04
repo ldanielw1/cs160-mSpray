@@ -113,8 +113,7 @@ public class FinishedActivity extends Activity {
 				DataStore.secondTimeThrough = true;
 				Intent intent = new Intent(getApplicationContext(),
 						StartNewSpray.class);
-				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 				startActivity(intent);
 			}
 		});

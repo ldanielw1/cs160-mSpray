@@ -36,6 +36,9 @@ public class DataStore {
 
 	public static int numSprayer = 0;
 	public static int formNumber = 0;
+	
+	public static boolean doneForDay = false;
+	
 
     /**
      * Instance from house to house

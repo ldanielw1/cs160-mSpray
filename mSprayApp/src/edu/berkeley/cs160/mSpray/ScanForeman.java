@@ -41,6 +41,11 @@ public class ScanForeman extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.scan_rfid);
+		
+//		if (DataStore.doneForDay){
+//			DataStore.doneForDay = false;
+//			finish();
+//		}
 
 		setTitle("Welcome to mSpray");
 		
@@ -72,6 +77,7 @@ public class ScanForeman extends Activity {
 							StartNewSpray.class);
 					intent.putExtra(Constants.RFID_NAME,
 							rfidData.getReturnValue());
+					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 					//intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 					//intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 					startActivity(intent);
@@ -116,6 +122,7 @@ public class ScanForeman extends Activity {
 				intent.putExtra(Constants.RFID_NAME, Constants.DOESNT_HAVE_RFID);
 				//intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 				//intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 				startActivity(intent);
 			};
 		});

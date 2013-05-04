@@ -90,7 +90,8 @@ public class StartNewSpray extends Activity {
 		bomb = new TimeBomb() {
 			@Override
 			public void explode() {
-				moveTaskToBack(true);
+				//DataStore.doneForDay = true;
+				//moveTaskToBack(true);
 				finish();
 			}
 		};
