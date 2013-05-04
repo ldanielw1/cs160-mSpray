@@ -43,13 +43,16 @@ public class ConfirmUnsprayed extends Activity {
         Bundle extras = this.getIntent().getExtras();
         DataStore.roomsUnsprayed = extras.getInt(Constants.ROOMS_UNSPRAYED);
         DataStore.sheltersUnsprayed = extras.getInt(Constants.SHELTERS_UNSPRAYED);
+        DataStore.reasonUnsprayed = extras.getString(Constants.REASON_UNSPRAYED);
 
         /* Populate paperwork table */
         TextView roomsUnsprayedValue = (TextView) findViewById(R.id.confirm_unsprayed_rooms_unsprayed_value);
         TextView sheltersUnsprayedValue = (TextView) findViewById(R.id.confirm_unsprayed_shelters_unsprayed_value);
+        TextView unsprayedReasonValue = (TextView) findViewById(R.id.confirm_unsprayed_reason_value);
 
         roomsUnsprayedValue.setText(Integer.toString(DataStore.roomsUnsprayed));
         sheltersUnsprayedValue.setText(Integer.toString(DataStore.sheltersUnsprayed));
+        unsprayedReasonValue.setText(DataStore.reasonUnsprayed);
 
         Button backButton = (Button) findViewById(R.id.confirm_unsprayed_button_backButton);
         backButton.setOnClickListener(new OnClickListener() {
@@ -144,6 +147,7 @@ public class ConfirmUnsprayed extends Activity {
         }
         uploadData.put("unsprayedRooms", Integer.toString(DataStore.roomsUnsprayed));
         uploadData.put("unsprayedShelters", Integer.toString(DataStore.sheltersUnsprayed));
+        uploadData.put("unsprayedReason", DataStore.reasonUnsprayed);
 
         return uploadData;
     }

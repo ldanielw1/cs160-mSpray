@@ -126,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
                 android:layout_weight="0.5"
-                android:orientation="horizontal" >
+                android:orientation="vertical" >
 
                 <RadioButton
                     android:id="@+id/sprayer_form_radiobutton_canRefilledYes"
@@ -140,7 +140,6 @@
                     android:id="@+id/sprayer_form_radiobutton_canRefilledNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
                     android:checked="true"
                     android:text="@string/no"
                     android:textColor="#fff" />

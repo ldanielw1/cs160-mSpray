@@ -1,0 +1,11 @@
+to compile:
+javac -cp ".:lib/*" *.java
+
+to run SP1Fill:
+java -cp ".:lib/*" SP1Fill
+
+to run SP2Fill:
+java -cp ".:lib/*" SP1Fill
+
+to run SP3Fill:
+java -cp ".:lib/*" SP1Fill

@@ -12,12 +12,15 @@
     <string name="confirmDDT">DDT Spray Data</string>
     <string name="confirmNoSpray">Unsprayed Data</string>
     <string name="confirmKOrthrine">K-Orthrine Spray Data</string>
-    <string name="confirmUnsprayed">What was not sprayed?</string>
+    <string name="confirmUnsprayed">We did not spray...</string>
     <string name="DDTHeader">DDT sprayed by</string>
     <string name="korthrineHeader">korthrine sprayed by</string>
     <string name="sprayHeader">sprayed by</string>
     <string name="NoSprayHeader">No rooms sprayed by</string>
     <string name="dataRecorded">Data Recorded</string>
+    <string name="unsprayedReason">Reason</string>
+    <string name="locked">Locked</string>
+    <string name="refused">Owner Refused</string>
     <string name="ddt">DDT</string>
     <string name="emptyString"/>
     <string name="emptyValue"> \? </string>
@@ -57,7 +60,7 @@
     <string name="sprayer">Sprayer</string>
     <string name="sprayer2">Sprayer 2</string>
     <string name="sprayerIDs">Sprayer IDs</string>
-    <string name="startSpray">Start New Spray</string>
+    <string name="startSpray">Start new spray</string>
     <string name="doneSpraying">I am finished</string>
     <string name="twoSprayers">2 sprayers</string>
     <string name="yes">Yes</string>
@@ -68,7 +71,7 @@
     <string name="scanSprayerLabel">Identify the sprayers for this house</string>
     <string name="scanSprayer">Scan a sprayer\'s badge</string>
     <string name="scanAnotherSprayer">Scan another sprayer\'s badge</string>
-    <string name="DoneForTheDay">Done For The Day?</string>
+    <string name="DoneForTheDay">I am done for the day</string>
     <string name="chemical">Chemical</string>
 
 </resources>

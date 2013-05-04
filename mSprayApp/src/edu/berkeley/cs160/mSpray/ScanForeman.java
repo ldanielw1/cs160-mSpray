@@ -116,7 +116,7 @@ public class ScanForeman extends Activity {
 		skipScan.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				DataStore.foremanID = "foreman";
+				DataStore.foremanID = "not identified";
 				Intent intent = new Intent(getApplicationContext(),
 						StartNewSpray.class);
 				intent.putExtra(Constants.RFID_NAME, Constants.DOESNT_HAVE_RFID);

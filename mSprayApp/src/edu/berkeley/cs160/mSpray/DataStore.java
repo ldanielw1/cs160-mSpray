@@ -30,6 +30,7 @@ public class DataStore {
 
     public static int roomsUnsprayed = -1;
     public static int sheltersUnsprayed = -1;
+    public static String reasonUnsprayed = "";
     
     public static boolean scannedFirstSprayer = false;
     public static boolean secondTimeThrough = false;

@@ -76,7 +76,7 @@ public class StartNewSpray extends Activity {
 			});
 		}
 		else {
-			completelyFinished.setText("Not " + DataStore.foremanID + "? Rescan");
+			completelyFinished.setText("Scan badge again");
 			completelyFinished.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {

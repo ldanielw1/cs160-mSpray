@@ -10,7 +10,7 @@ public final class Constants {
     /** Constants for GPS */
     public static final int GPS_FOUND = 0;
     public static final int GPS_NOT_FOUND = 1;
-    public static final float GPS_ACCURACY_LIMIT = 30f;
+    public static final float GPS_ACCURACY_LIMIT = 50f;
     public static final int GPS_NOT_ACCURATE_ENOUGH = 6;
     public static final int GPS_RETRY = 7;
     public static final float GPS_BUMB_DISTANCE = 10f;
@@ -39,12 +39,13 @@ public final class Constants {
     public static final String ROOMS_UNSPRAYED = "roomsUnsprayed";
     public static final String SHELTERS_UNSPRAYED = "sheltersUnsprayed";
     public static final String CAN_REFILLED = "canRefilled";
+    public static final String REASON_UNSPRAYED = "reasonUnsprayed";
 
     /** Constant for authorizing Google Spreadsheet uploading. */
     public static final String AUTHENTICATION_FILE = "assets/authentication.txt";
 
     public static final String RFID_NAME = "rfid name";
-    public static final String DOESNT_HAVE_RFID = "no rfid";
+    public static final String DOESNT_HAVE_RFID = "not identified";
     
     public static final String SCAN_SPRAYER = "Scan Sprayer";
     
