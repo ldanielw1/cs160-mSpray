@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 
 public class ChooseSprayer extends Activity {
 
+    Button chooseOneSprayerButton;
+    Button chooseTwoSprayersButton;
     RelativeLayout chooseOneSprayer;
     RelativeLayout chooseTwoSprayers;
 
@@ -24,6 +27,8 @@ public class ChooseSprayer extends Activity {
         setTitle("How many sprayers?");
 
         chooseOneSprayer = (RelativeLayout) findViewById(R.id.activity_choose_sprayers_1_fake_button);
+        chooseOneSprayerButton = (Button) findViewById(R.id.activity_choose_sprayers_1);
+        chooseTwoSprayersButton = (Button) findViewById(R.id.activity_choose_sprayers_2);
 
         chooseOneSprayer.setOnClickListener(new OnClickListener() {
             @Override
@@ -35,6 +40,7 @@ public class ChooseSprayer extends Activity {
                 startActivity(intent);
             }
         });
+        chooseOneSprayerButton.setTypeface(Constants.TYPEFACE);
 
         chooseTwoSprayers = (RelativeLayout) findViewById(R.id.activity_choose_sprayers_2_fake_button);
 
@@ -48,6 +54,7 @@ public class ChooseSprayer extends Activity {
                 startActivity(intent);
             }
         });
+        chooseTwoSprayersButton.setTypeface(Constants.TYPEFACE);
     }
 
     @Override

@@ -87,6 +87,50 @@
                 android:textSize="24sp" >
             </EditText>
         </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal"
+            android:padding="12dp" >
+
+            <TextView
+                android:id="@+id/unsprayed_textview_reason"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/unsprayedReason"
+                android:textColor="#fff"
+                android:textSize="24sp" />
+
+            <RadioGroup
+                android:id="@+id/unsprayed_radiogroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="0.5"
+                android:orientation="vertical" >
+
+                <RadioButton
+                    android:id="@+id/unsprayed_radiobutton_locked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/locked"
+                    android:textColor="#fff" />
+
+                <RadioButton
+                    android:id="@+id/unsprayed_radiobutton_refused"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/refused"
+                    android:textColor="#fff" />
+            </RadioGroup>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
