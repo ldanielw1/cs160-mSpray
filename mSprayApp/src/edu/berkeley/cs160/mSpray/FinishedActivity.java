@@ -1,15 +1,17 @@
 package edu.berkeley.cs160.mSpray;
 
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class FinishedActivity extends Activity {
+public class FinishedActivity extends BaseMainActivity {
 	TextView chemicalValue;
 
 	@Override
@@ -27,10 +29,20 @@ public class FinishedActivity extends Activity {
 		TextView roomsSprayedValue = (TextView) findViewById(R.id.finished_rooms_sprayed_value);
 		TextView sheltersSprayedValue = (TextView) findViewById(R.id.finished_shelters_sprayed_value);
 		TextView canRefilledValue = (TextView) findViewById(R.id.finished_can_refilled_value);
+		TableRow sprayer2Row = (TableRow) findViewById(R.id.finished_sprayer2_row);
+		TableRow sprayer2RoomsRow = (TableRow) findViewById(R.id.finished_rooms_sprayed2_row);
+		TableRow sprayer2SheltersRow = (TableRow) findViewById(R.id.finished_shelters_sprayed2_row);
 		TextView sprayerValue2 = (TextView) findViewById(R.id.finished_sprayer2_value);
 		TextView roomsSprayedValue2 = (TextView) findViewById(R.id.finished_rooms_sprayed2_value);
 		TextView canRefilledValue2 = (TextView) findViewById(R.id.finished_can_refilled2_value);
+		TableRow canRefilledRow2 = (TableRow) findViewById(R.id.finished_can_refilled2_row);
 		TextView sheltersSprayedValue2 = (TextView) findViewById(R.id.finished_shelters_sprayed2_value);
+		TextView roomsUnsprayed = (TextView) findViewById(R.id.finished_rooms_unsprayed_label);
+		TextView roomsUnsprayedValue = (TextView) findViewById(R.id.finished_rooms_unsprayed_value);
+		TableRow unsprayedReasonRow = (TableRow) findViewById(R.id.finished_unsprayed_reason_row);
+		TextView sheltersUnsprayed = (TextView) findViewById(R.id.finished_shelters_unsprayed_label);
+		TextView sheltersUnsprayedValue = (TextView) findViewById(R.id.finished_shelters_unsprayed_value);
+		TextView reasonUnsprayedValue = (TextView) findViewById(R.id.finished_unsprayed_reason_value);
 		TextView latitude = (TextView) findViewById(R.id.finished_latitude_value);
 		TextView longitude = (TextView) findViewById(R.id.finished_longitude_value);
 
@@ -41,18 +53,25 @@ public class FinishedActivity extends Activity {
 		sprayerValue.setText(DataStore.sprayer1ID);
 
 		setProperChemicalValue();
+		
+		/* If no rooms unsprayed and no shelters unsprayed, hide that info */
+		if (DataStore.roomsUnsprayed == 0 && DataStore.sheltersUnsprayed == 0) {
+		    roomsUnsprayed.setVisibility(View.GONE);
+		    roomsUnsprayedValue.setVisibility(View.GONE);
+		    sheltersUnsprayed.setVisibility(View.GONE);
+		    sheltersUnsprayedValue.setVisibility(View.GONE);
+		    canRefilledRow2.setVisibility(View.GONE);
+		    unsprayedReasonRow.setVisibility(View.GONE);
+		}
 
+		/* Sprayer 2 */
 		if (DataStore.sprayer2ID != null) {
 			sprayerValue2.setText(DataStore.sprayer2ID);
 		} else {
-			TableRow sprayer2 = (TableRow) findViewById(R.id.finished_sprayer2_row);
-			TableRow sprayer2SprayedRooms = (TableRow) findViewById(R.id.finished_rooms_sprayed2_row);
-			TableRow sprayer2SprayedShelters = (TableRow) findViewById(R.id.finished_shelters_sprayed2_row);
-			TableRow sprayer2RefilledCans = (TableRow) findViewById(R.id.finished_can_refilled2_row);
-			sprayer2.setVisibility(View.GONE);
-			sprayer2SprayedRooms.setVisibility(View.GONE);
-			sprayer2SprayedShelters.setVisibility(View.GONE);
-			sprayer2RefilledCans.setVisibility(View.GONE);
+			sprayer2Row.setVisibility(View.GONE);
+			sprayer2RoomsRow.setVisibility(View.GONE);
+			sprayer2SheltersRow.setVisibility(View.GONE);
+			canRefilledRow2.setVisibility(View.GONE);
 		}
 
 		if (DataStore.sprayType.equals(Constants.DDT)
@@ -92,6 +111,12 @@ public class FinishedActivity extends Activity {
 		} else {
 			canRefilledValue2.setText("NO");
 		}
+		
+		/* Unsprayed Data */
+		roomsUnsprayedValue.setText(Integer.toString(DataStore.roomsUnsprayed));
+		sheltersUnsprayedValue.setText(Integer.toString(DataStore.sheltersUnsprayed));
+		reasonUnsprayedValue.setText(DataStore.reasonUnsprayed);
+		
 
 		latitude.setText(DataStore.lat);
 		longitude.setText(DataStore.lng);
@@ -113,8 +138,7 @@ public class FinishedActivity extends Activity {
 				DataStore.secondTimeThrough = true;
 				Intent intent = new Intent(getApplicationContext(),
 						StartNewSpray.class);
-				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
 			}
 		});

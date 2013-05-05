@@ -1,5 +1,6 @@
 package edu.berkeley.cs160.mSpray;
 
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import edu.berkeley.cs160.GPS.GetGpsActivity;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class StartNewSpray extends Activity {
+public class StartNewSpray extends BaseMainActivity {
 
 	RelativeLayout startSpray;
 	Button startSprayButton;
@@ -33,9 +34,9 @@ public class StartNewSpray extends Activity {
 		if (intent.getStringExtra(Constants.RFID_NAME) != null) {
 			tv.setText("I am: " + intent.getStringExtra(Constants.RFID_NAME));
 		} else if (DataStore.foremanID != null) {
-			tv.setText("I am: " + DataStore.foremanID);
+			tv.setText("I am " + DataStore.foremanID);
 		} else {
-			tv.setText("I am: Foreman");
+			tv.setText("I am not identified");
 		}
 		tv.setTypeface(Constants.TYPEFACE);
 
@@ -56,25 +57,28 @@ public class StartNewSpray extends Activity {
 		
 		/**
 		 * Note that completelyFinished in the 1st iteration standpoint asks the foreman whether they are the correct
-		 * preson while in the 2nd and onward ask if the Foreman want to terminate the session. 
+		 * person while in the 2nd and onward ask if the Foreman want to terminate the session. 
 		 */
 		completelyFinished = (Button) findViewById(R.id.activity_start_new_spray_button_finished);
 		completelyFinished.setTypeface(Constants.TYPEFACE);
 		completelyFinished.setVisibility(View.VISIBLE);
 		
 		if (DataStore.secondTimeThrough) {
+			completelyFinished.setText(R.string.DoneForTheDay);
 			completelyFinished.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
+					completelyFinished.setVisibility(View.INVISIBLE);
 					DataStore.destroyAllData();
-					Toast.makeText(getApplicationContext(), "GOOD BYE",
+					Toast.makeText(getApplicationContext(), "Good bye",
 							Toast.LENGTH_LONG).show();
+					DataStore.doneForDay = true;
 					bomb.ignite();
 				}
 			});
 		}
 		else {
-			completelyFinished.setText("Not " + DataStore.foremanID + "? Rescan");
+			completelyFinished.setText("Scan badge again");
 			completelyFinished.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -90,8 +94,9 @@ public class StartNewSpray extends Activity {
 		bomb = new TimeBomb() {
 			@Override
 			public void explode() {
-				moveTaskToBack(true);
-				finish();
+				Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
 			}
 		};
 

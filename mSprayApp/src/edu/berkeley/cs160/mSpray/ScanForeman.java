@@ -10,6 +10,7 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -19,10 +20,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import edu.berkeley.cs160.RFID.RFIDConstants;
 import edu.berkeley.cs160.RFID.ReadRFID;
 
-public class ScanForeman extends Activity {
+public class ScanForeman extends BaseMainActivity {
 	private Handler handler;
 	private ReadRFID rfidData;
 	private NfcAdapter mAdapter;
@@ -41,6 +43,11 @@ public class ScanForeman extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.scan_rfid);
+		
+		if (DataStore.doneForDay){
+			DataStore.doneForDay = false;
+			moveTaskToBack(true);
+		}
 
 		setTitle("Welcome to mSpray");
 		
@@ -72,6 +79,7 @@ public class ScanForeman extends Activity {
 							StartNewSpray.class);
 					intent.putExtra(Constants.RFID_NAME,
 							rfidData.getReturnValue());
+					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 					//intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 					//intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 					startActivity(intent);
@@ -110,12 +118,13 @@ public class ScanForeman extends Activity {
 		skipScan.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				DataStore.foremanID = "foreman";
+				DataStore.foremanID = "not identified";
 				Intent intent = new Intent(getApplicationContext(),
 						StartNewSpray.class);
 				intent.putExtra(Constants.RFID_NAME, Constants.DOESNT_HAVE_RFID);
 				//intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 				//intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 				startActivity(intent);
 			};
 		});

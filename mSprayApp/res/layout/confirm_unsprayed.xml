@@ -81,6 +81,34 @@
                 android:textSize="24sp" />
 
         </TableRow>
+        
+        <TableRow
+            android:id="@+id/confirm_unsprayed_reason_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/white"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp" >
+
+            <TextView
+                android:id="@+id/confirm_unsprayed_reason_label"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:text="@string/unsprayedReason"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/confirm_unsprayed_reason_value"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:gravity="right"
+                android:text=""
+                android:textSize="24sp" />
+
+        </TableRow>
     </TableLayout>
 
     <LinearLayout

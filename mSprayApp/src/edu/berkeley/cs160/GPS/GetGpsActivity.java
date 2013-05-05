@@ -1,5 +1,6 @@
 package edu.berkeley.cs160.GPS;
 
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import edu.berkeley.cs160.mSpray.Constants;
 import edu.berkeley.cs160.mSpray.DataStore;
 import edu.berkeley.cs160.mSpray.PaperWorkChoiceActivity;
@@ -23,7 +24,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class GetGpsActivity extends Activity {
+public class GetGpsActivity extends BaseMainActivity {
 	ProgressDialog progDialog;
 	TextView LocationFound;
 	TextView header;
@@ -37,9 +38,11 @@ public class GetGpsActivity extends Activity {
 	String latitudeNS;
 	String longitudeEW;
 	String acc;
+	float GpsAccLimit;
 
 	private int gpsAttempts = 0;
-	
+	private int numberOfRetries = 1;
+
 	Context context;
 
 	@Override
@@ -48,11 +51,11 @@ public class GetGpsActivity extends Activity {
 		setContentView(R.layout.gps_location);
 
 		setTitle("Where are you?");
-		
+
+		GpsAccLimit = Constants.GPS_ACCURACY_LIMIT;
+
 		context = getApplicationContext();
-		
-		
-		
+
 		LocationFound = (TextView) findViewById(R.id.gps_location_textview_contents);
 		LocationFound.setTypeface(Constants.TYPEFACE);
 
@@ -68,6 +71,14 @@ public class GetGpsActivity extends Activity {
 		});
 
 		LocationFound.setVisibility(View.INVISIBLE);
+	}
+	
+	/**
+	 * stops the GPS from tracking the user. Basically, this is incorporated to save battery life. 
+	 */
+	public void onPause(){
+		super.onPause();
+		LocationHelper.terminate();
 	}
 
 	@Override
@@ -115,7 +126,7 @@ public class GetGpsActivity extends Activity {
 					retryDialog("Gps Not Accurate Enough", GetGpsActivity.this);
 					break;
 				}
-				case Constants.GPS_RETRY:{
+				case Constants.GPS_RETRY: {
 					LocationHelper.getLocation(context);
 					break;
 				}
@@ -131,27 +142,32 @@ public class GetGpsActivity extends Activity {
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 				context);
 		alertDialogBuilder.setTitle(text);
-		alertDialogBuilder.setMessage("Retry?");
+		if (acc != null) {
+			alertDialogBuilder.setMessage("Accuracy: " + acc + "m Retry?");
+		} else
+			alertDialogBuilder.setMessage("Retry?");
 		alertDialogBuilder.setCancelable(false);
 		alertDialogBuilder.setPositiveButton("Yes",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						{
+							numberOfRetries++;
+							BumpGps();
 							dialog.dismiss();
 							getGPS();
 						}
-						
+
 					}
 				});
 		alertDialogBuilder.setNegativeButton("No",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						if (latitude == 0 && longitude == 0){
+						if (latitude == 0 && longitude == 0) {
 							DataStore.setGPS(22.879, 30.729, "S", "E", "7");
-							LocationFound.setText("OLD " + LocationFound.getText());
-							
-						}
-						else{
+							LocationFound.setText("OLD "
+									+ LocationFound.getText());
+
+						} else {
 							LocationFound.setVisibility(View.VISIBLE);
 							gpsText = (TextView) findViewById(R.id.gps_location_textview_contents);
 							final StringBuilder gpsResultBuilder = new StringBuilder();
@@ -169,9 +185,9 @@ public class GetGpsActivity extends Activity {
 							gpsText.setText(gpsResultBuilder.toString());
 							DataStore.setGPS(latitude, longitude, latitudeNS,
 									longitudeEW, acc);
-							
+
 						}
-						
+
 						LocationFound.setVisibility(View.VISIBLE);
 						dialog.cancel();
 					}
@@ -195,7 +211,7 @@ public class GetGpsActivity extends Activity {
 	}
 
 	/**
-	 * tries to get a reading under our current amount 50 times. 
+	 * tries to get a reading under our current amount 50 times.
 	 */
 	public void getGPS() {
 		LocationManager locManager;
@@ -237,6 +253,11 @@ public class GetGpsActivity extends Activity {
 
 	}
 
+	public void BumpGps() {
+		GpsAccLimit = GpsAccLimit + Constants.GPS_BUMB_DISTANCE
+				* numberOfRetries;
+
+	}
 
 	public void checkGpsEnable() {
 		LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -252,7 +273,7 @@ public class GetGpsActivity extends Activity {
 	}
 
 	public boolean accurateEnough(Location loc) {
-		if (loc.getAccuracy() < Constants.GPS_ACCURACY_LIMIT) {
+		if (loc.getAccuracy() < GpsAccLimit) {
 			return true;
 		}
 		return false;

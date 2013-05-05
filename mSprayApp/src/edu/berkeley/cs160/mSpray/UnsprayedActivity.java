@@ -1,21 +1,28 @@
 package edu.berkeley.cs160.mSpray;
 
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class UnsprayedActivity extends Activity {
+public class UnsprayedActivity extends BaseMainActivity {
 
     TextView noSprayTitle;
     EditText roomsUnsprayedValue;
     EditText sheltersUnsprayedValue;
     Button backButton;
     Button confirmButton;
+    RadioGroup reasonUnsprayed;
+    RadioButton open;
+    RadioButton locked;
+    RadioButton refused;
 
     int numSprayers;
     int formNumber;
@@ -35,6 +42,15 @@ public class UnsprayedActivity extends Activity {
         backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.unsprayed_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
+        
+        reasonUnsprayed = (RadioGroup) findViewById(R.id.unsprayed_radiogroup);
+        
+        open = (RadioButton) findViewById(R.id.unsprayed_radiobutton_refused);
+        open.setTypeface(Constants.TYPEFACE);
+        locked = (RadioButton) findViewById(R.id.unsprayed_radiobutton_locked);
+        locked.setTypeface(Constants.TYPEFACE);
+        refused = (RadioButton) findViewById(R.id.unsprayed_radiobutton_refused);
+        refused.setTypeface(Constants.TYPEFACE);
 
         noSprayTitle = (TextView) findViewById(R.id.unsprayed_textview_title);
         noSprayTitle.setTypeface(Constants.TYPEFACE);
@@ -67,8 +83,17 @@ public class UnsprayedActivity extends Activity {
                 int roomsUnsprayed = Integer.parseInt(roomsUnsprayedValue.getText().toString());
                 int sheltersUnsprayed = Integer.parseInt(sheltersUnsprayedValue.getText()
                         .toString());
+                String reason = "unknown";
+                if (reasonUnsprayed.getCheckedRadioButtonId() == R.id.unsprayed_radiobutton_open) {
+                    reason = "open";
+                } else if (reasonUnsprayed.getCheckedRadioButtonId() == R.id.unsprayed_radiobutton_locked) {
+                     reason = "locked";
+                } else if (reasonUnsprayed.getCheckedRadioButtonId() == R.id.unsprayed_radiobutton_refused) {
+                    reason = "owner refused";
+                }
                 intent.putExtra(Constants.ROOMS_UNSPRAYED, roomsUnsprayed);
                 intent.putExtra(Constants.SHELTERS_UNSPRAYED, sheltersUnsprayed);
+                intent.putExtra(Constants.REASON_UNSPRAYED, reason);
                 startActivity(intent);
             } catch (NumberFormatException e) {
                 Toast.makeText(getApplicationContext(),
