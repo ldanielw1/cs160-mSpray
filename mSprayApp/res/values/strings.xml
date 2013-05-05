@@ -18,7 +18,7 @@
     <string name="sprayHeader">sprayed by</string>
     <string name="NoSprayHeader">No rooms sprayed by</string>
     <string name="dataRecorded">Data Recorded</string>
-    <string name="unsprayedReason">Reason</string>
+    <string name="unsprayedReason">Reason:</string>
     <string name="locked">Locked</string>
     <string name="refused">Owner Refused</string>
     <string name="ddt">DDT</string>
