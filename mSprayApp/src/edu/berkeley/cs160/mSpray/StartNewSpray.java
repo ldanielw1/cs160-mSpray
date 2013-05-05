@@ -69,6 +69,8 @@ public class StartNewSpray extends BaseMainActivity {
 				@Override
 				public void onClick(View v) {
 					completelyFinished.setVisibility(View.INVISIBLE);
+				    completelyFinished.setEnabled(false);
+				    startSpray.setEnabled(false);
 					DataStore.destroyAllData();
 					Toast.makeText(getApplicationContext(), "Good bye",
 							Toast.LENGTH_LONG).show();
