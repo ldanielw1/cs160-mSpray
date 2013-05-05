@@ -62,17 +62,19 @@
     <string name="sprayer2">Sprayer 2</string>
     <string name="sprayerIDs">Sprayer IDs</string>
     <string name="startSpray">Start new spray</string>
-    <string name="doneSpraying">I am finished</string>
+    <string name="doneSpraying">Finished</string>
     <string name="twoSprayers">2 sprayers</string>
+    <string name="welcome">Welcome</string>
     <string name="yes">Yes</string>
     
-    <string name="scanSelfLabel">Who are you?</string>
+    <string name="scanSelfLabel">I am...</string>
     <string name="scanSelf">Scan my badge</string>
+    <string name="noBadge">No badge</string>
     
-    <string name="scanSprayerLabel">Identify the sprayers for this house</string>
+    <string name="scanSprayerLabel">The sprayers are...</string>
     <string name="scanSprayer">Scan a sprayer\'s badge</string>
     <string name="scanAnotherSprayer">Scan another sprayer\'s badge</string>
-    <string name="DoneForTheDay">I am done for the day</string>
+    <string name="DoneForTheDay">Done for the day</string>
     <string name="chemical">Chemical</string>
 
 </resources>
