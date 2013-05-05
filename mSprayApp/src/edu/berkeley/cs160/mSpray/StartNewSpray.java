@@ -34,9 +34,9 @@ public class StartNewSpray extends BaseMainActivity {
 		if (intent.getStringExtra(Constants.RFID_NAME) != null) {
 			tv.setText("I am: " + intent.getStringExtra(Constants.RFID_NAME));
 		} else if (DataStore.foremanID != null) {
-			tv.setText("I am: " + DataStore.foremanID);
+			tv.setText("I am " + DataStore.foremanID);
 		} else {
-			tv.setText("I am: Foreman");
+			tv.setText("I am not identified");
 		}
 		tv.setTypeface(Constants.TYPEFACE);
 
@@ -70,7 +70,7 @@ public class StartNewSpray extends BaseMainActivity {
 				public void onClick(View v) {
 					completelyFinished.setVisibility(View.INVISIBLE);
 					DataStore.destroyAllData();
-					Toast.makeText(getApplicationContext(), "GOOD BYE",
+					Toast.makeText(getApplicationContext(), "Good bye",
 							Toast.LENGTH_LONG).show();
 					DataStore.doneForDay = true;
 					bomb.ignite();

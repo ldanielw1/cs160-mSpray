@@ -73,6 +73,9 @@ public class GetGpsActivity extends BaseMainActivity {
 		LocationFound.setVisibility(View.INVISIBLE);
 	}
 	
+	/**
+	 * stops the GPS from tracking the user. Basically, this is incorporated to save battery life. 
+	 */
 	public void onPause(){
 		super.onPause();
 		LocationHelper.terminate();

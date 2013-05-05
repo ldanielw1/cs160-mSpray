@@ -7,7 +7,7 @@ public class TimeBomb {
             public void run() {
                 try {
                     synchronized (this) {
-                        wait(3000);
+                        wait(2500);
                         explode();
 
                     }
