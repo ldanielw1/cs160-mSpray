@@ -19,6 +19,7 @@ public class UnsprayedActivity extends Activity {
     Button backButton;
     Button confirmButton;
     RadioGroup reasonUnsprayed;
+    RadioButton open;
     RadioButton locked;
     RadioButton refused;
 
@@ -42,6 +43,9 @@ public class UnsprayedActivity extends Activity {
         confirmButton.setTypeface(Constants.TYPEFACE);
         
         reasonUnsprayed = (RadioGroup) findViewById(R.id.unsprayed_radiogroup);
+        
+        open = (RadioButton) findViewById(R.id.unsprayed_radiobutton_refused);
+        open.setTypeface(Constants.TYPEFACE);
         locked = (RadioButton) findViewById(R.id.unsprayed_radiobutton_locked);
         locked.setTypeface(Constants.TYPEFACE);
         refused = (RadioButton) findViewById(R.id.unsprayed_radiobutton_refused);
@@ -79,14 +83,16 @@ public class UnsprayedActivity extends Activity {
                 int sheltersUnsprayed = Integer.parseInt(sheltersUnsprayedValue.getText()
                         .toString());
                 String reason = "unknown";
-                if (reasonUnsprayed.getCheckedRadioButtonId() == R.id.unsprayed_radiobutton_locked) {
+                if (reasonUnsprayed.getCheckedRadioButtonId() == R.id.unsprayed_radiobutton_open) {
+                    reason = "open";
+                } else if (reasonUnsprayed.getCheckedRadioButtonId() == R.id.unsprayed_radiobutton_locked) {
                      reason = "locked";
                 } else if (reasonUnsprayed.getCheckedRadioButtonId() == R.id.unsprayed_radiobutton_refused) {
-                    reason = "refused";
+                    reason = "owner refused";
                 }
-                intent.putExtra(Constants.REASON_UNSPRAYED, reason);
                 intent.putExtra(Constants.ROOMS_UNSPRAYED, roomsUnsprayed);
                 intent.putExtra(Constants.SHELTERS_UNSPRAYED, sheltersUnsprayed);
+                intent.putExtra(Constants.REASON_UNSPRAYED, reason);
                 startActivity(intent);
             } catch (NumberFormatException e) {
                 Toast.makeText(getApplicationContext(),

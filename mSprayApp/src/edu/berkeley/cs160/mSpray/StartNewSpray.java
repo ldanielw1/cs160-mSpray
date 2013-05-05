@@ -64,7 +64,7 @@ public class StartNewSpray extends BaseMainActivity {
 		completelyFinished.setVisibility(View.VISIBLE);
 		
 		if (DataStore.secondTimeThrough) {
-			completelyFinished.setText("Done For the Day?");
+			completelyFinished.setText(R.string.DoneForTheDay);
 			completelyFinished.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
