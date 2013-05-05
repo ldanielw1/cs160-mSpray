@@ -19,10 +19,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import edu.berkeley.cs160.RFID.RFIDConstants;
 import edu.berkeley.cs160.RFID.ReadRFID;
 
-public class ScanForeman extends Activity {
+public class ScanForeman extends BaseMainActivity {
 	private Handler handler;
 	private ReadRFID rfidData;
 	private NfcAdapter mAdapter;

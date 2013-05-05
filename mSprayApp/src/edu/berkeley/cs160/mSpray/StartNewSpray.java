@@ -1,5 +1,6 @@
 package edu.berkeley.cs160.mSpray;
 
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import edu.berkeley.cs160.GPS.GetGpsActivity;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class StartNewSpray extends Activity {
+public class StartNewSpray extends BaseMainActivity {
 
 	RelativeLayout startSpray;
 	Button startSprayButton;
@@ -56,7 +57,7 @@ public class StartNewSpray extends Activity {
 		
 		/**
 		 * Note that completelyFinished in the 1st iteration standpoint asks the foreman whether they are the correct
-		 * preson while in the 2nd and onward ask if the Foreman want to terminate the session. 
+		 * person while in the 2nd and onward ask if the Foreman want to terminate the session. 
 		 */
 		completelyFinished = (Button) findViewById(R.id.activity_start_new_spray_button_finished);
 		completelyFinished.setTypeface(Constants.TYPEFACE);
@@ -67,6 +68,7 @@ public class StartNewSpray extends Activity {
 			completelyFinished.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
+					completelyFinished.setVisibility(View.INVISIBLE);
 					DataStore.destroyAllData();
 					Toast.makeText(getApplicationContext(), "GOOD BYE",
 							Toast.LENGTH_LONG).show();

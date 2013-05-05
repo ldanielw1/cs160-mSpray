@@ -1,5 +1,6 @@
 package edu.berkeley.cs160.mSpray;
 
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ConfirmFendona extends Activity {
+public class ConfirmFendona extends BaseMainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

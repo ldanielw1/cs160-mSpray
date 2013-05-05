@@ -24,9 +24,10 @@ import android.widget.Toast;
 
 import com.google.gdata.util.ServiceException;
 
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import edu.berkeley.cs160.spreadsheetUploader.GoogleSpreadsheet;
 
-public class ConfirmUnsprayed extends Activity {
+public class ConfirmUnsprayed extends BaseMainActivity {
 
     private static final String USERNAME_LABEL = "USERNAME";
     private static final String PASSWORD_LABEL = "PASSWORD";

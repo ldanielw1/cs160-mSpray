@@ -1,5 +1,6 @@
 package edu.berkeley.cs160.mSpray;
 
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class KOrthrineActivity extends Activity {
+public class KOrthrineActivity extends BaseMainActivity {
 
 	TextView SprayerName;
 	EditText roomsSprayedValue;

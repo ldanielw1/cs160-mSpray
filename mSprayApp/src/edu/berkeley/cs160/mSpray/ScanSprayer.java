@@ -1,5 +1,6 @@
 package edu.berkeley.cs160.mSpray;
 
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import edu.berkeley.cs160.RFID.RFIDConstants;
 import edu.berkeley.cs160.RFID.ReadRFID;
 import edu.berkeley.cs160.mSpray.R.drawable;
@@ -21,7 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ScanSprayer extends Activity {
+public class ScanSprayer extends BaseMainActivity {
 	private Handler handler;
 	private ReadRFID rfidData;
 	private NfcAdapter mAdapter;
