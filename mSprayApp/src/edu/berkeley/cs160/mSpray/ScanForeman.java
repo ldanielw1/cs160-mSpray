@@ -31,7 +31,7 @@ public class ScanForeman extends BaseMainActivity {
 	private PendingIntent pendingIntent;
 	IntentFilter tagDetected;
 	IntentFilter[] filters;
-	Button startScan;
+	TextView startScan;
 	Button skipScan;
 	ImageView handHoldingBadge;
 	TextView tv;
@@ -52,14 +52,13 @@ public class ScanForeman extends BaseMainActivity {
 		setTitle("Welcome to mSpray");
 		
 		
-		
 		// External font
 		Constants.TYPEFACE = Typeface.createFromAsset(getAssets(),
 				Constants.FONT_PATH);
 
 		scanSelf = (RelativeLayout) findViewById(R.id.activity_scan_rfid_fake_button);
 		tv = (TextView) findViewById(R.id.scan_rfid_instructions);
-		startScan = (Button) findViewById(R.id.scan_rfid_button_start_scan);
+		startScan = (TextView) findViewById(R.id.scan_rfid_button_start_scan);
 		skipScan = (Button) findViewById(R.id.scan_rfid_button_forgot_badge);
 		handHoldingBadge = (ImageView) findViewById(R.id.scan_rfid_image);
 		scanForemanLayout = (LinearLayout) findViewById(R.id.scan_rfid_layout);
@@ -68,6 +67,7 @@ public class ScanForeman extends BaseMainActivity {
 		scanForemanLayout.setVisibility(View.VISIBLE);
 		handHoldingBadge.setVisibility(View.INVISIBLE);
 		tv.setTypeface(Constants.TYPEFACE);
+		tv.setText(R.string.welcome);
 
 		handler = new Handler() {
 			@Override
