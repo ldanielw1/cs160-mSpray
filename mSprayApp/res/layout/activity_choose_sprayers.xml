@@ -24,18 +24,35 @@
             android:layout_weight="0.5"
             android:background="@drawable/button_selector_green" >
 
-            <Button
-                android:id="@+id/activity_choose_sprayers_1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:background="@android:color/transparent"
+            <LinearLayout
+                android:id="@+id/activity_choose_sprayer_button_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
                 android:clickable="false"
-                android:drawableTop="@drawable/sprayworker"
-                android:text="@string/oneSprayer"
-                android:textColor="#fff"
-                android:textSize="30sp" >
-            </Button>
+                android:orientation="vertical"
+                android:padding="2dp" >
+
+                <ImageView
+                    android:id="@+id/activity_choose_sprayer_imageView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8"
+                    android:clickable="false"
+                    android:padding="16dp"
+                    android:src="@drawable/sprayworker" />
+
+                <TextView
+                    android:id="@+id/activity_choose_sprayer_textView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="@string/oneSprayer"
+                    android:textColor="#fff"
+                    android:textSize="30sp" />
+            </LinearLayout>
         </RelativeLayout>
 
         <RelativeLayout
@@ -48,18 +65,35 @@
             android:layout_weight="0.5"
             android:background="@drawable/button_selector_blue" >
 
-            <Button
-                android:id="@+id/activity_choose_sprayers_2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:background="@android:color/transparent"
+            <LinearLayout
+                android:id="@+id/activity_choose_sprayer_button_wrapper2"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
                 android:clickable="false"
-                android:drawableTop="@drawable/sprayworker2"
-                android:text="@string/twoSprayers"
-                android:textColor="#fff"
-                android:textSize="30sp" >
-            </Button>
+                android:orientation="vertical"
+                android:padding="2dp" >
+
+                <ImageView
+                    android:id="@+id/activity_choose_sprayer2_imageView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8"
+                    android:clickable="false"
+                    android:padding="16dp"
+                    android:src="@drawable/sprayworker2" />
+
+                <TextView
+                    android:id="@+id/activity_choose_sprayer2_textView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="@string/twoSprayers"
+                    android:textColor="#fff"
+                    android:textSize="30sp" />
+            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 

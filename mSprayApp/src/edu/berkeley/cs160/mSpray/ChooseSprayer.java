@@ -9,11 +9,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class ChooseSprayer extends BaseMainActivity {
 
-    Button chooseOneSprayerButton;
-    Button chooseTwoSprayersButton;
+    TextView chooseOneSprayerText;
+    TextView chooseTwoSprayerText;
     RelativeLayout chooseOneSprayer;
     RelativeLayout chooseTwoSprayers;
 
@@ -28,8 +29,8 @@ public class ChooseSprayer extends BaseMainActivity {
         setTitle("How many sprayers?");
 
         chooseOneSprayer = (RelativeLayout) findViewById(R.id.activity_choose_sprayers_1_fake_button);
-        chooseOneSprayerButton = (Button) findViewById(R.id.activity_choose_sprayers_1);
-        chooseTwoSprayersButton = (Button) findViewById(R.id.activity_choose_sprayers_2);
+        chooseOneSprayerText = (TextView) findViewById(R.id.activity_choose_sprayer_textView);
+        chooseTwoSprayerText = (TextView) findViewById(R.id.activity_choose_sprayer2_textView);
 
         chooseOneSprayer.setOnClickListener(new OnClickListener() {
             @Override
@@ -41,7 +42,7 @@ public class ChooseSprayer extends BaseMainActivity {
                 startActivity(intent);
             }
         });
-        chooseOneSprayerButton.setTypeface(Constants.TYPEFACE);
+        chooseOneSprayerText.setTypeface(Constants.TYPEFACE);
 
         chooseTwoSprayers = (RelativeLayout) findViewById(R.id.activity_choose_sprayers_2_fake_button);
 
@@ -55,7 +56,7 @@ public class ChooseSprayer extends BaseMainActivity {
                 startActivity(intent);
             }
         });
-        chooseTwoSprayersButton.setTypeface(Constants.TYPEFACE);
+        chooseTwoSprayerText.setTypeface(Constants.TYPEFACE);
     }
 
     @Override
