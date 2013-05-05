@@ -51,7 +51,7 @@ public class ScanSprayer extends BaseMainActivity {
 		DataStore.formNumber = formNumber;
 
 		scanSelf = (RelativeLayout) findViewById(R.id.activity_scan_rfid_fake_button);
-		startScan = (Button) findViewById(R.id.scan_rfid_button_start_scan);
+		startScan = (Button) findViewById(R.id.scan_rfid_start_scan_text_view);
 		skipScan = (Button) findViewById(R.id.scan_rfid_button_forgot_badge);
 		handHoldingBadge = (ImageView) findViewById(R.id.scan_rfid_image);
 		scanForemanLayout = (LinearLayout) findViewById(R.id.scan_rfid_layout);
