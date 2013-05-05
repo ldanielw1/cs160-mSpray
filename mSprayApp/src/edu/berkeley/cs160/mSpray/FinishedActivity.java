@@ -71,6 +71,7 @@ public class FinishedActivity extends BaseMainActivity {
 			sprayer2Row.setVisibility(View.GONE);
 			sprayer2RoomsRow.setVisibility(View.GONE);
 			sprayer2SheltersRow.setVisibility(View.GONE);
+			canRefilledRow2.setVisibility(View.GONE);
 		}
 
 		if (DataStore.sprayType.equals(Constants.DDT)
