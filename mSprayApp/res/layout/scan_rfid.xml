@@ -63,7 +63,7 @@
                     android:src="@drawable/clipboard" />
 
                 <TextView
-                    android:id="@+id/scan_rfid_start_scan_text_view"
+                    android:id="@+id/scan_rfid_textView_start_scan"
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.2"
