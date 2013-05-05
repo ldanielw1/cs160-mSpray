@@ -23,9 +23,9 @@
         android:layout_below="@+id/scan_rfid_instructions"
         android:layout_centerHorizontal="true"
         android:layout_margin="24dp"
-        android:background="@android:color/white"
+        android:background="@android:color/transparent"
         android:contentDescription="@string/nfcInstructions"
-        android:src="@drawable/badgenew" />
+        android:src="@drawable/phone3" />
 
     <LinearLayout
         android:id="@+id/scan_rfid_layout"
@@ -46,22 +46,34 @@
             android:background="@drawable/button_selector_green"
             android:onClick="onClick" >
 
-            <Button
-                android:id="@+id/scan_rfid_button_start_scan"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:background="@android:color/transparent"
+            <LinearLayout
+                android:id="@+id/activity_mspray_button_wrapper"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
                 android:clickable="false"
-                android:drawablePadding="16dp"
-                android:drawableTop="@drawable/foreman"
-                android:gravity="center"
-                android:text="@string/scanSelf"
-                android:textColor="#fff"
-                android:textSize="30sp" />
+                android:orientation="vertical"
+                android:padding="2dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8"
+                    android:clickable="false"
+                    android:padding="16dp"
+                    android:src="@drawable/clipboard" />
+
+                <TextView
+                    android:id="@+id/scan_rfid_button_start_scan"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="@string/scanSelf"
+                    android:textColor="#fff"
+                    android:textSize="30sp" />
+            </LinearLayout>
         </RelativeLayout>
 
         <Button
@@ -71,7 +83,7 @@
             android:layout_margin="16dp"
             android:layout_weight="0.2"
             android:background="@drawable/button_selector_red"
-            android:text="No Badge"
+            android:text="@string/noBadge"
             android:textColor="#fff"
             android:textSize="30sp" >
         </Button>
