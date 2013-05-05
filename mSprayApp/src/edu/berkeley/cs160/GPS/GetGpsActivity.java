@@ -72,6 +72,11 @@ public class GetGpsActivity extends BaseMainActivity {
 
 		LocationFound.setVisibility(View.INVISIBLE);
 	}
+	
+	public void onPause(){
+		super.onPause();
+		LocationHelper.terminate();
+	}
 
 	@Override
 	public void onStart() {

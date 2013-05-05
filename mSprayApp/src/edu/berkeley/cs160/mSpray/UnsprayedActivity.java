@@ -1,5 +1,6 @@
 package edu.berkeley.cs160.mSpray;
 
+import edu.berkeley.cs160.Base.BaseMainActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class UnsprayedActivity extends Activity {
+public class UnsprayedActivity extends BaseMainActivity {
 
     TextView noSprayTitle;
     EditText roomsUnsprayedValue;

@@ -12,41 +12,51 @@ import android.util.Log;
 
 public class LocationHelper {
 
-    public static void getLocation(Context context) {
+	static LocationListener locationListener;
+	static LocationManager locationManager;
 
-        LocationListener locationListener = new LocationListener() {
+	public static void getLocation(Context context) {
 
-            @Override
-            public void onProviderEnabled(String provider) {
-                Log.v("LocationListener", "onProviderEnabled");                
-            }
+		locationListener = new LocationListener() {
 
-            @Override
-            public void onProviderDisabled(String provider) {
-                Log.v("LocationListener", "onProviderDisabled");
-            }
+			@Override
+			public void onProviderEnabled(String provider) {
+				Log.v("LocationListener", "onProviderEnabled");
+			}
 
-            @Override
-            public void onLocationChanged(Location location) {
-                Log.v("LocationListener", "onLocationChanged");
-            }
+			@Override
+			public void onProviderDisabled(String provider) {
+				Log.v("LocationListener", "onProviderDisabled");
+			}
+
+			@Override
+			public void onLocationChanged(Location location) {
+				Log.v("LocationListener", "onLocationChanged");
+			}
 
 			@Override
 			public void onStatusChanged(String provider, int status,
 					Bundle extras) {
 				// TODO Auto-generated method stub
-				
+
 			}
-        };
+		};
 
-        LocationManager locationManager = (LocationManager)context.getSystemService(Service.LOCATION_SERVICE);
+		LocationManager locationManager = (LocationManager) context
+				.getSystemService(Service.LOCATION_SERVICE);
 
-        Criteria criteria = new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_FINE);
-        String provider = locationManager.getBestProvider(criteria, true);
+		Criteria criteria = new Criteria();
+		criteria.setAccuracy(Criteria.ACCURACY_FINE);
+		String provider = locationManager.getBestProvider(criteria, true);
 
-        Log.v("Provider", provider);
-        
-        locationManager.requestSingleUpdate(provider, locationListener, Looper.myLooper());
-    }
+		Log.v("Provider", provider);
+
+		locationManager.requestSingleUpdate(provider, locationListener,
+				Looper.myLooper());
+	}
+
+	public static void terminate() {
+		if (locationListener != null)
+			locationManager.removeUpdates(locationListener);
+	}
 }
