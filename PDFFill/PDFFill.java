@@ -33,6 +33,10 @@ public class PDFFill {
         form.setField(field, SELECTION_MARK);
     }
 
+    public void uncheckField(String field) throws IOException, DocumentException {
+        form.setField(field, "");
+    }
+
     public void close() throws DocumentException, IOException {
         stamper.close();
         reader.close();

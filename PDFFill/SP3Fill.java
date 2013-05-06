@@ -27,6 +27,8 @@ public class SP3Fill extends PDFFill {
 
     private static final int DATA_ROWS = 15;
 
+    public static final String containingFolder = "sp3";
+
     public static void main(String[] args) {
         selfTest();
     }
