@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class StartNewSpray extends BaseMainActivity {
 
 	RelativeLayout startSpray;
-	Button startSprayButton;
+	TextView startSprayText;
 	Button completelyFinished;
 	TextView tv;
 	TimeBomb bomb;
@@ -41,7 +41,7 @@ public class StartNewSpray extends BaseMainActivity {
 		tv.setTypeface(Constants.TYPEFACE);
 
 		startSpray = (RelativeLayout) findViewById(R.id.activity_start_new_spray_fake_button);
-		startSprayButton = (Button) findViewById(R.id.activity_start_new_spray_button);
+		startSprayText = (TextView) findViewById(R.id.activity_start_new_spray_text);
 
 		startSpray.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -52,7 +52,7 @@ public class StartNewSpray extends BaseMainActivity {
 				startActivity(nextIntent);
 			}
 		});
-		startSprayButton.setTypeface(Constants.TYPEFACE);
+		startSprayText.setTypeface(Constants.TYPEFACE);
 
 		
 		/**
@@ -69,6 +69,8 @@ public class StartNewSpray extends BaseMainActivity {
 				@Override
 				public void onClick(View v) {
 					completelyFinished.setVisibility(View.INVISIBLE);
+				    completelyFinished.setEnabled(false);
+				    startSpray.setEnabled(false);
 					DataStore.destroyAllData();
 					Toast.makeText(getApplicationContext(), "Good bye",
 							Toast.LENGTH_LONG).show();

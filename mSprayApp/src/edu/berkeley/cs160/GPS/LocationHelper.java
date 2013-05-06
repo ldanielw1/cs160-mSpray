@@ -56,7 +56,7 @@ public class LocationHelper {
 	}
 
 	public static void terminate() {
-		if (locationListener != null)
+		if (locationListener != null && locationManager != null)
 			locationManager.removeUpdates(locationListener);
 	}
 }

@@ -29,9 +29,10 @@ public class ScanSprayer extends BaseMainActivity {
 	private PendingIntent pendingIntent;
 	IntentFilter tagDetected;
 	IntentFilter[] filters;
+	ImageView scanRFIDImage;
 	ImageView handHoldingBadge;
 	TextView tv;
-	Button startScan;
+	TextView startScan;
 	Button skipScan;
 	LinearLayout scanForemanLayout;
 	RelativeLayout scanSelf;
@@ -51,7 +52,8 @@ public class ScanSprayer extends BaseMainActivity {
 		DataStore.formNumber = formNumber;
 
 		scanSelf = (RelativeLayout) findViewById(R.id.activity_scan_rfid_fake_button);
-		startScan = (Button) findViewById(R.id.scan_rfid_button_start_scan);
+		startScan = (TextView) findViewById(R.id.scan_rfid_textView_start_scan);
+		scanRFIDImage = (ImageView) findViewById(R.id.scan_rfid_imageView);
 		skipScan = (Button) findViewById(R.id.scan_rfid_button_forgot_badge);
 		handHoldingBadge = (ImageView) findViewById(R.id.scan_rfid_image);
 		scanForemanLayout = (LinearLayout) findViewById(R.id.scan_rfid_layout);
@@ -62,9 +64,11 @@ public class ScanSprayer extends BaseMainActivity {
 
 		setTitle("Identify sprayer ");
 		setSprayerText();
+		
+		scanRFIDImage.setImageDrawable(getResources().getDrawable(R.drawable.sprayworker));
 
-		startScan.setCompoundDrawablesWithIntrinsicBounds(0,
-				drawable.sprayworker, 0, 0);
+//		startScan.setCompoundDrawablesWithIntrinsicBounds(0,
+//				drawable.sprayworker, 0, 0);
 
 		/* External Font */
 		tv = (TextView) findViewById(R.id.scan_rfid_instructions);

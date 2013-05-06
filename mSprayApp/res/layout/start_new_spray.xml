@@ -35,21 +35,35 @@
             android:layout_weight="0.89"
             android:background="@drawable/button_selector_green" >
 
-            <Button
-                android:id="@+id/activity_start_new_spray_button"
+             <LinearLayout
+                android:id="@+id/activity_mspray_button_wrapper"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:background="@android:color/transparent"
+                android:layout_height="fill_parent"
                 android:clickable="false"
-                android:drawablePadding="16dp"
-                android:drawableTop="@drawable/recordspray"
-                android:text="@string/startSpray"
-                android:textColor="#fff"
-                android:textSize="30sp" >
-            </Button>
+                android:orientation="vertical"
+                android:padding="2dp" >
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8"
+                    android:clickable="false"
+                    android:padding="36dp"
+                    android:src="@drawable/recordspray" />
+
+                <TextView
+                    android:id="@+id/activity_start_new_spray_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="@string/startSpray"
+                    android:textColor="#fff"
+                    android:textSize="30sp" />
+            </LinearLayout>
+            
         </RelativeLayout>
 
         <Button
