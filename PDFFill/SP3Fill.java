@@ -25,8 +25,7 @@ public class SP3Fill extends PDFFill {
     private static final String LOCALITY_LABEL = "locality";
     private static final String TEAM_LABEL = "team";
 
-    private static final int DATA_ROWS = 15;
-
+    public static final int ROW_LIMIT = 15;
     public static final String containingFolder = "sp3";
 
     public static void main(String[] args) {
@@ -46,9 +45,9 @@ public class SP3Fill extends PDFFill {
             formFill.setField(SECTOR_LABEL, "No Name Sector");
             formFill.setField(DATE_FROM_LABEL, "3/28/13");
             formFill.setField(DATE_TO_LABEL, "3/29/13");
-            for (int i = 1; i <= DATA_ROWS + 1; i += 1) {
+            for (int i = 1; i <= ROW_LIMIT + 1; i += 1) {
                 String tempValue = Integer.toString(i);
-                if (i == DATA_ROWS + 1)
+                if (i == ROW_LIMIT + 1)
                     tempValue = "Final";
                 formFill.setField(LOCALITY_LABEL + tempValue, "locality" + tempValue);
                 formFill.setField(DDT_ROOMS_LABEL + tempValue, tempValue);

@@ -24,8 +24,12 @@ public class SP2Fill extends PDFFill {
     private static final String LOCALITY_LABEL = "locality";
     private static final String TEAM_LABEL = "team";
 
-    private static final int DATA_ROWS = 15;
+    public static String TOTAL = "Total";
+    public static String MOPUP = "Mopup";
+    public static String FINAL = "Final";
+    public static String FINAL2 = "Final2";
 
+    public static final int ROW_LIMIT = 15;
     public static final String containingFolder = "sp2";
 
     public static void main(String[] args) {
@@ -45,16 +49,16 @@ public class SP2Fill extends PDFFill {
             formFill.setDistrict("Vhembe");
             formFill.setLocality("No Name");
             formFill.setTeam("Team 1");
-            for (int i = 1; i <= DATA_ROWS + 4; i += 1) {
+            for (int i = 1; i <= ROW_LIMIT + 4; i += 1) {
                 String tempValue = Integer.toString(i);
                 if (i == 16)
-                    tempValue = Constants.TOTAL;
+                    tempValue = TOTAL;
                 else if (i == 17)
-                    tempValue = Constants.MOPUP;
+                    tempValue = MOPUP;
                 else if (i == 18)
-                    tempValue = Constants.FINAL;
+                    tempValue = FINAL;
                 else if (i == 19)
-                    tempValue = Constants.FINAL2;
+                    tempValue = FINAL2;
                 formFill.setSprayman(tempValue, "man" + tempValue);
                 formFill.setDDTRooms(tempValue, DDT_ROOMS_LABEL + tempValue);
                 formFill.setOtherRooms(tempValue, OTHER_ROOMS_LABEL + tempValue);

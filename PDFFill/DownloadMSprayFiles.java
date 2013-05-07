@@ -10,6 +10,23 @@ import com.google.gdata.util.ServiceException;
 import com.itextpdf.text.DocumentException;
 
 public class DownloadMSprayFiles {
+    /** Constants for extracting data from a ListEntry. */
+    public static final String TIMESTAMP = "timeStamp";
+    public static final String FOREMAN = "foreman";
+    public static final String SPRAYER_ID = "sprayerID";
+    public static final String SPRAYER_ID2 = "sprayer2ID";
+    public static final String CHEMICAL_USED1 = "chemicalUsed1";
+    public static final String CHEMICAL_USED2 = "chemicalUsed2";
+    public static final String SPRAYED_ROOMS1 = "sprayedRooms1";
+    public static final String SPRAYED_ROOMS2 = "sprayedRooms2";
+    public static final String SPRAYED_SHELTERS1 = "sprayedShelters1";
+    public static final String SPRAYED_SHELTERS2 = "sprayedShelters2";
+    public static final String CAN_REFILLS1 = "canRefill1";
+    public static final String CAN_REFILLS2 = "canRefill2";
+    public static final String UNSPRAYED_ROOMS = "unsprayedRooms";
+    public static final String DDT = "DDT";
+
+    /** Maps for storing downloaded data. */
     HashMap<String, List<SprayData>> sp1Data;
     HashMap<String, HashMap<String, List<SprayData>>> sp2Data;
 
@@ -18,15 +35,17 @@ public class DownloadMSprayFiles {
         downloader.syncFiles();
     }
 
+    /**
+     * Driver method that first downloads all of the data from the online
+     * spreadsheet, and then creates PDF documents out of that data.
+     */
     public void syncFiles() {
         try {
-
             GoogleSpreadsheet spreadsheet = new GoogleSpreadsheet("mSprayApp", "mSprayApp1.0",
                     "mSpray 2.0 Results", "Logged Data");
             createResourceFiles();
             downloadSpreadsheetData(spreadsheet);
             generateForms();
-
         } catch (DocumentException e) {
             e.printStackTrace();
             System.exit(1);
@@ -110,7 +129,6 @@ public class DownloadMSprayFiles {
             formFill.setFieldOfficer("Brenda Eskenazi");
             formFill.setDistrict("Vhembe");
             formFill.setLocality("Limpopo");
-
             formFill.close();
         }
 
@@ -132,7 +150,7 @@ public class DownloadMSprayFiles {
 
                 for (SprayData rowData : rowList) {
                     SprayData dataToUpdate = sprayerDDTData;
-                    if (!rowData.getChemical().equals(Constants.DDT))
+                    if (!rowData.getChemical().equals(DDT))
                         dataToUpdate = sprayerOtherData;
                     dataToUpdate.update(rowData);
                 }
@@ -152,18 +170,16 @@ public class DownloadMSprayFiles {
             String foreman = fileName.split("_")[2];
             formFill.setTeam(foreman);
 
-            formFill.setDDTData(Constants.TOTAL, totalDDTData);
-            formFill.setOtherData(Constants.TOTAL, totalOtherData);
+            formFill.setDDTData(SP2Fill.TOTAL, totalDDTData);
+            formFill.setOtherData(SP2Fill.TOTAL, totalOtherData);
 
             // TODO: Figure out where the following information should come from
             formFill.setDistrict("Vhembe");
             formFill.setLocality("");
             formFill.setRegion("Limpopo");
             formFill.setLocality("South Africa");
-
             formFill.close();
         }
-
     }
 
     public void generateSP3Forms() throws IOException, DocumentException {
@@ -173,20 +189,20 @@ public class DownloadMSprayFiles {
     public void downloadSP1(List<ListEntry> rows) {
         sp1Data = new HashMap<String, List<SprayData>>();
         for (ListEntry row : rows) {
-            String timeStamp = stringValue(row, Constants.timestamp);
+            String timeStamp = stringValue(row, TIMESTAMP);
             String dateString = timeStamp.split(" ")[0];
             dateString = dateString.replaceAll("/", "-");
 
-            String chemicalUsed1 = stringValue(row, Constants.chemicalUsed1);
+            String chemicalUsed1 = stringValue(row, CHEMICAL_USED1);
             if (chemicalUsed1 != null) {
-                String sprayerID = stringValue(row, Constants.sprayerID);
+                String sprayerID = stringValue(row, SPRAYER_ID);
 
                 SprayData data = new SprayData();
-                data.setForeman(stringValue(row, Constants.foreman));
-                data.updateSprayedRooms(intValue(row, Constants.sprayedRooms1));
-                data.updateSprayedShelters(intValue(row, Constants.sprayedShelters1));
-                data.updateUnsprayedRooms(intValue(row, Constants.unsprayedRooms));
-                if (getBooleanValue(row, Constants.canRefill1))
+                data.setForeman(stringValue(row, FOREMAN));
+                data.updateSprayedRooms(intValue(row, SPRAYED_ROOMS1));
+                data.updateSprayedShelters(intValue(row, SPRAYED_SHELTERS1));
+                data.updateUnsprayedRooms(intValue(row, UNSPRAYED_ROOMS));
+                if (getBooleanValue(row, CAN_REFILLS1))
                     data.updateCansRefilled(1);
 
                 String userInformation = "sp1_" + dateString + "_" + sprayerID + "_"
@@ -197,16 +213,16 @@ public class DownloadMSprayFiles {
                 currentEntriesForUser.add(data);
                 sp1Data.put(userInformation, currentEntriesForUser);
             }
-            String chemicalUsed2 = stringValue(row, Constants.chemicalUsed2);
+            String chemicalUsed2 = stringValue(row, CHEMICAL_USED2);
             if (chemicalUsed2 != null) {
-                String sprayer2ID = stringValue(row, Constants.sprayer2ID);
+                String sprayer2ID = stringValue(row, SPRAYER_ID2);
 
                 SprayData data = new SprayData();
-                data.setForeman(stringValue(row, Constants.foreman));
-                data.updateSprayedRooms(intValue(row, Constants.sprayedRooms2));
-                data.updateSprayedShelters(intValue(row, Constants.sprayedShelters2));
-                data.updateUnsprayedRooms(intValue(row, Constants.unsprayedRooms));
-                if (getBooleanValue(row, Constants.canRefill2))
+                data.setForeman(stringValue(row, FOREMAN));
+                data.updateSprayedRooms(intValue(row, SPRAYED_ROOMS2));
+                data.updateSprayedShelters(intValue(row, SPRAYED_SHELTERS2));
+                data.updateUnsprayedRooms(intValue(row, UNSPRAYED_ROOMS));
+                if (getBooleanValue(row, CAN_REFILLS2))
                     data.updateCansRefilled(1);
 
                 String userInformation = "sp1_" + dateString + "_" + sprayer2ID + "_"
@@ -224,17 +240,17 @@ public class DownloadMSprayFiles {
         sp2Data = new HashMap<String, HashMap<String, List<SprayData>>>();
 
         for (ListEntry row : rows) {
-            String timeStamp = stringValue(row, Constants.timestamp);
+            String timeStamp = stringValue(row, TIMESTAMP);
             String dateString = timeStamp.split(" ")[0];
             dateString = dateString.replaceAll("/", "-");
 
             // We only need to check for the first chemical because there is a
             // spraying if and only if there is a 1st chemical
-            String chemicalUsed1 = stringValue(row, Constants.chemicalUsed1);
+            String chemicalUsed1 = stringValue(row, CHEMICAL_USED1);
             if (chemicalUsed1 != null) {
-                String foreman = stringValue(row, Constants.foreman);
+                String foreman = stringValue(row, FOREMAN);
                 String fileName = "sp2_" + dateString + "_" + foreman;
-                String sprayerID = stringValue(row, Constants.sprayerID);
+                String sprayerID = stringValue(row, SPRAYER_ID);
 
                 HashMap<String, List<SprayData>> fileData = sp2Data.get(fileName);
                 if (fileData == null)
@@ -242,10 +258,10 @@ public class DownloadMSprayFiles {
 
                 SprayData sprayerData1 = new SprayData();
                 sprayerData1.setChemical(chemicalUsed1);
-                sprayerData1.updateSprayedRooms(intValue(row, Constants.sprayedRooms1));
-                sprayerData1.updateSprayedShelters(intValue(row, Constants.sprayedShelters1));
-                sprayerData1.updateUnsprayedRooms(intValue(row, Constants.unsprayedRooms));
-                if (getBooleanValue(row, Constants.canRefill1))
+                sprayerData1.updateSprayedRooms(intValue(row, SPRAYED_ROOMS1));
+                sprayerData1.updateSprayedShelters(intValue(row, SPRAYED_SHELTERS1));
+                sprayerData1.updateUnsprayedRooms(intValue(row, UNSPRAYED_ROOMS));
+                if (getBooleanValue(row, CAN_REFILLS1))
                     sprayerData1.updateCansRefilled(1);
 
                 List<SprayData> sprayerDataList1 = fileData.get(sprayerID);
@@ -255,16 +271,16 @@ public class DownloadMSprayFiles {
                 fileData.put(sprayerID, sprayerDataList1);
                 sp2Data.put(fileName, fileData);
 
-                String chemicalUsed2 = stringValue(row, Constants.chemicalUsed2);
+                String chemicalUsed2 = stringValue(row, CHEMICAL_USED2);
                 if (chemicalUsed2 != null) {
-                    String sprayer2ID = stringValue(row, Constants.sprayer2ID);
+                    String sprayer2ID = stringValue(row, SPRAYER_ID2);
 
                     SprayData sprayerData2 = new SprayData();
                     sprayerData2.setChemical(chemicalUsed2);
-                    sprayerData2.updateSprayedRooms(intValue(row, Constants.sprayedRooms2));
-                    sprayerData2.updateSprayedShelters(intValue(row, Constants.sprayedShelters2));
-                    sprayerData2.updateUnsprayedRooms(intValue(row, Constants.unsprayedRooms));
-                    if (getBooleanValue(row, Constants.canRefill2))
+                    sprayerData2.updateSprayedRooms(intValue(row, SPRAYED_ROOMS2));
+                    sprayerData2.updateSprayedShelters(intValue(row, SPRAYED_SHELTERS2));
+                    sprayerData2.updateUnsprayedRooms(intValue(row, UNSPRAYED_ROOMS));
+                    if (getBooleanValue(row, CAN_REFILLS2))
                         sprayerData2.updateCansRefilled(1);
 
                     List<SprayData> sprayerDataList2 = fileData.get(sprayer2ID);
