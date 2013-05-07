@@ -1,14 +1,33 @@
 public class SprayData {
+    private String foreman;
+    private String sprayer;
+    private String chemical;
+
     private int sprayedRooms;
     private int sprayedShelters;
     private int unsprayedRooms;
     private int cansRefilled;
 
     SprayData() {
+        foreman = null;
+        sprayer = null;
+
         sprayedRooms = 0;
         sprayedShelters = 0;
         unsprayedRooms = 0;
         cansRefilled = 0;
+    }
+
+    public String getForeman() {
+        return foreman;
+    }
+
+    public String getSprayer() {
+        return sprayer;
+    }
+
+    public String getChemical() {
+        return chemical;
     }
 
     public int getSprayedRooms() {
@@ -25,6 +44,18 @@ public class SprayData {
 
     public int getCansRefilled() {
         return cansRefilled;
+    }
+
+    public void setForeman(String foreman) {
+        this.foreman = foreman;
+    }
+
+    public void setSprayer(String sprayer) {
+        this.sprayer = sprayer;
+    }
+
+    public void setChemical(String chemical) {
+        this.chemical = chemical;
     }
 
     public void updateSprayedRooms(int updateRooms) {
