@@ -32,10 +32,6 @@ public class SP2Fill extends PDFFill {
     public static final int ROW_LIMIT = 15;
     public static final String containingFolder = "sp2";
 
-    public static void main(String[] args) {
-        selfTest();
-    }
-
     public SP2Fill(String destinationFile) throws IOException, DocumentException {
         super("Form-SP2.pdf", destinationFile);
     }

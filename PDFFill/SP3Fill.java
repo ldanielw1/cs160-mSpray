@@ -28,10 +28,6 @@ public class SP3Fill extends PDFFill {
     public static final int ROW_LIMIT = 15;
     public static final String containingFolder = "sp3";
 
-    public static void main(String[] args) {
-        selfTest();
-    }
-
     public SP3Fill() throws IOException, DocumentException {
         super("Form-SP3.pdf", "temp3.pdf");
     }

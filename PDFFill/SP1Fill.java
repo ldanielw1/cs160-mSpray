@@ -30,10 +30,6 @@ public class SP1Fill extends PDFFill {
 
     public static final String containingFolder = "sp1";
 
-    public static void main(String[] args) {
-        selfTest();
-    }
-
     public SP1Fill(String destinationFile) throws IOException, DocumentException {
         super("Form-SP1.pdf", destinationFile);
     }
