@@ -34,6 +34,7 @@
 
                 <ImageView
                     android:id="@+id/activity_choose_sprayer_imageView"
+                    android:contentDescription="@string/oneSprayer"
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.8"
@@ -75,6 +76,7 @@
 
                 <ImageView
                     android:id="@+id/activity_choose_sprayer2_imageView"
+                    android:contentDescription="@string/twoSprayers"
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.8"
