@@ -1,15 +1,5 @@
-to compile:
-    make compile
-
-to clean:
+to clean the folder (remove all temporary files, forms, and optional binary files):
     make clean
 
-
-to run SP1Fill:
-    java -cp ".:lib/*" SP1Fill
-
-to run SP2Fill:
-    java -cp ".:lib/*" SP1Fill
-
-to run SP3Fill:
-    java -cp ".:lib/*" SP1Fill
+to run downloads for all SP forms:
+    make download
