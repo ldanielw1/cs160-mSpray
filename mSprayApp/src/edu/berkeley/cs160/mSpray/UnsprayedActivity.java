@@ -44,7 +44,7 @@ public class UnsprayedActivity extends BaseMainActivity {
 
         reasonUnsprayed = (RadioGroup) findViewById(R.id.unsprayed_radiogroup);
 
-        open = (RadioButton) findViewById(R.id.unsprayed_radiobutton_refused);
+        open = (RadioButton) findViewById(R.id.unsprayed_radiobutton_open);
         open.setTypeface(Constants.TYPEFACE);
         locked = (RadioButton) findViewById(R.id.unsprayed_radiobutton_locked);
         locked.setTypeface(Constants.TYPEFACE);

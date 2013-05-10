@@ -81,11 +81,11 @@ public class StartNewSpray extends BaseMainActivity {
             completelyFinished.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
-                    intent.putExtra(Constants.RESCAN_FORMAN, true);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    Intent nextIntent = new Intent(getApplicationContext(), ScanForeman.class);
+                    nextIntent.putExtra(Constants.RESCAN_FORMAN, true);
+                    nextIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    nextIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(nextIntent);
                 }
             });
         }
@@ -93,9 +93,9 @@ public class StartNewSpray extends BaseMainActivity {
         bomb = new TimeBomb() {
             @Override
             public void explode() {
-                Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                Intent nextIntent = new Intent(getApplicationContext(), ScanForeman.class);
+                nextIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(nextIntent);
             }
         };
 

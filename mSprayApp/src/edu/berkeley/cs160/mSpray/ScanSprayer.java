@@ -35,7 +35,6 @@ public class ScanSprayer extends BaseMainActivity {
     LinearLayout scanForemanLayout;
     RelativeLayout scanSelf;
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

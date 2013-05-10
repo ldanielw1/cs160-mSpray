@@ -134,9 +134,9 @@ public class GetGpsActivity extends BaseMainActivity {
         findGPS();
     }
 
-    public void retryDialog(String text, Context context) {
+    public void retryDialog(String text, Context retryContext) {
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(retryContext);
         alertDialogBuilder.setTitle(text);
         if (acc != null) {
             alertDialogBuilder.setMessage("Accuracy: " + acc + "m Retry?");
