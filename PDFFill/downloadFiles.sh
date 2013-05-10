@@ -1,2 +1,2 @@
 #!/bin/bash
-make download
+make download 2> /dev/null > /dev/null

@@ -1,2 +1,2 @@
 #!/bin/bash
-make clean
+make clean 2> /dev/null > /dev/null
