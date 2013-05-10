@@ -1,7 +1,5 @@
 package edu.berkeley.cs160.mSpray;
 
-import edu.berkeley.cs160.Base.BaseMainActivity;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +9,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import edu.berkeley.cs160.Base.BaseMainActivity;
 
 public class UnsprayedActivity extends BaseMainActivity {
 
@@ -42,9 +41,9 @@ public class UnsprayedActivity extends BaseMainActivity {
         backButton.setTypeface(Constants.TYPEFACE);
         confirmButton = (Button) findViewById(R.id.unsprayed_button_confirmButton);
         confirmButton.setTypeface(Constants.TYPEFACE);
-        
+
         reasonUnsprayed = (RadioGroup) findViewById(R.id.unsprayed_radiogroup);
-        
+
         open = (RadioButton) findViewById(R.id.unsprayed_radiobutton_refused);
         open.setTypeface(Constants.TYPEFACE);
         locked = (RadioButton) findViewById(R.id.unsprayed_radiobutton_locked);
@@ -87,7 +86,7 @@ public class UnsprayedActivity extends BaseMainActivity {
                 if (reasonUnsprayed.getCheckedRadioButtonId() == R.id.unsprayed_radiobutton_open) {
                     reason = "open";
                 } else if (reasonUnsprayed.getCheckedRadioButtonId() == R.id.unsprayed_radiobutton_locked) {
-                     reason = "locked";
+                    reason = "locked";
                 } else if (reasonUnsprayed.getCheckedRadioButtonId() == R.id.unsprayed_radiobutton_refused) {
                     reason = "owner refused";
                 }
