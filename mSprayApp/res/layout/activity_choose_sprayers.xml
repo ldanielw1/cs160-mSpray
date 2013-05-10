@@ -8,95 +8,74 @@
     android:screenOrientation="portrait" >
 
     <LinearLayout
-        android:id="@+id/activity_choose_sprayers_layout"
+        android:id="@+id/activity_choose_sprayers_1_fake_button"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/button_selector_green"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/activity_choose_sprayer_imageView"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:clickable="false"
+            android:contentDescription="@string/oneSprayer"
+            android:padding="18dp"
+            android:src="@drawable/sprayworker" />
+
+        <TextView
+            android:id="@+id/activity_choose_sprayer_textView"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:clickable="false"
+            android:gravity="center"
+            android:lines="1"
+            android:padding="2dp"
+            android:text="@string/oneSprayer"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_choose_sprayers_2_fake_button"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/button_selector_blue"
         android:orientation="vertical" >
 
-        <RelativeLayout
-            android:id="@+id/activity_choose_sprayers_1_fake_button"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/activity_choose_sprayer2_imageView"
+            android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/button_selector_green" >
+            android:layout_weight="0.8"
+            android:clickable="false"
+            android:contentDescription="@string/twoSprayers"
+            android:padding="18dp"
+            android:src="@drawable/sprayworker2" />
 
-            <LinearLayout
-                android:id="@+id/activity_choose_sprayer_button_wrapper"
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:clickable="false"
-                android:orientation="vertical"
-                android:padding="2dp" >
-
-                <ImageView
-                    android:id="@+id/activity_choose_sprayer_imageView"
-                    android:contentDescription="@string/oneSprayer"
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.8"
-                    android:clickable="false"
-                    android:padding="16dp"
-                    android:src="@drawable/sprayworker" />
-
-                <TextView
-                    android:id="@+id/activity_choose_sprayer_textView"
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:clickable="false"
-                    android:gravity="center"
-                    android:lines="1"
-                    android:text="@string/oneSprayer"
-                    android:textColor="#fff"
-                    android:textSize="30sp" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/activity_choose_sprayers_2_fake_button"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/activity_choose_sprayer2_textView"
+            android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/button_selector_blue" >
-
-            <LinearLayout
-                android:id="@+id/activity_choose_sprayer_button_wrapper2"
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:clickable="false"
-                android:orientation="vertical"
-                android:padding="2dp" >
-
-                <ImageView
-                    android:id="@+id/activity_choose_sprayer2_imageView"
-                    android:contentDescription="@string/twoSprayers"
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.8"
-                    android:clickable="false"
-                    android:padding="16dp"
-                    android:src="@drawable/sprayworker2" />
-
-                <TextView
-                    android:id="@+id/activity_choose_sprayer2_textView"
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:clickable="false"
-                    android:gravity="center"
-                    android:lines="1"
-                    android:text="@string/twoSprayers"
-                    android:textColor="#fff"
-                    android:textSize="30sp" />
-            </LinearLayout>
-        </RelativeLayout>
+            android:layout_weight="0.2"
+            android:clickable="false"
+            android:gravity="center"
+            android:lines="1"
+            android:padding="2dp"
+            android:text="@string/twoSprayers"
+            android:textColor="#fff"
+            android:textSize="30sp" />
     </LinearLayout>
 
 </LinearLayout>

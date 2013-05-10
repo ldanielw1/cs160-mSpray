@@ -36,7 +36,7 @@
         android:orientation="vertical"
         android:visibility="invisible" >
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/activity_scan_rfid_fake_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -44,39 +44,32 @@
             android:layout_marginRight="16dp"
             android:layout_weight="0.8"
             android:background="@drawable/button_selector_green"
-            android:onClick="onClick" >
+            android:onClick="onClick"
+            android:orientation="vertical" >
 
-            <LinearLayout
-                android:id="@+id/activity_mspray_button_wrapper"
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
+            <ImageView
+                android:id="@+id/scan_rfid_imageView"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
                 android:clickable="false"
-                android:orientation="vertical"
-                android:padding="2dp" >
+                android:contentDescription="@string/scanSelf"
+                android:padding="18dp"
+                android:src="@drawable/clipboard" />
 
-                <ImageView
-                    android:id="@+id/scan_rfid_imageView"
-                    android:contentDescription="@string/scanSelf"
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.8"
-                    android:clickable="false"
-                    android:padding="16dp"
-                    android:src="@drawable/clipboard" />
-
-                <TextView
-                    android:id="@+id/scan_rfid_textView_start_scan"
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:clickable="false"
-                    android:gravity="center"
-                    android:lines="1"
-                    android:text="@string/scanSelf"
-                    android:textColor="#fff"
-                    android:textSize="30sp" />
-            </LinearLayout>
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/scan_rfid_textView_start_scan"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:clickable="false"
+                android:gravity="center"
+                android:lines="1"
+                android:padding="2dp"
+                android:text="@string/scanSelf"
+                android:textColor="#fff"
+                android:textSize="30sp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/scan_rfid_button_forgot_badge"

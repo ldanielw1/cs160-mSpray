@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/grad3"
         android:gravity="center"
-        android:text="I am Foreman"
+        android:text="@string/scanSelfLabel"
         android:textSize="28sp" />
 
     <LinearLayout
@@ -25,58 +25,49 @@
         android:layout_marginTop="20dp"
         android:orientation="vertical" >
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/activity_start_new_spray_fake_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-           
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_weight="0.89"
-            android:background="@drawable/button_selector_green" >
+            android:background="@drawable/button_selector_green"
+            android:orientation="vertical" >
 
-             <LinearLayout
-                android:id="@+id/activity_mspray_button_wrapper"
+            <ImageView
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
                 android:clickable="false"
-                android:orientation="vertical"
-                android:padding="2dp" >
+                android:contentDescription="@string/startSpray"
+                android:padding="38dp"
+                android:src="@drawable/recordspray" />
 
-                <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.8"
-                    android:clickable="false"
-                    android:padding="36dp"
-                    android:src="@drawable/recordspray" />
-
-                <TextView
-                    android:id="@+id/activity_start_new_spray_text"
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:clickable="false"
-                    android:gravity="center"
-                    android:lines="1"
-                    android:text="@string/startSpray"
-                    android:textColor="#fff"
-                    android:textSize="30sp" />
-            </LinearLayout>
-            
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/activity_start_new_spray_text"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:clickable="false"
+                android:gravity="center"
+                android:lines="1"
+                android:padding="2dp"
+                android:text="@string/startSpray"
+                android:textColor="#fff"
+                android:textSize="30sp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/activity_start_new_spray_button_finished"
-             android:layout_width="fill_parent"
+            android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_margin="16dp"
             android:layout_weight="0.2"
             android:background="@drawable/button_selector_red"
-            android:text="No Badge"
+            android:text="@string/noBadge"
             android:textColor="#fff"
-            android:textSize="30sp"/>
-
+            android:textSize="30sp" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -35,9 +35,9 @@ public class StartNewSpray extends BaseMainActivity {
         } else if (DataStore.foremanID != null) {
             tv.setText("I am " + DataStore.foremanID);
         } else {
-            tv.setText("I am: Daniel Wu");
+            tv.setText("I am not identified");
         }
-        DataStore.sprayer1ID = "Brent Batas";
+
         tv.setTypeface(Constants.TYPEFACE);
 
         startSpray = (RelativeLayout) findViewById(R.id.activity_start_new_spray_fake_button);

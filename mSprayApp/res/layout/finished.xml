@@ -105,7 +105,7 @@
                 android:id="@+id/finished_rooms_sprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="  Rooms Sprayed"
+                android:text="@string/roomsSprayedLabel2"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 
@@ -128,7 +128,7 @@
                 android:id="@+id/finished_shelters_sprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="  Shelters Sprayed"
+                android:text="@string/sheltersSprayedLabel2"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 
@@ -151,7 +151,7 @@
                 android:id="@+id/finished_can_refilled_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="  Refill can"
+                android:text="@string/refillCanLabel2"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 
@@ -197,7 +197,7 @@
                 android:id="@+id/finished_rooms_sprayed2_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="  Rooms Sprayed"
+                android:text="@string/roomsSprayedLabel2"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 
@@ -220,7 +220,7 @@
                 android:id="@+id/finished_shelters_sprayed2_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="  Shelters Sprayed"
+                android:text="@string/sheltersSprayedLabel2"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 
@@ -243,7 +243,7 @@
                 android:id="@+id/finished_can_refilled2_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="  Refill can"
+                android:text="@string/refillCanLabel2"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 
@@ -266,7 +266,7 @@
                 android:id="@+id/finished_rooms_unsprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="Rooms Unsprayed"
+                android:text="@string/roomsUnsprayed"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 
@@ -289,7 +289,7 @@
                 android:id="@+id/finished_shelters_unsprayed_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="Shelters Unsprayed"
+                android:text="@string/sheltersUnsprayed"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 
@@ -312,7 +312,7 @@
                 android:id="@+id/finished_unsprayed_reason_label"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:text="Reason"
+                android:text="@string/reason"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 

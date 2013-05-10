@@ -45,11 +45,14 @@
     <string name="oneSprayer">1 sprayer</string>
     <string name="otherChemicalUsed">Other Chemical Used?</string>
     <string name="sprayerName">Sprayer</string>
+    <string name="reason">Reason</string>
     <string name="refillCan">Refill Can</string>
     <string name="refillCanLabel">Refilled Can?</string>
+    <string name="refillCanLabel2">  Refilled Can</string>
     <string name="rooms">Rooms</string>
     <string name="roomsSprayed">Rooms Sprayed</string>
     <string name="roomsSprayedLabel">Rooms Sprayed: </string>
+    <string name="roomsSprayedLabel2">  Rooms Sprayed</string>
     <string name="roomsUnsprayed">Rooms Unsprayed</string>
     <string name="roomsUnsprayedLabel">Rooms Unsprayed: </string>
     <string name="scanning">Scanning</string>
@@ -57,6 +60,7 @@
     <string name="shelters">Shelters</string>
     <string name="sheltersSprayed">Shelters Sprayed</string>
     <string name="sheltersSprayedLabel">Shelters Sprayed: </string>
+    <string name="sheltersSprayedLabel2">  Shelters Sprayed</string>
     <string name="sheltersUnsprayed">Shelters Unsprayed</string>
     <string name="sheltersUnsprayedLabel">Shelters Unsprayed: </string>
     <string name="sprayer">Sprayer</string>
