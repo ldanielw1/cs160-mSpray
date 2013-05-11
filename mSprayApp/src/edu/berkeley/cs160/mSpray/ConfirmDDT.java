@@ -1,13 +1,12 @@
 package edu.berkeley.cs160.mSpray;
 
-import edu.berkeley.cs160.Base.BaseMainActivity;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import edu.berkeley.cs160.Base.BaseMainActivity;
 
 public class ConfirmDDT extends BaseMainActivity {
 
@@ -92,14 +91,14 @@ public class ConfirmDDT extends BaseMainActivity {
                     Intent intent = new Intent(getApplicationContext(), UnsprayedActivity.class);
                     startActivity(intent);
                 } else {
-//                     Intent intent = new Intent(getApplicationContext(),
-//                     DDTActivity.class);
+                    // Intent intent = new Intent(getApplicationContext(),
+                    // DDTActivity.class);
                     Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);
                     intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);
                     startActivity(intent);
-            
+
                 }
             }
         });

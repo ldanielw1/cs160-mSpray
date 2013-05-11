@@ -14,29 +14,24 @@ import android.os.Message;
 public class ReadRFID {
     private String returnValue;
 
-    private Context context;
-    private Class<?> currentClass;
     private Handler handler;
-    private Activity currentActivity;
 
     /* Remember to put an intent filter on whatever activity class uses this
      * 
      * use getClass() for the parameter class
      * 
      * establish a handler in the given class */
-    public ReadRFID(Context contxt, Class<?> c, Handler h, Activity act) {
-        context = contxt;
+    @SuppressWarnings("unused")
+    public ReadRFID(Context context, Class<?> c, Handler h, Activity act) {
         // mAdapter = NfcAdapter.getDefaultAdapter(context);
         returnValue = "";
-        currentClass = c;
         handler = h;
-        currentActivity = act;
     }
 
     public void onNewIntent(Intent intent) {
-            // write to newly scanned tag
-            Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-            ReadTag(tag);
+        // write to newly scanned tag
+        Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+        ReadTag(tag);
     }
 
     /**

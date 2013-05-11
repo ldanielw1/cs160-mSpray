@@ -73,22 +73,28 @@ public class DownloadMSprayFiles {
 
     public void downloadSpreadsheetData(GoogleSpreadsheet spreadsheet) {
         List<ListEntry> rows = spreadsheet.getData();
-        System.out.println("Downloading SP1 form data from server...");
+        System.out.print("Downloading SP1 form data from server...");
         downloadSP1(rows);
-        System.out.println("Downloading SP2 form data from server...");
+        System.out.println(" Completed!");
+        System.out.print("Downloading SP2 form data from server...");
         downloadSP2(rows);
-        System.out.println("Downloading SP3 form data from server...");
+        System.out.println(" Completed!");
+        System.out.print("Downloading SP3 form data from server...");
         downloadSP3(rows);
+        System.out.println(" Completed!");
         System.out.println();
     }
 
     public void generateForms() throws IOException, DocumentException {
-        System.out.println("Generating SP1 files...");
+        System.out.print("Generating SP1 files...");
         generateSP1Forms();
-        System.out.println("Generating SP2 files...");
+        System.out.println(" Completed!");
+        System.out.print("Generating SP2 files...");
         generateSP2Forms();
-        System.out.println("Generating SP3 files...");
+        System.out.println(" Completed!");
+        System.out.print("Generating SP3 files...");
         generateSP3Forms();
+        System.out.println(" Completed!");
         System.out.println();
     }
 
@@ -183,7 +189,7 @@ public class DownloadMSprayFiles {
     }
 
     public void generateSP3Forms() throws IOException, DocumentException {
-        System.out.println("Error: code not written for creating SP3 forms yet.");
+        System.out.print(" Error: code not written for creating SP3 forms yet. Not generating SP3 forms.");
     }
 
     public void downloadSP1(List<ListEntry> rows) {

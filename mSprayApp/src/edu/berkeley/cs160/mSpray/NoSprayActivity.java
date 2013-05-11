@@ -1,13 +1,12 @@
 package edu.berkeley.cs160.mSpray;
 
-import edu.berkeley.cs160.Base.BaseMainActivity;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import edu.berkeley.cs160.Base.BaseMainActivity;
 
 public class NoSprayActivity extends BaseMainActivity {
 
@@ -64,24 +63,24 @@ public class NoSprayActivity extends BaseMainActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            	if (DataStore.scannedFirstSprayer) {
-					DataStore.scannedFirstSprayer = false;
-				}
-				onBackPressed();
+                if (DataStore.scannedFirstSprayer) {
+                    DataStore.scannedFirstSprayer = false;
+                }
+                onBackPressed();
             };
         });
     }
-    
-    @Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			if (DataStore.scannedFirstSprayer) {
-				DataStore.scannedFirstSprayer = false;
-			}
 
-			onBackPressed();
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (DataStore.scannedFirstSprayer) {
+                DataStore.scannedFirstSprayer = false;
+            }
+
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

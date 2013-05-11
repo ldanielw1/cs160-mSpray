@@ -10,15 +10,16 @@
     <string name="chemicalUsed2">Second Chemical Used</string>
     <string name="confirm">OK</string>
     <string name="confirmDDT">DDT Spray Data</string>
-    <string name="confirmNoSpray">Unsprayed Data</string>
+    <string name="confirmFendona">Fendona Spray Data</string>
     <string name="confirmKOrthrine">K-Orthrine Spray Data</string>
-    <string name="confirmUnsprayed">We did not spray...</string>
+    <string name="confirmNoSpray">Unsprayed Data</string>
+    <string name="confirmUnsprayed">We did not spray&#8230;</string>
     <string name="DDTHeader">DDT sprayed by</string>
     <string name="korthrineHeader">korthrine sprayed by</string>
     <string name="sprayHeader">sprayed by</string>
     <string name="NoSprayHeader">No rooms sprayed by</string>
     <string name="dataRecorded">Data Recorded</string>
-    <string name="unsprayedReason">It was...</string>
+    <string name="unsprayedReason">It was&#8230;</string>
     <string name="open">Open</string>
     <string name="locked">Locked</string>
     <string name="refused">Owner Refused</string>
@@ -44,11 +45,14 @@
     <string name="oneSprayer">1 sprayer</string>
     <string name="otherChemicalUsed">Other Chemical Used?</string>
     <string name="sprayerName">Sprayer</string>
+    <string name="reason">Reason</string>
     <string name="refillCan">Refill Can</string>
     <string name="refillCanLabel">Refilled Can?</string>
+    <string name="refillCanLabel2">  Refilled Can</string>
     <string name="rooms">Rooms</string>
     <string name="roomsSprayed">Rooms Sprayed</string>
     <string name="roomsSprayedLabel">Rooms Sprayed: </string>
+    <string name="roomsSprayedLabel2">  Rooms Sprayed</string>
     <string name="roomsUnsprayed">Rooms Unsprayed</string>
     <string name="roomsUnsprayedLabel">Rooms Unsprayed: </string>
     <string name="scanning">Scanning</string>
@@ -56,6 +60,7 @@
     <string name="shelters">Shelters</string>
     <string name="sheltersSprayed">Shelters Sprayed</string>
     <string name="sheltersSprayedLabel">Shelters Sprayed: </string>
+    <string name="sheltersSprayedLabel2">  Shelters Sprayed</string>
     <string name="sheltersUnsprayed">Shelters Unsprayed</string>
     <string name="sheltersUnsprayedLabel">Shelters Unsprayed: </string>
     <string name="sprayer">Sprayer</string>
@@ -67,11 +72,11 @@
     <string name="welcome">Welcome</string>
     <string name="yes">Yes</string>
     
-    <string name="scanSelfLabel">I am...</string>
+    <string name="scanSelfLabel">I am&#8230;</string>
     <string name="scanSelf">Scan my badge</string>
     <string name="noBadge">No badge</string>
     
-    <string name="scanSprayerLabel">The sprayers are...</string>
+    <string name="scanSprayerLabel">The sprayers are&#8230;</string>
     <string name="scanSprayer">Scan a sprayer\'s badge</string>
     <string name="scanAnotherSprayer">Scan another sprayer\'s badge</string>
     <string name="DoneForTheDay">Done for the day</string>

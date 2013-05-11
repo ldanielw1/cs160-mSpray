@@ -1,13 +1,12 @@
 package edu.berkeley.cs160.mSpray;
 
-import edu.berkeley.cs160.Base.BaseMainActivity;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import edu.berkeley.cs160.Base.BaseMainActivity;
 
 public class ConfirmKOrthrine extends BaseMainActivity {
 
@@ -36,7 +35,7 @@ public class ConfirmKOrthrine extends BaseMainActivity {
         TextView canRefilledValue = (TextView) findViewById(R.id.confirm_korthrine_can_refilled_value);
 
         foremanValue.setText(DataStore.foremanID);
-      
+
         roomsSprayedValue.setText(Integer.toString(roomsSprayed));
         sheltersSprayedValue.setText(Integer.toString(sheltersSprayed));
         boolean refillFlag = false;

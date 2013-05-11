@@ -16,6 +16,7 @@ public final class Constants {
     public static final float GPS_BUMB_DISTANCE = 10f;
 
     /** Constants for Upload Status. */
+    public static final String UPLOAD_STATUS = "uploadStatus";
     public static final int UPLOAD_SUCCESSFUL = 2;
     public static final int UPLOAD_UNSUCCESSFUL = 3;
 
@@ -48,9 +49,9 @@ public final class Constants {
 
     public static final String RFID_NAME = "rfid name";
     public static final String DOESNT_HAVE_RFID = "not identified";
-    
+
     public static final String SCAN_SPRAYER = "Scan Sprayer";
-    
+
     public static final String RESCAN_FORMAN = "Rescan Foreman";
 
 }

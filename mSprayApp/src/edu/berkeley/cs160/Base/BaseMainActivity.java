@@ -6,34 +6,30 @@ import edu.berkeley.cs160.mSpray.ScanForeman;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 
-/*
- * Originally created to help avoid that weird pop up screen in the Nexus when you aren't on the correct 
- * activity and you scan the rfid. 
- */
+/* Originally created to help avoid that weird pop up screen in the Nexus when
+ * you aren't on the correct activity and you scan the rfid. */
 public class BaseMainActivity extends Activity {
-	private NfcAdapter mAdapter;
-	private PendingIntent pendingIntent;
+    private NfcAdapter mAdapter;
+    private PendingIntent pendingIntent;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		mAdapter = NfcAdapter.getDefaultAdapter(this);
-		if (mAdapter != null)
-			enableOverrideNexusRfidReader();
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mAdapter = NfcAdapter.getDefaultAdapter(this);
+        if (mAdapter != null)
+            enableOverrideNexusRfidReader();
+    }
 
-	private void enableOverrideNexusRfidReader() {
-		// set up a PendingIntent to open the app when a tag is scanned
-		mAdapter = NfcAdapter.getDefaultAdapter(this);
-		pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this,
-				getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
-	}
+    private void enableOverrideNexusRfidReader() {
+        // set up a PendingIntent to open the app when a tag is scanned
+        mAdapter = NfcAdapter.getDefaultAdapter(this);
+        pendingIntent = PendingIntent.getActivity(this, 0,
+                new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+    }
 
 	/*
 	 * 8 (non-Javadoc)
@@ -63,15 +59,17 @@ public class BaseMainActivity extends Activity {
 			mAdapter.enableForegroundDispatch(this, pendingIntent, null, null);
 	}
 
-	public void onPause() {
-		super.onPause();
-		if (mAdapter != null)
-			mAdapter.disableForegroundDispatch(this);
-	}
 
-	@Override
-	public void onNewIntent(Intent intent) {
-		// do nothing. We will override this in the activities that actually
-		// need the RFID scanning abilities
-	}
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mAdapter != null)
+            mAdapter.disableForegroundDispatch(this);
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        // do nothing. We will override this in the activities that actually
+        // need the RFID scanning abilities
+    }
 }

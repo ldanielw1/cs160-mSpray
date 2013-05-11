@@ -1,22 +1,20 @@
 package edu.berkeley.cs160.mSpray;
 
-import edu.berkeley.cs160.Base.BaseMainActivity;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import edu.berkeley.cs160.Base.BaseMainActivity;
 
 public class ChooseSprayer extends BaseMainActivity {
 
     TextView chooseOneSprayerText;
     TextView chooseTwoSprayerText;
-    RelativeLayout chooseOneSprayer;
-    RelativeLayout chooseTwoSprayers;
+    LinearLayout chooseOneSprayer;
+    LinearLayout chooseTwoSprayers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +26,7 @@ public class ChooseSprayer extends BaseMainActivity {
 
         setTitle("How many sprayers?");
 
-        chooseOneSprayer = (RelativeLayout) findViewById(R.id.activity_choose_sprayers_1_fake_button);
+        chooseOneSprayer = (LinearLayout) findViewById(R.id.activity_choose_sprayers_1_fake_button);
         chooseOneSprayerText = (TextView) findViewById(R.id.activity_choose_sprayer_textView);
         chooseTwoSprayerText = (TextView) findViewById(R.id.activity_choose_sprayer2_textView);
 
@@ -44,7 +42,7 @@ public class ChooseSprayer extends BaseMainActivity {
         });
         chooseOneSprayerText.setTypeface(Constants.TYPEFACE);
 
-        chooseTwoSprayers = (RelativeLayout) findViewById(R.id.activity_choose_sprayers_2_fake_button);
+        chooseTwoSprayers = (LinearLayout) findViewById(R.id.activity_choose_sprayers_2_fake_button);
 
         chooseTwoSprayers.setOnClickListener(new OnClickListener() {
             @Override
