@@ -6,7 +6,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import edu.berkeley.cs160.Base.BaseMainActivity;
@@ -14,7 +14,7 @@ import edu.berkeley.cs160.GPS.GetGpsActivity;
 
 public class StartNewSpray extends BaseMainActivity {
 
-    RelativeLayout startSpray;
+    LinearLayout startSpray;
     TextView startSprayText;
     Button completelyFinished;
     TextView tv;
@@ -40,7 +40,7 @@ public class StartNewSpray extends BaseMainActivity {
 
         tv.setTypeface(Constants.TYPEFACE);
 
-        startSpray = (RelativeLayout) findViewById(R.id.activity_start_new_spray_fake_button);
+        startSpray = (LinearLayout) findViewById(R.id.activity_start_new_spray_fake_button);
         startSprayText = (TextView) findViewById(R.id.activity_start_new_spray_text);
 
         startSpray.setOnClickListener(new View.OnClickListener() {
@@ -83,8 +83,8 @@ public class StartNewSpray extends BaseMainActivity {
                 public void onClick(View v) {
                     Intent nextIntent = new Intent(getApplicationContext(), ScanForeman.class);
                     nextIntent.putExtra(Constants.RESCAN_FORMAN, true);
-                    nextIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    nextIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    nextIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(nextIntent);
                 }
             });

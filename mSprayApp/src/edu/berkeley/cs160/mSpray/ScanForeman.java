@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import edu.berkeley.cs160.Base.BaseMainActivity;
@@ -34,7 +33,7 @@ public class ScanForeman extends BaseMainActivity {
     ImageView handHoldingBadge;
     TextView tv;
     LinearLayout scanForemanLayout;
-    RelativeLayout scanSelf; // fake button
+    LinearLayout scanSelf; // fake button
     private boolean scanning = false;
 
     @Override
@@ -52,7 +51,7 @@ public class ScanForeman extends BaseMainActivity {
         // External font
         Constants.TYPEFACE = Typeface.createFromAsset(getAssets(), Constants.FONT_PATH);
 
-        scanSelf = (RelativeLayout) findViewById(R.id.activity_scan_rfid_fake_button);
+        scanSelf = (LinearLayout) findViewById(R.id.activity_scan_rfid_fake_button);
         tv = (TextView) findViewById(R.id.scan_rfid_instructions);
         startScan = (TextView) findViewById(R.id.scan_rfid_textView_start_scan);
         skipScan = (Button) findViewById(R.id.scan_rfid_button_forgot_badge);

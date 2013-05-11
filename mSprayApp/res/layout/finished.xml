@@ -17,360 +17,367 @@
         android:text="@string/dataRecorded"
         android:textSize="28sp" />
 
-    <TableLayout
-        android:id="@+id/finished_table"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/finished_layout_innerLinearLayout"
         android:layout_below="@+id/finished_textview_title"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp" >
+        android:scrollbars="none" >
 
-        <TableRow
-            android:id="@+id/finished_chemical_row"
-            android:layout_width="wrap_content"
+        <TableLayout
+            android:id="@+id/finished_table"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp" >
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp" >
 
-            <TextView
-                android:id="@+id/finished_chemical_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/chemical"
-                android:textColor="#fff"
-                android:textSize="20sp" />
+            <TableRow
+                android:id="@+id/finished_chemical_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_chemical_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="20sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_chemical_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/chemical"
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
 
-        <TableRow
-            android:id="@+id/finished_foreman_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_chemical_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_foreman_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/foreman"
-                android:textColor="#fff"
-                android:textSize="20sp" />
+            <TableRow
+                android:id="@+id/finished_foreman_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_foreman_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="20sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_foreman_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/foreman"
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
 
-        <TableRow
-            android:id="@+id/finished_sprayer_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_foreman_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_sprayer_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/sprayer"
-                android:textColor="#fff"
-                android:textSize="20sp" />
+            <TableRow
+                android:id="@+id/finished_sprayer_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_sprayer_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="20sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_sprayer_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/sprayer"
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
 
-        <TableRow
-            android:id="@+id/finished_rooms_sprayed_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_sprayer_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_rooms_sprayed_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/roomsSprayedLabel2"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+            <TableRow
+                android:id="@+id/finished_rooms_sprayed_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_rooms_sprayed_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_rooms_sprayed_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/roomsSprayedLabel2"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
-        <TableRow
-            android:id="@+id/finished_shelters_sprayed_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_rooms_sprayed_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_shelters_sprayed_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/sheltersSprayedLabel2"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+            <TableRow
+                android:id="@+id/finished_shelters_sprayed_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_shelters_sprayed_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_shelters_sprayed_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/sheltersSprayedLabel2"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
-        <TableRow
-            android:id="@+id/finished_can_refilled_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_shelters_sprayed_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_can_refilled_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/refillCanLabel2"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+            <TableRow
+                android:id="@+id/finished_can_refilled_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_can_refilled_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_can_refilled_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/refillCanLabel2"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
-        <TableRow
-            android:id="@+id/finished_sprayer2_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_can_refilled_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_sprayer2_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/sprayer2"
-                android:textColor="#fff"
-                android:textSize="20sp" />
+            <TableRow
+                android:id="@+id/finished_sprayer2_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_sprayer2_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="20sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_sprayer2_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/sprayer2"
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
 
-        <TableRow
-            android:id="@+id/finished_rooms_sprayed2_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_sprayer2_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_rooms_sprayed2_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/roomsSprayedLabel2"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+            <TableRow
+                android:id="@+id/finished_rooms_sprayed2_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_rooms_sprayed2_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_rooms_sprayed2_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/roomsSprayedLabel2"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
-        <TableRow
-            android:id="@+id/finished_shelters_sprayed2_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_rooms_sprayed2_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_shelters_sprayed2_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/sheltersSprayedLabel2"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+            <TableRow
+                android:id="@+id/finished_shelters_sprayed2_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_shelters_sprayed2_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_shelters_sprayed2_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/sheltersSprayedLabel2"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
-        <TableRow
-            android:id="@+id/finished_can_refilled2_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_shelters_sprayed2_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_can_refilled2_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/refillCanLabel2"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+            <TableRow
+                android:id="@+id/finished_can_refilled2_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_can_refilled2_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_can_refilled2_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/refillCanLabel2"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
-        <TableRow
-            android:id="@+id/finished_rooms_unsprayed_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_can_refilled2_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_rooms_unsprayed_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/roomsUnsprayed"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+            <TableRow
+                android:id="@+id/finished_rooms_unsprayed_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_rooms_unsprayed_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_rooms_unsprayed_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/roomsUnsprayed"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
-        <TableRow
-            android:id="@+id/finished_shelters_unsprayed_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_rooms_unsprayed_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_shelters_unsprayed_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/sheltersUnsprayed"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+            <TableRow
+                android:id="@+id/finished_shelters_unsprayed_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_shelters_unsprayed_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_shelters_unsprayed_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/sheltersUnsprayed"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
-        <TableRow
-            android:id="@+id/finished_unsprayed_reason_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_shelters_unsprayed_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_unsprayed_reason_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/reason"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+            <TableRow
+                android:id="@+id/finished_unsprayed_reason_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_unsprayed_reason_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_unsprayed_reason_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/reason"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
-        <TableRow
-            android:id="@+id/finished_latitude_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_unsprayed_reason_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_latitude_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/latitude"
-                android:textColor="#fff"
-                android:textSize="20sp" />
+            <TableRow
+                android:id="@+id/finished_latitude_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_latitude_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="20sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/finished_latitude_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/latitude"
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
 
-        <TableRow
-            android:id="@+id/finished_longitude_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+                <TextView
+                    android:id="@+id/finished_latitude_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/finished_longitude_label"
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:text="@string/longitude"
-                android:textColor="#fff"
-                android:textSize="20sp" />
+            <TableRow
+                android:id="@+id/finished_longitude_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/finished_longitude_value"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="20sp" />
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    android:id="@+id/finished_longitude_label"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:text="@string/longitude"
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/finished_longitude_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/finished_layout_innerLinearLayout"

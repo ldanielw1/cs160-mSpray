@@ -64,10 +64,14 @@ public class GoogleSpreadsheet {
 
             // Create the new row locally
             ListEntry row = new ListEntry();
-            // error out only if dataLabels size doesn't match dataValues -
 
-            for (String key : uploadData.keySet())
+            for (String key : uploadData.keySet()) {
+                if (uploadData.get(key) == null) {
+                    System.err.println("There was no value for: " + key);
+                    uploadData.put(key, "null");
+                }
                 row.getCustomElements().setValueLocal(key, uploadData.get(key));
+            }
 
             addRow(row);
         } catch (IOException e) {

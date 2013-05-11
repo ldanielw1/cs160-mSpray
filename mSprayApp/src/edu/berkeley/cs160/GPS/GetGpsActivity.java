@@ -160,7 +160,7 @@ public class GetGpsActivity extends BaseMainActivity {
             public void onClick(DialogInterface dialog, int id) {
                 if (latitude == 0 && longitude == 0) {
                     DataStore.setGPS(22.879, 30.729, "S", "E", "7");
-                    LocationFound.setText("OLD " + LocationFound.getText());
+                    LocationFound.setText(LocationFound.getText());
 
                 } else {
                     LocationFound.setVisibility(View.VISIBLE);

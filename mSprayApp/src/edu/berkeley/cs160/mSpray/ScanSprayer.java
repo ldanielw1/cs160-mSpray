@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import edu.berkeley.cs160.Base.BaseMainActivity;
@@ -33,7 +32,7 @@ public class ScanSprayer extends BaseMainActivity {
     TextView startScan;
     Button skipScan;
     LinearLayout scanForemanLayout;
-    RelativeLayout scanSelf;
+    LinearLayout scanSelf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,7 @@ public class ScanSprayer extends BaseMainActivity {
         DataStore.numSprayer = numSprayers;
         DataStore.formNumber = formNumber;
 
-        scanSelf = (RelativeLayout) findViewById(R.id.activity_scan_rfid_fake_button);
+        scanSelf = (LinearLayout) findViewById(R.id.activity_scan_rfid_fake_button);
         startScan = (TextView) findViewById(R.id.scan_rfid_textView_start_scan);
         scanRFIDImage = (ImageView) findViewById(R.id.scan_rfid_imageView);
         skipScan = (Button) findViewById(R.id.scan_rfid_button_forgot_badge);
