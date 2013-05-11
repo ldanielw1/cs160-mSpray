@@ -51,6 +51,8 @@ public class ScanForeman extends BaseMainActivity {
 
 		setTitle("Welcome to mSpray");
 		
+		Constants.LAST_UPLOAD_MILLIS = System.currentTimeMillis();
+		
 		
 		// External font
 		Constants.TYPEFACE = Typeface.createFromAsset(getAssets(),

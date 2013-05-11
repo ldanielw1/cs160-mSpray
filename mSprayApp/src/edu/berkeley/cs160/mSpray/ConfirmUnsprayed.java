@@ -232,6 +232,9 @@ public class ConfirmUnsprayed extends BaseMainActivity {
     private static String formatDateTime() {
         SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         Date d = new Date(System.currentTimeMillis());
+        
+        Constants.LAST_UPLOAD_MILLIS = System.currentTimeMillis();
+        
         String[] formattedDateArray = df.format(d).split(" ");
 
         String[] splitDate = formattedDateArray[0].split("/");

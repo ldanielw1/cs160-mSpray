@@ -43,6 +43,8 @@ public final class Constants {
 
     /** Constant for authorizing Google Spreadsheet uploading. */
     public static final String AUTHENTICATION_FILE = "assets/authentication.txt";
+    public static double LAST_UPLOAD_MILLIS = System.currentTimeMillis();
+    public static final double SESSION_TIMEOUT = 6*60*60*1000; //hrs x minutes x seconds x millis
 
     public static final String RFID_NAME = "rfid name";
     public static final String DOESNT_HAVE_RFID = "not identified";

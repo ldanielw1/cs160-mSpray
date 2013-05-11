@@ -1,5 +1,8 @@
 package edu.berkeley.cs160.Base;
 
+import edu.berkeley.cs160.mSpray.Constants;
+import edu.berkeley.cs160.mSpray.DataStore;
+import edu.berkeley.cs160.mSpray.ScanForeman;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -7,6 +10,7 @@ import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 
 /*
  * Originally created to help avoid that weird pop up screen in the Nexus when you aren't on the correct 
@@ -39,6 +43,22 @@ public class BaseMainActivity extends Activity {
 	 */
 	public void onResume() {
 		super.onResume();
+		
+		/* If it's been a long time since an upload, then clear user data and restart the entry */
+		if (System.currentTimeMillis() - Constants.LAST_UPLOAD_MILLIS > Constants.SESSION_TIMEOUT) {
+		     DataStore.destroyAllData();
+		     Constants.LAST_UPLOAD_MILLIS = System.currentTimeMillis();
+		     Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
+             intent.putExtra(Constants.RESCAN_FORMAN, true);
+             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+             startActivity(intent);
+		 } else {
+		     Log.d("debug123", "Current difference: " + ( System.currentTimeMillis() - Constants.LAST_UPLOAD_MILLIS));
+		 }
+		
+//		Constants.LAST_UPLOAD_MILLIS = System.currentTimeMillis();
+		
 		if (mAdapter != null)
 			mAdapter.enableForegroundDispatch(this, pendingIntent, null, null);
 	}
