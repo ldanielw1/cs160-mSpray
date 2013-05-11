@@ -130,6 +130,7 @@ public class FinishedActivity extends BaseMainActivity {
             public void onClick(View v) {
                 DataStore.secondTimeThrough = true;
                 Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
+                intent.putExtra(Constants.UPLOAD_STATUS, Constants.UPLOAD_SUCCESSFUL);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }

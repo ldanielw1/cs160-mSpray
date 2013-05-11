@@ -29,6 +29,10 @@ public class StartNewSpray extends BaseMainActivity {
 
         Intent intent = getIntent();
 
+        if (intent.getIntExtra(Constants.UPLOAD_STATUS, 0) == Constants.UPLOAD_SUCCESSFUL)
+            Toast.makeText(getApplicationContext(), "Data Saved. Thank you!", Toast.LENGTH_SHORT)
+                    .show();
+
         tv = (TextView) findViewById(R.id.activity_start_new_spray_header);
         if (intent.getStringExtra(Constants.RFID_NAME) != null) {
             tv.setText("I am: " + intent.getStringExtra(Constants.RFID_NAME));
