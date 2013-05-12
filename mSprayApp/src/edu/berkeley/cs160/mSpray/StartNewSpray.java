@@ -29,7 +29,7 @@ public class StartNewSpray extends BaseMainActivity {
 
         Intent intent = getIntent();
 
-        if (intent.getIntExtra(Constants.UPLOAD_STATUS, 0) == Constants.UPLOAD_SUCCESSFUL)
+        if (DataStore.secondTimeThrough)
             Toast.makeText(getApplicationContext(), "Data Saved. Thank you!", Toast.LENGTH_SHORT)
                     .show();
 
