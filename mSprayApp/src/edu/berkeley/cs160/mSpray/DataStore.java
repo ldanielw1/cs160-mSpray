@@ -31,15 +31,14 @@ public class DataStore {
     public static int roomsUnsprayed = -1;
     public static int sheltersUnsprayed = -1;
     public static String reasonUnsprayed = "";
-    
+
     public static boolean scannedFirstSprayer = false;
     public static boolean secondTimeThrough = false;
 
-	public static int numSprayer = 0;
-	public static int formNumber = 0;
-	
-	public static boolean doneForDay = false;
-	
+    public static int numSprayer = 0;
+    public static int formNumber = 0;
+
+    public static boolean doneForDay = false;
 
     /**
      * Instance from house to house
@@ -65,18 +64,31 @@ public class DataStore {
         sprayedRooms2 = -1;
         sprayedShelters2 = -1;
         canRefill2 = false;
-        
+
         scannedFirstSprayer = false;
     }
-    
+
+    /**
+     * Removes all data related to having a 2nd sprayer. This is pertinent for
+     * when backing out of a data recording for 2 sprayers back into a recording
+     * for 1 sprayer.
+     */
+    public static void clearSecondSprayer() {
+        sprayer2ID = null;
+        chemicalUsed2 = null;
+        sprayedRooms2 = -1;
+        sprayedShelters2 = -1;
+        canRefill2 = false;
+    }
+
     /**
      * instance of use between day to day so there might be a different foreman
      */
-    public static void destroyAllData(){
-    	startNewStoreSession();
-    	foremanID = null;
-    	scannedFirstSprayer = false;
-    	secondTimeThrough = false;
+    public static void destroyAllData() {
+        startNewStoreSession();
+        foremanID = null;
+        scannedFirstSprayer = false;
+        secondTimeThrough = false;
     }
 
     public static void setGPS(double la, double ln, String laNS, String lnEW, String acc) {

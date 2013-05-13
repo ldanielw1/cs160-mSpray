@@ -33,6 +33,7 @@ public class ChooseSprayer extends BaseMainActivity {
         chooseOneSprayer.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                DataStore.clearSecondSprayer();
                 Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                 intent.putExtra(Constants.SPRAY_TYPE, sprayType);
                 intent.putExtra(Constants.NUM_SPRAYERS, 1);

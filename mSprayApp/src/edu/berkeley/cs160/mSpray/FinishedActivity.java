@@ -41,9 +41,6 @@ public class FinishedActivity extends BaseMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finished);
 
-        Button finishedButton = (Button) findViewById(R.id.finished_button_finishedButton);
-        finishedButton.setTypeface(Constants.TYPEFACE);
-
         /* Populate paperwork table */
         TextView foremanValue = (TextView) findViewById(R.id.finished_foreman_value);
         TextView sprayerValue = (TextView) findViewById(R.id.finished_sprayer_value);
@@ -149,6 +146,7 @@ public class FinishedActivity extends BaseMainActivity {
         latitude.setTypeface(Constants.TYPEFACE);
         longitude.setTypeface(Constants.TYPEFACE);
 
+        Button finishedButton = (Button) findViewById(R.id.finished_button_finishedButton);
         finishedButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,6 +158,16 @@ public class FinishedActivity extends BaseMainActivity {
             }
         });
         finishedButton.setTypeface(Constants.TYPEFACE);
+
+        Button backButton = (Button) findViewById(R.id.finished_button_backButton);
+        backButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        backButton.setTypeface(Constants.TYPEFACE);
+
     }
 
     public void setProperChemicalValue() {
