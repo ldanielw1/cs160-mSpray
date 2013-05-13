@@ -328,7 +328,7 @@ public class FinishedActivity extends BaseMainActivity {
         SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         Date d = new Date(System.currentTimeMillis());
 
-        Constants.LAST_UPLOAD_MILLIS = System.currentTimeMillis();
+        SessionConstants.LAST_IMPORTANT_ACTION = System.currentTimeMillis();
 
         String[] formattedDateArray = df.format(d).split(" ");
 

@@ -1,14 +1,14 @@
 package edu.berkeley.cs160.Base;
 
-import edu.berkeley.cs160.mSpray.Constants;
-import edu.berkeley.cs160.mSpray.DataStore;
-import edu.berkeley.cs160.mSpray.ScanForeman;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
-import android.util.Log;
+import edu.berkeley.cs160.mSpray.Constants;
+import edu.berkeley.cs160.mSpray.DataStore;
+import edu.berkeley.cs160.mSpray.ScanForeman;
+import edu.berkeley.cs160.mSpray.SessionConstants;
 
 /* Originally created to help avoid that weird pop up screen in the Nexus when
  * you aren't on the correct activity and you scan the rfid. */
@@ -31,34 +31,29 @@ public class BaseMainActivity extends Activity {
                 new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
     }
 
-	/*
-	 * 8 (non-Javadoc)
-	 * 
-	 * @see android.app.Activity#onResume() this adapter only works when the
-	 * activity is in resume.
-	 */
-	public void onResume() {
-		super.onResume();
-		
-		/* If it's been a long time since an upload, then clear user data and restart the entry */
-		if (System.currentTimeMillis() - Constants.LAST_UPLOAD_MILLIS > Constants.SESSION_TIMEOUT) {
-		     DataStore.destroyAllData();
-		     Constants.LAST_UPLOAD_MILLIS = System.currentTimeMillis();
-		     Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
-             intent.putExtra(Constants.RESCAN_FORMAN, true);
-             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-             startActivity(intent);
-		 } else {
-		     Log.d("debug123", "Current difference: " + ( System.currentTimeMillis() - Constants.LAST_UPLOAD_MILLIS));
-		 }
-		
-//		Constants.LAST_UPLOAD_MILLIS = System.currentTimeMillis();
-		
-		if (mAdapter != null)
-			mAdapter.enableForegroundDispatch(this, pendingIntent, null, null);
-	}
+    /**
+     * @see android.app.Activity#onResume() this adapter only works when the
+     *      activity is in resume.
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
 
+        /* If it's been a long time since an upload, then clear user data and
+         * restart the entry */
+        if (System.currentTimeMillis() - SessionConstants.LAST_IMPORTANT_ACTION > Constants.SESSION_TIMEOUT) {
+            DataStore.destroyAllData();
+            SessionConstants.LAST_IMPORTANT_ACTION = System.currentTimeMillis();
+            Intent intent = new Intent(getApplicationContext(), ScanForeman.class);
+            intent.putExtra(Constants.RESCAN_FORMAN, true);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+
+        if (mAdapter != null)
+            mAdapter.enableForegroundDispatch(this, pendingIntent, null, null);
+    }
 
     @Override
     public void onPause() {

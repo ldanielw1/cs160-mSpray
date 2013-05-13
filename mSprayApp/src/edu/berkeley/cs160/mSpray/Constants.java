@@ -3,9 +3,11 @@ package edu.berkeley.cs160.mSpray;
 import android.graphics.Typeface;
 
 public final class Constants {
+    /**
+     * Fonts - TYPEFACE can't be final, since it has to get assigned on runtime.
+     */
     public static final String FONT_PATH = "fonts/life.ttf";
-    public static Typeface TYPEFACE; // Can't be final, since it has to get
-                                     // assigned on runtime
+    public static Typeface TYPEFACE;
 
     /** Constants for GPS */
     public static final int GPS_FOUND = 0;
@@ -44,8 +46,12 @@ public final class Constants {
 
     /** Constant for authorizing Google Spreadsheet uploading. */
     public static final String AUTHENTICATION_FILE = "assets/authentication.txt";
-    public static double LAST_UPLOAD_MILLIS = System.currentTimeMillis();
-    public static final double SESSION_TIMEOUT = 6*60*60*1000; //hrs x minutes x seconds x millis
+
+    /**
+     * Constant for refreshing the application. Calcuation:
+     * hours*minutes*seconds*millis;
+     */
+    public static final double SESSION_TIMEOUT = 6 * 60 * 60 * 1000;
 
     public static final String RFID_NAME = "rfid name";
     public static final String DOESNT_HAVE_RFID = "not identified";

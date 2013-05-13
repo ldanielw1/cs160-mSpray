@@ -21,23 +21,22 @@ public class LocationHelper {
 
             @Override
             public void onProviderEnabled(String provider) {
-                Log.v("LocationListener", "onProviderEnabled");
+                // Do nothing
             }
 
             @Override
             public void onProviderDisabled(String provider) {
-                Log.v("LocationListener", "onProviderDisabled");
+                // Do nothing
             }
 
             @Override
             public void onLocationChanged(Location location) {
-                Log.v("LocationListener", "onLocationChanged");
+                // Do nothing
             }
 
             @Override
             public void onStatusChanged(String provider, int status, Bundle extras) {
-                // TODO Auto-generated method stub
-
+                // Do nothing
             }
         };
 
@@ -47,7 +46,7 @@ public class LocationHelper {
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
         String provider = locationManager.getBestProvider(criteria, true);
 
-        Log.v("Provider", provider);
+        Log.v("Location Provider", "Location Provider: " + provider);
 
         locationManager.requestSingleUpdate(provider, locationListener, Looper.myLooper());
     }

@@ -109,7 +109,6 @@ public class GetGpsActivity extends BaseMainActivity {
                         gpsResultBuilder.append(" meters");
                         gpsText.setText(gpsResultBuilder.toString());
                         DataStore.setGPS(latitude, longitude, latitudeNS, longitudeEW, acc);
-                        System.out.println(acc);
                         progDialog.dismiss();
                         break;
                     }
@@ -216,7 +215,6 @@ public class GetGpsActivity extends BaseMainActivity {
         String provider = locManager.getBestProvider(criteria, false);
         Location location = locManager.getLastKnownLocation(provider);
         if (location == null) {
-            System.out.println("trying network instead");
             provider = LocationManager.NETWORK_PROVIDER;
             location = locManager.getLastKnownLocation(provider);
         }
