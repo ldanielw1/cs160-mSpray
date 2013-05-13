@@ -1,7 +1,7 @@
 ######################################################################
-# MSpray SP Form Generator
+# mSpray SP Form Generator
 ######################################################################
-This program can be used for downloading all of the MSpray SP Forms
+This program can be used for downloading all of the mSpray SP Forms
 onto one's computer. Currently, the online spreadsheet linked to this
 software only holds test data and fake names, but that is for security
 reasons as the information is not being officially released yet.

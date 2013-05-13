@@ -1,5 +1,5 @@
 ######################################################################
-# MSpray
+# mSpray Application
 ######################################################################
 This is the folder for the MSpray project's mobile app, the
 application for storing data from pesticide sprayings in Limpopo,
@@ -13,3 +13,12 @@ phones. This can be done by importing the project, and then clicking the play bu
 
 One could also copy the .apk file in the directory labeled "bin" onto
 a phone, and install the application from there.
+
+######################################################################
+# Acknowledgements
+######################################################################
+The Google Spreadsheet library was extremely helpful in making this
+program possible - their JAR files were included in the "lib" folder
+of this project, and were instrumental in the uploading of data onto
+the Google Spreadsheet of all of the mSpray 2.0 data.
+
