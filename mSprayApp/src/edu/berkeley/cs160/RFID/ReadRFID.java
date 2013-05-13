@@ -58,7 +58,6 @@ public class ReadRFID {
                 return true;
             }
         } catch (Exception e) {
-            // setReturnValue("Failed to read tag");
             handler.sendMessage(Message.obtain(handler, RFIDConstants.RFID_UNSUCCESS_READ));
 
         }

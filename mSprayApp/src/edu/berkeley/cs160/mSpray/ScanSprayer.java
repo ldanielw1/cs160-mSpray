@@ -63,9 +63,6 @@ public class ScanSprayer extends BaseMainActivity {
 
         scanRFIDImage.setImageDrawable(getResources().getDrawable(R.drawable.sprayworker));
 
-        // startScan.setCompoundDrawablesWithIntrinsicBounds(0,
-        // drawable.sprayworker, 0, 0);
-
         /* External Font */
         tv = (TextView) findViewById(R.id.scan_rfid_instructions);
         tv.setTypeface(Constants.TYPEFACE);

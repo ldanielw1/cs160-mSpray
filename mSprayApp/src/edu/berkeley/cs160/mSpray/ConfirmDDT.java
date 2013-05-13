@@ -91,8 +91,6 @@ public class ConfirmDDT extends BaseMainActivity {
                     Intent intent = new Intent(getApplicationContext(), UnsprayedActivity.class);
                     startActivity(intent);
                 } else {
-                    // Intent intent = new Intent(getApplicationContext(),
-                    // DDTActivity.class);
                     Intent intent = new Intent(getApplicationContext(), ScanSprayer.class);
                     intent.putExtra(Constants.NUM_SPRAYERS, numSprayers);
                     intent.putExtra(Constants.FORM_NUMBER, formNumber + 1);

@@ -74,8 +74,6 @@ public class ScanForeman extends BaseMainActivity {
                         intent.putExtra(Constants.RFID_NAME, rfidData.getReturnValue());
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                        // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        // intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                         break;
                     }
@@ -114,8 +112,6 @@ public class ScanForeman extends BaseMainActivity {
                 DataStore.foremanID = "not identified";
                 Intent intent = new Intent(getApplicationContext(), StartNewSpray.class);
                 intent.putExtra(Constants.RFID_NAME, Constants.DOESNT_HAVE_RFID);
-                // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                // intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             };
@@ -124,7 +120,6 @@ public class ScanForeman extends BaseMainActivity {
 
         mAdapter = NfcAdapter.getDefaultAdapter(this);
         rfidData = new ReadRFID(this, getClass(), handler, this);
-        // reScanning();
     }
 
     @Override

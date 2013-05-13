@@ -79,16 +79,8 @@ public class DDTActivity extends BaseMainActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Intent intent = new Intent(getApplicationContext(),
-                // ScanSprayer.class);
                 if (DataStore.formNumber == 1)
                     DataStore.scannedFirstSprayer = false;
-                // intent.putExtra(Constants.NUM_SPRAYERS,
-                // DataStore.numSprayer);
-                // intent.putExtra(Constants.FORM_NUMBER, DataStore.formNumber);
-                // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                // intent.putExtra(Constants.SPRAY_TYPE, Constants.DDT);
-                // startActivity(intent);
                 onBackPressed();
             };
         });
@@ -140,12 +132,6 @@ public class DDTActivity extends BaseMainActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (DataStore.formNumber == 1)
                 DataStore.scannedFirstSprayer = false;
-
-            // Intent intent = new Intent(getApplicationContext(),
-            // ScanSprayer.class);
-            // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            // //intent.addFlags(Intent.flag
-            // startActivity(intent);
             onBackPressed();
             return true;
         }
