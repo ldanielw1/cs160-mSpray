@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+<link rel="stylesheet" href="newMSprayEntry.css" />
+<style>
+/* App custom styles */
+</style>
+<script src="jquery.min.js">
+
+</script>
+<script src="jquery.mobile-1.1.0.min.js">
+
+</script>
+<script src="newMSprayEntry.js">
+
+</script>
+</head>
+<body>
+	<!-- Home -->
+	<div data-role="page" id="homePage">
+		<div data-theme="b" data-role="header">
+			<h3>mSpray v1.5</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div align="center">
+				<span><b>You are at: (</b></span>
+				<span id=lat value=""></span>
+				<span id=latNS value=""></span>
+                <span><b>,</b></span>
+                <span id=lng value=""></span>
+                <span id=lngEW value=""></span>
+                <span><b>, accuracy:</b></span>
+                <span id=acc value=""></span>
+                <span><b>)</b></span>
+			</div>
+			<script>
+                navigator.geolocation.getCurrentPosition(onGPSSuccess, onGPSError, {
+                    maximumAge : 3000,
+                    timeout : 5000,
+                    enableHighAccuracy : true
+                });
+
+                navigator.geolocation.watchPosition(onGPSSuccess, onGPSError, {
+                    maximumAge : 3000,
+                    timeout : 5000,
+                    enableHighAccuracy : true
+                });
+
+                function onGPSSuccess(pos) {
+                    var lat = pos.coords.latitude;
+                    var lng = pos.coords.longitude;
+                    var acc = pos.coords.accuracy;
+                    if (lat < 0) {
+                        latNS = "S";
+                        lat *= -1;
+                    } else {
+                        latNS = "N";
+                    }
+                    if (lng > 0) {
+                        lngEW = "E"
+                    } else {
+                        lngEW = "W";
+                        lng *= -1;
+                    }
+                    $("#lat").text(lat);
+                    $("#lat").css({
+                        'font-weight' : 'bolder'
+                    });
+                    $("#finalLatNS").text(lat);
+                    $("#latNS").text(latNS);
+                    $("#latNS").css({
+                        'font-weight' : 'bolder'
+                    });
+                    $("#lng").text(lng);
+                    $("#lng").css({
+                        'font-weight' : 'bolder'
+                    });
+                    $("#lngEW").text(lngEW);
+                    $("#lngEW").css({
+                        'font-weight' : 'bolder'
+                    });
+                    $("#acc").text(acc);
+				    $("#finalLat").text(lat.toString() + " " + latNS.toString());
+				    $("#finalLng").text(lng.toString() + " " + lngEW.toString());
+				    $("#finalAcc").text(acc.toString());
+                }
+
+                function onGPSError(pos) {
+                }
+
+            </script>
+			<div id="mainButtons">
+				<a href="#pageSprayed" data-direction="forward" data-role="button" data-theme="e">New Homestead?</a>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- homestead sprayed? -->
+	<div data-role="page" id="pageSprayed">
+		<div data-theme="b" data-role="header">
+			<h3>mSpray: Homestead Sprayed?</h3>
+		</div>
+
+		<div data-role="content" style="padding: 15px">
+			<div id="toggleHomesteadSprayed" data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend><i><b> Was homestead sprayed? </b></i></legend>
+					<input id="homesteadSprayedOn" name="toggleHomesteadSprayed" value="1" type="radio" />
+					<label for="homesteadSprayedOn"> Yes </label>
+					<input id="homesteadSprayedOff" name="toggleHomesteadSprayed" value="0" type="radio" />
+					<label for="homesteadSprayedOff"> No </label>
+				</fieldset>
+			</div>
+
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#homePage" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="sprayedToSprayer" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyHomesteadSprayed()" />
+					<span id="errorToggleHomesteadSprayed" style="display: none;">Indicate if homestead sprayed<br/></span>
+				</div>
+			</div>
+
+			<div data-theme="a" data-role="footer" data-position="fixed"></div>
+		</div>
+	</div>
+
+	<!-- sprayerIDs -->
+	<div data-role="page" id="pageSprayer">
+		<div data-theme="b" data-role="header">
+			<h3>mSpray: 1st Sprayer</h3>
+		</div>
+
+		<div data-role="fieldcontain">
+			<label for="selectmenu1"><i><b>Select Sprayer ID: </b></i></label> <select name="sprayerID"
+				id="sprayerID">
+				<option value="-none-">-none-</option>
+                <option value="BE04 - MARINGA HW">BE04 - MARINGA HW</option>
+                <option value="BE02 - MABUNDA YW">BE02 - MABUNDA YW</option>
+                <option value="BE03 - MAKHUBELE MS">BE03 - MAKHUBELE MS</option>
+                <option value="BE01 - CHAUKE RT">BE01 - CHAUKE RT</option>
+                <option value="BW02 - MABASA MJ">BW02 - MABASA MJ</option>
+                <option value="BW12 - MAKHUBELE MM">BW12 - MAKHUBELE MM</option>
+                <option value="BW01 - CHAUKE MR">BW01 - CHAUKE MR</option>
+                <option value="BW04 - HLENGANI PJ">BW04 - HLENGANI PJ</option>
+                <option value="LTT-D07 - NETSHIVERA EM">LTT-D07 - NETSHIVERA EM</option>
+                <option value="LTT-D05 - MAHADA TP">LTT-D05 - MAHADA TP</option>
+                <option value="LTT-D02 - NEMAKHAVHANI PW">LTT-D02 - NEMAKHAVHANI PW</option>
+                <option value="LTT-D01 - NEMAKONDE ME">LTT-D01 - NEMAKONDE ME</option>
+                <option value="LTT-D06 - MUFEBA LE">LTT-D06 - MUFEBA LE</option>
+                <option value="LTT-D04 - MAANDA AM">LTT-D04 - MAANDA AM</option>
+                <option value="MGE09 - SIARULI NJ">MGE09 - SIARULI NJ</option>
+                <option value="MGE07 - MUFAMADI P">MGE07 - MUFAMADI P</option>
+                <option value="MGE05 - MALIAVUSA NS">MGE05 - MALIAVUSA NS</option>
+                <option value="MGE06 - MAKUMBANE TE">MGE06 - MAKUMBANE TE</option>
+                <option value="MGE15 - NETSHIDZIVHANI VR">MGE15 - NETSHIDZIVHANI VR</option>
+                <option value="MGW29 - HADZHI NR">MGW29 - HADZHI NR</option>
+                <option value="MGW28 - PANDELANI NB">MGW28 - PANDELANI NB</option>
+                <option value="MGW09 - MUTELE TR">MGW09 - MUTELE TR</option>
+                <option value="MGW30 - MPHEPHU DC">MGW30 - MPHEPHU DC</option>
+                <option value="MGW11 - MUKWEVHO MR">MGW11 - MUKWEVHO MR</option>
+                <option value="MGW08 - RADZILANI KJ">MGW08 - RADZILANI KJ</option>
+                <option value="MGW06 - MUTOTI ST">MGW06 - MUTOTI ST</option>
+                <option value="MAK-E01 - MUDZUNGWANE ME">MAK-E01 - MUDZUNGWANE ME</option>
+                <option value="MAK-E07 - NEDZAMBA AA">MAK-E07 - NEDZAMBA AA</option>
+                <option value="MAK-E05 - MUNYAI NA">MAK-E05 - MUNYAI NA</option>
+                <option value="MAK-E04 - MUDAU K">MAK-E04 - MUDAU K</option>
+                <option value="MAK-E06 - NETSHIKULWE AS">MAK-E06 - NETSHIKULWE AS</option>
+                <option value="MAK-E03 - MATSHETE MT">MAK-E03 - MATSHETE MT</option>
+                <option value="MAK-E11 - RAMUNTSHI MS">MAK-E11 - RAMUNTSHI MS</option>
+                <option value="MAK-E10 - MAKUYA NR">MAK-E10 - MAKUYA NR</option>
+                <option value="MAK-E02 - GWEDUGWEDU NW">MAK-E02 - GWEDUGWEDU NW</option>
+                <option value="MAK-W04 - MUDALAHOTHE MW">MAK-W04 - MUDALAHOTHE MW</option>
+                <option value="MAK-W12 - MATIDZE TW">MAK-W12 - MATIDZE TW</option>
+                <option value="MAK-W06 - NEMATHABA NJ">MAK-W06 - NEMATHABA NJ</option>
+                <option value="MAK-W09 - SIMBA TR">MAK-W09 - SIMBA TR</option>
+                <option value="MAK-W13 - RAMUNTSHI RA">MAK-W13 - RAMUNTSHI RA</option>
+                <option value="MAK-W03 - MAHADA NP">MAK-W03 - MAHADA NP</option>
+                <option value="MAK-W10 - RAMUDZULI AA">MAK-W10 - RAMUDZULI AA</option>
+                <option value="MSI07 - NELUMONI NC">MSI07 - NELUMONI NC</option>
+                <option value="MSI05 - MUSHAMULA MJ">MSI05 - MUSHAMULA MJ</option>
+                <option value="MSI04 - MUDAU ME">MSI04 - MUDAU ME</option>
+                <option value="MSI06 - MUNZHELELE TN">MSI06 - MUNZHELELE TN</option>
+                <option value="MSI03 - MUTELE J">MSI03 - MUTELE J</option>
+                <option value="MSI09 - TSHIVALO RM">MSI09 - TSHIVALO RM</option>
+                <option value="MH06 - MANGANYI MS">MH06 - MANGANYI MS</option>
+                <option value="MH11 - NDENGEZA HJ">MH11 - NDENGEZA HJ</option>
+                <option value="MH10 - MBOWENI MA">MH10 - MBOWENI MA</option>
+                <option value="2134 - CHAUKE C">2134 - CHAUKE C</option>
+                <option value="MH12 - SITHOLE HN">MH12 - SITHOLE HN</option>
+                <option value="MH05 - MALULEKE PJ">MH05 - MALULEKE PJ</option>
+                <option value="MH02 - MANGANYI YS">MH02 - MANGANYI YS</option>
+                <option value="MH01 - BALOYI HJ">MH01 - BALOYI HJ</option>
+                <option value="MH08 - MASIA HD">MH08 - MASIA HD</option>
+                <option value="MH09 - MASHABA KE">MH09 - MASHABA KE</option>
+                <option value="MH03 - MALULEKE GF">MH03 - MALULEKE GF</option>
+                <option value="LTT-M04 - MANKGA PJ">LTT-M04 - MANKGA PJ</option>
+                <option value="LTT-M05 - MANKGA TC">LTT-M05 - MANKGA TC</option>
+                <option value="LTT-M06 - MODIBA MI">LTT-M06 - MODIBA MI</option>
+                <option value="LTT-M08 - MOKOBI MS">LTT-M08 - MOKOBI MS</option>
+                <option value="LTT-M09 - MOKWELE MC">LTT-M09 - MOKWELE MC</option>
+                <option value="LTT-M10 - SEEMOLA MS">LTT-M10 - SEEMOLA MS</option>
+                <option value="LTT-M16 - MANOKO MD">LTT-M16 - MANOKO MD</option>
+                <option value="LTT-M17 - MAHOSI NA">LTT-M17 - MAHOSI NA</option>
+                <option value="LTT-M14 - SETJIE SS">LTT-M14 - SETJIE SS</option>
+                <option value="LTT-M13 - SEFOLO FG">LTT-M13 - SEFOLO FG</option>
+                <option value="LTT-M12 - MOKALA MP">LTT-M12 - MOKALA MP</option>
+                <option value="LTT-M15 - RASEFATA MP">LTT-M15 - RASEFATA MP</option>
+                <option value="LTT-M01 - MADIOPE MJ">LTT-M01 - MADIOPE MJ</option>
+                <option value="LTT-M07 - MOHOHOMA NA">LTT-M07 - MOHOHOMA NA</option>
+                <option value="LTT-M02 - MODIOPE MP">LTT-M02 - MODIOPE MP</option>
+                <option value="NTL06 - MATHEVULA HD">NTL06 - MATHEVULA HD</option>
+                <option value="NTL04 - MOYANA HD">NTL04 - MOYANA HD</option>
+                <option value="NTL05 - HLUNGWANI GD">NTL05 - HLUNGWANI GD</option>
+                <option value="NTL02 - MABASA KS">NTL02 - MABASA KS</option>
+                <option value="NTL03 - SHIVAMBU MW">NTL03 - SHIVAMBU MW</option>
+                <option value="NTL07 - MASHABA GJ">NTL07 - MASHABA GJ</option>
+                <option value="NTL01 - BALOYI TC">NTL01 - BALOYI TC</option>
+                <option value="NTL29 - NOVELA MO">NTL29 - NOVELA MO</option>
+                <option value="NWDI01 - MATSHAKATSHE AS">NWDI01 - MATSHAKATSHE AS</option>
+                <option value="NWDI03 - MAKHADO TE">NWDI03 - MAKHADO TE</option>
+                <option value="NWDI02 - KHOROMBI NS">NWDI02 - KHOROMBI NS</option>
+                <option value="NWDI04 - MUDAU TJ">NWDI04 - MUDAU TJ</option>
+                <option value="NWDI07 - MUROGA MT">NWDI07 - MUROGA MT</option>
+                <option value="NWDI10 - RAMUTHELO TS">NWDI10 - RAMUTHELO TS</option>
+                <option value="NWDI06 - MULEBA TA">NWDI06 - MULEBA TA</option>
+                <option value="NWDI05 - NENDZHELELE MJ">NWDI05 - NENDZHELELE MJ</option>
+                <option value="NWDI08 - NDOU TS">NWDI08 - NDOU TS</option>
+                <option value="ERE03 - MATHONSI MT">ERE03 - MATHONSI MT</option>
+                <option value="ERE06 - NKASHA MJ">ERE06 - NKASHA MJ</option>
+                <option value="ERE04 - MASHELE GP">ERE04 - MASHELE GP</option>
+                <option value="ERE07 - MANYIKE MS">ERE07 - MANYIKE MS</option>
+                <option value="ERE08 - SPRINGA BA">ERE08 - SPRINGA BA</option>
+                <option value="ERE09 - MUKWEVHO MP">ERE09 - MUKWEVHO MP</option>
+                <option value="ERE05 - NGOBENI SS">ERE05 - NGOBENI SS</option>
+                <option value="ERE02 - MAHAFA MA">ERE02 - MAHAFA MA</option>
+                <option value="ERW02 - SINTHUMULE NN">ERW02 - SINTHUMULE NN</option>
+                <option value="ERW04 - NYAMANI MO">ERW04 - NYAMANI MO</option>
+                <option value="ERW05 - RIVIMBI BP">ERW05 - RIVIMBI BP</option>
+                <option value="ERW01 - SHIHAMBE AS">ERW01 - SHIHAMBE AS</option>
+                <option value="ERW03 - MIYENI MP">ERW03 - MIYENI MP</option>
+                <option value="ERW16 - VUKEYA GJ">ERW16 - VUKEYA GJ</option>
+                <option value="ERW06 - MANGANYE KW">ERW06 - MANGANYE KW</option>
+                <option value="ERW07 - MIYENI TJ">ERW07 - MIYENI TJ</option>
+                <option value="ERW08 - KHOROMBI S">ERW08 - KHOROMBI S</option>
+                <option value="SH03 - VUKEYA HS">SH03 - VUKEYA HS</option>
+                <option value="SH04 - MTHOMBENI ME">SH04 - MTHOMBENI ME</option>
+                <option value="SH01 - CHAUKE KP">SH01 - CHAUKE KP</option>
+                <option value="TL06 - MULAUDZI NP">TL06 - MULAUDZI NP</option>
+                <option value="TL10 - PHALANNDWA MF">TL10 - PHALANNDWA MF</option>
+                <option value="TL05 - MAVHINA MJ">TL05 - MAVHINA MJ</option>
+                <option value="TL07 - NDOU NJ">TL07 - NDOU NJ</option>
+                <option value="TL12 - AVHEANI FP">TL12 - AVHEANI FP</option>
+                <option value="TL09 - NEKHAMBELE NS">TL09 - NEKHAMBELE NS</option>
+                <option value="TL08 - TAKALANI NG">TL08 - TAKALANI NG</option>
+                <option value="ETS03 - MPHEPHU TS">ETS03 - MPHEPHU TS</option>
+                <option value="ETS05 - MUTAVHATSINDI AA">ETS05 - MUTAVHATSINDI AA</option>
+                <option value="ETS06 - RAMASUNGA NF">ETS06 - RAMASUNGA NF</option>
+                <option value="ETS04 - MAVHANDU NW">ETS04 - MAVHANDU NW</option>
+                <option value="ETS01 - MATSHONYONGE MW">ETS01 - MATSHONYONGE MW</option>
+                <option value="ETS07 - NEMALILI NE">ETS07 - NEMALILI NE</option>
+                <option value="ETS02 - SITHAGU MS">ETS02 - SITHAGU MS</option>
+                <option value="LTT-T05 - RAMADWA TN">LTT-T05 - RAMADWA TN</option>
+                <option value="LTT-T03 - TSHAMANO NP">LTT-T03 - TSHAMANO NP</option>
+                <option value="LTT-T01 - KUDZINGANA P">LTT-T01 - KUDZINGANA P</option>
+                <option value="LTT-T04 - TSHAMANO LW">LTT-T04 - TSHAMANO LW</option>
+				<option value="LTT-T02 - MBOYI NP">LTT-T02 - MBOYI NP</option>
+				<option value="T3713 - MALULEKE MG">T3713 - MALULEKE MG</option>
+				<option value="T3714 - MHLARI FM">T3714 - MHLARI FM</option>
+				<option value="T3715 - SHISHONGE HS">T3715 - SHISHONGE HS</option>
+				<option value="T3716 - SHIBAMBU KS">T3716 - SHIBAMBU KS</option>
+				<option value="T3717 - MUFAMADI MA">T3717 - MUFAMADI MA</option>
+				<option value="T3718 - MHLAVA TO">T3718 - MHLAVA TO</option>
+				<option value="T3719 - CHAUKE HO">T3719 - CHAUKE HO</option>
+				<option value="T3720 - MABASA MB">T3720 - MABASA MB</option>
+				<option value="T3721 - MALLULEKE MC">T3721 - MALLULEKE MC</option>
+				<option value="T3722 - CHAUKE MT">T3722 - CHAUKE MT</option>
+				<option value="T3723 - MASHAVA CH">T3723 - MASHAVA CH</option>
+				<option value="T3724 - BALOYI GG">T3724 - BALOYI GG</option>
+				<option value="T3725 - MALULEKE EJ">T3725 - MALULEKE EJ</option>
+				<option value="T3726 - CHAUKE VM">T3726 - CHAUKE VM</option>
+				<option value="T3727 - MAKHUVHA R">T3727 - MAKHUVHA R</option>
+				<option value="T3728 - MAKHUBELE LM">T3728 - MAKHUBELE LM</option>
+				<option value="T3729 - MASIA P">T3729 - MASIA P</option>
+				<option value="T3730 - MACHEBELE MG">T3730 - MACHEBELE MG</option>
+				<option value="T3731 - MALULEKE TG">T3731 - MALULEKE TG</option>
+				<option value="T3732 - MALULEKE V">T3732 - MALULEKE V</option>
+				<option value="T3733 - CHUMA R">T3733 - CHUMA R</option>
+				<option value="T3734 - BALOYI GE">T3734 - BALOYI GE</option>
+				<option value="T3735 - KHOSARS">T3735 - KHOSARS</option>
+				<option value="T3736 - HLONGWANETF">T3736 - HLONGWANETF</option>
+				<option value="T3737 - MCHAVI TJ">T3737 - MCHAVI TJ</option>
+				<option value="T3738 - BALOYI TJ">T3738 - BALOYI TJ</option>
+				<option value="T3739 - MAHOMANE TS">T3739 - MAHOMANE TS</option>
+				<option value="T3740 - MACHEBELE G">T3740 - MACHEBELE G</option>
+				<option value="T3741 - BILA LR">T3741 - BILA LR</option>
+				<option value="T3742 - CHAUKE KD">T3742 - CHAUKE KD</option>
+				<option value="T3743 - MATHYE MJ">T3743 - MATHYE MJ</option>
+				<option value="T3744 - RAMATAMBA AE">T3744 - RAMATAMBA AE</option>
+				<option value="T3745 - MUDAUAR">T3745 - MUDAUAR</option>
+				<option value="T3746 - BALOYI.J">T3746 - BALOYI.J</option>
+				<option value="T3747 - BVUKEYA ZL">T3747 - BVUKEYA ZL</option>
+				<option value="T3748 - MALULEKE MJ">T3748 - MALULEKE MJ</option>
+				<option value="T3749 - CHAUKE AA">T3749 - CHAUKE AA</option>
+				<option value="T3750 - HLUGWANI R">T3750 - HLUGWANI R</option>
+				<option value="T3751 - SHIVURI TM ">T3751 - SHIVURI TM</option>
+				<option value="T3752 - BALOYI MES">T3752 - BALOYI MES</option>
+				<option value="T3753 - MASHIGE PT">T3753 - MASHIGE PT</option>
+				<option value="T3754 - RIVOMBO BE">T3754 - RIVOMBO BE</option>
+				<option value="T3755 - BALOYI KG">T3755 - BALOYI KG</option>
+				<option value="T3756 - SIKHWIBILU MM">T3756 - SIKHWIBILU MM</option>
+				<option value="T3757 - CHAUKE HS">T3757 - CHAUKE HS</option>
+				<option value="T3758 - NOBELA HT">T3758 - NOBELA HT</option>
+				<option value="T3759 - HLONGWANE MM">T3759 - HLONGWANE MM</option>
+				<option value="T3760 - NDAMBI TR">T3760 - NDAMBI TR</option>
+				<option value="T3761 - TSHIVALO NJ">T3761 - TSHIVALO NJ</option>
+				<option value="T3762 - MBEDZI NJ">T3762 - MBEDZI NJ</option>
+				<option value="T3763 - NDADZA VE">T3763 - NDADZA VE</option>
+				<option value="T3764 - MANENZHE P">T3764 - MANENZHE P</option>
+				<option value="T3765 - MAKUYA FC">T3765 - MAKUYA FC</option>
+				<option value="T3766 - MUTHARI MA">T3766 - MUTHARI MA</option>
+				<option value="T3767 - NETSHIUNGANI RO">T3767 - NETSHIUNGANI RO</option>
+				<option value="T3768 - MAKHANI TE">T3768 - MAKHANI TE</option>
+				<option value="T3769 - MBEDZI RE">T3769 - MBEDZI RE</option>
+				<option value="T3770 - MUHANELWA AE">T3770 - MUHANELWA AE</option>
+				<option value="T3771 - PHURAVHATHU AM">T3771 - PHURAVHATHU AM</option>
+				<option value="T3772 - NDOU MM">T3772 - NDOU MM</option>
+				<option value="T3773 - TSHIDINO SC">T3773 - TSHIDINO SC</option>
+				<option value="T3774 - RAMUTHELO P">T3774 - RAMUTHELO P</option>
+				<option value="T3775 - KWINDA FS">T3775 - KWINDA FS</option>
+				<option value="T3776 - NYAMBENI FP">T3776 - NYAMBENI FP</option>
+				<option value="T3777 - NEMASETONI RE">T3777 - NEMASETONI RE</option>
+				<option value="T3778 - MAKUYA V">T3778 - MAKUYA V</option>
+				<option value="T3779 - THUSANI MB">T3779 - THUSANI MB</option>
+				<option value="T3780 - MMMBURU PE">T3780 - MMMBURU PE</option>
+				<option value="T3781 - MATSHETE KP">T3781 - MATSHETE KP</option>
+				<option value="T3782 - TSHIBALANGANDA Z">T3782 - TSHIBALANGANDA Z</option>
+				<option value="T3783 - MATANDULULE">T3783 - MATANDULULE</option>
+				<option value="T3784 - MUTSHAUBA TB">T3784 - MUTSHAUBA TB</option>
+				<option value="T3785 - MPHEPHU TC">T3785 - MPHEPHU TC</option>
+				<option value="T3786 - CHAUKE P">T3786 - CHAUKE P</option>
+				<option value="T3787 - MUFAMADI FE">T3787 - MUFAMADI FE</option>
+				<option value="T3788 - MANDAHA NP">T3788 - MANDAHA NP</option>
+				<option value="T3789 - NKHUMELENI JA">T3789 - NKHUMELENI JA</option>
+				<option value="T3790 - MAPHAGELA TR">T3790 - MAPHAGELA TR</option>
+				<option value="T3791 - MAVHUNGU MJ">T3791 - MAVHUNGU MJ</option>
+				<option value="T3792 - MANYIKANA MJ">T3792 - MANYIKANA MJ</option>
+				<option value="T3793 - ALILALI AB">T3793 - ALILALI AB</option>
+				<option value="T3794 - PHANDELANI AC">T3794 - PHANDELANI AC</option>
+				<option value="T3795 - MADUME NB">T3795 - MADUME NB</option>
+				<option value="T3796 - MUNYAI S">T3796 - MUNYAI S</option>
+				<option value="T3797 - BOLOGO AE">T3797 - BOLOGO AE</option>
+				<option value="T3798 - MALABI NE">T3798 - MALABI NE</option>
+				<option value="T3799 - MUNYAI NH">T3799 - MUNYAI NH</option>
+				<option value="T3800 - MASHOVHELA AA">T3800 - MASHOVHELA AA</option>
+				<option value="T3801 - MAHASE M">T3801 - MAHASE M</option>
+				<option value="T3802 - MUKUNUNDE TG">T3802 - MUKUNUNDE TG</option>
+				<option value="T3803 - RAMUDZULI TJ">T3803 - RAMUDZULI TJ</option>
+				<option value="T3804 - NDOU MP">T3804 - NDOU MP</option>
+				<option value="T3805 - SINTHUMULE TB">T3805 - SINTHUMULE TB</option>
+				<option value="T3806 - MUVHANGO F">T3806 - MUVHANGO F</option>
+				<option value="T3807 - MATSHIKA AJ">T3807 - MATSHIKA AJ</option>
+				<option value="T3808 - NEVHUTALU FLO">T3808 - NEVHUTALU FLO</option>
+				<option value="T3809 - MATEVHA FV">T3809 - MATEVHA FV</option>
+				<option value="T3810 - MULIBANA AP">T3810 - MULIBANA AP</option>
+				<option value="T3811 - MALIGANA R ">T3811 - MALIGANA R</option>
+				<option value="T3812 - MUKUNI ND">T3812 - MUKUNI ND</option>
+				<option value="T3813 - MABILA FJ">T3813 - MABILA FJ</option>
+				<option value="T3814 - MNISI H.S">T3814 - MNISI H.S</option>
+				<option value="T3815 - NGOBENI A.M">T3815 - NGOBENI A.M</option>
+				<option value="T3816 - PHOSA J.">T3816 - PHOSA J.</option>
+				<option value="T3817 - MANYIKE A.B">T3817 - MANYIKE A.B</option>
+				<option value="T3818 - BALOYI J.">T3818 - BALOYI J.</option>
+				<option value="T3819 - SARILA I.R">T3819 - SARILA I.R</option>
+				<option value="T3820 - SIBISI M.">T3820 - SIBISI M.</option>
+				<option value="T3821 - MALATJI T.D">T3821 - MALATJI T.D</option>
+				<option value="T3822 - MAKHUBELE C.P">T3822 - MAKHUBELE C.P</option>
+				<option value="T3823 - SHISHENGE Y.T">T3823 - SHISHENGE Y.T</option>
+				<option value="T3824 - BALOYI J.">T3824 - BALOYI J.</option>
+				<option value="T3825 - MTHOMBENI J.R">T3825 - MTHOMBENI J.R</option>
+				<option value="T3826 - MATAMELA B.R">T3826 - MATAMELA B.R</option>
+				<option value="T3827 - BELE L.E">T3827 - BELE L.E</option>
+				<option value="T3828 - MAKHADI R.J">T3828 - MAKHADI R.J</option>
+				<option value="T3829 - KHOSA M.C">T3829 - KHOSA M.C</option>
+				<option value="T3830 - MASHELE K.A">T3830 - MASHELE K.A</option>
+				<option value="T3831 - MASWANGANYI W.N">T3831 - MASWANGANYI W.N</option>
+				<option value="T3832 - MALULEKE ME">T3832 - MALULEKE ME</option>
+				<option value="T3833 - RAMULIFHO AP">T3833 - RAMULIFHO AP</option>
+				<option value="T3834 - MULAUDZI R">T3834 - MULAUDZI R</option>
+				<option value="T3835 - MUDAU RP">T3835 - MUDAU RP</option>
+				<option value="T3836 - MAKHUVA TE">T3836 - MAKHUVA TE</option>
+				<option value="T3837 - MAHLAULA ME">T3837 - MAHLAULA ME</option>
+				<option value="T3838 - MASHISHIMISE AC">T3838 - MASHISHIMISE AC</option>
+				<option value="T3839 - MANYIKE WF">T3839 - MANYIKE WF</option>
+				<option value="T3840 - BALOYI ME">T3840 - BALOYI ME</option>
+				<option value="T3841 - KHODOKA TM">T3841 - KHODOKA TM</option>
+				<option value="T3842 - MAHANDANA S">T3842 - MAHANDANA S</option>
+				<option value="T3843 - RAMARUMO RS">T3843 - RAMARUMO RS</option>
+				<option value="T3844 - SIKHWENI H">T3844 - SIKHWENI H</option>
+				<option value="T3845 - PHOTHWANA MJ">T3845 - PHOTHWANA MJ</option>
+			</select>
+		</div>
+        <!-- TODO:  need to verify the ID and name -->
+
+		<div class="ui-grid-a" id="formControl">
+			<div class="ui-block-a">
+				<a href="#pageSprayed" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+			</div>
+			<div class="ui-block-b">
+				<input data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyFirstSprayer()" />
+				<span id="errorMissingSprayer1" style="display: none;">Indicate first sprayer's ID</span>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- DDT1 -->
+	<div data-role="page" id="pageDDT1">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 1: DDT</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div id="toggleDDTSwitch" data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend><i><b> DDT Used? </b></i></legend>
+					<input id="DDTOn" name="toggleDDT" value="1" type="radio" />
+					<label for="DDTOn"> Yes </label>
+					<input id="DDTOff" name="toggleDDT" value="0" type="radio" />
+					<label for="DDTOff"> No </label>
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+                    <a href="#pageSprayer" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="DDTToKOrthrine" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyDDT()" />
+					<span id="errorToggleDDT" style="display: none;">Indicate if sprayed DDT<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- DDT2 -->
+	<div data-role="page" id="pageDDT2">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 1: DDT</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="DDTSprayedRooms">
+				<fieldset data-role="controlgroup">
+					<label for="DDTSprayedRoomsInput"><i><b> Number of Rooms SPRAYED With DDT? </b></i></label>
+					<input name="" id="DDTSprayedRoomsInput" placeholder="" value="" type="number" />
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageDDT1" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="DDTToKOrthrine" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyDDT2()" />
+					<span id="errorMissingDDTInfo1" style="display: none;">Indicate rooms SPRAYED with DDT<br/></span>
+					<span id="errorInvalidDDTInfo1" style="display: none;">Invalid number of rooms SPRAYED with DDT<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- DDT3 -->
+	<div data-role="page" id="pageDDT3">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 1: DDT</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="DDTSprayedShelters">
+				<fieldset data-role="controlgroup">
+					<label for="DDTSprayedSheltersInput"><i><b> Number of Shelters SPRAYED With DDT? </b></i></label>
+					<input name="" id="DDTSprayedSheltersInput" placeholder="" value="" type="number" />
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageDDT2" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="DDTToKOrthrine" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyDDT3()" />
+					<span id="errorMissingDDTShelterInfo" style="display: none;">Indicate shelters SPRAYED with DDT<br/></span>
+					<span id="errorInvalidDDTShelterInfo" style="display: none;">Invalid number of shelters SPRAYED with DDT<br/></span>
+					<span id="errorInvalidDDTShelterInfo2" style="display: none;">Both number of sprayed rooms and shelters cannot be zero<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- DDT4 -->
+	<div data-role="page" id="pageDDT4">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 1: DDT</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div id="refillDDT" data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend><i><b> Refilled DDT Can? </b></i></legend>
+					<input id="refilledDDT" name="toggleDDTRefill" value="1" type="radio" />
+					<label for="refilledDDT"> Yes </label>
+					<input id="noRefilledDDT" name="toggleDDTRefill" value="0" type="radio" />
+					<label for="noRefilledDDT"> No </label>
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageDDT3" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="DDTToKOrthrine" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyDDT4()" />
+					<span id="errorMissingDDTInfo2" style="display: none;">Indicate if refilled DDT can<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- KOrthrine1 -->
+	<div data-role="page" id="pageKOrthrine1">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 1: K-Orthrine</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div id="toggleKOrthrineSwitch" data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend><i><b> K-Orthrine Used? </b></i></legend>
+					<input id="kOrthrineOn" name="toggleKOrthrine" value="1" type="radio" />
+					<label for="kOrthrineOn"> Yes </label>
+					<input id="kOrthrineOff" name="toggleKOrthrine" value="0" type="radio" />
+					<label for="kOrthrineOff"> No </label>
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<input data-theme="a" data-iconpos="left" value="Back" type="submit" onclick="backFromKOrthrine()" />
+				</div>
+				<div class="ui-block-b">
+					<input data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyKOrthrine()" />
+					<span id="errorToggleKOrthrine" style="display: none;">Indicate if sprayed K-Orthrine<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- KOrthrine2 -->
+	<div data-role="page" id="pageKOrthrine2">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 1: K-Orthrine</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="kOrthrineSprayedRooms">
+				<fieldset data-role="controlgroup">
+					<label for="kOrthrineSprayedRoomsInput"><i><b> Number of Rooms SPRAYED With K-Orthrine? </b></i></label>
+					<input name="" id="kOrthrineSprayedRoomsInput" placeholder="" value="" type="number" />
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageKOrthrine1" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="submitButton2" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyKOrthrine2()" />
+					<span id="errorMissingKOrthrineInfo1" style="display: none;">Indicate rooms SPRAYED with K-Orthrine<br/></span>
+					<span id="errorInvalidKOrthrineInfo1" style="display: none;">Invalid number of rooms SPRAYED with K-Orthrine<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- KOrthrine3 -->
+	<div data-role="page" id="pageKOrthrine3">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 1: K-Orthrine</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="kOrthrineSprayedShelters">
+				<fieldset data-role="controlgroup">
+					<label for="kOrthrineSprayedSheltersInput"><i><b> Number of Shelters SPRAYED With K-Orthrine? </b></i></label>
+					<input name="" id="kOrthrineSprayedSheltersInput" placeholder="" value="" type="number" />
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageKOrthrine2" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="submitButton2" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyKOrthrine3()" />
+					<span id="errorMissingKOrthrineShelterInfo" style="display: none;">Indicate shelters SPRAYED with K-Orthrine<br/></span>
+					<span id="errorInvalidKOrthrineShelterInfo" style="display: none;">Invalid number of shelters SPRAYED with K-Orthrine<br/></span>
+					<span id="errorInvalidKOrthrineShelterInfo2" style="display: none;">Both number of sprayed rooms and shelters cannot be zero<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- KOrthrine4 -->
+	<div data-role="page" id="pageKOrthrine4">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 1: K-Orthrine</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div id="refillKOrthrine" data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend><i><b> Refilled K-Orthrine Can? </b></i></legend>
+					<input id="refilledKOrthrine" name="toggleKOrthrineRefill" value="1" type="radio" />
+					<label for="refilledKOrthrine"> Yes </label>
+					<input id="noRefilledKOrthrine" name="toggleKOrthrineRefill" value="0" type="radio" />
+					<label for="noRefilledKOrthrine"> No </label>
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageKOrthrine3" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyKOrthrine4()" />
+					<span id="errorMissingKOrthrineInfo2" style="display: none;">Indicate if refilled K-Orthrine can<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+
+
+
+	<!-- sprayerIDs2-1 -->
+	<div data-role="page" id="pageSprayer2-1">
+		<div data-theme="b" data-role="header">
+			<h3>mSpray: 2nd Sprayer</h3>
+		</div>
+
+		<div data-role="content" style="padding: 15px">
+			<div id="toggleSecondSprayer" data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend><i><b> Indicate if Second Sprayer: </b></i></legend>
+					<input id="secondSprayerOn" name="toggleSecondSprayer" value="1" type="radio" />
+					<label for="secondSprayerOn"> Yes </label>
+					<input id="secondSprayerOff" name="toggleSecondSprayer" value="0" type="radio" />
+					<label for="secondSprayerOff"> No </label>
+				</fieldset>
+			</div>
+
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<input data-theme="a" data-iconpos="left" value="Back" type="submit" onclick="backFromSecondSprayer()" />
+				</div>
+				<div class="ui-block-b">
+					<input id="sprayer2ToDDT" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifySecondSprayer()" />
+					<span id="errorToggleSprayer2" style="display: none;">Indicate if second sprayer<br/></span>
+				</div>
+			</div>
+
+			<div data-theme="a" data-role="footer" data-position="fixed"></div>
+		</div>
+	</div>
+
+
+	<!-- sprayerIDs2-2 -->
+	<div data-role="page" id="pageSprayer2-2">
+		<div data-theme="b" data-role="header">
+			<h3>mSpray: 2nd Sprayer</h3>
+		</div>
+
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="sprayer2IDInput">
+				<label for="selectmenu2"><i><b> Select Second Sprayer ID: </b></i></label> <select
+					name="sprayer2ID" id="sprayer2ID">
+					<option value="-none-">-none-</option>
+                    <option value="BE04 - MARINGA HW">BE04 - MARINGA HW</option>
+                    <option value="BE02 - MABUNDA YW">BE02 - MABUNDA YW</option>
+                    <option value="BE03 - MAKHUBELE MS">BE03 - MAKHUBELE MS</option>
+                    <option value="BE01 - CHAUKE RT">BE01 - CHAUKE RT</option>
+                    <option value="BW02 - MABASA MJ">BW02 - MABASA MJ</option>
+                    <option value="BW12 - MAKHUBELE MM">BW12 - MAKHUBELE MM</option>
+                    <option value="BW01 - CHAUKE MR">BW01 - CHAUKE MR</option>
+                    <option value="BW04 - HLENGANI PJ">BW04 - HLENGANI PJ</option>
+                    <option value="LTT-D07 - NETSHIVERA EM">LTT-D07 - NETSHIVERA EM</option>
+                    <option value="LTT-D05 - MAHADA TP">LTT-D05 - MAHADA TP</option>
+                    <option value="LTT-D02 - NEMAKHAVHANI PW">LTT-D02 - NEMAKHAVHANI PW</option>
+                    <option value="LTT-D01 - NEMAKONDE ME">LTT-D01 - NEMAKONDE ME</option>
+                    <option value="LTT-D06 - MUFEBA LE">LTT-D06 - MUFEBA LE</option>
+                    <option value="LTT-D04 - MAANDA AM">LTT-D04 - MAANDA AM</option>
+                    <option value="MGE09 - SIARULI NJ">MGE09 - SIARULI NJ</option>
+                    <option value="MGE07 - MUFAMADI P">MGE07 - MUFAMADI P</option>
+                    <option value="MGE05 - MALIAVUSA NS">MGE05 - MALIAVUSA NS</option>
+                    <option value="MGE06 - MAKUMBANE TE">MGE06 - MAKUMBANE TE</option>
+                    <option value="MGE15 - NETSHIDZIVHANI VR">MGE15 - NETSHIDZIVHANI VR</option>
+                    <option value="MGW29 - HADZHI NR">MGW29 - HADZHI NR</option>
+                    <option value="MGW28 - PANDELANI NB">MGW28 - PANDELANI NB</option>
+                    <option value="MGW09 - MUTELE TR">MGW09 - MUTELE TR</option>
+                    <option value="MGW30 - MPHEPHU DC">MGW30 - MPHEPHU DC</option>
+                    <option value="MGW11 - MUKWEVHO MR">MGW11 - MUKWEVHO MR</option>
+                    <option value="MGW08 - RADZILANI KJ">MGW08 - RADZILANI KJ</option>
+                    <option value="MGW06 - MUTOTI ST">MGW06 - MUTOTI ST</option>
+                    <option value="MAK-E01 - MUDZUNGWANE ME">MAK-E01 - MUDZUNGWANE ME</option>
+                    <option value="MAK-E07 - NEDZAMBA AA">MAK-E07 - NEDZAMBA AA</option>
+                    <option value="MAK-E05 - MUNYAI NA">MAK-E05 - MUNYAI NA</option>
+                    <option value="MAK-E04 - MUDAU K">MAK-E04 - MUDAU K</option>
+                    <option value="MAK-E06 - NETSHIKULWE AS">MAK-E06 - NETSHIKULWE AS</option>
+                    <option value="MAK-E03 - MATSHETE MT">MAK-E03 - MATSHETE MT</option>
+                    <option value="MAK-E11 - RAMUNTSHI MS">MAK-E11 - RAMUNTSHI MS</option>
+                    <option value="MAK-E10 - MAKUYA NR">MAK-E10 - MAKUYA NR</option>
+                    <option value="MAK-E02 - GWEDUGWEDU NW">MAK-E02 - GWEDUGWEDU NW</option>
+                    <option value="MAK-W04 - MUDALAHOTHE MW">MAK-W04 - MUDALAHOTHE MW</option>
+                    <option value="MAK-W12 - MATIDZE TW">MAK-W12 - MATIDZE TW</option>
+                    <option value="MAK-W06 - NEMATHABA NJ">MAK-W06 - NEMATHABA NJ</option>
+                    <option value="MAK-W09 - SIMBA TR">MAK-W09 - SIMBA TR</option>
+                    <option value="MAK-W13 - RAMUNTSHI RA">MAK-W13 - RAMUNTSHI RA</option>
+                    <option value="MAK-W03 - MAHADA NP">MAK-W03 - MAHADA NP</option>
+                    <option value="MAK-W10 - RAMUDZULI AA">MAK-W10 - RAMUDZULI AA</option>
+                    <option value="MSI07 - NELUMONI NC">MSI07 - NELUMONI NC</option>
+                    <option value="MSI05 - MUSHAMULA MJ">MSI05 - MUSHAMULA MJ</option>
+                    <option value="MSI04 - MUDAU ME">MSI04 - MUDAU ME</option>
+                    <option value="MSI06 - MUNZHELELE TN">MSI06 - MUNZHELELE TN</option>
+                    <option value="MSI03 - MUTELE J">MSI03 - MUTELE J</option>
+                    <option value="MSI09 - TSHIVALO RM">MSI09 - TSHIVALO RM</option>
+                    <option value="MH06 - MANGANYI MS">MH06 - MANGANYI MS</option>
+                    <option value="MH11 - NDENGEZA HJ">MH11 - NDENGEZA HJ</option>
+                    <option value="MH10 - MBOWENI MA">MH10 - MBOWENI MA</option>
+                    <option value="2134 - CHAUKE C">2134 - CHAUKE C</option>
+                    <option value="MH12 - SITHOLE HN">MH12 - SITHOLE HN</option>
+                    <option value="MH05 - MALULEKE PJ">MH05 - MALULEKE PJ</option>
+                    <option value="MH02 - MANGANYI YS">MH02 - MANGANYI YS</option>
+                    <option value="MH01 - BALOYI HJ">MH01 - BALOYI HJ</option>
+                    <option value="MH08 - MASIA HD">MH08 - MASIA HD</option>
+                    <option value="MH09 - MASHABA KE">MH09 - MASHABA KE</option>
+                    <option value="MH03 - MALULEKE GF">MH03 - MALULEKE GF</option>
+                    <option value="LTT-M04 - MANKGA PJ">LTT-M04 - MANKGA PJ</option>
+                    <option value="LTT-M05 - MANKGA TC">LTT-M05 - MANKGA TC</option>
+                    <option value="LTT-M06 - MODIBA MI">LTT-M06 - MODIBA MI</option>
+                    <option value="LTT-M08 - MOKOBI MS">LTT-M08 - MOKOBI MS</option>
+                    <option value="LTT-M09 - MOKWELE MC">LTT-M09 - MOKWELE MC</option>
+                    <option value="LTT-M10 - SEEMOLA MS">LTT-M10 - SEEMOLA MS</option>
+                    <option value="LTT-M16 - MANOKO MD">LTT-M16 - MANOKO MD</option>
+                    <option value="LTT-M17 - MAHOSI NA">LTT-M17 - MAHOSI NA</option>
+                    <option value="LTT-M14 - SETJIE SS">LTT-M14 - SETJIE SS</option>
+                    <option value="LTT-M13 - SEFOLO FG">LTT-M13 - SEFOLO FG</option>
+                    <option value="LTT-M12 - MOKALA MP">LTT-M12 - MOKALA MP</option>
+                    <option value="LTT-M15 - RASEFATA MP">LTT-M15 - RASEFATA MP</option>
+                    <option value="LTT-M01 - MADIOPE MJ">LTT-M01 - MADIOPE MJ</option>
+                    <option value="LTT-M07 - MOHOHOMA NA">LTT-M07 - MOHOHOMA NA</option>
+                    <option value="LTT-M02 - MODIOPE MP">LTT-M02 - MODIOPE MP</option>
+                    <option value="NTL06 - MATHEVULA HD">NTL06 - MATHEVULA HD</option>
+                    <option value="NTL04 - MOYANA HD">NTL04 - MOYANA HD</option>
+                    <option value="NTL05 - HLUNGWANI GD">NTL05 - HLUNGWANI GD</option>
+                    <option value="NTL02 - MABASA KS">NTL02 - MABASA KS</option>
+                    <option value="NTL03 - SHIVAMBU MW">NTL03 - SHIVAMBU MW</option>
+                    <option value="NTL07 - MASHABA GJ">NTL07 - MASHABA GJ</option>
+                    <option value="NTL01 - BALOYI TC">NTL01 - BALOYI TC</option>
+                    <option value="NTL29 - NOVELA MO">NTL29 - NOVELA MO</option>
+                    <option value="NWDI01 - MATSHAKATSHE AS">NWDI01 - MATSHAKATSHE AS</option>
+                    <option value="NWDI03 - MAKHADO TE">NWDI03 - MAKHADO TE</option>
+                    <option value="NWDI02 - KHOROMBI NS">NWDI02 - KHOROMBI NS</option>
+                    <option value="NWDI04 - MUDAU TJ">NWDI04 - MUDAU TJ</option>
+                    <option value="NWDI07 - MUROGA MT">NWDI07 - MUROGA MT</option>
+                    <option value="NWDI10 - RAMUTHELO TS">NWDI10 - RAMUTHELO TS</option>
+                    <option value="NWDI06 - MULEBA TA">NWDI06 - MULEBA TA</option>
+                    <option value="NWDI05 - NENDZHELELE MJ">NWDI05 - NENDZHELELE MJ</option>
+                    <option value="NWDI08 - NDOU TS">NWDI08 - NDOU TS</option>
+                    <option value="ERE03 - MATHONSI MT">ERE03 - MATHONSI MT</option>
+                    <option value="ERE06 - NKASHA MJ">ERE06 - NKASHA MJ</option>
+                    <option value="ERE04 - MASHELE GP">ERE04 - MASHELE GP</option>
+                    <option value="ERE07 - MANYIKE MS">ERE07 - MANYIKE MS</option>
+                    <option value="ERE08 - SPRINGA BA">ERE08 - SPRINGA BA</option>
+                    <option value="ERE09 - MUKWEVHO MP">ERE09 - MUKWEVHO MP</option>
+                    <option value="ERE05 - NGOBENI SS">ERE05 - NGOBENI SS</option>
+                    <option value="ERE02 - MAHAFA MA">ERE02 - MAHAFA MA</option>
+                    <option value="ERW02 - SINTHUMULE NN">ERW02 - SINTHUMULE NN</option>
+                    <option value="ERW04 - NYAMANI MO">ERW04 - NYAMANI MO</option>
+                    <option value="ERW05 - RIVIMBI BP">ERW05 - RIVIMBI BP</option>
+                    <option value="ERW01 - SHIHAMBE AS">ERW01 - SHIHAMBE AS</option>
+                    <option value="ERW03 - MIYENI MP">ERW03 - MIYENI MP</option>
+                    <option value="ERW16 - VUKEYA GJ">ERW16 - VUKEYA GJ</option>
+                    <option value="ERW06 - MANGANYE KW">ERW06 - MANGANYE KW</option>
+                    <option value="ERW07 - MIYENI TJ">ERW07 - MIYENI TJ</option>
+                    <option value="ERW08 - KHOROMBI S">ERW08 - KHOROMBI S</option>
+                    <option value="SH03 - VUKEYA HS">SH03 - VUKEYA HS</option>
+                    <option value="SH04 - MTHOMBENI ME">SH04 - MTHOMBENI ME</option>
+                    <option value="SH01 - CHAUKE KP">SH01 - CHAUKE KP</option>
+                    <option value="TL06 - MULAUDZI NP">TL06 - MULAUDZI NP</option>
+                    <option value="TL10 - PHALANNDWA MF">TL10 - PHALANNDWA MF</option>
+                    <option value="TL05 - MAVHINA MJ">TL05 - MAVHINA MJ</option>
+                    <option value="TL07 - NDOU NJ">TL07 - NDOU NJ</option>
+                    <option value="TL12 - AVHEANI FP">TL12 - AVHEANI FP</option>
+                    <option value="TL09 - NEKHAMBELE NS">TL09 - NEKHAMBELE NS</option>
+                    <option value="TL08 - TAKALANI NG">TL08 - TAKALANI NG</option>
+                    <option value="ETS03 - MPHEPHU TS">ETS03 - MPHEPHU TS</option>
+                    <option value="ETS05 - MUTAVHATSINDI AA">ETS05 - MUTAVHATSINDI AA</option>
+                    <option value="ETS06 - RAMASUNGA NF">ETS06 - RAMASUNGA NF</option>
+                    <option value="ETS04 - MAVHANDU NW">ETS04 - MAVHANDU NW</option>
+                    <option value="ETS01 - MATSHONYONGE MW">ETS01 - MATSHONYONGE MW</option>
+                    <option value="ETS07 - NEMALILI NE">ETS07 - NEMALILI NE</option>
+                    <option value="ETS02 - SITHAGU MS">ETS02 - SITHAGU MS</option>
+                    <option value="LTT-T05 - RAMADWA TN">LTT-T05 - RAMADWA TN</option>
+                    <option value="LTT-T03 - TSHAMANO NP">LTT-T03 - TSHAMANO NP</option>
+                    <option value="LTT-T01 - KUDZINGANA P">LTT-T01 - KUDZINGANA P</option>
+                    <option value="LTT-T04 - TSHAMANO LW">LTT-T04 - TSHAMANO LW</option>
+                    <option value="LTT-T02 - MBOYI NP">LTT-T02 - MBOYI NP</option>
+					<option value="T3713 - MALULEKE MG">T3713 - MALULEKE MG</option>
+					<option value="T3714 - MHLARI FM">T3714 - MHLARI FM</option>
+					<option value="T3715 - SHISHONGE HS">T3715 - SHISHONGE HS</option>
+					<option value="T3716 - SHIBAMBU KS">T3716 - SHIBAMBU KS</option>
+					<option value="T3717 - MUFAMADI MA">T3717 - MUFAMADI MA</option>
+					<option value="T3718 - MHLAVA TO">T3718 - MHLAVA TO</option>
+					<option value="T3719 - CHAUKE HO">T3719 - CHAUKE HO</option>
+					<option value="T3720 - MABASA MB">T3720 - MABASA MB</option>
+					<option value="T3721 - MALLULEKE MC">T3721 - MALLULEKE MC</option>
+					<option value="T3722 - CHAUKE MT">T3722 - CHAUKE MT</option>
+					<option value="T3723 - MASHAVA CH">T3723 - MASHAVA CH</option>
+					<option value="T3724 - BALOYI GG">T3724 - BALOYI GG</option>
+					<option value="T3725 - MALULEKE EJ">T3725 - MALULEKE EJ</option>
+					<option value="T3726 - CHAUKE VM">T3726 - CHAUKE VM</option>
+					<option value="T3727 - MAKHUVHA R">T3727 - MAKHUVHA R</option>
+					<option value="T3728 - MAKHUBELE LM">T3728 - MAKHUBELE LM</option>
+					<option value="T3729 - MASIA P">T3729 - MASIA P</option>
+					<option value="T3730 - MACHEBELE MG">T3730 - MACHEBELE MG</option>
+					<option value="T3731 - MALULEKE TG">T3731 - MALULEKE TG</option>
+					<option value="T3732 - MALULEKE V">T3732 - MALULEKE V</option>
+					<option value="T3733 - CHUMA R">T3733 - CHUMA R</option>
+					<option value="T3734 - BALOYI GE">T3734 - BALOYI GE</option>
+					<option value="T3735 - KHOSARS">T3735 - KHOSARS</option>
+					<option value="T3736 - HLONGWANETF">T3736 - HLONGWANETF</option>
+					<option value="T3737 - MCHAVI TJ">T3737 - MCHAVI TJ</option>
+					<option value="T3738 - BALOYI TJ">T3738 - BALOYI TJ</option>
+					<option value="T3739 - MAHOMANE TS">T3739 - MAHOMANE TS</option>
+					<option value="T3740 - MACHEBELE G">T3740 - MACHEBELE G</option>
+					<option value="T3741 - BILA LR">T3741 - BILA LR</option>
+					<option value="T3742 - CHAUKE KD">T3742 - CHAUKE KD</option>
+					<option value="T3743 - MATHYE MJ">T3743 - MATHYE MJ</option>
+					<option value="T3744 - RAMATAMBA AE">T3744 - RAMATAMBA AE</option>
+					<option value="T3745 - MUDAUAR">T3745 - MUDAUAR</option>
+					<option value="T3746 - BALOYI.J">T3746 - BALOYI.J</option>
+					<option value="T3747 - BVUKEYA ZL">T3747 - BVUKEYA ZL</option>
+					<option value="T3748 - MALULEKE MJ">T3748 - MALULEKE MJ</option>
+					<option value="T3749 - CHAUKE AA">T3749 - CHAUKE AA</option>
+					<option value="T3750 - HLUGWANI R">T3750 - HLUGWANI R</option>
+					<option value="T3751 - SHIVURI TM ">T3751 - SHIVURI TM</option>
+					<option value="T3752 - BALOYI MES">T3752 - BALOYI MES</option>
+					<option value="T3753 - MASHIGE PT">T3753 - MASHIGE PT</option>
+					<option value="T3754 - RIVOMBO BE">T3754 - RIVOMBO BE</option>
+					<option value="T3755 - BALOYI KG">T3755 - BALOYI KG</option>
+					<option value="T3756 - SIKHWIBILU MM">T3756 - SIKHWIBILU MM</option>
+					<option value="T3757 - CHAUKE HS">T3757 - CHAUKE HS</option>
+					<option value="T3758 - NOBELA HT">T3758 - NOBELA HT</option>
+					<option value="T3759 - HLONGWANE MM">T3759 - HLONGWANE MM</option>
+					<option value="T3760 - NDAMBI TR">T3760 - NDAMBI TR</option>
+					<option value="T3761 - TSHIVALO NJ">T3761 - TSHIVALO NJ</option>
+					<option value="T3762 - MBEDZI NJ">T3762 - MBEDZI NJ</option>
+					<option value="T3763 - NDADZA VE">T3763 - NDADZA VE</option>
+					<option value="T3764 - MANENZHE P">T3764 - MANENZHE P</option>
+					<option value="T3765 - MAKUYA FC">T3765 - MAKUYA FC</option>
+					<option value="T3766 - MUTHARI MA">T3766 - MUTHARI MA</option>
+					<option value="T3767 - NETSHIUNGANI RO">T3767 - NETSHIUNGANI RO</option>
+					<option value="T3768 - MAKHANI TE">T3768 - MAKHANI TE</option>
+					<option value="T3769 - MBEDZI RE">T3769 - MBEDZI RE</option>
+					<option value="T3770 - MUHANELWA AE">T3770 - MUHANELWA AE</option>
+					<option value="T3771 - PHURAVHATHU AM">T3771 - PHURAVHATHU AM</option>
+					<option value="T3772 - NDOU MM">T3772 - NDOU MM</option>
+					<option value="T3773 - TSHIDINO SC">T3773 - TSHIDINO SC</option>
+					<option value="T3774 - RAMUTHELO P">T3774 - RAMUTHELO P</option>
+					<option value="T3775 - KWINDA FS">T3775 - KWINDA FS</option>
+					<option value="T3776 - NYAMBENI FP">T3776 - NYAMBENI FP</option>
+					<option value="T3777 - NEMASETONI RE">T3777 - NEMASETONI RE</option>
+					<option value="T3778 - MAKUYA V">T3778 - MAKUYA V</option>
+					<option value="T3779 - THUSANI MB">T3779 - THUSANI MB</option>
+					<option value="T3780 - MMMBURU PE">T3780 - MMMBURU PE</option>
+					<option value="T3781 - MATSHETE KP">T3781 - MATSHETE KP</option>
+					<option value="T3782 - TSHIBALANGANDA Z">T3782 - TSHIBALANGANDA Z</option>
+					<option value="T3783 - MATANDULULE">T3783 - MATANDULULE</option>
+					<option value="T3784 - MUTSHAUBA TB">T3784 - MUTSHAUBA TB</option>
+					<option value="T3785 - MPHEPHU TC">T3785 - MPHEPHU TC</option>
+					<option value="T3786 - CHAUKE P">T3786 - CHAUKE P</option>
+					<option value="T3787 - MUFAMADI FE">T3787 - MUFAMADI FE</option>
+					<option value="T3788 - MANDAHA NP">T3788 - MANDAHA NP</option>
+					<option value="T3789 - NKHUMELENI JA">T3789 - NKHUMELENI JA</option>
+					<option value="T3790 - MAPHAGELA TR">T3790 - MAPHAGELA TR</option>
+					<option value="T3791 - MAVHUNGU MJ">T3791 - MAVHUNGU MJ</option>
+					<option value="T3792 - MANYIKANA MJ">T3792 - MANYIKANA MJ</option>
+					<option value="T3793 - ALILALI AB">T3793 - ALILALI AB</option>
+					<option value="T3794 - PHANDELANI AC">T3794 - PHANDELANI AC</option>
+					<option value="T3795 - MADUME NB">T3795 - MADUME NB</option>
+					<option value="T3796 - MUNYAI S">T3796 - MUNYAI S</option>
+					<option value="T3797 - BOLOGO AE">T3797 - BOLOGO AE</option>
+					<option value="T3798 - MALABI NE">T3798 - MALABI NE</option>
+					<option value="T3799 - MUNYAI NH">T3799 - MUNYAI NH</option>
+					<option value="T3800 - MASHOVHELA AA">T3800 - MASHOVHELA AA</option>
+					<option value="T3801 - MAHASE M">T3801 - MAHASE M</option>
+					<option value="T3802 - MUKUNUNDE TG">T3802 - MUKUNUNDE TG</option>
+					<option value="T3803 - RAMUDZULI TJ">T3803 - RAMUDZULI TJ</option>
+					<option value="T3804 - NDOU MP">T3804 - NDOU MP</option>
+					<option value="T3805 - SINTHUMULE TB">T3805 - SINTHUMULE TB</option>
+					<option value="T3806 - MUVHANGO F">T3806 - MUVHANGO F</option>
+					<option value="T3807 - MATSHIKA AJ">T3807 - MATSHIKA AJ</option>
+					<option value="T3808 - NEVHUTALU FLO">T3808 - NEVHUTALU FLO</option>
+					<option value="T3809 - MATEVHA FV">T3809 - MATEVHA FV</option>
+					<option value="T3810 - MULIBANA AP">T3810 - MULIBANA AP</option>
+					<option value="T3811 - MALIGANA R ">T3811 - MALIGANA R</option>
+					<option value="T3812 - MUKUNI ND">T3812 - MUKUNI ND</option>
+					<option value="T3813 - MABILA FJ">T3813 - MABILA FJ</option>
+					<option value="T3814 - MNISI H.S">T3814 - MNISI H.S</option>
+					<option value="T3815 - NGOBENI A.M">T3815 - NGOBENI A.M</option>
+					<option value="T3816 - PHOSA J.">T3816 - PHOSA J.</option>
+					<option value="T3817 - MANYIKE A.B">T3817 - MANYIKE A.B</option>
+					<option value="T3818 - BALOYI J.">T3818 - BALOYI J.</option>
+					<option value="T3819 - SARILA I.R">T3819 - SARILA I.R</option>
+					<option value="T3820 - SIBISI M.">T3820 - SIBISI M.</option>
+					<option value="T3821 - MALATJI T.D">T3821 - MALATJI T.D</option>
+					<option value="T3822 - MAKHUBELE C.P">T3822 - MAKHUBELE C.P</option>
+					<option value="T3823 - SHISHENGE Y.T">T3823 - SHISHENGE Y.T</option>
+					<option value="T3824 - BALOYI J.">T3824 - BALOYI J.</option>
+					<option value="T3825 - MTHOMBENI J.R">T3825 - MTHOMBENI J.R</option>
+					<option value="T3826 - MATAMELA B.R">T3826 - MATAMELA B.R</option>
+					<option value="T3827 - BELE L.E">T3827 - BELE L.E</option>
+					<option value="T3828 - MAKHADI R.J">T3828 - MAKHADI R.J</option>
+					<option value="T3829 - KHOSA M.C">T3829 - KHOSA M.C</option>
+					<option value="T3830 - MASHELE K.A">T3830 - MASHELE K.A</option>
+					<option value="T3831 - MASWANGANYI W.N">T3831 - MASWANGANYI W.N</option>
+					<option value="T3832 - MALULEKE ME">T3832 - MALULEKE ME</option>
+					<option value="T3833 - RAMULIFHO AP">T3833 - RAMULIFHO AP</option>
+					<option value="T3834 - MULAUDZI R">T3834 - MULAUDZI R</option>
+					<option value="T3835 - MUDAU RP">T3835 - MUDAU RP</option>
+					<option value="T3836 - MAKHUVA TE">T3836 - MAKHUVA TE</option>
+					<option value="T3837 - MAHLAULA ME">T3837 - MAHLAULA ME</option>
+					<option value="T3838 - MASHISHIMISE AC">T3838 - MASHISHIMISE AC</option>
+					<option value="T3839 - MANYIKE WF">T3839 - MANYIKE WF</option>
+					<option value="T3840 - BALOYI ME">T3840 - BALOYI ME</option>
+					<option value="T3841 - KHODOKA TM">T3841 - KHODOKA TM</option>
+					<option value="T3842 - MAHANDANA S">T3842 - MAHANDANA S</option>
+					<option value="T3843 - RAMARUMO RS">T3843 - RAMARUMO RS</option>
+					<option value="T3844 - SIKHWENI H">T3844 - SIKHWENI H</option>
+					<option value="T3845 - PHOTHWANA MJ">T3845 - PHOTHWANA MJ</option>
+				</select>
+			</div>
+
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageSprayer2-1" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="sprayer2ToDDT" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifySecondSprayer2()" />
+					<span id="errorMissingSprayer2" style="display: none;">Indicate second sprayer's ID<br/></span>
+					<span id="errorMatchingSprayers" style="display: none;">Second sprayer's ID can't match 1st sprayer's ID<br/></span>
+				</div>
+			</div>
+			<div data-theme="a" data-role="footer" data-position="fixed"></div>
+		</div>
+	</div>
+
+
+	<!-- DDT1 -->
+	<div data-role="page" id="pageSp2DDT1">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 2: DDT</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div id="toggleSp2DDTSwitch" data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend><i><b> DDT Used? </b></i></legend>
+					<input id="Sp2DDTOn" name="toggleSp2DDT" value="1" type="radio" />
+					<label for="Sp2DDTOn"> Yes </label>
+					<input id="Sp2DDTOff" name="toggleSp2DDT" value="0" type="radio" />
+					<label for="Sp2DDTOff"> No </label>
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+                    <a href="#sprayer2IDInput" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="Sp2DDTToKOrthrine" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifySp2DDT()" />
+					<span id="errorToggleSp2DDT" style="display: none;">Indicate if sprayed DDT<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- DDT2 -->
+	<div data-role="page" id="pageSp2DDT2">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 2: DDT</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="Sp2DDTSprayedRooms">
+				<fieldset data-role="controlgroup">
+					<label for="Sp2DDTSprayedRoomsInput"><i><b> Number of Rooms SPRAYED With DDT? </b></i></label>
+					<input name="" id="Sp2DDTSprayedRoomsInput" placeholder="" value="" type="number" />
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageSp2DDT1" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="Sp2DDTToKOrthrine" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifySp2DDT2()" />
+					<span id="errorMissingSp2DDTInfo1" style="display: none;">Indicate rooms SPRAYED with DDT<br/></span>
+					<span id="errorInvalidSp2DDTInfo1" style="display: none;">Invalid number of rooms SPRAYED with DDT<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- DDT3 -->
+	<div data-role="page" id="pageSp2DDT3">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 2: DDT</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="Sp2DDTSprayedShelters">
+				<fieldset data-role="controlgroup">
+					<label for="Sp2DDTSprayedSheltersInput"><i><b> Number of Shelters SPRAYED With DDT? </b></i></label>
+					<input name="" id="Sp2DDTSprayedSheltersInput" placeholder="" value="" type="number" />
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageSp2DDT2" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="Sp2DDTToKOrthrine" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifySp2DDT3()" />
+					<span id="errorMissingSp2DDTShelterInfo" style="display: none;">Indicate shelters SPRAYED with DDT<br/></span>
+					<span id="errorInvalidSp2DDTShelterInfo" style="display: none;">Invalid number of shelters SPRAYED with DDT<br/></span>
+					<span id="errorInvalidSp2DDTShelterInfo2" style="display: none;">Both number of sprayed rooms and shelters cannot be zero<br/></span>
+                </div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- DDT4 -->
+	<div data-role="page" id="pageSp2DDT4">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 2: DDT</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div id="refillSp2DDT" data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend><i><b> Refilled DDT Can? </b></i></legend>
+					<input id="refilledSp2DDT" name="toggleSp2DDTRefill" value="1" type="radio" />
+					<label for="refilledSp2DDT"> Yes </label>
+					<input id="noRefilledSp2DDT" name="toggleSp2DDTRefill" value="0" type="radio" />
+					<label for="noRefilledSp2DDT"> No </label>
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageSp2DDT3" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="Sp2DDTToKOrthrine" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifySp2DDT4()" />
+					<span id="errorMissingSp2DDTInfo2" style="display: none;">Indicate if refilled DDT can<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- KOrthrine1 -->
+	<div data-role="page" id="pageSp2KOrthrine1">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 2: K-Orthrine</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div id="toggleSp2KOrthrineSwitch" data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend><i><b> K-Orthrine Used? </b></i></legend>
+					<input id="Sp2kOrthrineOn" name="toggleSp2KOrthrine" value="1" type="radio" />
+					<label for="Sp2kOrthrineOn"> Yes </label>
+					<input id="Sp2kOrthrineOff" name="toggleSp2KOrthrine" value="0" type="radio" />
+					<label for="Sp2kOrthrineOff"> No </label>
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<input data-theme="a" data-iconpos="left" value="Back" type="submit" onclick="backFromSp2KOrthrine()" />
+				</div>
+				<div class="ui-block-b">
+					<input data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifySp2KOrthrine()" />
+					<span id="errorToggleSp2KOrthrine" style="display: none;">Indicate if sprayed K-Orthrine<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- KOrthrine2 -->
+	<div data-role="page" id="pageSp2KOrthrine2">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 2: K-Orthrine</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="Sp2kOrthrineSprayedRooms">
+				<fieldset data-role="controlgroup">
+					<label for="Sp2kOrthrineSprayedRoomsInput"><i><b> Number of Rooms SPRAYED With K-Orthrine? </b></i></label>
+					<input name="" id="Sp2kOrthrineSprayedRoomsInput" placeholder="" value="" type="number" />
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageSp2KOrthrine1" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="submitSp2Button2" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifySp2KOrthrine2()" />
+					<span id="errorMissingSp2KOrthrineInfo1" style="display: none;">Indicate rooms SPRAYED with K-Orthrine<br/></span>
+					<span id="errorInvalidSp2KOrthrineInfo1" style="display: none;">Invalid number of rooms SPRAYED with K-Orthrine<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- KOrthrine3 -->
+	<div data-role="page" id="pageSp2KOrthrine3">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 2: K-Orthrine</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="Sp2kOrthrineSprayedShelters">
+				<fieldset data-role="controlgroup">
+					<label for="Sp2kOrthrineSprayedSheltersInput"><i><b> Number of Shelters SPRAYED With K-Orthrine? </b></i></label>
+					<input name="" id="Sp2kOrthrineSprayedSheltersInput" placeholder="" value="" type="number" />
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageSp2KOrthrine2" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input id="submitSp2Button2" data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifySp2KOrthrine3()" />
+					<span id="errorMissingSp2KOrthrineShelterInfo" style="display: none;">Indicate shelters SPRAYED with K-Orthrine<br/></span>
+					<span id="errorInvalidSp2KOrthrineShelterInfo" style="display: none;">Invalid number of shelters SPRAYED with K-Orthrine<br/></span>
+					<span id="errorInvalidSp2KOrthrineShelterInfo2" style="display: none;">Both number of sprayed rooms and shelters cannot be zero<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- KOrthrine4 -->
+	<div data-role="page" id="pageSp2KOrthrine4">
+		<div data-theme="b" data-role="header">
+			<h3>Sprayer 2: K-Orthrine</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div id="refillSp2KOrthrine" data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend><i><b> Refilled K-Orthrine Can? </b></i></legend>
+					<input id="refilledSp2KOrthrine" name="toggleSp2KOrthrineRefill" value="1" type="radio" />
+					<label for="refilledSp2KOrthrine"> Yes </label>
+					<input id="noRefilledSp2KOrthrine" name="toggleSp2KOrthrineRefill" value="0" type="radio" />
+					<label for="noRefilledSp2KOrthrine"> No </label>
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<a href="#pageSp2KOrthrine3" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifySp2KOrthrine4()" />
+					<span id="errorMissingSp2KOrthrineInfo2" style="display: none;">Indicate if refilled K-Orthrine can<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+
+
+
+
+	<!-- Unsprayed1 -->
+	<div data-role="page" id="pageUnsprayed1">
+		<div data-theme="b" data-role="header">
+			<h3>mSpray: Unsprayed</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="unsprayedRooms">
+				<fieldset data-role="controlgroup">
+					<label for="unsprayedRoomsInput"><i><b> Number of Rooms NOT SPRAYED? </b></i></label>
+					<input name="" id="unsprayedRoomsInput" placeholder="" value="" type="number" />
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<input data-theme="a" data-iconpos="left" value="Back" type="submit" onclick="backFromUnsprayed()" />
+				</div>
+				<div class="ui-block-b">
+					<input data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyUnsprayed()" />
+					<span id="errorMissingUnsprayedInfo" style="display: none;">Indicate number of rooms NOT SPRAYED<br/></span>
+					<span id="errorInvalidUnsprayedInfo" style="display: none;">Invalid number of rooms NOT SPRAYED<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- Unsprayed2 -->
+	<div data-role="page" id="pageUnsprayed2">
+		<div data-theme="b" data-role="header">
+			<h3>mSpray: Unsprayed</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain" id="unsprayedShelters">
+				<fieldset data-role="controlgroup">
+					<label for="unsprayedSheltersInput"><i><b> Number of Shelters NOT Sprayed? </b></i></label>
+					<input name="" id="unsprayedSheltersInput" placeholder="" value="" type="number" />
+				</fieldset>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+				<div class="ui-block-a">
+					<input data-theme="a" data-iconpos="left" value="Back" type="submit" onclick="backFromUnsprayed2()" />
+				</div>
+				<div class="ui-block-b">
+					<input data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyUnsprayed2()" />
+					<span id="errorMissingUnsprayedShelterInfo" style="display: none;">Indicate number of shelters NOT SPRAYED<br/></span>
+					<span id="errorInvalidUnsprayedShelterInfo" style="display: none;">Invalid number of shelters NOT SPRAYED<br/></span>
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+
+	<!-- Foreman -->
+	<div data-role="page" id="pageForeman">
+		<div data-theme="b" data-role="header">
+			<h3>mSpray: Foreman</h3>
+		</div>
+
+		<div data-role="content" style="padding: 15px">
+		    <div data-role="fieldcontain" id="foremanNameInput">
+			<label for="selectmenu3"><i><b> Select Foreman Name: </b></i></label> <select
+					                                                           name="foremanName" id="foremanName">
+			    <option value="-none-">-none-</option>
+                            <option value="Simba T R">Simba T R</option>
+                            <option value="Ravuluma P">Ravuluma P</option>
+                            <option value="Silima R N">Silima R N</option>
+                            <option value="Chauke H W">Chauke H W</option>
+                            <option value="Phosoko M F">Phosoko M F</option>
+                            <option value="Khakhu M M">Khakhu M M</option>
+                            <option value="Munyamela T E">Munyamela T E</option>
+                            <option value="Nengovhela T M">Nengovhela T M</option>
+                            <option value="Risimati H L">Risimati H L</option>
+                            <option value="Tshsikhawe M R">Tshsikhawe M R</option>
+			</select>
+		    </div>
+
+		    <div class="ui-grid-a" id="formControl">
+			<div class="ui-block-a">
+			    <a href="#pageUnsprayed2" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+			</div>
+			<div class="ui-block-b">
+			    <input data-theme="b" data-iconpos="left" value="Next" type="submit" onclick="verifyForemanName()" />
+			    <span id="errorMissingForemanName" style="display: none;">Indicate foreman's name<br/></span>
+			</div>
+		    </div>
+		    <div data-theme="a" data-role="footer" data-position="fixed"></div>
+		</div>
+	</div>
+
+
+
+	<!-- Summary -->
+	<div data-role="page" id="pageSummary">
+		<div data-theme="b" data-role="header">
+			<h3>mSpray: Summary</h3>
+		</div>
+		<div data-role="content" style="padding: 15px">
+			<div id="dsf" class="ui-grid-a">
+				<div class="ui-block-a">Latitude: </div>
+				<div class="ui-block-b"><span id=finalLat value=""></span></div>
+				<div class="ui-block-a">Longitude: </div>
+				<div class="ui-block-b"><span id=finalLng value=""></span></div>
+				<div class="ui-block-a">GPS Accuracy: </div>
+				<div class="ui-block-b"><span id=finalAcc value=""></span></div>
+
+				<div class="ui-block-a">Homestead sprayed?: </div>
+				<div class="ui-block-b"><span id=finalHomesteadSprayed value=""></span></div>
+
+				<div class="ui-block-a">1. Sprayer ID: </div>
+				<div class="ui-block-b"><span id=finalFirstID value=""></span></div>
+				<div class="ui-block-a">1. Using DDT?</div>
+				<div class="ui-block-b"><span id=finalDDT value=""></span></div>
+				<div class="ui-block-a">1. Number of DDT Sprayed Rooms?</div>
+				<div class="ui-block-b"><span id=finalDDTSprayedRooms value=""></span></div>
+				<div class="ui-block-a">1. Number of DDT Sprayed Shelters?</div>
+				<div class="ui-block-b"><span id=finalDDTSprayedShelters value=""></span></div>
+				<div class="ui-block-a">1. Refilled DDT Cans?</div>
+				<div class="ui-block-b"><span id=finalRefillDDT value=""></span></div>
+				<div class="ui-block-a">1. Using K-Orthrine?</div>
+				<div class="ui-block-b"><span id=finalKOrthrine value=""></span></div>
+				<div class="ui-block-a">1. Number of K-Orthrine Sprayed Rooms?</div>
+				<div class="ui-block-b"><span id=finalKOrthrineSprayedRooms value=""></span></div>
+				<div class="ui-block-a">1. Number of K-Orthrine Sprayed Shelters?</div>
+				<div class="ui-block-b"><span id=finalKOrthrineSprayedShelters value=""></span></div>
+				<div class="ui-block-a">1. Refilled K-Orthrine Cans?</div>
+				<div class="ui-block-b"><span id=finalRefillKOrthrine value=""></span></div>
+
+				<div class="ui-block-a">2. Sprayer ID: </div>
+				<div class="ui-block-b"><span id=finalSecondID value=""></span></div>
+				<div class="ui-block-a">2. Using DDT?</div>
+				<div class="ui-block-b"><span id=finalSp2DDT value=""></span></div>
+				<div class="ui-block-a">2. Number of DDT Sprayed Rooms?</div>
+				<div class="ui-block-b"><span id=finalSp2DDTSprayedRooms value=""></span></div>
+				<div class="ui-block-a">2. Number of DDT Sprayed Shelters?</div>
+				<div class="ui-block-b"><span id=finalSp2DDTSprayedShelters value=""></span></div>
+				<div class="ui-block-a">2. Refilled DDT Cans?</div>
+				<div class="ui-block-b"><span id=finalRefillSp2DDT value=""></span></div>
+				<div class="ui-block-a">2. Using K-Orthrine?</div>
+				<div class="ui-block-b"><span id=finalSp2KOrthrine value=""></span></div>
+				<div class="ui-block-a">2. Number of K-Orthrine Sprayed Rooms?</div>
+				<div class="ui-block-b"><span id=finalSp2KOrthrineSprayedRooms value=""></span></div>
+				<div class="ui-block-a">2. Number of K-Orthrine Sprayed Shelters?</div>
+				<div class="ui-block-b"><span id=finalSp2KOrthrineSprayedShelters value=""></span></div>
+				<div class="ui-block-a">2. Refilled K-Orthrine Cans?</div>
+				<div class="ui-block-b"><span id=finalRefillSp2KOrthrine value=""></span></div>
+				
+                <div class="ui-block-a">Number of Unsprayed Rooms?</div>
+				<div class="ui-block-b"><span id=finalUnsprayedRooms value=""></span></div>
+				<div class="ui-block-a">Number of Unsprayed Shelters?</div>
+				<div class="ui-block-b"><span id=finalUnsprayedShelters value=""></span></div>
+				<div class="ui-block-a">Foreman Name:</div>
+				<div class="ui-block-b"><span id=finalForemanName value=""></span></div>
+			</div>
+			<div class="ui-grid-a" id="formControl">
+			    <div class="ui-block-a">
+					<a href="#pageForeman" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+				</div>
+				<div class="ui-block-b">
+					<input data-theme="e" data-iconpos="left" value="Submit" type="submit" onclick="submitSurvey()" />
+				</div>
+			</div>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<!-- Finished -->
+	<div data-role="page" id="pageFinished">
+		<div data-theme="b" data-role="header">
+			<h3>mSpray: Summary</h3>
+		</div>
+		<div data-role="content" style="padding: 15px" align="center">
+			<span><b>Thank You!</b></span>
+		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed"></div>
+	</div>
+
+	<script>
+		if (window.location.toString().split("#")[1] == "pageSummary") {
+			displaySurvey();
+		}
+    </script>
+
+</body>
+</html>

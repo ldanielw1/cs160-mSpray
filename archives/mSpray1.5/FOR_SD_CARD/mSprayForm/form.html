@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta name=viewport content="user-scalable=no,width=device-width" />
+  <link rel=stylesheet href=jquery.mobile-1.1.0.css />
+  <script src=jquery.min.js></script>
+  <script src=jquery.mobile-1.1.0.js></script>
+</head> 
+
+<body> 
+
+<div data-role=page id=home>
+  <div data-role=header>
+    <h1>Home</h1>
+  </div>
+
+  <div data-role=content>
+    <span> Latitude : </span> <span id=lat></span> <br />
+    <span> Longitude : </span> <span id=lng></span> <br />
+    <span> Accuracy : </span> <span id=acc></span> <br />
+  </div>
+</div>
+
+</body>
+</html>
+
+<script>
+
+navigator.geolocation.getCurrentPosition ( onGPSSuccess, onGPSError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }); 
+
+navigator.geolocation.watchPosition( onGPSSuccess, onGPSError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
+    
+function onGPSSuccess(pos) {
+    var lat = pos.coords.latitude;
+    var lng = pos.coords.longitude;
+    var acc = pos.coords.accuracy;
+    $("#lat").text (lat);
+    $("#lng").text (lng);
+    $("#acc").text (acc);
+}
+
+function onGPSError(pos) {
+        
+}
+
+    
+</script>

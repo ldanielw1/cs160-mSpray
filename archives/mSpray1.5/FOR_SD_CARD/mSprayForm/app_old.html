@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+    </title>
+    <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+    <link rel="stylesheet" href="newMSprayEntry.css" />
+    <style>
+      /* App custom styles */
+    </style>
+    <script src="jquery.min.js">
+    </script>
+    <script src="jquery.mobile-1.1.0.min.js">
+    </script>
+    <script src="newMSprayEntry.js">
+    </script>
+  </head>
+  <body>
+    <!-- Home -->
+    <div data-role="page" id="homePage">
+      <div data-theme="b" data-role="header">
+        <h3>
+          mSpray
+        </h3>
+      </div>
+      <div data-role="content" style="padding: 15px">
+		  <div align="center">
+		      <span><b>You are at: (</b></span>
+		      <span id=lat value=""></span>
+		      <span id=latNS value=""></span>
+		      <span><b>,</b></span>
+	    	  <span id=lng value=""></span>	
+	    	  <span id=lngEW value=""></span>
+		      <span><b>, accuracy:</b></span>
+	    	  <span id=acc value=""></span>	
+		      <span><b>)</b></span>
+		  </div>
+    	  <script>
+              navigator.geolocation.getCurrentPosition ( onGPSSuccess, onGPSError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }); 
+              
+              navigator.geolocation.watchPosition( onGPSSuccess, onGPSError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
+              
+              function onGPSSuccess(pos) {
+			      var lat = pos.coords.latitude;
+			      var lng = pos.coords.longitude;
+                  var acc = pos.coords.accuracy;
+			      if (lat < 0) {
+			    	  latNS = "S";
+			    	  lat *= -1;
+			      } else {
+			    	  latNS = "N";
+			      }
+			      if (lng > 0) {
+			    	  lngEW = "E"
+			      } else {
+			    	  lngEW = "W";
+			    	  lng *= -1;
+			      }
+			      $("#lat").text (lat);
+			      $("#lat").css({'font-weight' : 'bolder'});
+			      $("#latNS").text (latNS);
+			      $("#latNS").css({'font-weight' : 'bolder'});
+			      $("#lng").text (lng);
+			      $("#lng").css({'font-weight' : 'bolder'});
+			      $("#lngEW").text (lngEW);
+			      $("#lngEW").css({'font-weight' : 'bolder'});
+                  $("#acc").text (acc);
+              }
+              
+              function onGPSError(pos) {
+                  
+              }
+		  </script>
+        <div id="mainButtons">
+	         <p><a href="#pageSprayer" data-direction="forward" data-role="button" data-theme="b">Spray</a></p>	
+        </div>
+      </div>
+      <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3>
+        </h3>
+      </div>
+    </div>
+
+    <!-- sprayerIDs -->
+	<div data-role="page" id="pageSprayer">
+      <div data-theme="b" data-role="header">
+        <h3>
+          mSpray: 1st Sprayer
+        </h3>
+      </div>
+
+        <span id="errorMissingSprayer1" style="display: none;">Missing first sprayer's ID</span>
+        
+        <div data-role="fieldcontain">
+            <label for="selectmenu1">Sprayer ID</label>
+            <select name="sprayerID" id="sprayerID" onchange="checkStateSprayer1()">
+                <option value="-none-">-none-</option>
+                <option value="abc">abc</option>
+                <option value="def">def</option>
+            </select>
+        </div>        
+
+        
+       <div class="ui-grid-a" id="formControl">
+	       <div class="ui-block-a">
+	         <p><a href="#homePage" data-direction="reverse" data-role="button" data-theme="a">Back</a></p>	
+	       </div>
+	       <div class="ui-block-b">
+	         <div id="sprayer1ToSprayer2" ><p><a href="#pageSprayer2" data-direction="forward" data-role="button" data-theme="b">Next</a></p></div>	
+	       </div>
+     </div>
+       <div data-theme="a" data-role="footer" data-position="fixed">
+         <h3>
+         </h3>
+       </div>
+      </div>
+    </div>
+
+
+    <!-- sprayerIDs2 -->
+	<div data-role="page" id="pageSprayer2">
+      <div data-theme="b" data-role="header">
+        <h3>
+          mSpray: 2nd Sprayer
+        </h3>
+      </div>
+        
+    <div data-role="content" style="padding: 15px">
+        <span id="errorToggleSprayer2" style="display: none;">Not indicated if there is a second sprayer</span>
+        <div id="toggleSecondSprayer" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>
+                    Second Sprayer Present
+                </legend>
+                <input id="secondSprayerOn" name="toggleSecondSprayer" value="1" type="radio" onclick="secondSprayer()" >
+                <label for="secondSprayerOn">
+                    Yes
+                </label>
+                <input id="secondSprayerOff" name="toggleSecondSprayer" value="0" type="radio" onclick="noSecondSprayer()">
+                <label for="secondSprayerOff">
+                    No
+                </label>
+            </fieldset>
+        </div>
+
+        <span id="errorMissingSprayer2" style="display: none;">Missing second sprayer's ID</span>
+        
+        <div data-role="fieldcontain" id="sprayer2IDInput">
+            <label for="selectmenu2">Sprayer ID</label>
+            <select name="sprayer2ID" id="sprayer2ID" onchange="checkStateSprayer2()">
+                <option value="-none-">-none-</option>
+                <option value="abc">abc</option>
+                <option value="def">def</option>
+            </select>
+        </div>        
+        
+                  
+       <div class="ui-grid-a" id="formControl">
+	       <div class="ui-block-a">
+	         <p><a href="#pageSprayer" data-direction="reverse" data-role="button" data-theme="a">Back</a></p>	
+	       </div>
+	       <div class="ui-block-b">
+	         <div id="sprayer2ToDDT"><p><a href="#pageDDT" data-direction="forward" data-role="button" data-theme="b">Next</a></p></div>	
+	       </div>
+     </div>
+       <div data-theme="a" data-role="footer" data-position="fixed">
+         <h3>
+         </h3>
+       </div>
+      </div>
+    </div>
+
+
+    <!-- DDT -->
+	<div data-role="page" id="pageDDT">
+      <div data-theme="b" data-role="header">
+        <h3>
+          mSpray: DDT
+        </h3>
+      </div>
+      <div data-role="content" style="padding: 15px">
+        <span id="errorToggleDDT" style="display: none;">Did not indicate DDT usage</span>
+        <div id="toggleDDTSwitch" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>
+                    DDT Used
+                </legend>
+                <input id="DDTOn" name="toggleDDT" value="1" type="radio" onclick="useDDT()" >
+                <label for="DDTOn">
+                    Yes
+                </label>
+                <input id="DDTOff" name="toggleDDT" value="0" type="radio" onclick="dontUseDDT()">
+                <label for="DDTOff">
+                    No
+                </label>
+            </fieldset>
+        </div>
+        <span id="errorMissingDDTInfo1" style="display: none;">Missing data for DDT spraying</span>
+        <span id="errorInvalidDDTInfo1" style="display: none;">Invalid data for DDT spraying</span>
+        <div data-role="fieldcontain" id="DDTSprayedRooms">
+         <fieldset data-role="controlgroup">
+           <label for="DDTSprayedRoomsInput">
+             Number of Sprayed Rooms
+           </label>
+           <input name="" id="DDTSprayedRoomsInput" placeholder="" value="" type="number" onchange="checkStateDDT()"/>
+         </fieldset>
+       </div>
+        <span id="errorMissingDDTInfo2" style="display: none;">Missing data for DDT spraying</span>
+        <span id="errorInvalidDDTInfo2" style="display: none;">Invalid data for DDT spraying</span>
+       <div data-role="fieldcontain" id="DDTUnsprayedRooms">
+         <fieldset data-role="controlgroup">
+           <label for="DDTUnsprayedRoomsInput">
+             Number of Unsprayed Rooms
+           </label>
+           <input name="" id="DDTUnsprayedRoomsInput" placeholder="" value="" type="number" onchange="checkStateDDT()"/>
+         </fieldset>
+       </div>
+        <span id="errorMissingDDTInfo3" style="display: none;">Missing data for DDT spraying</span>
+        <div id="refillDDT" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>
+                    Refill DDT Can?
+                </legend>
+                <input id="refilledDDT" name="toggleDDTRefill" value="1" type="radio" onclick="checkStateDDT()">
+                <label for="refilledDDT">
+                    Yes
+                </label>
+                <input id="noRefilledDDT" name="toggleDDTRefill" value="0" type="radio" onclick="checkStateDDT()">
+                <label for="noRefilledDDT">
+                    No
+                </label>
+            </fieldset>
+        </div>
+       <div class="ui-grid-a" id="formControl">
+	       <div class="ui-block-a">
+	         <p><a href="#pageSprayer2" data-direction="reverse" data-role="button" data-theme="a">Back</a></p>	
+	       </div>
+	       <div class="ui-block-b">
+			<div id="DDTToKOrthrine"><p><a href="#pageKOrthrine" data-direction="forward" data-role="button" data-theme="b">Next</a></p>	
+			</div>
+	       </div>
+      </div>
+	</div>
+       <div data-theme="a" data-role="footer" data-position="fixed">
+         <h3>
+         </h3>
+       </div>
+      </div>
+
+    <!-- KOrthrine -->
+	<div data-role="page" id="pageKOrthrine">
+      <div data-theme="b" data-role="header">
+        <h3>
+          mSpray: K-Orthrine
+        </h3>
+      </div>
+      <div data-role="content" style="padding: 15px">
+        <span id="errorToggleKOrthrine" style="display: none;">Did not indicate K-Orthrine usage</span>
+        <div id="toggleKOrthrineSwitch" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>
+                    K-Orthrine Used
+                </legend>
+                <input id="kOrthrineOn" name="toggleKOrthrine" value="1" type="radio" onclick="useKOrthrine()" >
+                <label for="kOrthrineOn">
+                    Yes
+                </label>
+                <input id="kOrthrineOff" name="toggleKOrthrine" value="0" type="radio" onclick="dontUseKOrthrine()">
+                <label for="kOrthrineOff">
+                    No
+                </label>
+            </fieldset>
+        </div>
+        <span id="errorMissingKOrthrineInfo1" style="display: none;">Missing data for K-Orthrine spraying</span>
+        <span id="errorInvalidKOrthrineInfo1" style="display: none;">Invalid data for K-Orthrine spraying</span>
+        <div data-role="fieldcontain" id="kOrthrineSprayedRooms">
+         <fieldset data-role="controlgroup">
+           <label for="kOrthrineSprayedRoomsInput">
+             Number of Sprayed Rooms
+           </label>
+           <input name="" id="kOrthrineSprayedRoomsInput" placeholder="" value="" type="number" onchange="checkStateKOrthrine()"/>
+         </fieldset>
+       </div>
+        <span id="errorMissingKOrthrineInfo2" style="display: none;">Missing data for K-Orthrine spraying</span>
+        <span id="errorInvalidKOrthrineInfo2" style="display: none;">Invalid data for K-Orthrine spraying</span>
+       <div data-role="fieldcontain" id="kOrthrineUnsprayedRooms">
+         <fieldset data-role="controlgroup">
+           <label for="kOrthrineUnsprayedRoomsInput">
+             Number of Unsprayed Rooms
+           </label>
+           <input name="" id="kOrthrineUnsprayedRoomsInput" placeholder="" value="" type="number" onchange="checkStateKOrthrine()"/>
+         </fieldset>
+       </div>
+        <span id="errorMissingKOrthrineInfo3" style="display: none;">Missing data for K-Orthrine spraying</span>
+        <div id="refillKOrthrine" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>
+                    Refill K-Orthrine Can?
+                </legend>
+                <input id="refilledKOrthrine" name="toggleKOrthrineRefill" value="1" type="radio" onclick="checkStateKOrthrine()">
+                <label for="refilledKOrthrine">
+                    Yes
+                </label>
+                <input id="noRefilledKOrthrine" name="toggleKOrthrineRefill" value="0" type="radio" onclick="checkStateKOrthrine()">
+                <label for="noRefilledKOrthrine">
+                    No
+                </label>
+            </fieldset>
+        </div>
+       <div class="ui-grid-a" id="formControl">
+	       <div class="ui-block-a">
+	         <p><a href="#pageDDT" data-direction="reverse" data-role="button" data-theme="a">Back</a></p>	
+	       </div>
+	       <div class="ui-block-b">
+	       </div>
+     </div>
+      <div id="submitButton">
+        <input data-theme="b" data-icon="check" data-iconpos="left" value="Finish" type="submit" onclick="submitSurvey()"/>
+      </div>
+	</div>
+       <div data-theme="a" data-role="footer" data-position="fixed">
+         <h3>
+         </h3>
+       </div>
+      </div>
+
+
+
+    <script>
+    firstSprayerSetup();
+    secondSprayerSetup();
+    useChemicalSetup();
+    </script>
+  </body>
+</html>
