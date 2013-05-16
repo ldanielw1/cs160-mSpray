@@ -78,12 +78,11 @@ public class ConfirmKOrthrine extends BaseMainActivity {
             public void onClick(View v) {
                 if (formNumber == 1) {
                     DataStore.homesteadSprayed = true;
-                    DataStore.chemicalUsed1 = Constants.KORTHRINE;
+                    DataStore.chemicalUsed = Constants.KORTHRINE;
                     DataStore.sprayedRooms1 = roomsSprayed;
                     DataStore.sprayedShelters1 = sheltersSprayed;
                     DataStore.canRefill1 = refilled;
                 } else if (formNumber == 2) {
-                    DataStore.chemicalUsed2 = Constants.KORTHRINE;
                     DataStore.sprayedRooms2 = roomsSprayed;
                     DataStore.sprayedShelters2 = sheltersSprayed;
                     DataStore.canRefill2 = refilled;

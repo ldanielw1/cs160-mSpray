@@ -17,8 +17,7 @@ public class DataStore {
     /** Constants representing upload values */
     public static Boolean homesteadSprayed = false;
 
-    public static String chemicalUsed1 = null;
-    public static String chemicalUsed2 = null;
+    public static String chemicalUsed = null;
 
     public static int sprayedRooms1 = -1;
     public static int sprayedShelters1 = -1;
@@ -55,12 +54,11 @@ public class DataStore {
         sprayer1ID = null;
         sprayer2ID = null;
 
-        chemicalUsed1 = null;
+        chemicalUsed = null;
         sprayedRooms1 = -1;
         sprayedShelters1 = -1;
         canRefill1 = false;
 
-        chemicalUsed2 = null;
         sprayedRooms2 = -1;
         sprayedShelters2 = -1;
         canRefill2 = false;
@@ -75,7 +73,6 @@ public class DataStore {
      */
     public static void clearSecondSprayer() {
         sprayer2ID = null;
-        chemicalUsed2 = null;
         sprayedRooms2 = -1;
         sprayedShelters2 = -1;
         canRefill2 = false;

@@ -171,10 +171,8 @@ public class FinishedActivity extends BaseMainActivity {
     }
 
     public void setProperChemicalValue() {
-        if (DataStore.chemicalUsed2 == null) {
-            chemicalValue.setText(DataStore.chemicalUsed1);
-        } else if (chemicalValue != null) {
-            chemicalValue.setText(DataStore.chemicalUsed2);
+        if (DataStore.chemicalUsed != null && !DataStore.chemicalUsed.equals("")) {
+            chemicalValue.setText(DataStore.chemicalUsed);
         } else {
             chemicalValue.setText("None");
         }
@@ -236,12 +234,11 @@ public class FinishedActivity extends BaseMainActivity {
         uploadData.put("foreman", DataStore.foremanID);
         uploadData.put("sprayerID", DataStore.sprayer1ID);
         if (DataStore.homesteadSprayed) {
-            uploadData.put("chemicalUsed1", DataStore.chemicalUsed1);
+            uploadData.put("chemicalUsed", DataStore.chemicalUsed);
             uploadData.put("sprayedRooms1", Integer.toString(DataStore.sprayedRooms1));
             uploadData.put("sprayedShelters1", Integer.toString(DataStore.sprayedShelters1));
             uploadData.put("canRefill1", Boolean.toString(DataStore.canRefill1));
-            if (DataStore.chemicalUsed2 != null) {
-                uploadData.put("chemicalUsed2", DataStore.chemicalUsed2);
+            if (DataStore.sprayer2ID != null) {
                 uploadData.put("sprayer2ID", DataStore.sprayer2ID);
                 uploadData.put("sprayedRooms2", Integer.toString(DataStore.sprayedRooms2));
                 uploadData.put("sprayedShelters2", Integer.toString(DataStore.sprayedShelters2));
