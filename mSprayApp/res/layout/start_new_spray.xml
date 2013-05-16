@@ -31,7 +31,7 @@
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_weight="0.89"
+            android:layout_weight="0.8"
             android:background="@drawable/button_selector_green"
             android:orientation="vertical" >
 
