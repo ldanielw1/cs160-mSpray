@@ -26,6 +26,7 @@ import com.google.gdata.util.ServiceException;
 
 import edu.berkeley.cs160.Base.BaseMainActivity;
 import edu.berkeley.cs160.spreadsheetUploader.GoogleSpreadsheet;
+import edu.berkeley.cs160.spreadsheetUploader.UploadConstants;
 
 public class FinishedActivity extends BaseMainActivity {
 
@@ -210,46 +211,53 @@ public class FinishedActivity extends BaseMainActivity {
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
         HashMap<String, String> uploadData = new HashMap<String, String>();
-        uploadData.put("timeStamp", formatDateTime());
+        uploadData.put(UploadConstants.TIMESTAMP, formatDateTime());
         if (tm.getDeviceId() != null)
-            uploadData.put("imei", tm.getDeviceId());
+            uploadData.put(UploadConstants.IMEI, tm.getDeviceId());
         else
-            uploadData.put("imei", generateSubstituteSignature());
+            uploadData.put(UploadConstants.IMEI, generateSubstituteSignature());
 
-        uploadData.put("lat", DataStore.lat);
-        uploadData.put("latNS", DataStore.latNS);
-        if (DataStore.latNS.equals("S"))
-            uploadData.put("mapLat", "-" + DataStore.lat);
+        uploadData.put(UploadConstants.LAT, DataStore.lat);
+        uploadData.put(UploadConstants.LAT_NS, DataStore.latNS);
+        if (DataStore.latNS.equals(UploadConstants.SOUTH))
+            uploadData.put(UploadConstants.MAP_LAT, "-" + DataStore.lat);
         else
-            uploadData.put("mapLat", DataStore.lat);
-        uploadData.put("lng", DataStore.lng);
-        uploadData.put("lngEW", DataStore.lngEW);
-        if (DataStore.lngEW.equals("W"))
-            uploadData.put("mapLng", "-" + DataStore.lng);
+            uploadData.put(UploadConstants.MAP_LAT, DataStore.lat);
+        uploadData.put(UploadConstants.LNG, DataStore.lng);
+        uploadData.put(UploadConstants.LNG_EW, DataStore.lngEW);
+        if (DataStore.lngEW.equals(UploadConstants.WEST))
+            uploadData.put(UploadConstants.MAP_LNG, "-" + DataStore.lng);
         else
-            uploadData.put("mapLng", DataStore.lng);
-        uploadData.put("accuracy", DataStore.accuracy);
+            uploadData.put(UploadConstants.MAP_LNG, DataStore.lng);
+        uploadData.put(UploadConstants.ACCURACY, DataStore.accuracy);
 
-        uploadData.put("homesteadSprayed", Boolean.toString(DataStore.homesteadSprayed));
-        uploadData.put("foreman", DataStore.foremanID);
-        uploadData.put("sprayerID", DataStore.sprayer1ID);
+        uploadData.put(UploadConstants.HOMESTEAD_SPRAYED,
+                Boolean.toString(DataStore.homesteadSprayed));
+        uploadData.put(UploadConstants.FOREMAN, DataStore.foremanID);
+        uploadData.put(UploadConstants.SPRAYER_1_ID, DataStore.sprayer1ID);
         if (DataStore.homesteadSprayed) {
-            uploadData.put("chemicalUsed", DataStore.chemicalUsed);
-            uploadData.put("sprayedRooms1", Integer.toString(DataStore.sprayedRooms1));
-            uploadData.put("sprayedShelters1", Integer.toString(DataStore.sprayedShelters1));
-            uploadData.put("canRefill1", Boolean.toString(DataStore.canRefill1));
+            uploadData.put(UploadConstants.CHEMICAL_USED, DataStore.chemicalUsed);
+            uploadData.put(UploadConstants.SPRAYED_ROOMS_1,
+                    Integer.toString(DataStore.sprayedRooms1));
+            uploadData.put(UploadConstants.SPRAYED_SHELTERS_1,
+                    Integer.toString(DataStore.sprayedShelters1));
+            uploadData.put(UploadConstants.CAN_REFILL_1, Boolean.toString(DataStore.canRefill1));
             if (DataStore.sprayer2ID != null) {
-                uploadData.put("sprayer2ID", DataStore.sprayer2ID);
-                uploadData.put("sprayedRooms2", Integer.toString(DataStore.sprayedRooms2));
-                uploadData.put("sprayedShelters2", Integer.toString(DataStore.sprayedShelters2));
-                uploadData.put("canRefill2", Boolean.toString(DataStore.canRefill2));
+                uploadData.put(UploadConstants.SPRAYER_2_ID, DataStore.sprayer2ID);
+                uploadData.put(UploadConstants.SPRAYED_ROOMS_2,
+                        Integer.toString(DataStore.sprayedRooms2));
+                uploadData.put(UploadConstants.SPRAYED_SHELTERS_2,
+                        Integer.toString(DataStore.sprayedShelters2));
+                uploadData
+                        .put(UploadConstants.CAN_REFILL_2, Boolean.toString(DataStore.canRefill2));
             }
         } else if (DataStore.sprayer2ID != null) {
-            uploadData.put("sprayer2ID", DataStore.sprayer2ID);
+            uploadData.put(UploadConstants.SPRAYER_2_ID, DataStore.sprayer2ID);
         }
-        uploadData.put("unsprayedRooms", Integer.toString(DataStore.roomsUnsprayed));
-        uploadData.put("unsprayedShelters", Integer.toString(DataStore.sheltersUnsprayed));
-        uploadData.put("unsprayedReason", DataStore.reasonUnsprayed);
+        uploadData.put(UploadConstants.UNSPRAYED_ROOMS, Integer.toString(DataStore.roomsUnsprayed));
+        uploadData.put(UploadConstants.UNSPRAYED_SHELTERS,
+                Integer.toString(DataStore.sheltersUnsprayed));
+        uploadData.put(UploadConstants.UNSPRAYED_REASON, DataStore.reasonUnsprayed);
 
         return uploadData;
     }
