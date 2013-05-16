@@ -19,164 +19,172 @@
         android:text="@string/sprayHeader"
         android:textSize="28sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/confirm_no_spray_layout_innerLinearLayout"
         android:layout_below="@+id/sprayer_form_textview_header"
         android:layout_marginTop="16dp"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/sprayer_form_textview_sprayerName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:gravity="center"
-            android:paddingLeft="12dp"
-            android:paddingRight="12dp"
-            android:text="@string/sprayerName"
-            android:textColor="#fff"
-            android:textSize="28sp" />
+        android:orientation="vertical"
+        android:scrollbars="none" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:orientation="horizontal"
-            android:padding="12dp" >
+            android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/sprayer_form_textview_roomsSprayed"
-                android:layout_width="0dp"
+                android:id="@+id/sprayer_form_textview_sprayerName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/rooms"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="@string/sprayerName"
                 android:textColor="#fff"
-                android:textSize="24sp" />
+                android:textSize="28sp" />
 
-            <EditText
-                android:id="@+id/sprayer_form_edittext_roomsSprayedValue"
-                android:layout_width="0dip"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_weight="0.5"
-                android:ems="10"
-                android:inputType="number"
-                android:textSize="24sp" >
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:orientation="horizontal"
+                android:padding="12dp" >
 
-                <requestFocus />
-            </EditText>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:orientation="horizontal"
-            android:padding="12dp" >
-
-            <TextView
-                android:id="@+id/sprayer_form_textview_sheltersSprayed"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/shelters"
-                android:textColor="#fff"
-                android:textSize="24sp" />
-
-            <EditText
-                android:id="@+id/sprayer_form_edittext_sheltersSprayedValue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_weight="0.5"
-                android:ems="10"
-                android:inputType="number"
-                android:textSize="24sp" >
-            </EditText>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:orientation="horizontal"
-            android:padding="12dp" >
-
-            <TextView
-                android:id="@+id/sprayer_form_textview_canRefilled"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/refillCanLabel"
-                android:textColor="#fff"
-                android:textSize="24sp" />
-
-            <RadioGroup
-                android:id="@+id/sprayer_form_radiogroup"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_weight="0.5"
-                android:orientation="vertical" >
-
-                <RadioButton
-                    android:id="@+id/sprayer_form_radiobutton_canRefilledYes"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/sprayer_form_textview_roomsSprayed"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/yes"
-                    android:textColor="#fff" />
+                    android:layout_weight="0.5"
+                    android:text="@string/rooms"
+                    android:textColor="#fff"
+                    android:textSize="24sp" />
 
-                <RadioButton
-                    android:id="@+id/sprayer_form_radiobutton_canRefilledNo"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/sprayer_form_edittext_roomsSprayedValue"
+                    android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/no"
-                    android:textColor="#fff" />
-            </RadioGroup>
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="0.5"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="24sp" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:orientation="horizontal"
+                android:padding="12dp" >
+
+                <TextView
+                    android:id="@+id/sprayer_form_textview_sheltersSprayed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/shelters"
+                    android:textColor="#fff"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/sprayer_form_edittext_sheltersSprayedValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="0.5"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="24sp" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:orientation="horizontal"
+                android:padding="12dp" >
+
+                <TextView
+                    android:id="@+id/sprayer_form_textview_canRefilled"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/refillCanLabel"
+                    android:textColor="#fff"
+                    android:textSize="24sp" />
+
+                <RadioGroup
+                    android:id="@+id/sprayer_form_radiogroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical" >
+
+                    <RadioButton
+                        android:id="@+id/sprayer_form_radiobutton_canRefilledYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="@string/yes"
+                        android:textColor="#fff" />
+
+                    <RadioButton
+                        android:id="@+id/sprayer_form_radiobutton_canRefilledNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/no"
+                        android:textColor="#fff" />
+                </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/confirm_no_spray_layout_innerLinearLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/darkgray"
-        android:padding="9dp" >
-
-        <Button
-            android:id="@+id/sprayer_form_button_backButton"
-            android:layout_width="0dp"
+    </ScrollView>
+        <LinearLayout
+            android:id="@+id/confirm_no_spray_layout_innerLinearLayout"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="3dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/button_selector_red"
-            android:text="@string/back"
-            android:textColor="#fff"
-            android:textSize="28sp" />
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/darkgray"
+            android:padding="9dp" >
 
-        <Button
-            android:id="@+id/sprayer_form_button_confirmButton"
-            android:layout_width="0px"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/button_selector_green"
-            android:onClick="getData"
-            android:text="@string/confirm"
-            android:textColor="#fff"
-            android:textSize="28sp" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/sprayer_form_button_backButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/button_selector_red"
+                android:text="@string/back"
+                android:textColor="#fff"
+                android:textSize="28sp" />
 
+            <Button
+                android:id="@+id/sprayer_form_button_confirmButton"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/button_selector_green"
+                android:onClick="getData"
+                android:text="@string/confirm"
+                android:textColor="#fff"
+                android:textSize="28sp" />
+        </LinearLayout>
+    
 </RelativeLayout>

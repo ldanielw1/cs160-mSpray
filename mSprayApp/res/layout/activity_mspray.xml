@@ -41,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="0.8"
+                android:contentDescription="@string/scanSelf"
                 android:clickable="false"
                 android:padding="16dp"
                 android:src="@drawable/clipboard" />
