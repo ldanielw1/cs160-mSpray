@@ -18,6 +18,8 @@ P2: Website view for mSpray results.
 F: Find new SP1, SP2, and SP3 form layouts
 P4: Create Adobe PDF form versions of all 3 forms.
 
+N: Write grant proposals to get phones for SA
+
 ################################################################################
 # Priority Rubrics
 ################################################################################
@@ -26,3 +28,4 @@ P2 (Priority 2): Functionality Requests, Minor Usability Issues
 P3 (Priority 3): Cosmetic Fixes
 P4 (Priority 4): Punted Fix Requests.
 F: (Forwarding): Requests to forward to Brenda, Philip, or others.
+N: (Non-coding): Work that is not related to coding
