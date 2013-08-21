@@ -31,7 +31,7 @@
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_weight="0.8"
+            android:layout_weight="0.7"
             android:background="@drawable/button_selector_green"
             android:orientation="vertical" >
 
@@ -57,13 +57,26 @@
                 android:textColor="#fff"
                 android:textSize="30sp" />
         </LinearLayout>
+        
+        <Button
+            android:id="@+id/activity_start_mopup_spray_button"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="0.15"
+            android:background="@drawable/button_selector_blue"
+            android:text="@string/startMopup"
+            android:textColor="#fff"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/activity_start_new_spray_button_finished"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_margin="16dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.15"
             android:background="@drawable/button_selector_red"
             android:text="@string/noBadge"
             android:textColor="#fff"

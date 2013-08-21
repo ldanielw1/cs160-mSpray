@@ -17,6 +17,7 @@ public class StartNewSpray extends BaseMainActivity {
     LinearLayout startSpray;
     TextView startSprayText;
     Button completelyFinished;
+    Button startMopup;
     TextView tv;
     TimeBomb bomb;
 
@@ -56,6 +57,21 @@ public class StartNewSpray extends BaseMainActivity {
             }
         });
         startSprayText.setTypeface(Constants.TYPEFACE);
+        
+        /** Mop-up sprays are like normal sprays after the first screen */
+        startMopup = (Button) findViewById(R.id.activity_start_mopup_spray_button);
+        startMopup.setTypeface(Constants.TYPEFACE);
+        startMopup.setVisibility(View.VISIBLE);
+        
+        startMopup.setOnClickListener(new View.OnClickListener() {
+        	@Override
+        	public void onClick(View arg0) {
+        		DataStore.startNewStoreSession();
+        		DataStore.mopUpSpray = true;
+        		Intent nextIntent = new Intent(getApplicationContext(), GetGpsActivity.class);
+                startActivity(nextIntent);
+        	}
+        });
 
         /**
          * Note that completelyFinished in the 1st iteration standpoint asks the

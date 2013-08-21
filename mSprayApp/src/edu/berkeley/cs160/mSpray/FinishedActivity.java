@@ -15,6 +15,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -43,6 +44,7 @@ public class FinishedActivity extends BaseMainActivity {
         setContentView(R.layout.finished);
 
         /* Populate paperwork table */
+        TextView finishedTitle = (TextView) findViewById(R.id.finished_textview_title);
         TextView foremanValue = (TextView) findViewById(R.id.finished_foreman_value);
         TextView sprayerValue = (TextView) findViewById(R.id.finished_sprayer_value);
         chemicalValue = (TextView) findViewById(R.id.finished_chemical_value);
@@ -68,6 +70,11 @@ public class FinishedActivity extends BaseMainActivity {
 
         boolean refillFlag = false;
         boolean refillFlag2 = false;
+        
+        /* Set title if mopup spray */
+        if (DataStore.mopUpSpray) {
+        	finishedTitle.setText(R.string.mopupRecorded);
+        }
 
         foremanValue.setText(DataStore.foremanID);
         sprayerValue.setText(DataStore.sprayer1ID);
@@ -212,6 +219,9 @@ public class FinishedActivity extends BaseMainActivity {
 
         HashMap<String, String> uploadData = new HashMap<String, String>();
         uploadData.put(UploadConstants.TIMESTAMP, formatDateTime());
+        
+        Log.d("hax", "tm = " + tm);
+        
         if (tm.getDeviceId() != null)
             uploadData.put(UploadConstants.IMEI, tm.getDeviceId());
         else

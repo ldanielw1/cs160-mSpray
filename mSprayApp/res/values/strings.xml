@@ -15,7 +15,7 @@
     <string name="confirmKOrthrine">K-Orthrine Spray Data</string>
     <string name="confirmNoSpray">Unsprayed Data</string>
     <string name="confirmUnsprayed">We did not spray&#8230;</string>
-    <string name="dataRecorded">Data Saved</string>
+    <string name="dataRecorded">Spray Data Saved</string>
     <string name="DDTHeader">DDT sprayed by</string>
     <string name="DoneForTheDay">Done for the day</string>
     <string name="ddt">DDT</string>
@@ -35,6 +35,7 @@
     <string name="location_found">I am at \n 29.81 S, 25.34 E</string>
     <string name="locked">Locked</string>
     <string name="longitude">Longitude</string>
+    <string name="mopupRecorded">Mopup Data Saved</string>
     <string name="mSprayTitle">mSpray</string>
     <string name="nfcInstructions">Place phone on top of the Sprayer\'s badge</string>
     <string name="no">No</string>
@@ -73,6 +74,7 @@
     <string name="sprayer">Sprayer</string>
     <string name="sprayer2">Sprayer 2</string>
     <string name="sprayerIDs">Sprayer IDs</string>
+    <string name="startMopup">Start mop-up spray</string>
     <string name="startSpray">Start new spray</string>
     <string name="doneSpraying">Finished</string>
     <string name="twoSprayers">2 sprayers</string>
