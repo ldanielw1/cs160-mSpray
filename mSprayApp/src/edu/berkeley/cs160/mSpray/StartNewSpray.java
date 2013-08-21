@@ -52,26 +52,25 @@ public class StartNewSpray extends BaseMainActivity {
             @Override
             public void onClick(View v) {
                 DataStore.startNewStoreSession();
-                DataStore.screenTitlePrefix = Constants.MOPUP_SPRAY_TITLE_PREFIX;
                 Intent nextIntent = new Intent(getApplicationContext(), GetGpsActivity.class);
                 startActivity(nextIntent);
             }
         });
         startSprayText.setTypeface(Constants.TYPEFACE);
-        
+
         /** Mop-up sprays are like normal sprays after the first screen */
         startMopup = (Button) findViewById(R.id.activity_start_mopup_spray_button);
         startMopup.setTypeface(Constants.TYPEFACE);
         startMopup.setVisibility(View.VISIBLE);
-        
+
         startMopup.setOnClickListener(new View.OnClickListener() {
-        	@Override
-        	public void onClick(View arg0) {
-        		DataStore.startNewStoreSession();
-        		DataStore.screenTitlePrefix = Constants.MOPUP_SPRAY_TITLE_PREFIX;
-        		Intent nextIntent = new Intent(getApplicationContext(), GetGpsActivity.class);
+            @Override
+            public void onClick(View arg0) {
+                DataStore.startNewStoreSession();
+                DataStore.screenTitlePrefix = Constants.MOPUP_SPRAY_TITLE_PREFIX;
+                Intent nextIntent = new Intent(getApplicationContext(), GetGpsActivity.class);
                 startActivity(nextIntent);
-        	}
+            }
         });
 
         /**
