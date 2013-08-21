@@ -58,7 +58,7 @@ public class ScanSprayer extends BaseMainActivity {
         scanForemanLayout.setVisibility(View.VISIBLE);
         handHoldingBadge.setVisibility(View.INVISIBLE);
 
-        setTitle("Identify sprayer ");
+        setTitle(DataStore.screenTitlePrefix + "Identify sprayer ");
         setSprayerText();
 
         scanRFIDImage.setImageDrawable(getResources().getDrawable(R.drawable.sprayworker));

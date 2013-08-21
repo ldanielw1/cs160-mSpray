@@ -52,6 +52,7 @@ public class StartNewSpray extends BaseMainActivity {
             @Override
             public void onClick(View v) {
                 DataStore.startNewStoreSession();
+                DataStore.screenTitlePrefix = Constants.MOPUP_SPRAY_TITLE_PREFIX;
                 Intent nextIntent = new Intent(getApplicationContext(), GetGpsActivity.class);
                 startActivity(nextIntent);
             }

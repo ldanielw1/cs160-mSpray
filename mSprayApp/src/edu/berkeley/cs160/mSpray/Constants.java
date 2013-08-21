@@ -9,10 +9,10 @@ public final class Constants {
     public static final String FONT_PATH = "fonts/life.ttf";
     public static Typeface TYPEFACE;
 
-    /** Constants for GPS */
+    /** Constants for Mop-Up Spraying. */
     public static final String MOPUP_SPRAY_TITLE_PREFIX = "Mop-Up Spray - ";
 
-    /** Constants for GPS */
+    /** Constants for GPS. */
     public static final int GPS_FOUND = 0;
     public static final int GPS_NOT_FOUND = 1;
     public static final float GPS_ACCURACY_LIMIT = 50f;

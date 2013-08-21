@@ -15,7 +15,7 @@ public class ConfirmKOrthrine extends BaseMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirm_korthrine);
 
-        setTitle("Is this correct?");
+        setTitle(DataStore.screenTitlePrefix + "Is this correct?");
 
         Bundle extras = this.getIntent().getExtras();
         final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);

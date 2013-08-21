@@ -24,7 +24,7 @@ public class ChooseSprayer extends BaseMainActivity {
         Bundle extras = this.getIntent().getExtras();
         final String sprayType = extras.getString(Constants.SPRAY_TYPE);
 
-        setTitle("How many sprayers?");
+        setTitle(DataStore.screenTitlePrefix + "How many sprayers?");
 
         chooseOneSprayer = (LinearLayout) findViewById(R.id.activity_choose_sprayers_1_fake_button);
         chooseOneSprayerText = (TextView) findViewById(R.id.activity_choose_sprayer_textView);

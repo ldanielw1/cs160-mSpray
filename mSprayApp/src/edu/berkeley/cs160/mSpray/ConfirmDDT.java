@@ -15,7 +15,7 @@ public class ConfirmDDT extends BaseMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirm_ddt);
 
-        setTitle("Is this correct?");
+        setTitle(DataStore.screenTitlePrefix + "Is this correct?");
 
         Bundle extras = this.getIntent().getExtras();
         final int numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
