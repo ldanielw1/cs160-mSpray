@@ -8,7 +8,7 @@ public class DataStore {
     public static String accuracy = null;
     public static String sprayType = "";
 
-    public static String sprayChemical = null;
+    public static boolean mopUpSpray = false;
 
     public static String foremanID = null;
     public static String sprayer1ID = null;
@@ -49,7 +49,7 @@ public class DataStore {
         lngEW = null;
         accuracy = null;
 
-        sprayChemical = null;
+        mopUpSpray = false;
 
         sprayer1ID = null;
         sprayer2ID = null;
