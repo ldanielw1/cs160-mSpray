@@ -47,7 +47,7 @@ public class GetGpsActivity extends BaseMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gps_location);
 
-        setTitle("Where are you?");
+        setTitle(DataStore.screenTitlePrefix + "Where are you?");
 
         GpsAccLimit = Constants.GPS_ACCURACY_LIMIT;
 
