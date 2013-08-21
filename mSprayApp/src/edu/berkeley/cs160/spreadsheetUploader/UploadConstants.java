@@ -19,6 +19,7 @@ public final class UploadConstants {
     public static final String SPRAYER_1_ID = "sprayer1ID";
     public static final String SPRAYER_2_ID = "sprayer2ID";
 
+    public static final String MOPUP_SPRAY = "mop-up spray?";
     public static final String HOMESTEAD_SPRAYED = "homesteadSprayed";
     public static final String CHEMICAL_USED = "chemicalUsed";
 

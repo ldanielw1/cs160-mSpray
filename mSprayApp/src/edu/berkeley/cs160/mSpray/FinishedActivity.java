@@ -240,6 +240,9 @@ public class FinishedActivity extends BaseMainActivity {
             uploadData.put(UploadConstants.MAP_LNG, DataStore.lng);
         uploadData.put(UploadConstants.ACCURACY, DataStore.accuracy);
 
+        uploadData.put(UploadConstants.MOPUP_SPRAY,
+                Boolean.toString(!DataStore.screenTitlePrefix.equals("")));
+
         uploadData.put(UploadConstants.HOMESTEAD_SPRAYED,
                 Boolean.toString(DataStore.homesteadSprayed));
         uploadData.put(UploadConstants.FOREMAN, DataStore.foremanID);
