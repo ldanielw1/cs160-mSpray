@@ -1,0 +1,28 @@
+################################################################################
+# To-Do list for MSpray Project
+################################################################################
+P1: Create the new mopup-Spray Button.
+
+P2: Creation of linux script that can generate all SP forms given online data.
+    This script should not create new files for entries already saved as PDF
+    files in the current directory.
+P2: Server-side cron script calling the linux script to automate form generation
+P2: Installation of Dropbox on server to send updated files to clients after
+    files are updated by the cron job.
+
+P2: Website view for mSpray results.
+        - Will require Google API keys and Javascript work.
+        - Different color pins for regular sprayings and mopup sprayings.
+        - Should be automatically updated via cron job.
+
+F: Find new SP1, SP2, and SP3 form layouts
+P4: Create Adobe PDF form versions of all 3 forms.
+
+################################################################################
+# Priority Rubrics
+################################################################################
+P1 (Priority 1): Milestone Requirements, Major Usability Issues
+P2 (Priority 2): Functionality Requests, Minor Usability Issues
+P3 (Priority 3): Cosmetic Fixes
+P4 (Priority 4): Punted Fix Requests.
+F: (Forwarding): Requests to forward to Brenda, Philip, or others.
