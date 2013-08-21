@@ -15,7 +15,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -72,10 +71,10 @@ public class FinishedActivity extends BaseMainActivity {
 
         boolean refillFlag = false;
         boolean refillFlag2 = false;
-        
+
         /* Set title if mop-up spray */
         if (!DataStore.screenTitlePrefix.equals("")) {
-        	finishedTitle.setText(R.string.mopupRecorded);
+            finishedTitle.setText(R.string.mopupRecorded);
         }
 
         foremanValue.setText(DataStore.foremanID);
@@ -221,7 +220,7 @@ public class FinishedActivity extends BaseMainActivity {
 
         HashMap<String, String> uploadData = new HashMap<String, String>();
         uploadData.put(UploadConstants.TIMESTAMP, formatDateTime());
-        
+
         if (tm.getDeviceId() != null)
             uploadData.put(UploadConstants.IMEI, tm.getDeviceId());
         else

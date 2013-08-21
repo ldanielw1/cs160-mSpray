@@ -1,5 +1,6 @@
 package edu.berkeley.cs160.GPS;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -79,6 +80,7 @@ public class GetGpsActivity extends BaseMainActivity {
         LocationHelper.terminate();
     }
 
+    @SuppressLint("HandlerLeak")
     @Override
     public void onStart() {
         super.onStart();
