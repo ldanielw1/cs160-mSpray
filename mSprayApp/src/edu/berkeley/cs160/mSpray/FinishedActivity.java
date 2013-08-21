@@ -73,8 +73,8 @@ public class FinishedActivity extends BaseMainActivity {
         boolean refillFlag = false;
         boolean refillFlag2 = false;
         
-        /* Set title if mopup spray */
-        if (DataStore.mopUpSpray) {
+        /* Set title if mop-up spray */
+        if (!DataStore.screenTitlePrefix.equals("")) {
         	finishedTitle.setText(R.string.mopupRecorded);
         }
 
@@ -221,8 +221,6 @@ public class FinishedActivity extends BaseMainActivity {
 
         HashMap<String, String> uploadData = new HashMap<String, String>();
         uploadData.put(UploadConstants.TIMESTAMP, formatDateTime());
-        
-        Log.d("hax", "tm = " + tm);
         
         if (tm.getDeviceId() != null)
             uploadData.put(UploadConstants.IMEI, tm.getDeviceId());
