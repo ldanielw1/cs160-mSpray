@@ -31,7 +31,7 @@ public class UnsprayedActivity extends BaseMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.unsprayed);
 
-        setTitle("");
+        setTitle(DataStore.screenTitlePrefix + "Enter Spray Data");
 
         roomsUnsprayedValue = (EditText) findViewById(R.id.unsprayed_edittext_roomsUnsprayedValue);
         roomsUnsprayedValue.setTypeface(Constants.TYPEFACE);

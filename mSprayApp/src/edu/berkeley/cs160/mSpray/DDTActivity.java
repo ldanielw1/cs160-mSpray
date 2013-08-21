@@ -30,6 +30,8 @@ public class DDTActivity extends BaseMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sprayer_form);
 
+        setTitle(DataStore.screenTitlePrefix + "Enter Spray Data");
+
         Bundle extras = this.getIntent().getExtras();
         numSprayers = extras.getInt(Constants.NUM_SPRAYERS);
         formNumber = extras.getInt(Constants.FORM_NUMBER);

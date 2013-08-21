@@ -20,7 +20,7 @@ public class PaperWorkChoiceActivity extends BaseMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chemical_used);
 
-        setTitle("Which chemical was sprayed?");
+        setTitle(DataStore.screenTitlePrefix + "Which chemical was sprayed?");
 
         header = (TextView) findViewById(R.id.chemical_used_header);
         header.setTypeface(Constants.TYPEFACE);

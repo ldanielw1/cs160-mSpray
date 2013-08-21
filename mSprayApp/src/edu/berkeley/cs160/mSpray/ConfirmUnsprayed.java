@@ -15,7 +15,7 @@ public class ConfirmUnsprayed extends BaseMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirm_unsprayed);
 
-        setTitle("Is this correct?");
+        setTitle(DataStore.screenTitlePrefix + "Is this correct?");
 
         Bundle extras = this.getIntent().getExtras();
         DataStore.roomsUnsprayed = extras.getInt(Constants.ROOMS_UNSPRAYED);

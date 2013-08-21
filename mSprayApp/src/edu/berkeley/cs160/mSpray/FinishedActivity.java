@@ -42,6 +42,8 @@ public class FinishedActivity extends BaseMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finished);
 
+        setTitle(DataStore.screenTitlePrefix + "Upload Spray Data");
+
         /* Populate paperwork table */
         TextView foremanValue = (TextView) findViewById(R.id.finished_foreman_value);
         TextView sprayerValue = (TextView) findViewById(R.id.finished_sprayer_value);
