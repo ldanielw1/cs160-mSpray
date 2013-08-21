@@ -17,6 +17,7 @@ PDFFill/sp2
 PDFFill/sp3
 
 # Eclipse files
+*project.properties
 *.classpath
 .settings/
 
