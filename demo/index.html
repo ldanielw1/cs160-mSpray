@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>mSpray</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link href="css/codiqa.ext.min.css" rel="stylesheet">
+  <link href="css/jquery.mobile-1.3.1.min.css" rel="stylesheet">
+
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery.mobile-1.3.1.min.js"></script>
+  <script src="js/codiqa.ext.min.js"></script>
+  <script src="js/mspray.js"></script>
+</head>
+<body>
+  <div data-role="page" data-control-title="Home" id="page1">
+      <div id="header" data-theme="a" data-role="header" data-position="fixed">
+          <h4>
+              Welcome
+          </h4>
+      </div>
+      <div data-role="content">
+          <a id="green" data-role="button" href="#page13">
+              <img style="width: 538px; height: 538px" src="recordspray.png">
+              <br>
+              Scan my Badge
+          </a>
+          <a id="red" data-role="button" href="#page2">
+              No badge
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Scan my badge" id="page2">
+      <div id="header" data-theme="a" data-role="header">
+          <h3>
+              I am not identified
+          </h3>
+      </div>
+      <div data-role="content">
+          <div style="" data-controltype="image">
+              <img src="badge512.png">
+          </div>
+          <a id="green" data-role="button" href="#page3">
+              Start new spray
+          </a>
+          <a id="blue" data-role="button" href="#page3">
+              Start mop-up spray
+          </a>
+          <a id="red" data-role="button" href="#page2">
+              Scan badge again
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="GPS" id="page3">
+      <div id="header" data-theme="a" data-role="header">
+          <span class="ui-title">
+          </span>
+      </div>
+      <div data-role="content">
+          <div style="" data-controltype="image">
+              <img src="gpssignal.png">
+          </div>
+          <a id="green" data-role="button" href="#page4">
+              OK
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Chems" id="page4">
+      <div id="header" data-theme="a" data-role="header">
+          <h3>
+              The sprayers used...
+          </h3>
+      </div>
+      <div data-role="content">
+          <a id="magenta" data-role="button" href="#page5">
+              Fendona
+          </a>
+          <a id="green" data-role="button" href="#page5">
+              K-Orthrine
+          </a>
+          <a id="blue" data-role="button" href="#page5">
+              DDT
+          </a>
+          <a id="red" data-role="button" href="#page5">
+              No Chemical
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Sprayers" id="page5">
+      <div data-role="content">
+          <img src="sprayworker.png">
+          <a id="green" data-role="button" href="#page6">
+              1 sprayer
+          </a>
+          <img src="sprayworker2.png">
+          <a id="blue" data-role="button" href="#page6">
+              2 sprayers
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Sprayer1" id="page6">
+      <div id="header" data-theme="a" data-role="header">
+          <h3>
+              Scan Badge
+          </h3>
+      </div>
+      <div data-role="content">
+          <img src="phone3.png" alt="image">
+          <a id="green" data-role="button" href="#page13">
+            Scan Sprayer 1
+          </a>
+          <a id="red" data-role="button" href="#page7">
+            No badge
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Spray data Fendona" id="page7">
+      <div id="header" data-theme="a" data-role="header">
+          <h3>
+              Fendona sprayed by
+          </h3>
+      </div>
+      <div data-role="content">
+          <h2>
+              Sprayer 1
+          </h2>
+          <div data-role="fieldcontain" data-controltype="textinput">
+              <label for="textinput2">
+                  Rooms
+              </label>
+              <input name="" id="textinput2" placeholder="" value="" type="text">
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput">
+              <label for="textinput3">
+                  Shelters
+              </label>
+              <input name="" id="textinput3" placeholder="" value="" type="text">
+          </div>
+          <div data-role="fieldcontain" data-controltype="radiobuttons">
+              <fieldset data-role="controlgroup" data-type="vertical">
+                  <legend>
+                      Refilled Can?
+                  </legend>
+                  <input id="radio1" name="" value="radio1" type="radio">
+                  <label for="radio1">
+                      Yes
+                  </label>
+                  <input id="radio2" name="" value="radio2" type="radio">
+                  <label for="radio2">
+                      No
+                  </label>
+              </fieldset>
+          </div>
+          <a id="red" data-role="button" href="#page6">
+              Back
+          </a>
+          <a id="green" data-role="button" href="#page8">
+              OK
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Correct? Fendona" id="page8">
+      <div data-role="panel" id="panel6" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel5" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel4" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel3" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel2" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div id="header" data-theme="a" data-role="header">
+          <h3>
+              Fendona Spray Data
+          </h3>
+      </div>
+      <div data-role="content">
+          <a data-controltype="panelbutton" data-role="button" href="#panel2" data-icon="bars"
+          data-iconpos="left">
+              Foreman
+          </a>
+          <a data-controltype="panelbutton" data-role="button" href="#panel3" data-icon="bars"
+          data-iconpos="left">
+              Sprayer
+          </a>
+          <a data-controltype="panelbutton" data-role="button" href="#panel4" data-icon="bars"
+          data-iconpos="left">
+              Rooms
+          </a>
+          <a data-controltype="panelbutton" data-role="button" href="#panel5" data-icon="bars"
+          data-iconpos="left">
+              Shelters
+          </a>
+          <a data-controltype="panelbutton" data-role="button" href="#panel6" data-icon="bars"
+          data-iconpos="left">
+              Refill Can
+          </a>
+          <a id="red" data-role="button" href="#page7">
+              Back
+          </a>
+          <a id="green" data-role="button" href="#page14">
+              OK
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Sprayer2" id="page14">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Scan Badge
+          </h3>
+      </div>
+      <div data-role="content">
+          <img src="phone3.png" alt="image">
+          <a data-role="button" href="#page13">
+              Scan Sprayer 2
+          </a>
+          <a data-role="button" href="#page10">
+              No badge
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Spray data 2" id="page15">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Fendona sprayed by
+          </h3>
+      </div>
+      <div data-role="content">
+          <h2>
+              Sprayer 2
+          </h2>
+          <div data-role="fieldcontain" data-controltype="textinput">
+              <label for="textinput6">
+                  Rooms
+              </label>
+              <input name="" id="textinput6" placeholder="" value="" type="text">
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput">
+              <label for="textinput7">
+                  Shelters
+              </label>
+              <input name="" id="textinput7" placeholder="" value="" type="text">
+          </div>
+          <div data-role="fieldcontain" data-controltype="radiobuttons">
+              <fieldset data-role="controlgroup" data-type="vertical">
+                  <legend>
+                      Refilled Can?
+                  </legend>
+                  <input id="radio6" name="" value="radio1" type="radio">
+                  <label for="radio6">
+                      Yes
+                  </label>
+                  <input id="radio7" name="" value="radio2" type="radio">
+                  <label for="radio7">
+                      No
+                  </label>
+              </fieldset>
+          </div>
+          <a data-role="button" href="#page14">
+              Back
+          </a>
+          <a data-role="button" href="#page16">
+              OK
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Correct? 2" id="page16">
+      <div data-role="panel" id="panel26" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel25" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel24" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel23" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel22" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel17" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel18" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel19" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel20" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel21" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-theme="a" data-role="header">
+          <h3>
+              Fendona Spray Data
+          </h3>
+      </div>
+      <div data-role="content">
+          <a data-controltype="panelbutton" data-role="button" href="#panel22" data-icon="bars"
+          data-iconpos="left">
+              Foreman
+          </a>
+          <a data-controltype="panelbutton" data-role="button" href="#panel23" data-icon="bars"
+          data-iconpos="left">
+              Sprayer
+          </a>
+          <a data-controltype="panelbutton" data-role="button" href="#panel24" data-icon="bars"
+          data-iconpos="left">
+              Rooms
+          </a>
+          <a data-controltype="panelbutton" data-role="button" href="#panel25" data-icon="bars"
+          data-iconpos="left">
+              Shelters
+          </a>
+          <a data-controltype="panelbutton" data-role="button" href="#panel26" data-icon="bars"
+          data-iconpos="left">
+              Refill Can
+          </a>
+          <a data-role="button" href="#page15">
+              Back
+          </a>
+          <a data-role="button" href="#page10">
+              OK
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Spray data 3" id="page10">
+      <div id="header" data-theme="a" data-role="header">
+          <h3>
+              We did not spray...
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-role="fieldcontain" data-controltype="textinput">
+              <label for="textinput4">
+                  Rooms
+              </label>
+              <input name="" id="textinput4" placeholder="" value="" type="text">
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput">
+              <label for="textinput5">
+                  Shelters
+              </label>
+              <input name="" id="textinput5" placeholder="" value="" type="text">
+          </div>
+          <div data-role="fieldcontain" data-controltype="radiobuttons">
+              <fieldset data-role="controlgroup" data-type="vertical">
+                  <legend>
+                      It was...
+                  </legend>
+                  <input id="radio3" name="" value="radio1" type="radio">
+                  <label for="radio3">
+                      Open
+                  </label>
+                  <input id="radio4" name="" value="radio2" type="radio">
+                  <label for="radio4">
+                      Locked
+                  </label>
+                  <input id="radio5" name="" value="radio5" type="radio">
+                  <label for="radio5">
+                      Owner Refused
+                  </label>
+              </fieldset>
+          </div>
+          <a id="red" data-role="button" href="#page16">
+              Back
+          </a>
+          <a id="green" data-role="button" href="#page11">
+              OK
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Correct? 3" id="page11">
+      <div data-role="panel" id="panel14" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel13" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel12" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel7" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel8" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel9" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel10" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="panel" id="panel11" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div id="header" data-theme="a" data-role="header">
+          <h3>
+              Unsprayed Data
+          </h3>
+      </div>
+      <div data-role="content">
+          <a data-controltype="panelbutton" data-role="button" href="#panel12" data-icon="bars"
+          data-iconpos="left">
+              Rooms Unsprayed:
+          </a>
+          <a data-controltype="panelbutton" data-role="button" href="#panel13" data-icon="bars"
+          data-iconpos="left">
+              Shelters Unsprayed:
+          </a>
+          <a data-controltype="panelbutton" data-role="button" href="#panel14" data-icon="bars"
+          data-iconpos="left">
+              It was...
+          </a>
+          <a data-role="button" href="#page10">
+              Back
+          </a>
+          <a data-role="button" href="#page12">
+              OK
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Upload data" id="page12">
+      <div data-theme="a" data-role="header" id="header">
+          <h3>
+              Spray Data Saved
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      Chemical
+                  </b>
+              </p>
+              <p>
+                  <b>
+                      Foreman
+                      <br>
+                  </b>
+              </p>
+              <p>
+                  <b>
+                      Sprayer
+                      <br>
+                  </b>
+              </p>
+              <p>
+                  Rooms Sprayed
+                  <br>
+              </p>
+              <p>
+                  Shelters sprayed
+                  <br>
+              </p>
+              <p>
+                  Refilled Can
+                  <br>
+              </p>
+              <p>
+                  Rooms Unsprayed
+                  <br>
+              </p>
+              <p>
+                  Shelters Unsprayed
+                  <b>
+                      <br>
+                  </b>
+              </p>
+              <p>
+                  Reason
+                  <b>
+                      <br>
+                  </b>
+              </p>
+              <p>
+                  <b>
+                      Latitude
+                      <br>
+                  </b>
+              </p>
+              <p>
+                  <b>
+                      Longitude
+                      <br>
+                  </b>
+              </p>
+          </div>
+      </div>
+      <a data-role="button" href="#page11" id="red">
+        Back
+      </a>
+      <a data-role="button" href="#page1" id="green">
+        OK
+      </a>
+  </div>
+  <div data-role="page" data-control-title="Scan badge" id="page13">
+      <div data-theme="a" data-role="header">
+          <h3 id="header">
+              Scan Badge
+          </h3>
+      </div>
+      <div data-role="content">
+        <img src="phone3.png" alt="image">
+      </div>
+  </div>
+</body>
+</html>
